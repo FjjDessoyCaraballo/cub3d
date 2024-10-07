@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/01 15:21:52 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/07 10:26:01 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@
 # define NAME "Map name is invalid\n"
 # define MALLOC "Malloc Failure\n"
 
+# define SUCCESS 0
+# define FAILURE 1
+
 /*************************************************/
 /* usage macros **********************************/
 /*************************************************/
@@ -76,8 +79,8 @@ typedef	struct s_data
 
 /* in parsing.c */
 int8_t	map_handling(t_data *data, char **argv);
-int8_t	check_name(char **argv);
-int8_t	open_map(t_data *data, char **argv);
+// int8_t	check_name(char **argv);
+// int8_t	open_map(t_data *data, char **argv);
 
 /* in initializer.c */
 void	initializer(t_data *data);

@@ -7,7 +7,7 @@ LIBFT_DIR = libft
 VPATH = src:libft:includes
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 INCFLAGS = -Iincludes -Ilibft/includes
 
 # Main project files
@@ -37,7 +37,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ_FILES) $(LIBFT)
 	@$(CC) $(CFLAGS) $(OBJ_FILES) $(LIBFT_LINK) -o $(NAME)
-	@echo "\033[1;33m[✔] Compiling minishell...\033[0m"
+	@echo "\033[1;33m[✔] Compiling $(NAME)...\033[0m"
 
 $(LIBFT): $(LIBFT_MAKEFILE)
 	@$(MAKE) -C $(LIBFT_DIR)
