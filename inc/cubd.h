@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/07 10:50:50 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/07 13:16:43 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@
 typedef	struct s_data
 {
 	char	**map;
+	char	**file;
+	int		file_len;
 	bool	s_flag;
 	bool	n_flag;
 	bool	e_flag;
@@ -78,9 +80,7 @@ typedef	struct s_data
 /*************************************************/
 
 /* in parsing.c */
-int8_t	map_handling(t_data *data, char **argv);
-// int8_t	check_name(char **argv);
-// int8_t	open_map(t_data *data, char **argv);
+int8_t	map_handling(t_data *data, char *argv);
 
 /* in initializer.c */
 void	initializer(t_data *data);
@@ -90,5 +90,8 @@ int		err_msg(char *obj, char *msg, int exit_code);
 
 /* in usage.c */
 void	usage(void);
+
+/* printer REMOVE LATER */
+void	printer(char **array);
 
 #endif

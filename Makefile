@@ -16,6 +16,7 @@ SRC_FILES = main.c\
 			parsing.c\
 			usage.c\
 			error.c\
+			printer.c #REMOVE LATER
 
 # Object files
 OBJ_FILES = $(SRC_FILES:.c=.o)
