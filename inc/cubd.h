@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/07 14:15:10 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/07 15:00:05 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@
 
 # define SUCCESS 0
 # define FAILURE 1
+# define SUFFER 65
 
 /*************************************************/
 /* usage macros **********************************/
@@ -69,6 +70,12 @@ typedef	struct s_data
 	char	**map;
 	char	**file;
 	int		file_len;
+	char	*floor_info;
+	char	*ceiling_info;
+	char	*n_sprite;
+	char	*s_sprite;
+	char	*e_sprite;
+	char	*w_sprite;
 	bool	s_flag;
 	bool	n_flag;
 	bool	e_flag;

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/07 14:09:41 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/07 14:42:32 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 		if (!data)
 			return (err_msg(NULL, MALLOC, -1));
 		map_handling(data, argv[1]);
-		printer(data->file);
+		// printer(data->file);
 		free_array(data->file);
 		free(data);
 	}
