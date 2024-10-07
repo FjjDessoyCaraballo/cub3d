@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/07 13:09:34 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/07 13:48:17 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,21 @@ static int8_t	open_file(t_data *data, char *fname)
 	close(fd);
 	return (SUCCESS);	
 }
-
+/** Here we are parsing out the file and checking for possible
+ * user errors. In check_name() we make sure that the first and 
+ * only argument will be the <filename> and it contains the suffix
+ * `.cub`. If this check faills, we free the struct and exit with
+ * costumized message. In open_file() we want to extract the file
+ * and we do more checks, such as user inputting directories that 
+ * contain `.cub` suffix. We extract the file data and copy it to
+ * our struct for later parsing.
+ * 
+ * @param data is a pointer to our struct carrying information/data
+ * @param fname is the first parameter given by the user
+ * 
+ * RETURN: map_handling() only returns `SUCCESS` or `FAILURE` upon
+ * execution.
+ */
 int8_t	map_handling(t_data *data, char *fname)
 {
 	if (check_name(fname) == FAILURE)
