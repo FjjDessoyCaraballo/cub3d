@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/07 13:16:43 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/07 14:15:10 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@
 /*************************************************/
 /* macros ****************************************/
 /*************************************************/
-# define MAP "Error opening map. Maybe file does not exist.\n"
-# define NAME "Map name is invalid\n"
-# define MALLOC "Malloc Failure\n"
+# define MAP "Error\nCan't open map. Maybe file does not exist.\n"
+# define NAME "Error\nMap name is invalid\n"
+# define MALLOC "Error\nMalloc Failure\n"
+# define FILE "Error\nElements may be incorrect. Check map conditions.\n"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -79,8 +80,11 @@ typedef	struct s_data
 /* functions *************************************/
 /*************************************************/
 
-/* in parsing.c */
+/* in parsing1.c */
 int8_t	map_handling(t_data *data, char *argv);
+
+/* in parsing2.c */
+int8_t	extract(t_data *data);
 
 /* in initializer.c */
 void	initializer(t_data *data);

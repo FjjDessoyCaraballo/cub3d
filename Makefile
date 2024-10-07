@@ -13,7 +13,8 @@ INCFLAGS = -Iincludes -Ilibft/includes
 # Main project files
 SRC_FILES = main.c\
 			initializer.c\
-			parsing.c\
+			parsing1.c\
+			parsing2.c\
 			usage.c\
 			error.c\
 			printer.c #REMOVE LATER

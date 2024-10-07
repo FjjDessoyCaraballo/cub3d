@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parsing1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/07 13:48:17 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/07 14:13:16 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,12 @@ int8_t	map_handling(t_data *data, char *fname)
 	{
 		free(data);
 		exit(err_msg(NULL, MAP, 4));
+	}
+	if (extract(data) == FAILURE)
+	{
+		free_array(data->file);
+		free(data);
+		exit(err_msg(fname, FILE, 5));
 	}
 	return (SUCCESS);
 }
