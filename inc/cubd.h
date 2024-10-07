@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/07 10:26:01 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/07 10:50:50 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 /*************************************************/
 /* macros ****************************************/
 /*************************************************/
-# define MAP "Error opening map\n"
+# define MAP "Error opening map. Maybe file does not exist.\n"
 # define NAME "Map name is invalid\n"
 # define MALLOC "Malloc Failure\n"
 

@@ -7,7 +7,7 @@ LIBFT_DIR = libft
 VPATH = src:libft:includes
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 INCFLAGS = -Iincludes -Ilibft/includes
 
 # Main project files
