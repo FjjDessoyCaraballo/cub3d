@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/08 10:32:57 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/08 14:46:06 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,23 @@
 
 static int8_t	floor_information(t_data *data)
 {
-	int	index;
+	int		index;
+	char	*floor;
 
 	index = 0;
 	while(data->file[index])
 	{
 		if (!ft_strncmp(&data->file[index][0], "F", 1))
 		{
-			data->floor_info = ft_strdup(data->file[index]);
-			if (!data->floor_info)
+			floor = ft_strdup(data->file[index]);
+			if (!floor)
 				return (FAILURE);
+			if (rgb_parse(data, floor, 1) == FAILURE)
+			{
+				free(floor);
+				return (FAILURE);
+			}
+			free(floor);
 		}
 		index++;
 	}
@@ -32,16 +39,23 @@ static int8_t	floor_information(t_data *data)
 
 static int8_t	ceiling_information(t_data *data)
 {
-	int	index;
+	int		index;
+	char	*ceiling;
 
 	index = 0;
 	while (data->file[index])
 	{
 		if (!ft_strncmp(&data->file[index][0], "C", 1))
 		{
-			data->ceiling_info = ft_strdup(data->file[index]);
-			if (!data->ceiling_info)
+			ceiling = ft_strdup(data->file[index]);
+			if (!ceiling)
 				return (FAILURE);
+			if (rgb_parse(data, ceiling, 0) == FAILURE)
+			{
+				free(ceiling);
+				return (FAILURE);
+			}
+			free(ceiling);
 		}
 		index++;
 	}
@@ -51,6 +65,9 @@ static int8_t	ceiling_information(t_data *data)
 static int8_t	sprites_information(t_data *data)
 {
 	if (search_sprites(data) == FAILURE)
+		return (FAILURE);
+	if (data->n_sprite == NULL || data->s_sprite == NULL
+		|| data->w_sprite == NULL || data->e_sprite == NULL)
 		return (FAILURE);
 	return (SUCCESS);
 }
@@ -72,18 +89,17 @@ int8_t	extract(t_data *data)
 	if (floor_information(data) == FAILURE)
 		return (err_msg(NULL, RGB1, FAILURE));
 	if (ceiling_information(data) == FAILURE)
-	{
-		free(data->floor_info);
 		return (err_msg(NULL, RGB2, FAILURE));
-	}
 	if (sprites_information(data) == FAILURE)
-	{
-		free(data->floor_info);
-		free(data->ceiling_info);
 		return (err_msg(NULL, SPRITE, FAILURE));
-	}
 	if (map_information(data) == FAILURE)
 		return (FAILURE);
+	// printf("ceiling R: %i\n", data->c_red);
+	// printf("ceiling G: %i\n", data->c_green);
+	// printf("ceiling B: %i\n", data->c_blue);
+	// printf("floor R: %i\n", data->f_red);
+	// printf("floor G: %i\n", data->f_green);
+	// printf("floor B: %i\n", data->f_blue);
 	return (SUCCESS);
 }
 

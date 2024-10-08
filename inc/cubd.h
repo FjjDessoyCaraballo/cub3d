@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/08 12:32:38 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/08 14:36:42 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 /*************************************************/
 /* macros ****************************************/
 /*************************************************/
-# define MAP "Error\nCan't open map. Maybe file does not exist.\n"
+# define MAP "Error\nCan't open map. File may be corrupted.\n"
 # define NAME "Error\nMap name is invalid\n"
 # define MALLOC "Error\nMalloc Failure\n"
 # define FILE "Error\nElements may be incorrect. Check map conditions.\n"
@@ -75,14 +75,20 @@ typedef	struct s_data
 	int		file_len;
 	char	*floor_info;
 	char	*ceiling_info;
+	int		c_red;
+	int		c_green;
+	int		c_blue;
+	int		f_red;
+	int		f_green;
+	int		f_blue;
 	char	*n_sprite;
 	char	*s_sprite;
 	char	*e_sprite;
 	char	*w_sprite;
-	bool	s_flag;
-	bool	n_flag;
-	bool	e_flag;
-	bool	w_flag;
+	bool	s_player;
+	bool	n_player;
+	bool	e_player;
+	bool	w_player;
 }		t_data;
 
 
@@ -101,6 +107,7 @@ int8_t	search_sprites(t_data *data);
 
 /* in parsing_utils.c */
 char	*sprite_path(char *str);
+int8_t	rgb_parse(t_data *data, char *str, int flag);
 
 /* in initializer.c */
 void	initializer(t_data *data);
