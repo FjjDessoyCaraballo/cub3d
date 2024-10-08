@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/08 14:36:42 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/08 15:11:15 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,9 @@ int8_t	search_sprites(t_data *data);
 /* in parsing_utils.c */
 char	*sprite_path(char *str);
 int8_t	rgb_parse(t_data *data, char *str, int flag);
+
+/* in parsing_utils.c */
+int8_t	rgb_assignment(t_data *data, char **array, int flag);
 
 /* in initializer.c */
 void	initializer(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:08:50 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/08 14:45:33 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/08 15:13:09 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,15 @@ static int8_t	break_commas(t_data *data, char *rgb_str, int flag)
 	array = ft_split(rgb_str, ',');
 	if (!array)
 		return (FAILURE);
-	if (flag == 1)
+	if (array[3])
 	{
-		data->c_red = ft_atoi(array[0]);
-		data->c_green = ft_atoi(array[1]);
-		data->c_blue = ft_atoi(array[2]);
+		free_array(array);
+		return (FAILURE);
 	}
-	else
+	if (rgb_assignment(data, array, flag) == FAILURE)
 	{
-		data->f_red = ft_atoi(array[0]);
-		data->f_green = ft_atoi(array[1]);
-		data->f_blue = ft_atoi(array[2]);	
+		free_array(array);
+		return (FAILURE);
 	}
 	free_array(array);
 	if (check_rgb_range(data) == FAILURE)

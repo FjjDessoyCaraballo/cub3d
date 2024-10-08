@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/08 14:46:06 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/08 15:36:34 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,6 @@ int8_t	extract(t_data *data)
 		return (err_msg(NULL, SPRITE, FAILURE));
 	if (map_information(data) == FAILURE)
 		return (FAILURE);
-	// printf("ceiling R: %i\n", data->c_red);
-	// printf("ceiling G: %i\n", data->c_green);
-	// printf("ceiling B: %i\n", data->c_blue);
-	// printf("floor R: %i\n", data->f_red);
-	// printf("floor G: %i\n", data->f_green);
-	// printf("floor B: %i\n", data->f_blue);
 	return (SUCCESS);
 }
 
