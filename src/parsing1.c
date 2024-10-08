@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/07 14:13:16 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/08 09:42:42 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ static int8_t	open_file(t_data *data, char *fname)
 	close(fd);
 	return (SUCCESS);	
 }
+
 /** Here we are parsing out the file and checking for possible
  * user errors. In check_name() we make sure that the first and 
  * only argument will be the <filename> and it contains the suffix

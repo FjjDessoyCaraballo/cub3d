@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/07 15:00:05 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/08 10:12:36 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,12 @@ int8_t	map_handling(t_data *data, char *argv);
 
 /* in parsing2.c */
 int8_t	extract(t_data *data);
+
+/* in parsing3.c */
+int8_t	search_sprites(t_data *data);
+
+/* in parsing_utils.c */
+int8_t	parse_out_space(char *str);
 
 /* in initializer.c */
 void	initializer(t_data *data);

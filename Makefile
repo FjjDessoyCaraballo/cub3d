@@ -15,6 +15,8 @@ SRC_FILES = main.c\
 			initializer.c\
 			parsing1.c\
 			parsing2.c\
+			parsing3.c\
+			parsing_utils.c\
 			usage.c\
 			error.c\
 			printer.c #REMOVE LATER
