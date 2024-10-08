@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/08 10:32:37 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/08 12:32:38 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int8_t	extract(t_data *data);
 int8_t	search_sprites(t_data *data);
 
 /* in parsing_utils.c */
-int8_t	parse_out_space(char *str);
+char	*sprite_path(char *str);
 
 /* in initializer.c */
 void	initializer(t_data *data);
@@ -110,6 +110,9 @@ int		err_msg(char *obj, char *msg, int exit_code);
 
 /* in usage.c */
 void	usage(void);
+
+/* in free.c */
+void	free_data(t_data *data);
 
 /* printer REMOVE LATER */
 void	printer(char **array);

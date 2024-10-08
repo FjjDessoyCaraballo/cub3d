@@ -6,15 +6,16 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:12:41 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/08 10:24:18 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/08 12:26:30 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubd.h"
+#include "../inc/cubd.h"
 
 static int8_t	no_sprite(t_data *data)
 {
 	int			index;
+	char		*sprite;
 
 	index = 0;
 	while(data->file[index])
@@ -22,17 +23,22 @@ static int8_t	no_sprite(t_data *data)
 		if (!ft_strncmp(&data->file[index][0], "N", 1)
 			&& !ft_strncmp(&data->file[index][1], "O", 1))
 		{
-			data->n_sprite = ft_strdup(data->file[index]);
+			sprite = ft_strdup(data->file[index]);
+			if (!sprite)
+				return (FAILURE);
+			data->n_sprite = ft_strdup(sprite_path(sprite));
+			free(sprite);
 			if (!data->n_sprite)
 				return (FAILURE);
-			parse_out_space(data->file[index]);
 		}
 		index++;
 	}
+	return (SUCCESS);
 }
 static int8_t	so_sprite(t_data *data)
 {
 	int			index;
+	char		*sprite;
 
 	index = 0;
 	while(data->file[index])
@@ -40,17 +46,22 @@ static int8_t	so_sprite(t_data *data)
 		if (!ft_strncmp(&data->file[index][0], "S", 1)
 			&& !ft_strncmp(&data->file[index][1], "O", 1))
 		{
-			data->s_sprite = ft_strdup(data->file[index]);
+			sprite = ft_strdup(data->file[index]);
+			if (!sprite)
+				return (FAILURE);
+			data->s_sprite = ft_strdup(sprite_path(sprite));
+			free(sprite);
 			if (!data->s_sprite)
 				return (FAILURE);
-			parse_out_space(data->file[index]);
 		}
 		index++;
 	}
+	return (SUCCESS);
 }
 static int8_t	we_sprite(t_data *data)
 {
 	int			index;
+	char		*sprite;
 
 	index = 0;
 	while(data->file[index])
@@ -58,17 +69,22 @@ static int8_t	we_sprite(t_data *data)
 		if (!ft_strncmp(&data->file[index][0], "W", 1)
 			&& !ft_strncmp(&data->file[index][1], "E", 1))
 		{
-			data->w_sprite = ft_strdup(data->file[index]);
+			sprite = ft_strdup(data->file[index]);
+			if (!sprite)
+				return (FAILURE);
+			data->w_sprite = ft_strdup(sprite_path(sprite));
+			free(sprite);
 			if (!data->w_sprite)
 				return (FAILURE);
-			parse_out_space(data->file[index]);
 		}
 		index++;
 	}
+	return (SUCCESS);
 }
 static int8_t	ea_sprite(t_data *data)
 {
 	int			index;
+	char		*sprite;
 
 	index = 0;
 	while(data->file[index])
@@ -76,13 +92,17 @@ static int8_t	ea_sprite(t_data *data)
 		if (!ft_strncmp(&data->file[index][0], "E", 1)
 			&& !ft_strncmp(&data->file[index][1], "A", 1))
 		{
-			data->e_sprite = ft_strdup(data->file[index]);
+			sprite = ft_strdup(data->file[index]);
+			if (!sprite)
+				return (FAILURE);
+			data->e_sprite = ft_strdup(sprite_path(sprite));
+			free(sprite);
 			if (!data->e_sprite)
 				return (FAILURE);
-			parse_out_space(data->file[index]);
 		}
 		index++;
-	}	
+	}
+	return (SUCCESS);
 }
 
 /**
