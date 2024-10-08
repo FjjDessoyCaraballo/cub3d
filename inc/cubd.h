@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/08 10:12:36 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/08 10:32:37 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@
 # define NAME "Error\nMap name is invalid\n"
 # define MALLOC "Error\nMalloc Failure\n"
 # define FILE "Error\nElements may be incorrect. Check map conditions.\n"
+# define SPRITE "Error\nCould not find/load sprites."
+# define RGB1 "Error\nRGB (ceiling) values: value must be between 0-255\n"
+# define RGB2 "Error\nRGB (floor) values: value must be between 0-255\n"
 
 # define SUCCESS 0
 # define FAILURE 1
