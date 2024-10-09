@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/08 15:11:15 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:55:21 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,16 +71,18 @@
 typedef	struct s_data
 {
 	char	**map;
+	size_t	map_width;
+	size_t	map_length;
 	char	**file;
-	int		file_len;
+	int8_t	file_len;
 	char	*floor_info;
 	char	*ceiling_info;
-	int		c_red;
-	int		c_green;
-	int		c_blue;
-	int		f_red;
-	int		f_green;
-	int		f_blue;
+	size_t	c_red;
+	size_t	c_green;
+	size_t	c_blue;
+	size_t	f_red;
+	size_t	f_green;
+	size_t	f_blue;
 	char	*n_sprite;
 	char	*s_sprite;
 	char	*e_sprite;
@@ -109,8 +111,11 @@ int8_t	search_sprites(t_data *data);
 char	*sprite_path(char *str);
 int8_t	rgb_parse(t_data *data, char *str, int flag);
 
-/* in parsing_utils.c */
+/* in parsing_utils2.c */
 int8_t	rgb_assignment(t_data *data, char **array, int flag);
+int8_t	allocate_mapmem(t_data *data);
+// int8_t	check_element(char *map_line);
+int8_t	is_map(char *str);
 
 /* in initializer.c */
 void	initializer(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:08:26 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/08 15:34:55 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:22:40 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,3 +52,53 @@ int8_t	rgb_assignment(t_data *data, char **array, int flag)
 	}
 	return (SUCCESS);
 }
+
+int8_t	is_map(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != ' ' && str[i] != '1' && str[i] != '0'
+			&& str[i] != 'N' && str[i] != 'S' && str[i] != 'W' && str[i] != 'W'
+			&& str[i] != 'E' && str[i] != '\n' && str[i] != '\t')
+			return (FAILURE);
+		i++;
+	}
+	return (SUCCESS);
+}
+
+int8_t	allocate_mapmem(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (data->file[i])
+	{
+		if (is_map(data->file[i]) == SUCCESS)
+		{
+			data->map_length++;
+			if (ft_strlen(data->file[i]) > data->map_width)
+				data->map_width = ft_strlen(data->file[i]);
+		}
+		i++;
+	}
+	data->map = ft_calloc(data->map_length + 1, sizeof(char *));
+	if (!data->map)
+		return (FAILURE);
+	return (SUCCESS);
+}
+
+
+// POSSIBLY DEPRECATED
+// int8_t	check_element(char *map_line)
+// {
+// 	if (!ft_strncmp(&map_line[0], "C", 1) || !ft_strncmp(&map_line[0], "F", 1)
+// 		|| (!ft_strncmp(&map_line[0], "N", 1) && ft_strncmp(&map_line[1], "O", 1))
+// 		|| (!ft_strncmp(&map_line[0], "S", 1) && ft_strncmp(&map_line[1], "O", 1))
+// 		|| (!ft_strncmp(&map_line[0], "W", 1) && ft_strncmp(&map_line[1], "E", 1))
+// 		|| (!ft_strncmp(&map_line[0], "E", 1) && ft_strncmp(&map_line[1], "A", 1)))
+// 		return (FAILURE);
+// 	return (SUCCESS);
+// }
