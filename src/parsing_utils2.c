@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:08:26 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 11:15:51 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/10 12:29:13 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int8_t	is_map(char *str)
 	while (str[i])
 	{
 		if (str[i] != ' ' && str[i] != '1' && str[i] != '0'
-			&& str[i] != 'N' && str[i] != 'S' && str[i] != 'W' && str[i] != 'W'
+			&& str[i] != 'N' && str[i] != 'S' && str[i] != 'W'
 			&& str[i] != 'E' && str[i] != '\n' && str[i] != '\t')
 			return (FAILURE);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 11:30:38 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/10 12:10:45 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,34 @@ int8_t	extract(t_data *data)
 	if (map_information(data) == FAILURE)
 		return (FAILURE);
 	remove_nl(data->map);
+	if (player_exists(data, data->map) == FAILURE)
+		return (FAILURE);
 	printer(data->map);
+	printf("\n");
+	if (data->n_player == true)
+	{
+		printf("we see this is the player is facing N\n");
+		printf("position x: %f\n", data->x_ppos);
+		printf("position y: %f\n", data->y_ppos);
+	}
+	else if (data->s_player == true)
+	{
+		printf("we see this if the player is facing S\n");
+		printf("position x: %f\n", data->x_ppos);
+		printf("position y: %f\n", data->y_ppos);
+	}
+	else if (data->w_player == true)
+	{
+		printf("we see this if the player is facing W\n");
+		printf("position x: %f\n", data->x_ppos);
+		printf("position y: %f\n", data->y_ppos);
+	}
+	else if (data->e_player == true)
+	{
+		printf("we see this if the player is facing E\n");
+		printf("position x: %f\n", data->x_ppos);
+		printf("position y: %f\n", data->y_ppos);
+	}
 	return (SUCCESS);
 }
 
