@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:08:50 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 10:27:25 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/10 10:40:30 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,18 @@ char	*sprite_path(char *str)
 	}
 	return (NULL);
 }
-
+/**
+ * `check_rgb_range()` will check if the metadata that we gathered from
+ * the file are within the range of `0` to `255`. They're all variables of
+ * type `size_t` so we do not need to check for negative numbers.
+ * 
+ * @param data check_rgb_range() works with only one variable, which is the
+ * data struct for checking the variables.
+ * 
+ * @return this function returns only SUCCESS or FAILURE upon checking the
+ * variables in our struct. If the numbers are out of bound, we return 
+ * FAILURE and output a helpful error message for the user.
+ */
 static int8_t	check_rgb_range(t_data *data)
 {
 	if ((data->f_red > 255)
@@ -99,6 +110,28 @@ static int8_t	separate_rgb(t_data *data, char *str, int flag)
 	return (SUCCESS);
 }
 
+/** `rgb_parse()` will find the element that contains the letter
+ * "C" or "F" in the very first position of the string. The subject
+ * of our project states clearly that the very first information that
+ * will be displayed will be these letters for the RGB scheme.
+ * 
+ * The RGB variables will be use for the floor (F) and for the ceiling
+ * (C), and only accepts positive numbers within the range of 0 to 255.
+ * 
+ * @param data Our data struct which stores most of the metadata from
+ * the document;
+ * @param str At this point, rgb_parse() already has the string that
+ * matches the regular expression expected from the user;
+ * @param flag We use a `int flag` in this function to differentiate if 
+ * we are dealing with ceiling or floor, this way we can use the same
+ * function for both and not build extra functions later to deal with 
+ * assignment for different parts of the struct;
+ * 
+ * @return our return value will be `SUCCESS` or `FAILURE` depending
+ * on the file that the user gives us. If the file contains digits that
+ * are within the estipulated bounds, rgb_parse() returns `SUCCESS`.
+ * Otherwise, we return `FAILURE`.
+ */
 int8_t	rgb_parse(t_data *data, char *str, int flag)
 {
 	char	**info;
