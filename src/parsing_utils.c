@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:08:50 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/08 15:13:09 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/10 10:27:25 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ char	*sprite_path(char *str)
 
 static int8_t	check_rgb_range(t_data *data)
 {
-	if ((data->f_red < 0 || data->f_red > 255)
-		|| (data->f_green < 0 || data->f_green > 255)
-		|| (data->f_blue < 0 || data->f_blue > 255)
-		|| (data->c_red < 0 || data->c_red > 255)
-		|| (data->c_green < 0 || data->c_green > 255)
-		|| (data->c_blue < 0 || data->c_blue > 255))
+	if ((data->f_red > 255)
+		|| (data->f_green > 255)
+		|| (data->f_blue > 255)
+		|| (data->c_red > 255)
+		|| (data->c_green > 255)
+		|| (data->c_blue > 255))
 		return (FAILURE);
 	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/09 14:55:21 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/10 10:22:58 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@
 # define USAGE8 "RGB notated instructions [numerical value]);\n\n"
 # define USAGE9 "This game has no exit for now, so use ESC to "
 # define USAGE10 "finish the game (:\n\n"
-# define USAGE11 "By: fdessoy- | araveala\n"
+# define USAGE11 "By: fdessoy- && araveala\n"
 
 /*************************************************/
 /* structs ***************************************/
