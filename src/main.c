@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/08 14:35:59 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/10 10:45:18 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int main(int argc, char **argv)
 	}
 	else
 		usage();
-	printf("executed to the end\n");
+	// printf("executed to the end\n");
 	return (0);
 }

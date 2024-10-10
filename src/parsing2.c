@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 10:25:48 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/10 10:50:32 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,22 +89,31 @@ static int8_t	map_information(t_data *data)
 		}
 		i++;
 	}
-	// printer(data->map);
+	printer(data->map);
 	return (SUCCESS);
 }
 /**
- * extract() deals with extracting the metadata from the `.cub` file.
+ * `extract()` deals with extracting the metadata from the `.cub` file.
  * We do so with four different functions:
  * 
- * - floor_information(t_data *data): we search for the string 
- * `F 255,255,255` within the `.cub` file
- * - ceiling_information(t_data *data): same as floor_information() but
- * we search for the string `C 255,255,255`.
- * - sprites_information(t_data *data): here we are taking the four
- * strings that contain the paths to the sprites of the walls textures.
- * - map_information(t_data *data): here we extract the metadata of the
- * map. The map should consists of only 1s, 0s, and the player character
- * (N, S, E or W). The map does not need to be rectangular.
+ * `floor_information(t_data *data)` we search for the string 
+ * "F 255,255,255" within the `.cub` file;
+ * 
+ * `ceiling_information(t_data *data)` same as floor_information() but
+ * we search for the string "C 255,255,255";
+ * 
+ * `sprites_information(t_data *data)` here we are taking the four
+ * strings that contain the paths to the sprites of the walls textures;
+ * 
+ * `map_information(t_data *data)` here we extract the metadata of the
+ * map. The map should consists of only `1`, `0`, and the player character
+ * (`N`, `S`, `E` or `W`). The map does not need to be rectangular.
+ * 
+ * @param data `extract()` takes only the data struct as a parameter.
+ * 
+ * @return if any of the metadata is corrupted/incorrect, `extract()`
+ * will return `FAILURE` before proceeding to extract any more data. Upon
+ * successful extraction, the function will return `SUCCESS`.
  */
 int8_t	extract(t_data *data)
 {

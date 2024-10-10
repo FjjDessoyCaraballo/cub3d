@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:08:26 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/09 15:22:40 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/10 10:44:28 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int8_t	allocate_mapmem(t_data *data)
 }
 
 
-// POSSIBLY DEPRECATED
+// DEPRECATED
 // int8_t	check_element(char *map_line)
 // {
 // 	if (!ft_strncmp(&map_line[0], "C", 1) || !ft_strncmp(&map_line[0], "F", 1)
