@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 11:27:54 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:30:38 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ int8_t	extract(t_data *data)
 	if (map_information(data) == FAILURE)
 		return (FAILURE);
 	remove_nl(data->map);
-	// printer(data->map);
+	printer(data->map);
 	return (SUCCESS);
 }
 

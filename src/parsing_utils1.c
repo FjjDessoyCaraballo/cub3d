@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 11:28:54 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:35:53 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ static int8_t	separate_rgb(t_data *data, char *str, int flag)
 		free(rgb);
 		return (FAILURE);
 	}
+	free(rgb);
 	return (SUCCESS);
 }
 
