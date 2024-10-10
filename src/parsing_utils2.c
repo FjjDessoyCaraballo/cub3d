@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:08:26 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 10:44:28 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:15:51 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,15 +90,22 @@ int8_t	allocate_mapmem(t_data *data)
 	return (SUCCESS);
 }
 
+void	remove_nl(char **map)
+{
+	int	i;
+	int	j;
 
-// DEPRECATED
-// int8_t	check_element(char *map_line)
-// {
-// 	if (!ft_strncmp(&map_line[0], "C", 1) || !ft_strncmp(&map_line[0], "F", 1)
-// 		|| (!ft_strncmp(&map_line[0], "N", 1) && ft_strncmp(&map_line[1], "O", 1))
-// 		|| (!ft_strncmp(&map_line[0], "S", 1) && ft_strncmp(&map_line[1], "O", 1))
-// 		|| (!ft_strncmp(&map_line[0], "W", 1) && ft_strncmp(&map_line[1], "E", 1))
-// 		|| (!ft_strncmp(&map_line[0], "E", 1) && ft_strncmp(&map_line[1], "A", 1)))
-// 		return (FAILURE);
-// 	return (SUCCESS);
-// }
+	j = 0;
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == '\n')
+				map[i][j] = '\0';
+			j++;
+		}
+		i++;
+	}
+}

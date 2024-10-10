@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 13:15:00 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/07 13:23:14 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:10:57 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	printer(char **array)
 
 	while (array[i])
 	{
-		printf("%s", array[i]);
+		printf("%s\n", array[i]);
 		i++;
 	}
 }

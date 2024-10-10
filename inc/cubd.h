@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 10:44:23 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:19:55 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,9 +115,10 @@ int8_t	rgb_parse(t_data *data, char *str, int flag);
 int8_t	rgb_assignment(t_data *data, char **array, int flag);
 int8_t	allocate_mapmem(t_data *data);
 int8_t	is_map(char *str);
+void	remove_nl(char **map);
 
-/* in initializer.c */
-void	initializer(t_data *data);
+/* in parsing_utils3.c */
+int8_t	only_nl(char *str);
 
 /* in error.c */
 int		err_msg(char *obj, char *msg, int exit_code);
@@ -130,8 +131,5 @@ void	free_data(t_data *data);
 
 /* printer REMOVE LATER */
 void	printer(char **array);
-
-// DEPRECATED FUNCTIONS
-// int8_t	check_element(char *map_line); DEPRECATED
 
 #endif

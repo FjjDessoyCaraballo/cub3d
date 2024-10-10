@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 10:50:32 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:27:54 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,11 @@ static int8_t	map_information(t_data *data)
 	j = 0;
 	while(data->file[i])
 	{
-		if (is_map(data->file[i]) == SUCCESS)
-		{
+		if (is_map(data->file[i]) == SUCCESS
+			&& only_nl(data->file[i]) == SUCCESS)
 			data->map[j++] = ft_strdup(data->file[i]);
-		}
 		i++;
 	}
-	printer(data->map);
 	return (SUCCESS);
 }
 /**
@@ -125,6 +123,8 @@ int8_t	extract(t_data *data)
 		return (err_msg(NULL, SPRITE, FAILURE));
 	if (map_information(data) == FAILURE)
 		return (FAILURE);
+	remove_nl(data->map);
+	// printer(data->map);
 	return (SUCCESS);
 }
 
