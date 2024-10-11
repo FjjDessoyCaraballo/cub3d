@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/11 11:09:00 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/11 13:28:23 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@
 # define RGB2 "Error\nRGB (floor) values: value must be between 0-255\n"
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
 # define BRK_MAP "Error\nMap is broken ):\n"
+# define CLOSE "Error\nMap is not walled correctly ):<\n"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -56,7 +57,7 @@
 /* usage macros **********************************/
 /*************************************************/
 # define USAGE1 "\nWelcome to cub3d "
-# define USAGE2 "and you already have committed a mistake."
+# define USAGE2 "and you already have committed a folly."
 # define USAGE3 " Follow the usage below:\n"
 # define USAGE4 "1. map must have the suffix '.cub';\n"
 # define USAGE5 "2. In clt just execute the program and map;\n"
@@ -128,6 +129,10 @@ void	remove_nl(char **map);
 int8_t	only_nl(char *str);
 int8_t	player_exists(t_data *data, char **map);
 int8_t	check_original_length(t_data *data);
+
+/* in flood_fill.c */
+int8_t	copy_map(t_data *data);
+void	flood_fill(t_data *data, int y, int x);
 
 /* in error.c */
 int		err_msg(char *obj, char *msg, int exit_code);
