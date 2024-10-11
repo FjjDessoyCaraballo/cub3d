@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 08:37:11 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/10 11:36:49 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:25:09 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 ~~*/
 int rotate_player_marker(t_data *data)
 {
-    int width = data->t_size;
-    int height = data->t_size;
+    int width = T_SIZE;
+    int height = T_SIZE;
     mlx_image_t *rotated_image = mlx_new_image(data->mlx, width, height);
     uint8_t *rotated_pixels = ( uint8_t*)rotated_image->pixels;
 
@@ -43,11 +43,8 @@ int rotate_player_marker(t_data *data)
             //printf("show me x = %d\n", x);
             int src_x = x - center_x;
             int src_y = y - center_y;
-
             new_x = (int)(cos_angle * src_x - sin_angle * src_y + center_x);
             new_y = (int)(sin_angle * src_x + cos_angle * src_y + center_y);
-            //new_x = (int)(cos_angle * (x - center_x) - sin_angle * (y - center_y) + center_x);
-           // new_y = (int)(sin_angle * (x - center_x) + cos_angle * (y - center_y) + center_y);
             if (new_x >= 0 && new_x < width && new_y >= 0 && new_y < height)
             {
                 int x1 = (int)new_x;
@@ -87,7 +84,7 @@ int rotate_player_marker(t_data *data)
         }
         y++;
     }
-    mlx_image_to_window(data->mlx, rotated_image, data->p_x * data->t_size, data->p_y * data->t_size);
+    mlx_image_to_window(data->mlx, rotated_image, data->p_x * T_SIZE, data->p_y * T_SIZE);
     mlx_delete_image(data->mlx, data->im_mini_player); // Clean up the old image
     data->im_mini_player = rotated_image; // Update the image refer
     return (0);

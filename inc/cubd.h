@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/11 13:11:12 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:27:07 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,10 @@
 /*************************************************/
 /* math macros ***************************************/
 /*************************************************/
-/*1. i will read more about radians and why we are using 5 degrees here 
-but baisically its math with circles*/
 # define ROTATE_ANGLE	0.0872665 // 5 degrees in radians
 # define PI				3.14159265358979323846
 # define DEG2RAD 		(PI / 180.0)
+# define STEP			0.25
 /*************************************************/
 /* structs ***************************************/
 /*************************************************/
@@ -131,9 +130,6 @@ typedef	struct s_data
 	double	ray_delta_dis_y; // i no other deltas needed , shorten name
 
 	// neeed some camera suff i gues pov?
-	double	step_size; //player?
-		
-	int		t_size; //~~ this is temporary incase we need to change pizel size
 
 	bool	s_flag;
 	bool	n_flag;
@@ -183,8 +179,8 @@ void	rotate_player(t_data *data, double angle);
 void    strafe_player(t_data *data, double step_x, double step_y);
 void    move_player(t_data *data, double step_x, double step_y);
 /* in rays.c */
-void	stack_ray_data(t_data *data);
-void	collect_ray(t_data *data, int i);
+void	stack_ray_data(t_data *data, int i);
+void	collect_ray(t_data *data, int i, double ray_distance);
 //void	collect_ray(t_data *data); // simle one ray from middle
 //obsolete
 void    move_forward(t_data *data);

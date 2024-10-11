@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 13:14:21 by araveala         ###   ########.fr       */
-/*                                                                            */
+/*																			  */
+/*														  :::	   ::::::::	  */
+/*	 main.c												:+:		 :+:	:+:	  */
+/*													  +:+ +:+		  +:+	  */
+/*	 By: araveala <araveala@student.hive.fi>		+#+	 +:+	   +#+		  */
+/*												  +#+#+#+#+#+	+#+			  */
+/*	 Created: 2024/10/01 14:36:13 by fdessoy-		   #+#	  #+#			  */
+/*   Updated: 2024/10/11 18:04:08 by araveala         ###   ########.fr       */
+/*																			  */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
@@ -62,7 +62,7 @@ untill parsing has handled that also
 int	main(int argc, char **argv)
 {
 	static t_data	*data; //~~ should it be static?
-	
+
 	if (argc == 2)
 	{
 		data = ft_calloc(1, sizeof(t_data));
@@ -83,7 +83,6 @@ int	main(int argc, char **argv)
 			printf("error requires freeing in main\n");
 			return (-1);
 		}
-		
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
 		//~~ bonus animation if wanted needs to start here
 		// mlx_loop_hook(data->mlx, &animation_fucn, &data);
