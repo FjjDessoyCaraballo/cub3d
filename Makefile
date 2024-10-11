@@ -5,19 +5,26 @@ SRC_DIR = src
 OBJ_DIR = obj
 LIBFT_DIR = libft
 VPATH = src:libft:includes
+#LIBMLX = ./MLX42
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
-INCFLAGS = -Iincludes -Ilibft/includes
+CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -Ofast #-fsanitize=address #wun and -0 for mlx
+INCFLAGS = -I ./include -I ./MLX42/include -I /Users/include 
 
 # Main project files
+#~~ minimap.c is bonus, used for visual aid for this moment
 SRC_FILES = main.c\
 			initializer.c\
-			parsing1.c\
-			parsing2.c\
+			parsing.c\
 			usage.c\
 			error.c\
+			base.c\
+			movement.c\
+			rays.c\
+			minimap.c\
+			minimap_utils_bonus.c\
 			printer.c #REMOVE LATER
+
 
 # Object files
 OBJ_FILES = $(SRC_FILES:.c=.o)
@@ -31,14 +38,23 @@ LIBFT = $(LIBFT_DIR)/libft.a
 LIBFT_INC = -I$(LIBFT_DIR)/includes
 LIBFT_LINK = -L$(LIBFT_DIR) -lft
 
-all: $(NAME)
+#mlx
+MLX_FLAGS = ./MLX42/build/libmlx42.a -ldl -lglfw -pthread -lm #can combine
+
+$(LIBMLX):
+	@if [ ! -d "$(LIBMLX)" ]; then git clone https://github.com/codam-coding-college/MLX42.git $(LIBMLX); fi
+all: libmlx $(NAME)
 	@echo "\033[1;32m[✔] GOOD HEAVENS! LOOK AT THE EXECUTABLE!\033[0m"
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(INCFLAGS) $(LIBFT_INC) -g -c $< -o $@
+libmlx:
+	@echo "LIBMLX path: $(LIBMLX)"
+	@cmake ./MLX42 -B ./MLX42/build
+	@make -C ./MLX42/build -j4
 
-$(NAME): $(OBJ_FILES) $(LIBFT)
-	@$(CC) $(CFLAGS) $(OBJ_FILES) $(LIBFT_LINK) -o $(NAME)
+$(NAME): libmlx $(OBJ_FILES) $(LIBFT)
+	@$(CC) $(CFLAGS) $(OBJ_FILES) $(LIBFT_LINK) $(MLX_FLAGS) -o $(NAME)
 	@echo "\033[1;33m[✔] Compiling $(NAME)...\033[0m"
 
 $(LIBFT): $(LIBFT_MAKEFILE)
@@ -59,6 +75,6 @@ fclean: clean
 	@echo "\033[1;31m[XXX] Cleaning it GOOOOOOD...\033[0m"
 	@rm -f $(NAME)
 
-re: fclean all
+re: fclean all $(NAME)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re libmlx
