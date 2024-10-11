@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:08:26 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 12:29:13 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/11 10:25:05 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,20 @@ int8_t	is_map(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	if (str[i])
 	{
-		if (str[i] != ' ' && str[i] != '1' && str[i] != '0'
-			&& str[i] != 'N' && str[i] != 'S' && str[i] != 'W'
-			&& str[i] != 'E' && str[i] != '\n' && str[i] != '\t')
-			return (FAILURE);
-		i++;
+		while (str[i])
+		{
+			if (str[i] != ' ' && str[i] != '1' && str[i] != '0'
+				&& str[i] != 'N' && str[i] != 'S' && str[i] != 'W'
+				&& str[i] != 'E' && str[i] != '\n' && str[i] != '\t')
+				return (FAILURE);
+			i++;
+		}
+		return (SUCCESS);
 	}
-	return (SUCCESS);
+	else
+		return (SUCCESS);
 }
 
 int8_t	allocate_mapmem(t_data *data)
@@ -75,16 +80,21 @@ int8_t	allocate_mapmem(t_data *data)
 
 	i = 0;
 	while (data->file[i])
+		i++;
+	data->map_end = i;
+	i = 0;
+	while (data->file[i])
 	{
-		if (is_map(data->file[i]) == SUCCESS)
+		if (is_map(data->file[i]) == SUCCESS
+			&& only_nl(data->file[i]) == SUCCESS)
 		{
-			data->map_length++;
-			if (ft_strlen(data->file[i]) > data->map_width)
-				data->map_width = ft_strlen(data->file[i]);
+			data->map_start = i;
+			break ;
 		}
 		i++;
 	}
-	data->map = ft_calloc(data->map_length + 1, sizeof(char *));
+	data->map_length = data->map_end - data->map_start;
+	data->map = ft_calloc(data->map_length, sizeof(char *));
 	if (!data->map)
 		return (FAILURE);
 	return (SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 12:06:51 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/11 10:23:34 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@
 # define RGB1 "Error\nRGB (ceiling) values: value must be between 0-255\n"
 # define RGB2 "Error\nRGB (floor) values: value must be between 0-255\n"
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
+# define BRK_MAP "Error\nMap is broken due to invalid characters\n"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -71,7 +72,10 @@
 /*************************************************/
 typedef	struct s_data
 {
+	int		map_start;
+	int		map_end;
 	char	**map;
+	bool	broken_map;
 	size_t	map_width;
 	size_t	map_length;
 	char	**file;
@@ -134,6 +138,6 @@ void	usage(void);
 void	free_data(t_data *data);
 
 /* printer REMOVE LATER */
-void	printer(char **array);
+void	printer(t_data *data);
 
 #endif

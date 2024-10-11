@@ -6,19 +6,50 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 13:15:00 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 11:33:53 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/10 12:52:45 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
-void	printer(char **array)
+void	printer(t_data *data)
 {
 	int i = 0;
 
-	while (array[i])
+	while (data->map[i])
 	{
-		printf("%s\n", array[i]);
+		printf("%s\n", data->map[i]);
 		i++;
 	}
+	printf("\n");
+	if (data->n_player == true)
+	{
+		printf("we see this is the player is facing N\n");
+		printf("position x: %f\n", data->x_ppos);
+		printf("position y: %f\n", data->y_ppos);
+	}
+	else if (data->s_player == true)
+	{
+		printf("we see this if the player is facing S\n");
+		printf("position x: %f\n", data->x_ppos);
+		printf("position y: %f\n", data->y_ppos);
+	}
+	else if (data->w_player == true)
+	{
+		printf("we see this if the player is facing W\n");
+		printf("position x: %f\n", data->x_ppos);
+		printf("position y: %f\n", data->y_ppos);
+	}
+	else if (data->e_player == true)
+	{
+		printf("we see this if the player is facing E\n");
+		printf("position x: %f\n", data->x_ppos);
+		printf("position y: %f\n", data->y_ppos);
+	}
+	printf("RGB ceiling (red): %li\n", data->c_red);
+	printf("RGB ceiling (green): %li\n", data->c_green);
+	printf("RGB ceiling (blue): %li\n", data->c_blue);
+	printf("RGB floor (red): %li\n", data->f_red);
+	printf("RGB floor (green): %li\n", data->f_green);
+	printf("RGB floor (blue): %li\n", data->f_blue);
 }
