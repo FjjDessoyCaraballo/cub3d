@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:08:26 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/11 10:25:05 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/11 10:54:07 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int8_t	allocate_mapmem(t_data *data)
 		i++;
 	}
 	data->map_length = data->map_end - data->map_start;
-	data->map = ft_calloc(data->map_length, sizeof(char *));
+	data->map = ft_calloc((data->map_length + 1), sizeof(char *));
 	if (!data->map)
 		return (FAILURE);
 	return (SUCCESS);

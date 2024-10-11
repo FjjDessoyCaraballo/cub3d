@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:30:57 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 12:47:10 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/11 10:47:46 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	free_data(t_data *data)
 		free(data->ceiling_info);
 	if (data->floor_info)
 		free(data->floor_info);
+	if (data->map)
+		free_array(data->map); // gives free() invalid pointer
 	if (data->file)
 		free_array(data->file);
-	if (data->map)
-		free_array(data->map);
 	free(data);
 }

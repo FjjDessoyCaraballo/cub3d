@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/11 10:24:47 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/11 10:54:31 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ static int8_t	sprites_information(t_data *data)
 	return (SUCCESS);
 }
 
-
 // FOCUS HERE: our map is parsing out lines of the map that have extra characters
 static int8_t	map_information(t_data *data)
 {
@@ -80,29 +79,22 @@ static int8_t	map_information(t_data *data)
 	int	j;
 
 	if (allocate_mapmem(data) == FAILURE)
-		return (FAILURE);
+		return (err_msg(NULL, MALLOC, FAILURE));
 	i = data->map_start;
 	j = 0;
 	while(i <= data->map_end - 1)
 	{
 		if (is_map(data->file[i]) == SUCCESS
 			&& only_nl(data->file[i]) == SUCCESS)
-			data->map[j++] = ft_strdup(data->file[i]);
+		{
+			data->map[j] = ft_strdup(data->file[i]);
+			if (!data->map[j])
+				return (err_msg(NULL, MALLOC, FAILURE));
+			j++;
+		}
 		i++;
 	}
 	data->map[j] = '\0';
-	return (SUCCESS);
-}
-
-static int8_t	check_original_length(t_data *data)
-{
-	size_t	i;
-
-	i = 0;
-	while(data->map[i])
-		i++;
-	if (i != data->map_length)
-		return (err_msg(NULL, BRK_MAP, FAILURE));
 	return (SUCCESS);
 }
 
@@ -139,9 +131,9 @@ int8_t	extract(t_data *data)
 		return (err_msg(NULL, SPRITE, FAILURE));
 	if (map_information(data) == FAILURE)
 		return (FAILURE);
+	remove_nl(data->map);
 	if (check_original_length(data) == FAILURE)
 		return (FAILURE);
-	remove_nl(data->map);
 	if (player_exists(data, data->map) == FAILURE)
 		return (FAILURE);
 	printer(data);

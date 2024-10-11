@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/11 10:23:34 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/11 10:36:32 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # define RGB1 "Error\nRGB (ceiling) values: value must be between 0-255\n"
 # define RGB2 "Error\nRGB (floor) values: value must be between 0-255\n"
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
-# define BRK_MAP "Error\nMap is broken due to invalid characters\n"
+# define BRK_MAP "Error\nMap has invalid characters\n"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -127,6 +127,7 @@ void	remove_nl(char **map);
 /* in parsing_utils3.c */
 int8_t	only_nl(char *str);
 int8_t	player_exists(t_data *data, char **map);
+int8_t	check_original_length(t_data *data);
 
 /* in error.c */
 int		err_msg(char *obj, char *msg, int exit_code);

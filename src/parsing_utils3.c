@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:18:23 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/11 10:24:34 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/11 10:36:19 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,18 @@ int8_t	player_exists(t_data *data, char **map)
 	}
 	if (player != 1)
 		return (err_msg(NULL, PLAYER, FAILURE));
+	return (SUCCESS);
+}
+
+int8_t	check_original_length(t_data *data)
+{
+	size_t	i;
+
+	i = 0;
+	while(data->map[i])
+		i++;
+	if (i != data->map_length)
+		return (err_msg(NULL, BRK_MAP, FAILURE));
 	return (SUCCESS);
 }
 
