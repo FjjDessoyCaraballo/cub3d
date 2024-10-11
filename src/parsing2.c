@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/11 10:54:31 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/11 10:59:20 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,6 @@ int8_t	extract(t_data *data)
 		return (FAILURE);
 	if (player_exists(data, data->map) == FAILURE)
 		return (FAILURE);
-	printer(data);
 	return (SUCCESS);
 }
 

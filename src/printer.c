@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 13:15:00 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 12:52:45 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/11 10:58:58 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,9 @@ void	printer(t_data *data)
 	printf("RGB floor (red): %li\n", data->f_red);
 	printf("RGB floor (green): %li\n", data->f_green);
 	printf("RGB floor (blue): %li\n", data->f_blue);
+	printf("\nsprites:\n");
+	printf("%s\n", data->n_sprite);
+	printf("%s\n", data->s_sprite);
+	printf("%s\n", data->w_sprite);
+	printf("%s\n", data->e_sprite);
 }

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/08 10:27:12 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/11 11:06:14 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,12 @@ int8_t	map_handling(t_data *data, char *fname)
 	if (check_name(fname) == FAILURE)
 	{
 		free(data);
-		exit(err_msg(NULL, NAME, 3));
+		exit(err_msg(NULL, NAME, FAILURE));
 	}
 	if (open_file(data, fname) == FAILURE)
 	{
 		free(data);
-		exit(err_msg(NULL, MAP, 4));
+		exit(err_msg(NULL, MAP, FAILURE));
 	}
 	if (extract(data) == FAILURE)
 		return (FAILURE);

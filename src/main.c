@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/11 10:13:32 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/11 11:07:59 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,17 @@ int main(int argc, char **argv)
 		data = ft_calloc(1, sizeof(t_data));
 		if (!data)
 			return (err_msg(NULL, MALLOC, -1));
-		map_handling(data, argv[1]);
+		if (map_handling(data, argv[1]) == FAILURE)
+		{
+			usage();
+			free_data(data);
+			return (FAILURE);
+		}
+		printer(data);
 		free_data(data);
 	}
 	else
 		usage();
 	printf("executed to the end\n");
-	return (0);
+	return (SUCCESS);
 }

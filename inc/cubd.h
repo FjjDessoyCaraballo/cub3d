@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/11 10:36:32 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/11 11:09:00 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # define RGB1 "Error\nRGB (ceiling) values: value must be between 0-255\n"
 # define RGB2 "Error\nRGB (floor) values: value must be between 0-255\n"
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
-# define BRK_MAP "Error\nMap has invalid characters\n"
+# define BRK_MAP "Error\nMap is broken ):\n"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -55,13 +55,13 @@
 /*************************************************/
 /* usage macros **********************************/
 /*************************************************/
-# define USAGE1 "Welcome to cub3d "
-# define USAGE2 "and you already have committed your first mistake."
+# define USAGE1 "\nWelcome to cub3d "
+# define USAGE2 "and you already have committed a mistake."
 # define USAGE3 " Follow the usage below:\n"
 # define USAGE4 "1. map must have the suffix '.cub';\n"
 # define USAGE5 "2. In clt just execute the program and map;\n"
-# define USAGE6 "3. Map must contain all elements (sprites with "
-# define USAGE7 "cardinal orientation, proper walled map, and "
+# define USAGE6 "3. Map must contain all elements (sprites with \n"
+# define USAGE7 "cardinal orientation, proper walled map, and \n"
 # define USAGE8 "RGB notated instructions [numerical value]);\n\n"
 # define USAGE9 "This game has no exit for now, so use ESC to "
 # define USAGE10 "finish the game (:\n\n"
