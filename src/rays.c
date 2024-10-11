@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/11 13:23:34 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/11 16:07:27 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void    stack_ray_data(t_data *data) // i == array count
     //printf("whats an atan = %f\n", player_angle);
     //data->ray_dir_x = data->p_dir_x;
     //data->ray_dir_y = data->p_dir_y;
+    data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
     while (i <= RAY_MAX) // 120 is ray count define in .h
     {
         current_angle = starting_angle + i * angle_increment;
@@ -61,6 +62,7 @@ void    stack_ray_data(t_data *data) // i == array count
         //data->ray_dir_x = data->p_dir_x;
         //data->ray_dir_y = data->p_dir_y;
         collect_ray(data, i);
+        draw_line(data, i);
         i++;
     }
     i = 0;
@@ -71,12 +73,12 @@ void    stack_ray_data(t_data *data) // i == array count
             printf("checking the array is working num = %d = %f\n", p, data->ray_len[p]);
         p++;
     }*/
-    data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-    while (i <= RAY_MAX)
+    //data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+    /*while (i <= RAY_MAX)
     {
         draw_line(data, i);
         i++;
-    }
+    }*/
 }
 
 void    collect_ray(t_data *data, int i)
