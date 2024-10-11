@@ -5,7 +5,7 @@ SRC_DIR = src
 OBJ_DIR = obj
 LIBFT_DIR = libft
 VPATH = src:libft:includes
-#LIBMLX = ./MLX42
+LIBMLX = ./MLX42
 
 # Compiler flags
 CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -Ofast #-fsanitize=address #wun and -0 for mlx
@@ -41,15 +41,14 @@ LIBFT_LINK = -L$(LIBFT_DIR) -lft
 #mlx
 MLX_FLAGS = ./MLX42/build/libmlx42.a -ldl -lglfw -pthread -lm #can combine
 
-$(LIBMLX):
-	@if [ ! -d "$(LIBMLX)" ]; then git clone https://github.com/codam-coding-college/MLX42.git $(LIBMLX); fi
+
 all: libmlx $(NAME)
 	@echo "\033[1;32m[✔] GOOD HEAVENS! LOOK AT THE EXECUTABLE!\033[0m"
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(INCFLAGS) $(LIBFT_INC) -g -c $< -o $@
 libmlx:
-	@echo "LIBMLX path: $(LIBMLX)"
+	@if [ ! -d "$(LIBMLX)" ]; then git clone https://github.com/codam-coding-college/MLX42.git $(LIBMLX); fi
 	@cmake ./MLX42 -B ./MLX42/build
 	@make -C ./MLX42/build -j4
 
