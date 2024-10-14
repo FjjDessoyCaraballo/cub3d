@@ -12,44 +12,6 @@
 
 #include "../inc/cubd.h"
 
-/*~~ will be removed, only temporary ~~*/
-static char **make_array(t_data *data)
-{
-	char **new_array = NULL;
-	int i = 0;
-	int x = 0;
-
-	while (data->file[i])
-		i++;
-	new_array = ft_calloc(i + 1, sizeof(char *));
-	if (new_array == NULL)
-	{
-		printf("malloc fail in make array\n");
-		return (NULL);
-	}
-	while (x < i)
-	{
-		new_array[x] = ft_strdup(data->file[x]);
-		if (new_array[x] == NULL)
-		{
-			x--;
-			while (x >= 0)
-			{
-				free(new_array[x]);
-				x--;
-			}
-			free(new_array);
-			return (NULL);
-		}
-		x++;
-	}
-	new_array[x] = NULL;
-	data->map_y = i;
-	// assuming for now the map is a rectangle 
-	data->map_x = ft_strlen(new_array[0]) - 1;
-	return (new_array);
-}
-
 /*~~ main
 1. make_array should be obsolete once data->map is filled, its for testing now 
 2. initilize minimap is for the bonuse but utalized right now for visualizing 
@@ -74,7 +36,8 @@ int	main(int argc, char **argv)
 			free_data(data);
 			return (FAILURE);
 		}
-		data->map = make_array(data); //remove
+		// printf("bug hunting 1\n");
+		printer(data);
 		if (open_window(data) == 1)
 		{
 			printf("error requires freeing in main \n");
@@ -91,7 +54,7 @@ int	main(int argc, char **argv)
 		//~~ bonus animation if wanted needs to start here
 		// mlx_loop_hook(data->mlx, &animation_fucn, &data);
 		mlx_loop(data->mlx);
-		printer(data->map);
+		printer(data);
 		free_array(data->file);
 		//mlx_terminate(data->mlx);
 	}

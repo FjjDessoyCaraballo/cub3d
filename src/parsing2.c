@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 12:13:14 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/14 12:13:38 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/14 13:15:52 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,8 @@ static int8_t	map_information(t_data *data)
 		}
 		i++;
 	}
-	data->map[j] = '\0';
+	data->map[j] = NULL;
+	data->map_width = get_width(data->map);
 	return (SUCCESS);
 }
 

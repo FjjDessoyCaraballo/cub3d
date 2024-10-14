@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/11 18:24:52 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/14 13:54:13 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@
 {
 	size_t	x_comp;
 	size_t	y_comp;
-	if (data->map_x * data->t_size > WIDTH || data->map_y * data->t_size > HEIGHT)
+	if (data->map_width * data->t_size > WIDTH || data->map_length * data->t_size > HEIGHT)
 	{
-		x_comp = data->map_x * data->t_size;
-		y_comp = data->map_y * data->t_size;
+		x_comp = data->map_width * data->t_size;
+		y_comp = data->map_length * data->t_size;
 		if (x_comp > y_comp && x_comp > WIDTH)
 		{
-			while (data->map_x * data->t_size > WIDTH)
+			while (data->map_width * data->t_size > WIDTH)
 			{
 				data->t_size -= 1;
 				if (data->t_size < 21)
 					printf("error in tile size\n");
 			}
 		}
-		else if (data->map_y * data->t_size > HEIGHT)
+		else if (data->map_length * data->t_size > HEIGHT)
 		{
-			while (data->map_y * data->t_size > HEIGHT)
+			while (data->map_length * data->t_size > HEIGHT)
 			{
 				data->t_size -= 1;	
 				if (data->t_size < 21)
@@ -53,8 +53,8 @@ void	draw_player(t_data *data)
 	
 	x = 0;
 	i = 0;//-dot_size / 2;
-	int start_x = (data->p_x * 64) + 32 - half_size;
-	int start_y = (data->p_y * 64) + 32 - half_size;
+	int start_x = (data->x_ppos * 64) + 32 - half_size;
+	int start_y = (data->y_ppos * 64) + 32 - half_size;
 
 	data->im_mini_player = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	// Function to draw the dot.
@@ -96,8 +96,8 @@ void	draw_first_line(t_data *data)
 
 	red = 0xFF00FFF0;
 	i = 0;
-	start_x = (data->p_x * 64) + 32;
-	start_y = (data->p_y * 64) + 32;
+	start_x = (data->x_ppos * 64) + 32;
+	start_y = (data->y_ppos * 64) + 32;
 	data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	// if north draw up so -y
 	while (i <= 40)
@@ -122,8 +122,8 @@ void	draw_line(t_data *data, int i)
 
 	len = 0;
 	red = 0xFF00FFF0;
-	start_x = (data->p_x * 64) + 32;
-	start_y = (data->p_y * 64) + 32;
+	start_x = (data->x_ppos * 64) + 32;
+	start_y = (data->y_ppos * 64) + 32;
 	// if north draw up so -y
 	while (len <= data->ray_len[i])
 	{
@@ -170,8 +170,8 @@ void	draw_player(t_data *data)
 	red = 0xFF0000FF;
 	radius = 20 / 2;
 	data->im_mini_player = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	center_x = (int)(data->p_x * 64) + 32;
-	center_y = (int)(data->p_y * 64) + 32;
+	center_x = (int)(data->x_ppos * 64) + 32;
+	center_y = (int)(data->y_ppos * 64) + 32;
 	y = -radius;
 	while (y <= radius)
 	{
@@ -198,11 +198,11 @@ void	init_mini_walls(t_data *data)
 
 	x = 0;
 	y = 0;
-	while (y < data->map_y)
+	while (y < data->map_length)
 	{
-		while (x < data->map_x)
+		while (x < data->map_width)
 		{
-			if (data->map[y][x] == '1' && x < data->map_x)
+			if (data->map[y][x] == '1' && x < data->map_width)
 			{
 				// starting should be dependant on if n/s/w/e
 				mlx_image_to_window(data->mlx, data->im_mini_wall, x * T_SIZE, y * T_SIZE);
@@ -222,10 +222,10 @@ void	init_mini_floor(t_data *data)
 
 	x = 0;
 	y = 0;
-	while (y < data->map_y)
+	while (y < data->map_length)
 	{
 		printf("what char = %c\n", data->map[y][x]);
-		while (x < data->map_x)
+		while (x < data->map_width)
 		{
 			if (data->map[y][x] == '0' || data->map[y][x] == 'N') // char for player
 				mlx_image_to_window(data->mlx, data->im_mini_floor, x * T_SIZE, y * T_SIZE);
@@ -244,14 +244,14 @@ void	init_mini_player(t_data *data)
 	x = 0;
 	y = 0;
 	//~~ char p = loop through bool to find which one is true, return char.
-	while (y < data->map_y)
+	while (y < data->map_length)
 	{
-		while (x < data->map_x)
+		while (x < data->map_width)
 		{
-			if (data->map[y][x] == 'N' && x < data->map_x) // N ret char
+			if (data->map[y][x] == 'N' && x < data->map_width) // N ret char
 			{
-				data->p_x = (double)x; //remove once parsing has it
-				data->p_y = (double)y;
+				//data->x_ppos = (double)x; //remove once parsing has it
+				//data->y_ppos = (double)y;
 				// reps north right now .
 				data->p_dir_x = 0;
 				data->p_dir_y = -1;

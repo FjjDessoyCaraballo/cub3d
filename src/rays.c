@@ -6,24 +6,37 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/11 18:02:49 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:10:29 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
-//ray_data->dist_to_wall = sqrtf((ray_x - data->p_x) * (ray_x - data->p_x) 
+//ray_data->dist_to_wall = sqrtf((ray_x - data->x_ppos) * (ray_x - data->x_ppos) 
 
 int	outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pixel_x)
 {
+
 	if (rpos_pixel_y < 0 || rpos_pixel_x >= WIDTH)
+	{
+		printf("ray bounds111 rpos x = %f also rpos y = %f and  WIDTH = %d\n", rpos_pixel_x, rpos_pixel_y, WIDTH);
 		return (FAILURE);
-	if (rpos_pixel_y < 0 || rpos_pixel_x >= HEIGHT)
+	}
+	if (rpos_pixel_y < 0 || rpos_pixel_x / 64 >= HEIGHT)
+	{
+		printf("ray bounds2222 ray x = %f\n", rpos_pixel_x);
 		return (FAILURE);
-	if (data->p_y - 0.25 > data->map_y - 1)
-		return (FAILURE);
-	if (data->p_x + 0.25 > data->map_x - 1)
-		return (FAILURE);
+	}
+	if (data->y_ppos - 0.25 > data->map_length)// - 1)
+	{
+		printf("ray bounds3333\n");	
+		return (FAILURE);	
+	}
+	if (data->x_ppos + 0.25 > data->map_width)// - 1)
+	{
+		printf("ray bounds4444\n");	
+		return (FAILURE);	
+	}
 	return (SUCCESS);
 }
 
@@ -78,9 +91,9 @@ void	collect_ray(t_data *data, int i, double ray_distance)
 	int	rpos_pixel_x;
 	int	rpos_pixel_y;
 
-	ppos_pixel_x = (data->p_x * 64) + 32;
-	ppos_pixel_y = (data->p_y * 64) + 32;
-	while (data->p_x >= 0 && data->p_x < WIDTH && data->p_y >= 0 && data->p_y < HEIGHT)
+	ppos_pixel_x = (data->x_ppos * 64) + 32;
+	ppos_pixel_y = (data->y_ppos * 64) + 32;
+	while (data->x_ppos >= 0 && data->x_ppos < WIDTH && data->y_ppos >= 0 && data->y_ppos < HEIGHT)
 	{
 		rpos_pixel_x = ppos_pixel_x + (int)(data->ray_dir_x * ray_distance);
 		rpos_pixel_y = ppos_pixel_y + (int)(data->ray_dir_y * ray_distance);
@@ -90,6 +103,7 @@ void	collect_ray(t_data *data, int i, double ray_distance)
 		{
 			//#here#
 			data->ray_len[i] = ray_distance;
+			// hit box
 			return ;
 		}
 		ray_distance++;
@@ -105,23 +119,23 @@ void	collect_ray(t_data *data, int i, double ray_distance)
 	
 	i = 0;
 	x = 0;
-	int start_x = (data->p_x * 64) + 32;
-    int start_y = (data->p_y * 64) + 32;
+	int start_x = (data->x_ppos * 64) + 32;
+    int start_y = (data->y_ppos * 64) + 32;
     size = 0;
     int test_x;
     int test_y;
 
 	test_x = start_x + (int)(data->p_dir_x * size);
     test_y = start_y+ (int)(data->p_dir_y * size);
-    while (data->p_x >= 0 && data->p_x < WIDTH && data->p_y >= 0 && data->p_y < HEIGHT)
+    while (data->x_ppos >= 0 && data->x_ppos < WIDTH && data->y_ppos >= 0 && data->y_ppos < HEIGHT)
     {
         if (outof_bounds_check(data) == FAILURE)
             return;
         if (test_x >= 0 && test_x < WIDTH  && test_y >= 0 && test_y < HEIGHT )
         {
             //printf("t 1 = %d and t2 = %d\n", test_x, test_y);
-            //printf("player sq = %c\n", data->map[(int)data->p_y][(int)data->p_x]);
-            //printf("checkies p x = %f, p_y = %f\n", data->p_x, data->p_y - 0.25);
+            //printf("player sq = %c\n", data->map[(int)data->y_ppos][(int)data->x_ppos]);
+            //printf("checkies p x = %f, p_y = %f\n", data->x_ppos, data->y_ppos - 0.25);
             //printf("lets look at athe char = %c\n", data->map[test_y / 64][test_x / 64]);
             if (data->map[test_y / 64][test_x / 64] == '1')
             {

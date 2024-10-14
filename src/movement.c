@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/11 18:33:47 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:15:08 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@
 /*~~ bonus stuff but easier for visualisation~~*/
 /*static void	update_array(t_data *data, int flag)
 {
-	data->map[data->p_y][data->p_x] = '0';
+	data->map[data->y_ppos][data->x_ppos] = '0';
 	if (flag == 1)
-		data->p_x = data->p_x + 1;
+		data->x_ppos = data->x_ppos + 1;
 	if (flag == 2)
-		data->p_x = data->p_x - 1;
+		data->x_ppos = data->x_ppos - 1;
 	if (flag == 3)
-		data->p_y = data->p_y + 1;
+		data->y_ppos = data->y_ppos + 1;
 	if (flag == 4)
-		data->p_y = data->p_y - 1;
-	data->map[data->p_y][data->p_x] = 'N'; // this should adjust to which way we are facing
+		data->y_ppos = data->y_ppos - 1;
+	data->map[data->y_ppos][data->x_ppos] = 'N'; // this should adjust to which way we are facing
 	//d->steps += 1;
 }*/
 
@@ -53,17 +53,24 @@ void	strafe_player(t_data *data, double step_x, double step_y)
 
 	radius = 10.0 / 64.0 + STEP;
 	sq = sqrt(data->p_dir_x * data->p_dir_x + data->p_dir_y * data->p_dir_y);
-	new_x = data->p_x + (-data->p_dir_y / sq) * step_x;
-	new_y = data->p_y + (data->p_dir_x / sq) * step_y;
-	if ((new_x + radius) < -0.25 || (new_x - radius) >= (data->map_x - 0.75) || (new_y + radius) < -0.25 || (new_y - radius) >= (data->map_y - 0.75))
+	new_x = data->x_ppos + (-data->p_dir_y / sq) * step_x;
+	new_y = data->y_ppos + (data->p_dir_x / sq) * step_y;
+	if ((new_x + radius) < -0.25 || (new_x - radius) >= (data->map_width - 0.75) || (new_y + radius) < -0.25 || (new_y - radius) >= (data->map_length - 0.75))
 	{
 		printf("Out of bounds\n");
 		return ;
 	}
+	if (new_x + 0.75 >= data->map_width|| new_y + 0.75 >= data->map_length)
+	{
+		printf("Out of bounds new\n");	
+		return ;	
+	}
+	printf("check pos x = %f\n", data->x_ppos = new_x);
+	printf("pos y = %f\n", data->y_ppos = new_y);
 	if (data->map[(int)new_y][(int)new_x] == '0' || data->map[(int)new_y][(int)new_x] == '1') //bonus ====== != '1')
 	{
-		data->p_x = new_x;
-		data->p_y = new_y;
+		data->x_ppos = new_x;
+		data->y_ppos = new_y;
 	}
 }
 
@@ -85,18 +92,26 @@ void	move_player(t_data *data, double step_x, double step_y)
 
 	radius = 10.0 / 64.0 + STEP;
 	sq = sqrt(data->p_dir_x * data->p_dir_x + data->p_dir_y * data->p_dir_y);
-	new_x = data->p_x + (data->p_dir_x / sq) * step_x;
-	new_y = data->p_y + (data->p_dir_y / sq) * step_y;
-	if ((new_x + radius) < -0.25 || (new_x - radius) >= (data->map_x - 0.75) || (new_y + radius) < -0.25 || (new_y - radius) >= (data->map_y - 0.75))
+	new_x = data->x_ppos + (data->p_dir_x / sq) * step_x;
+	new_y = data->y_ppos + (data->p_dir_y / sq) * step_y;
+	printf(" map x = %d and map _y = %d\n", data->map_width, data->map_length);
+	//if ((new_x + radius) < -0.25 || (new_x - radius) >= (data->map_width - 0.75) || (new_y + radius) < -0.25 || (new_y - radius) >= (data->map_length - 0.75))
+	/*this was the fix, must undersatdn it better and make sure i didnt miss somethin */
+	if ((new_x + radius) < 0 || (new_x + radius) + 0.25 >= (data->map_width) || (new_y + radius) < 0 || (new_y + radius) + 0.25 >= (data->map_length))	
 	{
 		printf("Out of bounds\n");
 		return ;
 	}
-	if (data->map[(int)new_y][(int)new_x] == '0' || data->map[(int)new_y][(int)new_x] == '1') //bonus ====== != '1')
+	if (new_x < data->map_width && new_y < data->map_length)// && new_x < WIDTH && new_y < HEIGHT)
 	{
-		data->p_x = new_x;
-		data->p_y = new_y;
+		if (data->map[(int)new_y][(int)new_x] == '0' || data->map[(int)new_y][(int)new_x] == '1') //bonus ====== != '1')
+		{
+			printf("moving us if 0 or 1\n");
+			data->x_ppos = new_x;
+			data->y_ppos = new_y;
+		}		
 	}
+
 }
 
 void	rotate_player(t_data *data, double angle)
@@ -130,7 +145,10 @@ void	update_player(t_data *data)
 	mlx_delete_image(data->mlx, data->im_ray);
 	mlx_delete_image(data->mlx, data->im_mini_player);
 	draw_player(data);
+	//printf("bug hunting 1\n");
 	stack_ray_data(data, 0);
+	//printf("bug hunting 2\n");
+	
 	mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
 	mlx_image_to_window(data->mlx, data->im_mini_player, 0, 0);
 }

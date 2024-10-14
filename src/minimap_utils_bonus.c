@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 08:37:11 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/11 17:25:09 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:34:04 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int rotate_player_marker(t_data *data)
         }
         y++;
     }
-    mlx_image_to_window(data->mlx, rotated_image, data->p_x * T_SIZE, data->p_y * T_SIZE);
+    mlx_image_to_window(data->mlx, rotated_image, data->x_ppos * T_SIZE, data->y_ppos * T_SIZE);
     mlx_delete_image(data->mlx, data->im_mini_player); // Clean up the old image
     data->im_mini_player = rotated_image; // Update the image refer
     return (0);

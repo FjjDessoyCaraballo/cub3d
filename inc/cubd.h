@@ -6,11 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/10/11 17:27:07 by araveala         ###   ########.fr       */
-=======
-/*   Updated: 2024/10/11 13:28:23 by fdessoy-         ###   ########.fr       */
->>>>>>> parsing_branch
+/*   Updated: 2024/10/14 13:55:58 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +39,16 @@
 /*************************************************/
 /* macros ****************************************/
 /*************************************************/
-<<<<<<< HEAD
-# define MAP "Error opening map. Maybe file does not exist.\n"
-# define NAME "Map name is invalid\n"
-# define MALLOC "Malloc Failure\n"
-=======
 # define MAP "Error\nCan't open map. File may be corrupted.\n"
 # define NAME "Error\nMap name is invalid\n"
 # define MALLOC "Error\nMalloc Failure\n"
 # define FILE "Error\nElements may be incorrect. Check map conditions.\n"
-# define SPRITE "Error\nCould not find/load sprites."
+# define SPRITE "Error\nCould not find/load sprites.\n"
 # define RGB1 "Error\nRGB (ceiling) values: value must be between 0-255\n"
 # define RGB2 "Error\nRGB (floor) values: value must be between 0-255\n"
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
 # define BRK_MAP "Error\nMap is broken ):\n"
 # define CLOSE "Error\nMap is not walled correctly ):<\n"
->>>>>>> parsing_branch
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -103,7 +93,7 @@
 /*************************************************/
 /* structs ***************************************/
 /*************************************************/
-/*1.map_x and map_y maps width and height*/
+/*1.map_width and map_length maps width and height*/
 /*2. p_x and p_y player position p_dir_x and p_dir_y players sight direction*/
 /*3. doubles are better than floats, more percise*/
 typedef	struct s_data
@@ -113,21 +103,21 @@ typedef	struct s_data
 
 	char	**map;
 	bool	broken_map;
-	size_t	map_width;
-	size_t	map_length;
+	//size_t	map_width;
+	//size_t	map_length;
 	char	**file;
 	double	ray_len[120]; // could be 240	
 	char	key_pressed[264]; // num of highest key
-	int		file_len;
+	//int		file_len;
 
-	int		map_x;
-	int		map_y;
+	int		map_width;
+	int		map_length;
 
 	int		ray_hit;
 	int		side_hit; // if we want to handle shading
 	double	ray_size;
-	double	p_x;
-	double	p_y;
+	//double	p_x;
+	//double	p_y;
 	double	p_dir_x;
 	double	p_dir_y;
 
@@ -152,6 +142,8 @@ typedef	struct s_data
 
 	// from parsing
 	int8_t	file_len;
+	int		map_start;
+	int		map_end;
 	char	*floor_info;
 	char	*ceiling_info;
 	size_t	c_red;
@@ -216,6 +208,7 @@ void	remove_nl(char **map);
 int8_t	only_nl(char *str);
 int8_t	player_exists(t_data *data, char **map);
 int8_t	check_original_length(t_data *data);
+uint8_t	get_width(char **map);
 
 /* in flood_fill.c */
 int8_t	copy_map(t_data *data);
