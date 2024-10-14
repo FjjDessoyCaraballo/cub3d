@@ -193,7 +193,7 @@ typedef	struct s_data
 /* functions *************************************/
 /*************************************************/
 
-/* in parsing.c */
+/* in parsing1.c */
 int8_t	map_handling(t_data *data, char *argv);
 
 /* in parsing2.c */
@@ -226,15 +226,19 @@ int		err_msg(char *obj, char *msg, int exit_code);
 
 /* in usage.c */
 void	usage(void);
+
 /* in base.c*/
 int		open_window(t_data *data);
+
 /* in movement.c */
 void	keyhookfunc(mlx_key_data_t keydata, void *param);
 void    update_player(t_data *data);
+
 //~~~~~~~~~~~~~~//
 void	rotate_player(t_data *data, double angle);
 void    strafe_player(t_data *data, double step_x, double step_y);
 void    move_player(t_data *data, double step_x, double step_y);
+
 /* in rays.c */
 void	stack_ray_data(t_data *data, int i);
 void	collect_ray(t_data *data, int i, double ray_distance);
@@ -244,8 +248,10 @@ void    move_forward(t_data *data);
 void    move_backward(t_data *data);
 void    rotate_left(t_data *data);
 void    rotate_right(t_data *data);
+
 /* printer REMOVE LATER */
 void	printer(t_data *data);
+
 /* bonus */
 int		initlize_minimap(t_data *data);
 void	draw_player(t_data *data);
