@@ -68,8 +68,12 @@ int	main(int argc, char **argv)
 		data = ft_calloc(1, sizeof(t_data));
 		if (!data)
 			return (err_msg(NULL, MALLOC, -1));
-		if (map_handling(data, argv[1]) == 1)
-			return (1);
+		if (map_handling(data, argv[1]) == FAILURE)
+		{
+			usage();
+			free_data(data);
+			return (FAILURE);
+		}
 		data->map = make_array(data); //remove
 		if (open_window(data) == 1)
 		{
@@ -89,11 +93,10 @@ int	main(int argc, char **argv)
 		mlx_loop(data->mlx);
 		printer(data->map);
 		free_array(data->file);
-		//free(data); // was casuing a double free
 		//mlx_terminate(data->mlx);
 	}
 	else
 		usage();
 	printf("executed to the end\n");
-	return (0);
+	return (SUCCESS);
 }

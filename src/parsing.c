@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/07 13:09:34 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:11:59 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,38 @@ static int8_t	open_file(t_data *data, char *fname)
 	return (SUCCESS);	
 }
 
+/** Here we are parsing out the file and checking for possible
+ * user errors. In check_name() we make sure that the first and 
+ * only argument will be the <filename> and it contains the suffix
+ * `.cub`. If this check faills, we free the struct and exit with
+ * costumized message. In open_file() we want to extract the file
+ * and we do more checks, such as user inputting directories that 
+ * contain `.cub` suffix. We extract the file data and copy it to
+ * our struct for later parsing.
+ * 
+ * @param data is a pointer to our struct carrying information/data
+ * @param fname is the first parameter given by the user
+ * 
+ * RETURN: map_handling() only returns `SUCCESS` or `FAILURE` upon
+ * execution.
+ */
 int8_t	map_handling(t_data *data, char *fname)
 {
 	if (check_name(fname) == FAILURE)
 	{
 		free(data);
-		exit(err_msg(NULL, NAME, 3));
+		exit(err_msg(NULL, NAME, FAILURE));
 	}
 	if (open_file(data, fname) == FAILURE)
 	{
 		free(data);
-		exit(err_msg(NULL, MAP, 4));
+		exit(err_msg(NULL, MAP, FAILURE));
 	}
+	if (extract(data) == FAILURE)
+		return (FAILURE);
+	// if (copy_map(data) == FAILURE)
+	// 	return (FAILURE);
+	// if (flood_fill(data, data->y_ppos, data->x_ppos) == FAILURE)
+	// 	return (err_msg(NULL, CLOSE, FAILURE));
 	return (SUCCESS);
 }

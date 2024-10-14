@@ -14,8 +14,14 @@ INCFLAGS = -I ./include -I ./MLX42/include -I /Users/include
 # Main project files
 #~~ minimap.c is bonus, used for visual aid for this moment
 SRC_FILES = main.c\
-			initializer.c\
-			parsing.c\
+			free.c\
+			parsing1.c\
+			parsing2.c\
+			parsing3.c\
+			parsing_utils1.c\
+			parsing_utils2.c\
+			parsing_utils3.c\
+			flood_fill.c\
 			usage.c\
 			error.c\
 			base.c\

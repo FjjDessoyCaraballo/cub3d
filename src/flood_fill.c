@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initializer.c                                      :+:      :+:    :+:   */
+/*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 14:51:06 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/01 15:20:04 by fdessoy-         ###   ########.fr       */
+/*   Created: 2024/10/11 11:28:52 by fdessoy-          #+#    #+#             */
+/*   Updated: 2024/10/11 13:28:30 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
-void	initializer(t_data *data)
-{
-	data->s_flag = false;
-	data->e_flag = false;
-	data->w_flag = false;
-	data->n_flag = false;
-}
+// int8_t	copy_map(t_data *data)
+// {
+// 	data->c_red = 0;
+// 	return (SUCCESS);
+// }
+
+// void	flood_fill(char **map, int y, int x)
+// {
+// 	if (map[y][x] == '1' || map[y][x] == 'x')
+// 		return ;
+// 	map[y][x] = 'x';
+// 	flood_fill(map, y + 1, x);
+// 	flood_fill(map, y, x + 1);
+// 	flood_fill(map, y - 1, x);
+// 	flood_fill(map, y, x - 1);
+// }
