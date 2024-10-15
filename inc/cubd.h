@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/15 11:31:44 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:46:31 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 # define MALLOC "Error\nMalloc Failure\n"
 # define FILE "Error\nElements may be incorrect. Check map conditions.\n"
 # define SPRITE "Error\nCould not find/load sprites."
+# define SPRITE2 "Error\nExtra sprites defined for same direction.\n"
 # define RGB1 "Error\nRGB (ceiling) values: value must be between 0-255\n"
 # define RGB2 "Error\nRGB (floor) values: value must be between 0-255\n"
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"

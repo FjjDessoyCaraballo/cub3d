@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/14 11:23:48 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:44:20 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ int8_t	extract(t_data *data)
 	if (ceiling_information(data) == FAILURE)
 		return (err_msg(NULL, RGB1, FAILURE));
 	if (sprites_information(data) == FAILURE)
-		return (err_msg(NULL, SPRITE, FAILURE));
+		return (FAILURE);
 	if (map_information(data) == FAILURE)
 		return (FAILURE);
 	remove_nl(data->map);
