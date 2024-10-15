@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 11:35:53 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/15 12:53:48 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ int8_t	rgb_parse(t_data *data, char *str, int flag)
 
 	info = ft_split(str, ' ');
 	if (!info)
-		return (FAILURE);
+		return (err_msg(NULL, MALLOC, FAILURE));
 	index = 0;
 	while (info[index])
 	{

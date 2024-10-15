@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/15 11:44:20 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/15 12:53:23 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@ static int8_t	floor_information(t_data *data)
 	char	*floor;
 
 	index = 0;
+	data->repeat_test = 0;
 	while(data->file[index])
 	{
 		if (!ft_strncmp(&data->file[index][0], "F", 1))
 		{
 			floor = ft_strdup(data->file[index]);
 			if (!floor)
-				return (FAILURE);
+				return (err_msg(NULL, MALLOC, FAILURE));
+			data->repeat_test++;
 			if (rgb_parse(data, floor, 1) == FAILURE)
 			{
 				free(floor);
@@ -34,6 +36,8 @@ static int8_t	floor_information(t_data *data)
 		}
 		index++;
 	}
+	if (data->repeat_test != 1)
+		return (err_msg(NULL, RGB3, FAILURE));
 	return (SUCCESS);
 }
 
@@ -43,13 +47,15 @@ static int8_t	ceiling_information(t_data *data)
 	char	*ceiling;
 
 	index = 0;
+	data->repeat_test = 0;
 	while (data->file[index])
 	{
 		if (!ft_strncmp(&data->file[index][0], "C", 1))
 		{
 			ceiling = ft_strdup(data->file[index]);
 			if (!ceiling)
-				return (FAILURE);
+				return (err_msg(NULL, MALLOC, FAILURE));
+			data->repeat_test++;
 			if (rgb_parse(data, ceiling, 0) == FAILURE)
 			{
 				free(ceiling);
@@ -59,6 +65,8 @@ static int8_t	ceiling_information(t_data *data)
 		}
 		index++;
 	}
+	if (data->repeat_test != 1)
+		return (err_msg(NULL, RGB4, FAILURE));
 	return (SUCCESS);
 }
 
