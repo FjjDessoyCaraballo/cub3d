@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/14 11:14:05 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:31:44 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,6 @@ typedef	struct s_data
 	int		map_start;
 	int		map_end;
 	char	**map;
-	bool	broken_map;
-	size_t	map_width;
-	size_t	map_length;
-	char	**file;
-	int8_t	file_len;
 	char	*floor_info;
 	char	*ceiling_info;
 	size_t	c_red;
@@ -99,6 +94,12 @@ typedef	struct s_data
 	bool	w_player;
 	double	y_ppos;
 	double	x_ppos;
+	size_t	map_width;
+	bool	broken_map;
+	int		repeat_test;
+	size_t	map_length;
+	char	**file;
+	int8_t	file_len;
 }		t_data;
 
 

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:12:41 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 10:42:35 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:33:03 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static int8_t	no_sprite(t_data *data)
 	char		*sprite;
 
 	index = 0;
+	data->repeat_test = 0;
 	while(data->file[index])
 	{
 		if (!ft_strncmp(&data->file[index][0], "N", 1)
@@ -26,6 +27,7 @@ static int8_t	no_sprite(t_data *data)
 			sprite = ft_strdup(data->file[index]);
 			if (!sprite)
 				return (FAILURE);
+			data->repeat_test++;
 			data->n_sprite = ft_strdup(sprite_path(sprite));
 			free(sprite);
 			if (!data->n_sprite)
@@ -33,6 +35,8 @@ static int8_t	no_sprite(t_data *data)
 		}
 		index++;
 	}
+	if (data->repeat_test != 1)
+		return (FAILURE);
 	return (SUCCESS);
 }
 static int8_t	so_sprite(t_data *data)
