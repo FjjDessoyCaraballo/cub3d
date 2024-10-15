@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/11 11:37:11 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/14 11:23:48 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ static int8_t	sprites_information(t_data *data)
 	return (SUCCESS);
 }
 
-// FOCUS HERE: our map is parsing out lines of the map that have extra characters
 static int8_t	map_information(t_data *data)
 {
 	int	i;

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/11 13:28:35 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/14 11:12:21 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ static int8_t	open_file(t_data *data, char *fname)
  * @param data is a pointer to our struct carrying information/data
  * @param fname is the first parameter given by the user
  * 
- * RETURN: map_handling() only returns `SUCCESS` or `FAILURE` upon
+ * @return map_handling() only returns `SUCCESS` or `FAILURE` upon
  * execution.
  */
 int8_t	map_handling(t_data *data, char *fname)
