@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/11 11:07:59 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/16 11:37:23 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 			free_data(data);
 			return (FAILURE);
 		}
-		printer(data);
+		// printer(data);
 		free_data(data);
 	}
 	else

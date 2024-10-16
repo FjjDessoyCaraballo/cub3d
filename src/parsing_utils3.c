@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:18:23 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/11 10:36:19 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/16 11:56:50 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,3 +77,26 @@ int8_t	check_original_length(t_data *data)
 	return (SUCCESS);
 }
 
+int8_t	extra_rgb(char **rgb, int flag)
+{
+	int	i;
+	int	repeat;
+
+	i = 0;
+	repeat = 0;
+	while (rgb[i])
+	{
+		if (!ft_strncmp(rgb[i], "C", 1)
+			|| !ft_strncmp(rgb[i] , "F", 1))
+			repeat++;
+		i++;
+	}
+	if (repeat != 1)
+	{
+		if (flag == 0)
+			return (err_msg(NULL, RGB4, FAILURE));
+		else
+			return (err_msg(NULL, RGB3, FAILURE));
+	}
+	return (SUCCESS);
+}

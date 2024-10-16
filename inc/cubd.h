@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/15 12:20:23 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/16 12:14:17 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@
 # define RGB2 "Error\nRGB (floor) values: value must be between 0-255\n"
 # define RGB3 "Error\nRGB (floor) extra information present in file\n"
 # define RGB4 "Error\nRGB (ceiling) extra information present in file\n"
+# define RGB5 "Error\nRGB extra information present in file\n"
+# define RGB6 "Error\nRGB values: value must be between 0-255\n"
+# define RGB7 "Error\nRGB values: for God sake, use F or C to define RGB\n"
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
 # define BRK_MAP "Error\nMap is broken ):\n"
 # define CLOSE "Error\nMap is not walled correctly ):<\n"
@@ -133,6 +136,7 @@ void	remove_nl(char **map);
 int8_t	only_nl(char *str);
 int8_t	player_exists(t_data *data, char **map);
 int8_t	check_original_length(t_data *data);
+int8_t	extra_rgb(char **rgb, int flag);
 
 /* in flood_fill.c */
 int8_t	copy_map(t_data *data);
