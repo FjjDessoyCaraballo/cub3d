@@ -27,6 +27,7 @@ SRC_FILES = main.c\
 			base.c\
 			movement.c\
 			rays.c\
+			init_higher_dimension.c\
 			minimap.c\
 			minimap_utils_bonus.c\
 			printer.c #REMOVE LATER

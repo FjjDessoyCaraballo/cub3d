@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/16 08:47:15 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/16 10:50:45 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,44 +43,6 @@
 	//d->steps += 1;
 }*/
 
-/*~~ the offsets are due to out of bounds calculation comparing to the middle of p_x and p_y ~~*/
-void	strafe_player(t_data *data, double step_x, double step_y)
-{
-	double	sq;
-	double	new_x;
-	double	new_y;
-	double	radius;
-
-	radius = 10.0 / 64.0;// + STEP; does not seem to do anything valuable
-	sq = sqrt(data->p_dir_x * data->p_dir_x + data->p_dir_y * data->p_dir_y);
-	new_x = data->x_ppos + (-data->p_dir_y / sq) * step_x;
-	new_y = data->y_ppos + (data->p_dir_x / sq) * step_y;
-
-    if (new_x < radius || new_x >= (data->map_width - radius) || new_y < radius || new_y >= (data->map_length - radius))
-	{
-        printf("Out of bounds yikes\n");
-        return;
-    }
-/////
-	if ((new_x + radius) < -STEP || (new_x - radius) >= (data->map_width - 0.75) || (new_y + radius) < -STEP || (new_y - radius) >= (data->map_length - 0.75))
-	{
-		printf("Out of bounds\n");
-		return ;
-	}
-	if (new_x + 0.75 >= data->map_width|| new_y + 0.75 >= data->map_length)
-	{
-		printf("Out of bounds new\n");	
-		return ;	
-	}
-	printf("check pos x = %f\n", data->x_ppos = new_x);
-	printf("pos y = %f\n", data->y_ppos = new_y);
-	if (data->map[(int)new_y][(int)new_x] == '0' || data->map[(int)new_y][(int)new_x] == '1') //bonus ====== != '1')
-	{
-		data->x_ppos = new_x;
-		data->y_ppos = new_y;
-	}
-}
-
 void	normalize_vector(double *x, double *y)
 {
 	double	length;
@@ -90,36 +52,66 @@ void	normalize_vector(double *x, double *y)
 	*y /= length;
 }
 
-void	move_player(t_data *data, double step_x, double step_y)
+/*~~ the offsets are due to out of bounds calculation comparing to the middle of p_x and p_y ~~*/
+void	strafe_player(t_data *data, double step_x, double step_y)
 {
-	double	sq;
 	double	new_x;
 	double	new_y;
 	double	radius;
-
-	radius = 10.0 / 64.0 + STEP;
-	sq = sqrt(data->p_dir_x * data->p_dir_x + data->p_dir_y * data->p_dir_y);
-	new_x = data->x_ppos + (data->p_dir_x / sq) * step_x;
-	new_y = data->y_ppos + (data->p_dir_y / sq) * step_y;
-	printf(" map x = %d and map _y = %d\n", data->map_width, data->map_length);
-	//if ((new_x + radius) < -STEP || (new_x - radius) >= (data->map_width - 0.75) || (new_y + radius) < -STEP || (new_y - radius) >= (data->map_length - 0.75))
-	/*this was the fix, must undersatdn it better and make sure i didnt miss somethin */
-    if (new_x < radius || new_x >= (data->map_width - radius) || new_y < radius || new_y >= (data->map_length - radius))
+	char test;
+	
+	radius = 10.0 / 64.0;
+	normalize_vector(&data->p_dir_x, &data->p_dir_y);
+	new_x = (data->x_ppos) + (-data->p_dir_y) * step_x;
+	new_y = (data->y_ppos) + (data->p_dir_x) * step_y;
+	if ((new_x + radius) < 0 || (new_x - radius) > (data->map_width) || (new_y + radius) < 0 || (new_y - radius) > (data->map_length))
 	{
-        printf("Out of bounds yikes\n");
-        return;
-    }
-/////
-	if ((new_x + radius) < 0 || (new_x + radius) + STEP >= (data->map_width) || (new_y + radius) < 0 || (new_y + radius) + STEP >= (data->map_length))	
-	{
-		printf("Out of bounds\n");
+		//printf("Out of bounds\n");
 		return ;
 	}
-	if (new_x < data->map_width && new_y < data->map_length)// && new_x < WIDTH && new_y < HEIGHT)
+	if (new_x > data->map_width || new_y > data->map_length)
 	{
-		if (data->map[(int)new_y][(int)new_x] == '0' || data->map[(int)new_y][(int)new_x] == '1') //bonus ====== != '1')
+		//printf("Out of bounds new\n");	
+		return ;	
+	}
+	test = data->map[(int)new_y][(int)new_x];
+	if (new_x < data->map_width && new_y < data->map_length)
+	{	
+		if (test == ' ' || test == '\0' || test == '\n')
+			return ;	
+		else if (data->map[(int)new_y][(int)new_x] == '0' || data->map[(int)new_y][(int)new_x] == '1') //bonus ====== != '1')
 		{
-			//printf("moving us if 0 or 1\n");
+			data->x_ppos = new_x;
+			data->y_ppos = new_y;
+		}		
+	}
+
+}
+
+
+void	move_player(t_data *data, double step_x, double step_y)
+{
+	double	new_x;
+	double	new_y;
+	double	radius;
+	char test;
+
+	radius = 10.0 / 64.0 + STEP;
+	normalize_vector(&data->p_dir_x, &data->p_dir_y);
+	new_x = (data->x_ppos) + (data->p_dir_x) * step_x;
+	new_y = (data->y_ppos) + (data->p_dir_y) * step_y;
+	if ((new_x + radius) < 0 || (new_x + radius) > (data->map_width) || (new_y + radius) < 0 || (new_y + radius) > (data->map_length))	
+	{
+		//printf("Out of bounds\n");
+		return ;
+	}
+	if (new_x < data->map_width && new_y < data->map_length)
+	{
+		test = data->map[(int)new_y][(int)new_x];
+		if (test == ' ' || test == '\0' || test == '\n')
+			return ;
+		else if (data->map[(int)new_y][(int)new_x] == '0' || data->map[(int)new_y][(int)new_x] == '1') //bonus ====== != '1')
+		{
 			data->x_ppos = new_x;
 			data->y_ppos = new_y;
 		}		

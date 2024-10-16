@@ -6,40 +6,69 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/16 08:47:25 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/16 11:04:18 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
 //ray_data->dist_to_wall = sqrtf((ray_x - data->x_ppos) * (ray_x - data->x_ppos) 
+int	find_direction(double ray_x, double ray_y)//, double p_x , double p_y)
+{
+	if (fabs(ray_x) > (fabs(ray_y)))
+	{
+		if (ray_x > 0)
+		{
+			printf("east\n");
+			return (3);
+		}
+		else
+		{
+			printf("west\n");
+			return (4);
+		}
+	}
+	else
+	{
+		if (ray_y > 0)
+		{
+			printf("south\n");			
+			return (2);
+		}
+		else
+		{
+			printf("north\n");			
+			return (1);
+		}
+	}
+}
 
-int	outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pixel_x)
+static int	outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pixel_x)
 {
 
 	if (rpos_pixel_y / 64 > data->map_length || rpos_pixel_x / 64 > data->map_width)
 	{
-		printf("ray bounds000 rpos x = %f also rpos y = %f\n", rpos_pixel_x / 64, rpos_pixel_y / 64);
+		//printf("ray bounds000 rpos x = %f also rpos y = %f\n", rpos_pixel_x / 64, rpos_pixel_y / 64);
 		return (FAILURE);		
 	}
-	if (rpos_pixel_y < 0 || rpos_pixel_x >= WIDTH)
+	if (rpos_pixel_y < 0 || rpos_pixel_x / 64 >= data->map_width)//WIDTH)
 	{
-		printf("ray bounds111 rpos x = %f also rpos y = %f and  WIDTH = %d\n", rpos_pixel_x, rpos_pixel_y, WIDTH);
+		//printf("ray bounds111 rpos x = %f also rpos y = %f and  WIDTH = %d\n", rpos_pixel_x, rpos_pixel_y, WIDTH);
 		return (FAILURE);
 	}
 	if (rpos_pixel_y < 0 || rpos_pixel_x / 64 >= HEIGHT)
 	{
-		printf("ray bounds2222 ray x = %f\n", rpos_pixel_x);
+		//printf("ray bounds2222 ray x = %f\n", rpos_pixel_x);
 		return (FAILURE);
 	}
 	if (data->y_ppos - STEP > data->map_length)// - 1)
 	{
-		printf("ray bounds3333\n");	
+		//printf("ray bounds3333\n");	
 		return (FAILURE);	
 	}
 	if (data->x_ppos + STEP > data->map_width)// - 1)
 	{
-		printf("ray bounds4444\n");	
+		//printf("ray bounds4444\n");	
 		return (FAILURE);	
 	}
 	return (SUCCESS);
@@ -47,6 +76,8 @@ int	outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pixel_x)
 
 // might need to malloc array before all of this
 /* collect and draw a ray based on math~~angles, pie and radians
+to calculate and draw each ray , collecting usable data for each ray, 
+we increment per ray and rays angle.
  collect_rays last argumentg is 0.0 to reset every call
 	1. calculating angles and transalting degrees to radians for ray segments
 	that will be used to calculate distance
@@ -67,7 +98,9 @@ void	stack_ray_data(t_data *data, int i)
 	starting_angle = -FOV / 2 * DEG2RAD;
 	angle_increment = (FOV / RAY_MAX) * DEG2RAD;
 	player_angle = atan2(data->p_dir_y, data->p_dir_x);
+	//bonus
 	data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	//
 	while (i <= RAY_MAX)
 	{
 		current_angle = starting_angle + i * angle_increment;
@@ -98,18 +131,18 @@ void	collect_ray(t_data *data, int i, double ray_distance)
 
 	ppos_pixel_x = (data->x_ppos * 64) + 32;
 	ppos_pixel_y = (data->y_ppos * 64) + 32;
+	//while (data->x_ppos >= 0 && data->x_ppos < data->map_width && data->y_ppos >= 0 && data->y_ppos < data->map_length)
 	while (data->x_ppos >= 0 && data->x_ppos < WIDTH && data->y_ppos >= 0 && data->y_ppos < HEIGHT)
 	{
 		rpos_pixel_x = ppos_pixel_x + (int)(data->ray_dir_x * ray_distance);
 		rpos_pixel_y = ppos_pixel_y + (int)(data->ray_dir_y * ray_distance);
-
 		if (outof_bounds_check(data, rpos_pixel_y, rpos_pixel_x) == FAILURE)
 			return ;
-		//printf("y / 64 = %f, x / 64 = %f\n", rpos_pixel_y / 64, rpos_pixel_x / 64);
 		if (data->map[(int)rpos_pixel_y / 64][(int)rpos_pixel_x / 64] == '1')
 		{
 			//#here#
 			data->ray_len[i] = ray_distance;
+			data->ray_hit[i] = find_direction(data->ray_dir_x, data->ray_dir_y);
 			// hit box
 			return ;
 		}

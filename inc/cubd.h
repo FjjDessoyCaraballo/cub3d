@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/16 08:30:17 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/16 11:04:43 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@
 # define ROTATE_ANGLE	0.0872665 // 5 degrees in radians
 # define PI				3.14159265358979323846
 # define DEG2RAD 		(PI / 180.0)
-# define STEP			0.25
+# define STEP			0.2
 /*************************************************/
 /* structs ***************************************/
 /*************************************************/
@@ -103,21 +103,18 @@ typedef	struct s_data
 
 	char	**map;
 	bool	broken_map;
-	//size_t	map_width;
-	//size_t	map_length;
 	char	**file;
 	double	ray_len[120]; // could be 240	
+	double	ray_hit[120];
 	char	key_pressed[264]; // num of highest key
 	//int		file_len;
 
 	int		map_width;
 	int		map_length;
 
-	int		ray_hit;
+	//int		ray_hit;
 	int		side_hit; // if we want to handle shading
 	double	ray_size;
-	//double	p_x;
-	//double	p_y;
 	double	p_dir_x;
 	double	p_dir_y;
 
@@ -162,6 +159,18 @@ typedef	struct s_data
 	bool	w_player;
 	double	y_ppos;
 	double	x_ppos;
+
+	mlx_texture_t	*tx_n_wall;
+	mlx_texture_t	*tx_s_wall;
+	mlx_texture_t	*tx_e_wall;
+	mlx_texture_t	*tx_w_wall;
+	mlx_image_t		*im_n_wall;	
+	mlx_image_t		*im_s_wall;
+	mlx_image_t		*im_e_wall;
+	mlx_image_t		*im_w_wall;
+
+	mlx_image_t		*im_current_wall; // could be useful for keeping track which wall we are drawing
+
 
 	//bool	quit; // might no need
 	/*~~bonus stuff~~*/
