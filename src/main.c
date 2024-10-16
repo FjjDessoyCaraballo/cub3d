@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/16 11:37:23 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:36:45 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ int main(int argc, char **argv)
 			return (err_msg(NULL, MALLOC, -1));
 		if (map_handling(data, argv[1]) == FAILURE)
 		{
+			printer(data);
 			usage();
 			free_data(data);
 			return (FAILURE);
 		}
-		// printer(data);
+		printer(data);
 		free_data(data);
 	}
 	else

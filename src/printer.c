@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 13:15:00 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/15 12:09:16 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:06:46 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ void	printer(t_data *data)
 	while (data->map[i])
 	{
 		printf("%s\n", data->map[i]);
+		i++;
+	}
+	printf("\n");
+	i = 0;
+	while (data->mp_cpy[i])
+	{
+		printf("%s\n", data->mp_cpy[i]);
 		i++;
 	}
 	printf("\n");

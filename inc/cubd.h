@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/16 12:14:17 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:41:53 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,11 @@
 /*************************************************/
 typedef	struct s_data
 {
+	char	**map;
 	int		map_start;
 	int		map_end;
-	char	**map;
+	size_t	map_width;
+	size_t	map_length;
 	char	*floor_info;
 	char	*ceiling_info;
 	size_t	c_red;
@@ -100,10 +102,9 @@ typedef	struct s_data
 	bool	w_player;
 	double	y_ppos;
 	double	x_ppos;
-	size_t	map_width;
 	bool	broken_map;
+	char	**mp_cpy;
 	int		repeat_test;
-	size_t	map_length;
 	char	**file;
 	int8_t	file_len;
 }		t_data;
@@ -140,7 +141,7 @@ int8_t	extra_rgb(char **rgb, int flag);
 
 /* in flood_fill.c */
 int8_t	copy_map(t_data *data);
-void	flood_fill(t_data *data, int y, int x);
+void	flood_fill(t_data *data, size_t y, size_t x);
 
 /* in error.c */
 int		err_msg(char *obj, char *msg, int exit_code);
