@@ -16,6 +16,14 @@ maps=(	"error_test/extra_RGB1.cub"
 		"error_test/wrong_RGB1.cub"
 		"error_test/wrong_RGB2.cub"
 		"error_test/wrong_RGB3.cub"
+		"error_test/extra_player1.cub"
+		"error_test/extra_player2.cub"
+		"error_test/extra_player3.cub"
+		"error_test/extra_player4.cub"
+		"error_test/extra_player5.cub"
+		"error_test/extra_player6.cub"
+		"error_test/extra_player7.cub"
+		"error_test/extra_player8.cub"
 )
 
 # log directory
