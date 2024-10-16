@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/07 14:13:16 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:59:45 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ static int8_t	open_file(t_data *data, char *fname)
 	close(fd);
 	return (SUCCESS);	
 }
+
 /** Here we are parsing out the file and checking for possible
  * user errors. In check_name() we make sure that the first and 
  * only argument will be the <filename> and it contains the suffix
@@ -91,7 +92,7 @@ static int8_t	open_file(t_data *data, char *fname)
  * @param data is a pointer to our struct carrying information/data
  * @param fname is the first parameter given by the user
  * 
- * RETURN: map_handling() only returns `SUCCESS` or `FAILURE` upon
+ * @return map_handling() only returns `SUCCESS` or `FAILURE` upon
  * execution.
  */
 int8_t	map_handling(t_data *data, char *fname)
@@ -99,18 +100,23 @@ int8_t	map_handling(t_data *data, char *fname)
 	if (check_name(fname) == FAILURE)
 	{
 		free(data);
-		exit(err_msg(NULL, NAME, 3));
+		exit(err_msg(NULL, NAME, FAILURE));
 	}
 	if (open_file(data, fname) == FAILURE)
 	{
 		free(data);
-		exit(err_msg(NULL, MAP, 4));
+		exit(err_msg(NULL, MAP, FAILURE));
 	}
 	if (extract(data) == FAILURE)
+		return (FAILURE);
+	if (copy_map(data) == FAILURE)
+		return (FAILURE);
+	flood_fill(data, (size_t)data->y_ppos, (size_t)data->x_ppos);
+	if (data->broken_map == true)
 	{
-		free_array(data->file);
-		free(data);
-		exit(err_msg(fname, FILE, 5));
+		free_array(data->mp_cpy);
+		return (err_msg(NULL, CLOSE, FAILURE));
 	}
+	free_array(data->mp_cpy);
 	return (SUCCESS);
 }

@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initializer.c                                      :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 14:51:06 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/01 15:20:04 by fdessoy-         ###   ########.fr       */
+/*   Created: 2024/10/08 12:30:57 by fdessoy-          #+#    #+#             */
+/*   Updated: 2024/10/16 14:59:16 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
-void	initializer(t_data *data)
+void	free_data(t_data *data)
 {
-	data->s_flag = false;
-	data->e_flag = false;
-	data->w_flag = false;
-	data->n_flag = false;
+	if (data->e_sprite)
+		free(data->e_sprite);
+	if (data->n_sprite)
+		free(data->n_sprite);
+	if (data->s_sprite)
+		free(data->s_sprite);
+	if (data->w_sprite)
+		free(data->w_sprite);
+	if (data->ceiling_info)
+		free(data->ceiling_info);
+	if (data->floor_info)
+		free(data->floor_info);
+	if (data->map)
+		free_array(data->map);
+	if (data->file)
+		free_array(data->file);
+	free(data);
 }
