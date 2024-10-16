@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/14 15:15:08 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/16 08:47:15 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,18 @@ void	strafe_player(t_data *data, double step_x, double step_y)
 	double	new_y;
 	double	radius;
 
-	radius = 10.0 / 64.0 + STEP;
+	radius = 10.0 / 64.0;// + STEP; does not seem to do anything valuable
 	sq = sqrt(data->p_dir_x * data->p_dir_x + data->p_dir_y * data->p_dir_y);
 	new_x = data->x_ppos + (-data->p_dir_y / sq) * step_x;
 	new_y = data->y_ppos + (data->p_dir_x / sq) * step_y;
-	if ((new_x + radius) < -0.25 || (new_x - radius) >= (data->map_width - 0.75) || (new_y + radius) < -0.25 || (new_y - radius) >= (data->map_length - 0.75))
+
+    if (new_x < radius || new_x >= (data->map_width - radius) || new_y < radius || new_y >= (data->map_length - radius))
+	{
+        printf("Out of bounds yikes\n");
+        return;
+    }
+/////
+	if ((new_x + radius) < -STEP || (new_x - radius) >= (data->map_width - 0.75) || (new_y + radius) < -STEP || (new_y - radius) >= (data->map_length - 0.75))
 	{
 		printf("Out of bounds\n");
 		return ;
@@ -95,9 +102,15 @@ void	move_player(t_data *data, double step_x, double step_y)
 	new_x = data->x_ppos + (data->p_dir_x / sq) * step_x;
 	new_y = data->y_ppos + (data->p_dir_y / sq) * step_y;
 	printf(" map x = %d and map _y = %d\n", data->map_width, data->map_length);
-	//if ((new_x + radius) < -0.25 || (new_x - radius) >= (data->map_width - 0.75) || (new_y + radius) < -0.25 || (new_y - radius) >= (data->map_length - 0.75))
+	//if ((new_x + radius) < -STEP || (new_x - radius) >= (data->map_width - 0.75) || (new_y + radius) < -STEP || (new_y - radius) >= (data->map_length - 0.75))
 	/*this was the fix, must undersatdn it better and make sure i didnt miss somethin */
-	if ((new_x + radius) < 0 || (new_x + radius) + 0.25 >= (data->map_width) || (new_y + radius) < 0 || (new_y + radius) + 0.25 >= (data->map_length))	
+    if (new_x < radius || new_x >= (data->map_width - radius) || new_y < radius || new_y >= (data->map_length - radius))
+	{
+        printf("Out of bounds yikes\n");
+        return;
+    }
+/////
+	if ((new_x + radius) < 0 || (new_x + radius) + STEP >= (data->map_width) || (new_y + radius) < 0 || (new_y + radius) + STEP >= (data->map_length))	
 	{
 		printf("Out of bounds\n");
 		return ;
@@ -106,7 +119,7 @@ void	move_player(t_data *data, double step_x, double step_y)
 	{
 		if (data->map[(int)new_y][(int)new_x] == '0' || data->map[(int)new_y][(int)new_x] == '1') //bonus ====== != '1')
 		{
-			printf("moving us if 0 or 1\n");
+			//printf("moving us if 0 or 1\n");
 			data->x_ppos = new_x;
 			data->y_ppos = new_y;
 		}		
@@ -145,10 +158,7 @@ void	update_player(t_data *data)
 	mlx_delete_image(data->mlx, data->im_ray);
 	mlx_delete_image(data->mlx, data->im_mini_player);
 	draw_player(data);
-	//printf("bug hunting 1\n");
 	stack_ray_data(data, 0);
-	//printf("bug hunting 2\n");
-	
 	mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
 	mlx_image_to_window(data->mlx, data->im_mini_player, 0, 0);
 }

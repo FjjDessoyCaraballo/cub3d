@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/14 15:10:29 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/16 08:47:25 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 int	outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pixel_x)
 {
 
+	if (rpos_pixel_y / 64 > data->map_length || rpos_pixel_x / 64 > data->map_width)
+	{
+		printf("ray bounds000 rpos x = %f also rpos y = %f\n", rpos_pixel_x / 64, rpos_pixel_y / 64);
+		return (FAILURE);		
+	}
 	if (rpos_pixel_y < 0 || rpos_pixel_x >= WIDTH)
 	{
 		printf("ray bounds111 rpos x = %f also rpos y = %f and  WIDTH = %d\n", rpos_pixel_x, rpos_pixel_y, WIDTH);
@@ -27,12 +32,12 @@ int	outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pixel_x)
 		printf("ray bounds2222 ray x = %f\n", rpos_pixel_x);
 		return (FAILURE);
 	}
-	if (data->y_ppos - 0.25 > data->map_length)// - 1)
+	if (data->y_ppos - STEP > data->map_length)// - 1)
 	{
 		printf("ray bounds3333\n");	
 		return (FAILURE);	
 	}
-	if (data->x_ppos + 0.25 > data->map_width)// - 1)
+	if (data->x_ppos + STEP > data->map_width)// - 1)
 	{
 		printf("ray bounds4444\n");	
 		return (FAILURE);	
@@ -86,10 +91,10 @@ array not malloced seperatley, only malloced with data struct, ray_len[120]
 */
 void	collect_ray(t_data *data, int i, double ray_distance)
 {
-	int	ppos_pixel_x;
-	int	ppos_pixel_y;
-	int	rpos_pixel_x;
-	int	rpos_pixel_y;
+	double	ppos_pixel_x;
+	double	ppos_pixel_y;
+	double	rpos_pixel_x;
+	double	rpos_pixel_y;
 
 	ppos_pixel_x = (data->x_ppos * 64) + 32;
 	ppos_pixel_y = (data->y_ppos * 64) + 32;
@@ -97,15 +102,18 @@ void	collect_ray(t_data *data, int i, double ray_distance)
 	{
 		rpos_pixel_x = ppos_pixel_x + (int)(data->ray_dir_x * ray_distance);
 		rpos_pixel_y = ppos_pixel_y + (int)(data->ray_dir_y * ray_distance);
+
 		if (outof_bounds_check(data, rpos_pixel_y, rpos_pixel_x) == FAILURE)
 			return ;
-		if (data->map[rpos_pixel_y / 64][rpos_pixel_x / 64] == '1')
+		//printf("y / 64 = %f, x / 64 = %f\n", rpos_pixel_y / 64, rpos_pixel_x / 64);
+		if (data->map[(int)rpos_pixel_y / 64][(int)rpos_pixel_x / 64] == '1')
 		{
 			//#here#
 			data->ray_len[i] = ray_distance;
 			// hit box
 			return ;
 		}
+
 		ray_distance++;
 	}
 }
@@ -135,7 +143,7 @@ void	collect_ray(t_data *data, int i, double ray_distance)
         {
             //printf("t 1 = %d and t2 = %d\n", test_x, test_y);
             //printf("player sq = %c\n", data->map[(int)data->y_ppos][(int)data->x_ppos]);
-            //printf("checkies p x = %f, p_y = %f\n", data->x_ppos, data->y_ppos - 0.25);
+            //printf("checkies p x = %f, p_y = %f\n", data->x_ppos, data->y_ppos - STEP);
             //printf("lets look at athe char = %c\n", data->map[test_y / 64][test_x / 64]);
             if (data->map[test_y / 64][test_x / 64] == '1')
             {
