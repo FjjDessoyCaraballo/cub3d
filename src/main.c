@@ -38,10 +38,10 @@ int	main(int argc, char **argv)
 		}
 		// printf("bug hunting 1\n");
 		printer(data);
-		if (open_window(data) == 1)
+		if (open_window(data) == FAILURE)
 		{
 			printf("error requires freeing in main \n");
-			return (-1);
+			return (FAILURE);
 		}
 		//collect_ray(data); in minimap init for now
 		// initilize_other?
@@ -51,11 +51,14 @@ int	main(int argc, char **argv)
 			return (-1);
 		}
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
+		
 		//~~ bonus animation if wanted needs to start here
 		// mlx_loop_hook(data->mlx, &animation_fucn, &data);
+		//printf("bug huntinig\n");
 		mlx_loop(data->mlx);
 		printer(data);
-		free_array(data->file);
+		//free_array(data->file);
+		
 		//mlx_terminate(data->mlx);
 	}
 	else

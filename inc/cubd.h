@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/16 11:04:43 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:55:38 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,16 +80,21 @@
 /*************************************************/
 # define WIDTH 1920 //~~ will play with sizes 
 # define HEIGHT 1080 //~~ will play with sizes
+# define MINI_WIDTH 200
+# define MINI_HEIGHT 200
 # define T_SIZE 64 //~~ tile size
-# define RAY_MAX 120.0 // could be 240
-# define FOV 60.0 //~~ angle of field of view degrees 
+# define MINI_T 32
+# define MINI_OFFSET 10
+# define MINI_SCALE 4 //maybe for minimap
+# define RAY_MAX 220.0 // could be 240
+# define FOV 90.0 //~~ angle of field of view degrees 
 /*************************************************/
 /* math macros ***************************************/
 /*************************************************/
 # define ROTATE_ANGLE	0.0872665 // 5 degrees in radians
 # define PI				3.14159265358979323846
 # define DEG2RAD 		(PI / 180.0)
-# define STEP			0.2
+# define STEP			0.1
 /*************************************************/
 /* structs ***************************************/
 /*************************************************/
@@ -99,13 +104,13 @@
 typedef	struct s_data
 {
 	mlx_t	*mlx;
-	mlx_t	*window; //~~ not sure if needed yet
-
+	mlx_t	*main_window; //~~ not sure if needed yet
+	mlx_t	*mini_window;
 	char	**map;
 	bool	broken_map;
 	char	**file;
-	double	ray_len[120]; // could be 240	
-	double	ray_hit[120];
+	double	ray_len[220]; // could be 240	
+	double	ray_hit[220];
 	char	key_pressed[264]; // num of highest key
 	//int		file_len;
 
@@ -174,9 +179,11 @@ typedef	struct s_data
 
 	//bool	quit; // might no need
 	/*~~bonus stuff~~*/
+
 	mlx_texture_t	*tx_mini_floor;
 	mlx_texture_t	*tx_mini_wall;
 	mlx_texture_t	*tx_mini_player;
+	mlx_image_t		*im_map;
 	mlx_image_t		*im_mini_floor;
 	mlx_image_t		*im_mini_wall;
 	mlx_image_t		*im_mini_player;
@@ -238,16 +245,14 @@ void    update_player(t_data *data);
 
 //~~~~~~~~~~~~~~//
 void	rotate_player(t_data *data, double angle);
-void    strafe_player(t_data *data, double step_x, double step_y);
-void    move_player(t_data *data, double step_x, double step_y);
+void    strafe_player(t_data *data, double step);
+void    move_player(t_data *data, double step);
 
 /* in rays.c */
 void	stack_ray_data(t_data *data, int i);
 void	collect_ray(t_data *data, int i, double ray_distance);
 //void	collect_ray(t_data *data); // simle one ray from middle
-//obsolete
-void    move_forward(t_data *data);
-void    move_backward(t_data *data);
+
 void    rotate_left(t_data *data);
 void    rotate_right(t_data *data);
 
@@ -262,5 +267,6 @@ void	draw_line(t_data *data, int i);
 
 /* in free.c */
 void	free_data(t_data *data);
+void	draw_map(t_data *data);
 
 #endif

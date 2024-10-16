@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/16 11:04:18 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/16 12:54:15 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	find_direction(double ray_x, double ray_y)//, double p_x , double p_y)
 	{
 		if (ray_x > 0)
 		{
-			printf("east\n");
+			//printf("east\n");
 			return (3);
 		}
 		else
 		{
-			printf("west\n");
+			//printf("west\n");
 			return (4);
 		}
 	}
@@ -32,12 +32,12 @@ int	find_direction(double ray_x, double ray_y)//, double p_x , double p_y)
 	{
 		if (ray_y > 0)
 		{
-			printf("south\n");			
+			//printf("south\n");			
 			return (2);
 		}
 		else
 		{
-			printf("north\n");			
+			//printf("north\n");			
 			return (1);
 		}
 	}
@@ -46,17 +46,17 @@ int	find_direction(double ray_x, double ray_y)//, double p_x , double p_y)
 static int	outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pixel_x)
 {
 
-	if (rpos_pixel_y / 64 > data->map_length || rpos_pixel_x / 64 > data->map_width)
+	if (rpos_pixel_y / T_SIZE > data->map_length || rpos_pixel_x / T_SIZE > data->map_width)
 	{
 		//printf("ray bounds000 rpos x = %f also rpos y = %f\n", rpos_pixel_x / 64, rpos_pixel_y / 64);
 		return (FAILURE);		
 	}
-	if (rpos_pixel_y < 0 || rpos_pixel_x / 64 >= data->map_width)//WIDTH)
+	if (rpos_pixel_y < 0 || rpos_pixel_x / T_SIZE >= data->map_width)//WIDTH)
 	{
 		//printf("ray bounds111 rpos x = %f also rpos y = %f and  WIDTH = %d\n", rpos_pixel_x, rpos_pixel_y, WIDTH);
 		return (FAILURE);
 	}
-	if (rpos_pixel_y < 0 || rpos_pixel_x / 64 >= HEIGHT)
+	if (rpos_pixel_y < 0 || rpos_pixel_x / T_SIZE >= HEIGHT)
 	{
 		//printf("ray bounds2222 ray x = %f\n", rpos_pixel_x);
 		return (FAILURE);
@@ -129,8 +129,8 @@ void	collect_ray(t_data *data, int i, double ray_distance)
 	double	rpos_pixel_x;
 	double	rpos_pixel_y;
 
-	ppos_pixel_x = (data->x_ppos * 64) + 32;
-	ppos_pixel_y = (data->y_ppos * 64) + 32;
+	ppos_pixel_x = (data->x_ppos * T_SIZE) + T_SIZE / 2;
+	ppos_pixel_y = (data->y_ppos * T_SIZE) + T_SIZE / 2;
 	//while (data->x_ppos >= 0 && data->x_ppos < data->map_width && data->y_ppos >= 0 && data->y_ppos < data->map_length)
 	while (data->x_ppos >= 0 && data->x_ppos < WIDTH && data->y_ppos >= 0 && data->y_ppos < HEIGHT)
 	{
@@ -138,7 +138,7 @@ void	collect_ray(t_data *data, int i, double ray_distance)
 		rpos_pixel_y = ppos_pixel_y + (int)(data->ray_dir_y * ray_distance);
 		if (outof_bounds_check(data, rpos_pixel_y, rpos_pixel_x) == FAILURE)
 			return ;
-		if (data->map[(int)rpos_pixel_y / 64][(int)rpos_pixel_x / 64] == '1')
+		if (data->map[(int)rpos_pixel_y / T_SIZE][(int)rpos_pixel_x / T_SIZE] == '1')
 		{
 			//#here#
 			data->ray_len[i] = ray_distance;

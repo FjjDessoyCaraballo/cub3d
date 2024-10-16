@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:41:48 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/14 13:54:13 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/16 13:22:10 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int open_window(t_data *data)
 	if (!data->mlx)
 	{
 		printf("failed to initilize MLX \n");
-		return (-1);
-	}	
-    return (0);
+		return (FAILURE);
+	}
+    return (SUCCESS);
 }
