@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/16 14:42:06 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:59:45 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,10 @@ int8_t	map_handling(t_data *data, char *fname)
 		return (FAILURE);
 	flood_fill(data, (size_t)data->y_ppos, (size_t)data->x_ppos);
 	if (data->broken_map == true)
+	{
+		free_array(data->mp_cpy);
 		return (err_msg(NULL, CLOSE, FAILURE));
+	}
+	free_array(data->mp_cpy);
 	return (SUCCESS);
 }

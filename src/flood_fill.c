@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/16 14:53:05 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:57:42 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,14 @@ void	flood_fill(t_data *data, size_t y, size_t x)
 		data->broken_map = true;
 		return ;
 	}
-	// if (data->mp_cpy[y][x] == 'N')
-	// {
-	// 	data->mp_cpy[y][x] = '0';
-	// }
+	if (data->mp_cpy[y][x + 1] == '\0'
+		|| data->mp_cpy[y][x - 1] == '\0'
+		|| data->mp_cpy[y + 1][x] == '\0'
+		|| data->mp_cpy[y - 1][x] == '\0')
+	{
+		data->broken_map = true;
+		return ;
+	}
 	data->mp_cpy[y][x] = 'x';
 	flood_fill(data, y + 1, x);
 	flood_fill(data, y, x + 1);
