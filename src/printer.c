@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 13:15:00 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/16 14:06:46 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:27:37 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@ void	printer(t_data *data)
 	}
 	printf("\n");
 	i = 0;
-	while (data->mp_cpy[i])
+	if (data->mp_cpy)
 	{
-		printf("%s\n", data->mp_cpy[i]);
-		i++;
+		while (data->mp_cpy[i])
+		{
+			printf("%s\n", data->mp_cpy[i]);
+			i++;
+		}
 	}
 	printf("\n");
 	if (data->n_player == true)

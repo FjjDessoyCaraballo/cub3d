@@ -6,11 +6,34 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/16 14:57:42 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:45:32 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
+
+int8_t	check_if_walled(t_data *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (data->mp_cpy[i])
+	{
+		j = 0;
+		while (data->mp_cpy[i][j])
+		{
+			if (data->mp_cpy[i][j] == '0')
+				flood_fill(data, i, j);
+			j++;
+		}
+		if (data->broken_map == true)
+			return (FAILURE);
+		i++;
+	}
+	return (SUCCESS);
+}
 
 int8_t	copy_map(t_data *data)
 {

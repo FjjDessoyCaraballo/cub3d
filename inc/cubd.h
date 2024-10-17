@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/16 14:41:53 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:46:54 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,7 @@ int8_t	check_original_length(t_data *data);
 int8_t	extra_rgb(char **rgb, int flag);
 
 /* in flood_fill.c */
+int8_t	check_if_walled(t_data *data);
 int8_t	copy_map(t_data *data);
 void	flood_fill(t_data *data, size_t y, size_t x);
 
