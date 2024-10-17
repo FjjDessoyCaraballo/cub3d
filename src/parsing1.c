@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parsing1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/14 12:11:59 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:09:47 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,26 +92,34 @@ static int8_t	open_file(t_data *data, char *fname)
  * @param data is a pointer to our struct carrying information/data
  * @param fname is the first parameter given by the user
  * 
- * RETURN: map_handling() only returns `SUCCESS` or `FAILURE` upon
+ * @return map_handling() only returns `SUCCESS` or `FAILURE` upon
  * execution.
  */
 int8_t	map_handling(t_data *data, char *fname)
 {
-	if (check_name(fname) == FAILURE)
+	if (check_name(fname) == FAILURE
+		|| open_file(data, fname) == FAILURE)
 	{
 		free(data);
 		exit(err_msg(NULL, NAME, FAILURE));
 	}
-	if (open_file(data, fname) == FAILURE)
-	{
-		free(data);
-		exit(err_msg(NULL, MAP, FAILURE));
-	}
 	if (extract(data) == FAILURE)
 		return (FAILURE);
-	// if (copy_map(data) == FAILURE)
-	// 	return (FAILURE);
-	// if (flood_fill(data, data->y_ppos, data->x_ppos) == FAILURE)
-	// 	return (err_msg(NULL, CLOSE, FAILURE));
+	if (copy_map(data) == FAILURE)
+		return (FAILURE);
+	flood_fill(data, (size_t)data->y_ppos, (size_t)data->x_ppos);
+	if (data->broken_map == true)
+	{
+		free_array(data->mp_cpy);
+		return (err_msg(NULL, CLOSE, FAILURE));
+	}
+	else
+	{
+		if (check_if_walled(data) == FAILURE)
+		{
+			free_array(data->mp_cpy);
+			return (err_msg(NULL, CLOSE, FAILURE));
+		}
+	}
 	return (SUCCESS);
 }

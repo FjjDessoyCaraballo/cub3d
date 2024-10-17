@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/17 12:51:09 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:08:16 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,15 @@
 # define NAME "Error\nMap name is invalid\n"
 # define MALLOC "Error\nMalloc Failure\n"
 # define FILE "Error\nElements may be incorrect. Check map conditions.\n"
-# define SPRITE "Error\nCould not find/load sprites.\n"
+# define SPRITE "Error\nCould not find/load sprites."
+# define SPRITE2 "Error\nExtra sprites defined for same direction.\n"
 # define RGB1 "Error\nRGB (ceiling) values: value must be between 0-255\n"
 # define RGB2 "Error\nRGB (floor) values: value must be between 0-255\n"
+# define RGB3 "Error\nRGB (floor) extra information present in file\n"
+# define RGB4 "Error\nRGB (ceiling) extra information present in file\n"
+# define RGB5 "Error\nRGB extra information present in file\n"
+# define RGB6 "Error\nRGB values: value must be between 0-255\n"
+# define RGB7 "Error\nRGB values: for God sake, use F or C to define RGB\n"
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
 # define BRK_MAP "Error\nMap is broken ):\n"
 # define CLOSE "Error\nMap is not walled correctly ):<\n"
@@ -116,8 +122,8 @@ typedef	struct s_data
 	char	key_pressed[264]; // num of highest key
 	//int		file_len;
 
-	int		map_width;
-	int		map_length;
+	int		map_width; // this was size_t before, needs to change in parsing
+	int		map_length; // this was size_t before, needs to change in parsing
 
 	//int		ray_hit;
 	int		side_hit; // if we want to handle shading
@@ -166,6 +172,8 @@ typedef	struct s_data
 	bool	w_player;
 	double	y_ppos;
 	double	x_ppos;
+	char	**mp_cpy;
+	int		repeat_test;
 
 	mlx_texture_t	*tx_n_wall;
 	mlx_texture_t	*tx_s_wall;
@@ -228,10 +236,12 @@ int8_t	only_nl(char *str);
 int8_t	player_exists(t_data *data, char **map);
 int8_t	check_original_length(t_data *data);
 uint8_t	get_width(char **map);
+int8_t	extra_rgb(char **rgb, int flag);
 
 /* in flood_fill.c */
+int8_t	check_if_walled(t_data *data);
 int8_t	copy_map(t_data *data);
-void	flood_fill(t_data *data, int y, int x);
+void	flood_fill(t_data *data, size_t y, size_t x);
 
 /* in error.c */
 int		err_msg(char *obj, char *msg, int exit_code);

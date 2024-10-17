@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			  */
-/*														  :::	   ::::::::	  */
-/*	 main.c												:+:		 :+:	:+:	  */
-/*													  +:+ +:+		  +:+	  */
-/*	 By: araveala <araveala@student.hive.fi>		+#+	 +:+	   +#+		  */
-/*												  +#+#+#+#+#+	+#+			  */
-/*	 Created: 2024/10/01 14:36:13 by fdessoy-		   #+#	  #+#			  */
-/*   Updated: 2024/10/11 18:04:08 by araveala         ###   ########.fr       */
-/*																			  */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
+/*   Updated: 2024/10/17 14:08:55 by araveala         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
@@ -30,6 +30,7 @@ int	main(int argc, char **argv)
 			return (err_msg(NULL, MALLOC, -1));
 		if (map_handling(data, argv[1]) == FAILURE)
 		{
+			// printer(data);
 			usage();
 			free_data(data);
 			return (FAILURE);

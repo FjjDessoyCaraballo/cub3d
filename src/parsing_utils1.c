@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/10 11:35:53 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/16 12:14:25 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int8_t	check_rgb_range(t_data *data)
 		|| (data->c_red > 255)
 		|| (data->c_green > 255)
 		|| (data->c_blue > 255))
-		return (FAILURE);
+		return (err_msg(NULL, RGB6, FAILURE));
 	return (SUCCESS);
 }
 
@@ -81,7 +81,7 @@ static int8_t	break_commas(t_data *data, char *rgb_str, int flag)
 	if (array[3])
 	{
 		free_array(array);
-		return (FAILURE);
+		return (err_msg(NULL, RGB7, FAILURE));
 	}
 	if (rgb_assignment(data, array, flag) == FAILURE)
 	{
@@ -135,11 +135,13 @@ static int8_t	separate_rgb(t_data *data, char *str, int flag)
  */
 int8_t	rgb_parse(t_data *data, char *str, int flag)
 {
-	char	**info;
-	int		index;
+	static char	**info;
+	int			index;
 
 	info = ft_split(str, ' ');
 	if (!info)
+		return (err_msg(NULL, MALLOC, FAILURE));
+	if (extra_rgb(info, flag) == FAILURE)
 		return (FAILURE);
 	index = 0;
 	while (info[index])
@@ -154,6 +156,7 @@ int8_t	rgb_parse(t_data *data, char *str, int flag)
 		}
 		index++;
 	}
+		
 	free_array(info);
 	return (SUCCESS);
 }

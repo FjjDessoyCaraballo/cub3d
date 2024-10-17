@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printer.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 13:15:00 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/14 12:12:07 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:10:46 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ void	printer(t_data *data)
 	{
 		printf("%s\n", data->map[i]);
 		i++;
+	}
+	printf("\n");
+	i = 0;
+	if (data->mp_cpy)
+	{
+		while (data->mp_cpy[i])
+		{
+			printf("%s\n", data->mp_cpy[i]);
+			i++;
+		}
 	}
 	printf("\n");
 	if (data->n_player == true)
@@ -53,8 +63,8 @@ void	printer(t_data *data)
 	printf("RGB floor (green): %li\n", data->f_green);
 	printf("RGB floor (blue): %li\n", data->f_blue);
 	printf("\nsprites:\n");
-	printf("%s\n", data->n_sprite);
-	printf("%s\n", data->s_sprite);
-	printf("%s\n", data->w_sprite);
-	printf("%s\n", data->e_sprite);
+	printf("%s", data->n_sprite);
+	printf("%s", data->s_sprite);
+	printf("%s", data->w_sprite);
+	printf("%s", data->e_sprite);
 }

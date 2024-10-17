@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:08:26 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/11 10:54:07 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/16 12:03:22 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int8_t	only_number_check(char **array)
 			if (array[i][j] == '\n')
 				break ;
 			if (!ft_isdigit(array[i][j]))
-				return (FAILURE);
+				return (err_msg(NULL, RGB5, FAILURE));
 			j++;
 		}
 		i++;

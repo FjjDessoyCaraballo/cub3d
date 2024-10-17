@@ -1,0 +1,1193 @@
+Running test for error_test/extra_RGB1.cub...
+###########################################################################
+==255998== Memcheck, a memory error detector
+==255998== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==255998== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==255998== Command: ../cub3D error_test/extra_RGB1.cub
+==255998== 
+==255998== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (ceiling) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==255998== 
+==255998== HEAP SUMMARY:
+==255998==     in use at exit: 0 bytes in 0 blocks
+==255998==   total heap usage: 392 allocs, 392 frees, 6,161 bytes allocated
+==255998== 
+==255998== All heap blocks were freed -- no leaks are possible
+==255998== 
+==255998== For lists of detected and suppressed errors, rerun with: -s
+==255998== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_RGB2.cub...
+###########################################################################
+==256007== Memcheck, a memory error detector
+==256007== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256007== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256007== Command: ../cub3D error_test/extra_RGB2.cub
+==256007== 
+==256007== Warning: invalid file descriptor -1 in syscall close()
+==256007== Invalid read of size 8
+==256007==    at 0x4026B9: break_commas (parsing_utils1.c:81)
+==256007==    by 0x402633: separate_rgb (parsing_utils1.c:105)
+==256007==    by 0x402599: rgb_parse (parsing_utils1.c:152)
+==256007==    by 0x401946: floor_information (parsing2.c:30)
+==256007==    by 0x401794: extract (parsing2.c:133)
+==256007==    by 0x4013EE: map_handling (parsing1.c:106)
+==256007==    by 0x40121A: main (main.c:24)
+==256007==  Address 0x4aa4b78 is 8 bytes after a block of size 16 alloc'd
+==256007==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==256007==    by 0x403E5B: ft_split (ft_split.c:67)
+==256007==    by 0x402690: break_commas (parsing_utils1.c:78)
+==256007==    by 0x402633: separate_rgb (parsing_utils1.c:105)
+==256007==    by 0x402599: rgb_parse (parsing_utils1.c:152)
+==256007==    by 0x401946: floor_information (parsing2.c:30)
+==256007==    by 0x401794: extract (parsing2.c:133)
+==256007==    by 0x4013EE: map_handling (parsing1.c:106)
+==256007==    by 0x40121A: main (main.c:24)
+==256007== 
+==256007== Invalid read of size 1
+==256007==    at 0x403CBB: ft_atoi (ft_atoi.c:20)
+==256007==    by 0x40286E: rgb_assignment (parsing_utils2.c:44)
+==256007==    by 0x402704: break_commas (parsing_utils1.c:86)
+==256007==    by 0x402633: separate_rgb (parsing_utils1.c:105)
+==256007==    by 0x402599: rgb_parse (parsing_utils1.c:152)
+==256007==    by 0x401946: floor_information (parsing2.c:30)
+==256007==    by 0x401794: extract (parsing2.c:133)
+==256007==    by 0x4013EE: map_handling (parsing1.c:106)
+==256007==    by 0x40121A: main (main.c:24)
+==256007==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==256007== 
+==256007== 
+==256007== Process terminating with default action of signal 11 (SIGSEGV)
+==256007==  Access not within mapped region at address 0x0
+==256007==    at 0x403CBB: ft_atoi (ft_atoi.c:20)
+==256007==    by 0x40286E: rgb_assignment (parsing_utils2.c:44)
+==256007==    by 0x402704: break_commas (parsing_utils1.c:86)
+==256007==    by 0x402633: separate_rgb (parsing_utils1.c:105)
+==256007==    by 0x402599: rgb_parse (parsing_utils1.c:152)
+==256007==    by 0x401946: floor_information (parsing2.c:30)
+==256007==    by 0x401794: extract (parsing2.c:133)
+==256007==    by 0x4013EE: map_handling (parsing1.c:106)
+==256007==    by 0x40121A: main (main.c:24)
+==256007==  If you believe this happened as a result of a stack
+==256007==  overflow in your program's main thread (unlikely but
+==256007==  possible), you can try to increase the size of the
+==256007==  main thread stack using the --main-stacksize= flag.
+==256007==  The main thread stack size used in this run was 8388608.
+==256007== 
+==256007== HEAP SUMMARY:
+==256007==     in use at exit: 1,049 bytes in 32 blocks
+==256007==   total heap usage: 382 allocs, 350 frees, 6,047 bytes allocated
+==256007== 
+==256007== LEAK SUMMARY:
+==256007==    definitely lost: 0 bytes in 0 blocks
+==256007==    indirectly lost: 0 bytes in 0 blocks
+==256007==      possibly lost: 0 bytes in 0 blocks
+==256007==    still reachable: 1,049 bytes in 32 blocks
+==256007==         suppressed: 0 bytes in 0 blocks
+==256007== Reachable blocks (those to which a pointer was found) are not shown.
+==256007== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==256007== 
+==256007== For lists of detected and suppressed errors, rerun with: -s
+==256007== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_RGB3.cub...
+###########################################################################
+==256023== Memcheck, a memory error detector
+==256023== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256023== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256023== Command: ../cub3D error_test/extra_RGB3.cub
+==256023== 
+==256023== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256023== 
+==256023== HEAP SUMMARY:
+==256023==     in use at exit: 65 bytes in 5 blocks
+==256023==   total heap usage: 375 allocs, 370 frees, 6,008 bytes allocated
+==256023== 
+==256023== LEAK SUMMARY:
+==256023==    definitely lost: 0 bytes in 0 blocks
+==256023==    indirectly lost: 0 bytes in 0 blocks
+==256023==      possibly lost: 0 bytes in 0 blocks
+==256023==    still reachable: 65 bytes in 5 blocks
+==256023==         suppressed: 0 bytes in 0 blocks
+==256023== Reachable blocks (those to which a pointer was found) are not shown.
+==256023== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==256023== 
+==256023== For lists of detected and suppressed errors, rerun with: -s
+==256023== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_RGB4.cub...
+###########################################################################
+==256032== Memcheck, a memory error detector
+==256032== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256032== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256032== Command: ../cub3D error_test/extra_RGB4.cub
+==256032== 
+==256032== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB values: for God sake, use F or C to define RGB
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256032== 
+==256032== HEAP SUMMARY:
+==256032==     in use at exit: 0 bytes in 0 blocks
+==256032==   total heap usage: 377 allocs, 377 frees, 6,025 bytes allocated
+==256032== 
+==256032== All heap blocks were freed -- no leaks are possible
+==256032== 
+==256032== For lists of detected and suppressed errors, rerun with: -s
+==256032== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_RGB5.cub...
+###########################################################################
+==256041== Memcheck, a memory error detector
+==256041== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256041== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256041== Command: ../cub3D error_test/extra_RGB5.cub
+==256041== 
+==256041== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB values: for God sake, use F or C to define RGB
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256041== 
+==256041== HEAP SUMMARY:
+==256041==     in use at exit: 0 bytes in 0 blocks
+==256041==   total heap usage: 386 allocs, 386 frees, 6,113 bytes allocated
+==256041== 
+==256041== All heap blocks were freed -- no leaks are possible
+==256041== 
+==256041== For lists of detected and suppressed errors, rerun with: -s
+==256041== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_sprite1.cub...
+###########################################################################
+==256050== Memcheck, a memory error detector
+==256050== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256050== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256050== Command: ../cub3D error_test/extra_sprite1.cub
+==256050== 
+==256050== Warning: invalid file descriptor -1 in syscall close()
+Error
+Extra sprites defined for same direction.
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256050== 
+==256050== HEAP SUMMARY:
+==256050==     in use at exit: 0 bytes in 0 blocks
+==256050==   total heap usage: 399 allocs, 399 frees, 6,447 bytes allocated
+==256050== 
+==256050== All heap blocks were freed -- no leaks are possible
+==256050== 
+==256050== For lists of detected and suppressed errors, rerun with: -s
+==256050== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_sprite2.cub...
+###########################################################################
+==256062== Memcheck, a memory error detector
+==256062== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256062== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256062== Command: ../cub3D error_test/extra_sprite2.cub
+==256062== 
+==256062== Warning: invalid file descriptor -1 in syscall close()
+Error
+Extra sprites defined for same direction.
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256062== 
+==256062== HEAP SUMMARY:
+==256062==     in use at exit: 0 bytes in 0 blocks
+==256062==   total heap usage: 397 allocs, 397 frees, 6,388 bytes allocated
+==256062== 
+==256062== All heap blocks were freed -- no leaks are possible
+==256062== 
+==256062== For lists of detected and suppressed errors, rerun with: -s
+==256062== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrongmap1.cub...
+###########################################################################
+==256073== Memcheck, a memory error detector
+==256073== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256073== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256073== Command: ../cub3D error_test/wrongmap1.cub
+==256073== 
+==256073== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256073== 
+==256073== HEAP SUMMARY:
+==256073==     in use at exit: 0 bytes in 0 blocks
+==256073==   total heap usage: 361 allocs, 361 frees, 5,783 bytes allocated
+==256073== 
+==256073== All heap blocks were freed -- no leaks are possible
+==256073== 
+==256073== For lists of detected and suppressed errors, rerun with: -s
+==256073== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrongmap2.cub...
+###########################################################################
+==256082== Memcheck, a memory error detector
+==256082== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256082== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256082== Command: ../cub3D error_test/wrongmap2.cub
+==256082== 
+==256082== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256082== 
+==256082== HEAP SUMMARY:
+==256082==     in use at exit: 0 bytes in 0 blocks
+==256082==   total heap usage: 361 allocs, 361 frees, 5,783 bytes allocated
+==256082== 
+==256082== All heap blocks were freed -- no leaks are possible
+==256082== 
+==256082== For lists of detected and suppressed errors, rerun with: -s
+==256082== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrongmap3.cub...
+###########################################################################
+==256091== Memcheck, a memory error detector
+==256091== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256091== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256091== Command: ../cub3D error_test/wrongmap3.cub
+==256091== 
+==256091== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256091== 
+==256091== HEAP SUMMARY:
+==256091==     in use at exit: 0 bytes in 0 blocks
+==256091==   total heap usage: 355 allocs, 355 frees, 5,717 bytes allocated
+==256091== 
+==256091== All heap blocks were freed -- no leaks are possible
+==256091== 
+==256091== For lists of detected and suppressed errors, rerun with: -s
+==256091== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrongmap4.cub...
+###########################################################################
+==256100== Memcheck, a memory error detector
+==256100== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256100== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256100== Command: ../cub3D error_test/wrongmap4.cub
+==256100== 
+==256100== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256100== 
+==256100== HEAP SUMMARY:
+==256100==     in use at exit: 0 bytes in 0 blocks
+==256100==   total heap usage: 355 allocs, 355 frees, 5,715 bytes allocated
+==256100== 
+==256100== All heap blocks were freed -- no leaks are possible
+==256100== 
+==256100== For lists of detected and suppressed errors, rerun with: -s
+==256100== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrongmap5.cub...
+###########################################################################
+==256109== Memcheck, a memory error detector
+==256109== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256109== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256109== Command: ../cub3D error_test/wrongmap5.cub
+==256109== 
+==256109== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256109== 
+==256109== HEAP SUMMARY:
+==256109==     in use at exit: 0 bytes in 0 blocks
+==256109==   total heap usage: 355 allocs, 355 frees, 5,717 bytes allocated
+==256109== 
+==256109== All heap blocks were freed -- no leaks are possible
+==256109== 
+==256109== For lists of detected and suppressed errors, rerun with: -s
+==256109== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/missing_RGB1.cub...
+###########################################################################
+==256118== Memcheck, a memory error detector
+==256118== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256118== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256118== Command: ../cub3D error_test/missing_RGB1.cub
+==256118== 
+==256118== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256118== 
+==256118== HEAP SUMMARY:
+==256118==     in use at exit: 0 bytes in 0 blocks
+==256118==   total heap usage: 335 allocs, 335 frees, 5,435 bytes allocated
+==256118== 
+==256118== All heap blocks were freed -- no leaks are possible
+==256118== 
+==256118== For lists of detected and suppressed errors, rerun with: -s
+==256118== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/missing_RGB2.cub...
+###########################################################################
+==256127== Memcheck, a memory error detector
+==256127== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256127== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256127== Command: ../cub3D error_test/missing_RGB2.cub
+==256127== 
+==256127== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256127== 
+==256127== HEAP SUMMARY:
+==256127==     in use at exit: 0 bytes in 0 blocks
+==256127==   total heap usage: 345 allocs, 345 frees, 5,575 bytes allocated
+==256127== 
+==256127== All heap blocks were freed -- no leaks are possible
+==256127== 
+==256127== For lists of detected and suppressed errors, rerun with: -s
+==256127== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/missing_RGB3.cub...
+###########################################################################
+==256136== Memcheck, a memory error detector
+==256136== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256136== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256136== Command: ../cub3D error_test/missing_RGB3.cub
+==256136== 
+==256136== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (ceiling) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256136== 
+==256136== HEAP SUMMARY:
+==256136==     in use at exit: 0 bytes in 0 blocks
+==256136==   total heap usage: 354 allocs, 354 frees, 5,681 bytes allocated
+==256136== 
+==256136== All heap blocks were freed -- no leaks are possible
+==256136== 
+==256136== For lists of detected and suppressed errors, rerun with: -s
+==256136== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrong_RGB1.cub...
+###########################################################################
+==256145== Memcheck, a memory error detector
+==256145== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256145== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256145== Command: ../cub3D error_test/wrong_RGB1.cub
+==256145== 
+==256145== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256145== 
+==256145== HEAP SUMMARY:
+==256145==     in use at exit: 0 bytes in 0 blocks
+==256145==   total heap usage: 355 allocs, 355 frees, 5,719 bytes allocated
+==256145== 
+==256145== All heap blocks were freed -- no leaks are possible
+==256145== 
+==256145== For lists of detected and suppressed errors, rerun with: -s
+==256145== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrong_RGB2.cub...
+###########################################################################
+==256154== Memcheck, a memory error detector
+==256154== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256154== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256154== Command: ../cub3D error_test/wrong_RGB2.cub
+==256154== 
+==256154== Warning: invalid file descriptor -1 in syscall close()
+==256154== Invalid read of size 8
+==256154==    at 0x4026B9: break_commas (parsing_utils1.c:81)
+==256154==    by 0x402633: separate_rgb (parsing_utils1.c:105)
+==256154==    by 0x402599: rgb_parse (parsing_utils1.c:152)
+==256154==    by 0x401946: floor_information (parsing2.c:30)
+==256154==    by 0x401794: extract (parsing2.c:133)
+==256154==    by 0x4013EE: map_handling (parsing1.c:106)
+==256154==    by 0x40121A: main (main.c:24)
+==256154==  Address 0x4aa4708 is 8 bytes after a block of size 16 alloc'd
+==256154==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==256154==    by 0x403E5B: ft_split (ft_split.c:67)
+==256154==    by 0x402690: break_commas (parsing_utils1.c:78)
+==256154==    by 0x402633: separate_rgb (parsing_utils1.c:105)
+==256154==    by 0x402599: rgb_parse (parsing_utils1.c:152)
+==256154==    by 0x401946: floor_information (parsing2.c:30)
+==256154==    by 0x401794: extract (parsing2.c:133)
+==256154==    by 0x4013EE: map_handling (parsing1.c:106)
+==256154==    by 0x40121A: main (main.c:24)
+==256154== 
+==256154== Invalid read of size 1
+==256154==    at 0x403CBB: ft_atoi (ft_atoi.c:20)
+==256154==    by 0x40286E: rgb_assignment (parsing_utils2.c:44)
+==256154==    by 0x402704: break_commas (parsing_utils1.c:86)
+==256154==    by 0x402633: separate_rgb (parsing_utils1.c:105)
+==256154==    by 0x402599: rgb_parse (parsing_utils1.c:152)
+==256154==    by 0x401946: floor_information (parsing2.c:30)
+==256154==    by 0x401794: extract (parsing2.c:133)
+==256154==    by 0x4013EE: map_handling (parsing1.c:106)
+==256154==    by 0x40121A: main (main.c:24)
+==256154==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==256154== 
+==256154== 
+==256154== Process terminating with default action of signal 11 (SIGSEGV)
+==256154==  Access not within mapped region at address 0x0
+==256154==    at 0x403CBB: ft_atoi (ft_atoi.c:20)
+==256154==    by 0x40286E: rgb_assignment (parsing_utils2.c:44)
+==256154==    by 0x402704: break_commas (parsing_utils1.c:86)
+==256154==    by 0x402633: separate_rgb (parsing_utils1.c:105)
+==256154==    by 0x402599: rgb_parse (parsing_utils1.c:152)
+==256154==    by 0x401946: floor_information (parsing2.c:30)
+==256154==    by 0x401794: extract (parsing2.c:133)
+==256154==    by 0x4013EE: map_handling (parsing1.c:106)
+==256154==    by 0x40121A: main (main.c:24)
+==256154==  If you believe this happened as a result of a stack
+==256154==  overflow in your program's main thread (unlikely but
+==256154==  possible), you can try to increase the size of the
+==256154==  main thread stack using the --main-stacksize= flag.
+==256154==  The main thread stack size used in this run was 8388608.
+==256154== 
+==256154== HEAP SUMMARY:
+==256154==     in use at exit: 1,028 bytes in 31 blocks
+==256154==   total heap usage: 368 allocs, 337 frees, 5,851 bytes allocated
+==256154== 
+==256154== LEAK SUMMARY:
+==256154==    definitely lost: 0 bytes in 0 blocks
+==256154==    indirectly lost: 0 bytes in 0 blocks
+==256154==      possibly lost: 0 bytes in 0 blocks
+==256154==    still reachable: 1,028 bytes in 31 blocks
+==256154==         suppressed: 0 bytes in 0 blocks
+==256154== Reachable blocks (those to which a pointer was found) are not shown.
+==256154== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==256154== 
+==256154== For lists of detected and suppressed errors, rerun with: -s
+==256154== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrong_RGB3.cub...
+###########################################################################
+==256168== Memcheck, a memory error detector
+==256168== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256168== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256168== Command: ../cub3D error_test/wrong_RGB3.cub
+==256168== 
+==256168== Warning: invalid file descriptor -1 in syscall close()
+==256168== Invalid read of size 8
+==256168==    at 0x4026B9: break_commas (parsing_utils1.c:81)
+==256168==    by 0x402633: separate_rgb (parsing_utils1.c:105)
+==256168==    by 0x402599: rgb_parse (parsing_utils1.c:152)
+==256168==    by 0x401946: floor_information (parsing2.c:30)
+==256168==    by 0x401794: extract (parsing2.c:133)
+==256168==    by 0x4013EE: map_handling (parsing1.c:106)
+==256168==    by 0x40121A: main (main.c:24)
+==256168==  Address 0x4aa49a8 is 8 bytes after a block of size 16 alloc'd
+==256168==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==256168==    by 0x403E5B: ft_split (ft_split.c:67)
+==256168==    by 0x402690: break_commas (parsing_utils1.c:78)
+==256168==    by 0x402633: separate_rgb (parsing_utils1.c:105)
+==256168==    by 0x402599: rgb_parse (parsing_utils1.c:152)
+==256168==    by 0x401946: floor_information (parsing2.c:30)
+==256168==    by 0x401794: extract (parsing2.c:133)
+==256168==    by 0x4013EE: map_handling (parsing1.c:106)
+==256168==    by 0x40121A: main (main.c:24)
+==256168== 
+==256168== Invalid read of size 1
+==256168==    at 0x403CBB: ft_atoi (ft_atoi.c:20)
+==256168==    by 0x40286E: rgb_assignment (parsing_utils2.c:44)
+==256168==    by 0x402704: break_commas (parsing_utils1.c:86)
+==256168==    by 0x402633: separate_rgb (parsing_utils1.c:105)
+==256168==    by 0x402599: rgb_parse (parsing_utils1.c:152)
+==256168==    by 0x401946: floor_information (parsing2.c:30)
+==256168==    by 0x401794: extract (parsing2.c:133)
+==256168==    by 0x4013EE: map_handling (parsing1.c:106)
+==256168==    by 0x40121A: main (main.c:24)
+==256168==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==256168== 
+==256168== 
+==256168== Process terminating with default action of signal 11 (SIGSEGV)
+==256168==  Access not within mapped region at address 0x0
+==256168==    at 0x403CBB: ft_atoi (ft_atoi.c:20)
+==256168==    by 0x40286E: rgb_assignment (parsing_utils2.c:44)
+==256168==    by 0x402704: break_commas (parsing_utils1.c:86)
+==256168==    by 0x402633: separate_rgb (parsing_utils1.c:105)
+==256168==    by 0x402599: rgb_parse (parsing_utils1.c:152)
+==256168==    by 0x401946: floor_information (parsing2.c:30)
+==256168==    by 0x401794: extract (parsing2.c:133)
+==256168==    by 0x4013EE: map_handling (parsing1.c:106)
+==256168==    by 0x40121A: main (main.c:24)
+==256168==  If you believe this happened as a result of a stack
+==256168==  overflow in your program's main thread (unlikely but
+==256168==  possible), you can try to increase the size of the
+==256168==  main thread stack using the --main-stacksize= flag.
+==256168==  The main thread stack size used in this run was 8388608.
+==256168== 
+==256168== HEAP SUMMARY:
+==256168==     in use at exit: 1,048 bytes in 31 blocks
+==256168==   total heap usage: 376 allocs, 345 frees, 5,999 bytes allocated
+==256168== 
+==256168== LEAK SUMMARY:
+==256168==    definitely lost: 0 bytes in 0 blocks
+==256168==    indirectly lost: 0 bytes in 0 blocks
+==256168==      possibly lost: 0 bytes in 0 blocks
+==256168==    still reachable: 1,048 bytes in 31 blocks
+==256168==         suppressed: 0 bytes in 0 blocks
+==256168== Reachable blocks (those to which a pointer was found) are not shown.
+==256168== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==256168== 
+==256168== For lists of detected and suppressed errors, rerun with: -s
+==256168== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player1.cub...
+###########################################################################
+==256182== Memcheck, a memory error detector
+==256182== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256182== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256182== Command: ../cub3D error_test/extra_player1.cub
+==256182== 
+==256182== Warning: invalid file descriptor -1 in syscall close()
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256182== 
+==256182== HEAP SUMMARY:
+==256182==     in use at exit: 0 bytes in 0 blocks
+==256182==   total heap usage: 269 allocs, 269 frees, 4,477 bytes allocated
+==256182== 
+==256182== All heap blocks were freed -- no leaks are possible
+==256182== 
+==256182== For lists of detected and suppressed errors, rerun with: -s
+==256182== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player2.cub...
+###########################################################################
+==256191== Memcheck, a memory error detector
+==256191== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256191== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256191== Command: ../cub3D error_test/extra_player2.cub
+==256191== 
+==256191== Warning: invalid file descriptor -1 in syscall close()
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256191== 
+==256191== HEAP SUMMARY:
+==256191==     in use at exit: 0 bytes in 0 blocks
+==256191==   total heap usage: 269 allocs, 269 frees, 4,477 bytes allocated
+==256191== 
+==256191== All heap blocks were freed -- no leaks are possible
+==256191== 
+==256191== For lists of detected and suppressed errors, rerun with: -s
+==256191== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player3.cub...
+###########################################################################
+==256200== Memcheck, a memory error detector
+==256200== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256200== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256200== Command: ../cub3D error_test/extra_player3.cub
+==256200== 
+==256200== Warning: invalid file descriptor -1 in syscall close()
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256200== 
+==256200== HEAP SUMMARY:
+==256200==     in use at exit: 0 bytes in 0 blocks
+==256200==   total heap usage: 269 allocs, 269 frees, 4,477 bytes allocated
+==256200== 
+==256200== All heap blocks were freed -- no leaks are possible
+==256200== 
+==256200== For lists of detected and suppressed errors, rerun with: -s
+==256200== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player4.cub...
+###########################################################################
+==256209== Memcheck, a memory error detector
+==256209== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256209== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256209== Command: ../cub3D error_test/extra_player4.cub
+==256209== 
+==256209== Warning: invalid file descriptor -1 in syscall close()
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256209== 
+==256209== HEAP SUMMARY:
+==256209==     in use at exit: 0 bytes in 0 blocks
+==256209==   total heap usage: 269 allocs, 269 frees, 4,477 bytes allocated
+==256209== 
+==256209== All heap blocks were freed -- no leaks are possible
+==256209== 
+==256209== For lists of detected and suppressed errors, rerun with: -s
+==256209== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player5.cub...
+###########################################################################
+==256218== Memcheck, a memory error detector
+==256218== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256218== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256218== Command: ../cub3D error_test/extra_player5.cub
+==256218== 
+==256218== Warning: invalid file descriptor -1 in syscall close()
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256218== 
+==256218== HEAP SUMMARY:
+==256218==     in use at exit: 0 bytes in 0 blocks
+==256218==   total heap usage: 269 allocs, 269 frees, 4,477 bytes allocated
+==256218== 
+==256218== All heap blocks were freed -- no leaks are possible
+==256218== 
+==256218== For lists of detected and suppressed errors, rerun with: -s
+==256218== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player6.cub...
+###########################################################################
+==256227== Memcheck, a memory error detector
+==256227== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256227== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256227== Command: ../cub3D error_test/extra_player6.cub
+==256227== 
+==256227== Warning: invalid file descriptor -1 in syscall close()
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256227== 
+==256227== HEAP SUMMARY:
+==256227==     in use at exit: 0 bytes in 0 blocks
+==256227==   total heap usage: 269 allocs, 269 frees, 4,477 bytes allocated
+==256227== 
+==256227== All heap blocks were freed -- no leaks are possible
+==256227== 
+==256227== For lists of detected and suppressed errors, rerun with: -s
+==256227== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player7.cub...
+###########################################################################
+==256236== Memcheck, a memory error detector
+==256236== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256236== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256236== Command: ../cub3D error_test/extra_player7.cub
+==256236== 
+==256236== Warning: invalid file descriptor -1 in syscall close()
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256236== 
+==256236== HEAP SUMMARY:
+==256236==     in use at exit: 0 bytes in 0 blocks
+==256236==   total heap usage: 269 allocs, 269 frees, 4,477 bytes allocated
+==256236== 
+==256236== All heap blocks were freed -- no leaks are possible
+==256236== 
+==256236== For lists of detected and suppressed errors, rerun with: -s
+==256236== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player8.cub...
+###########################################################################
+==256245== Memcheck, a memory error detector
+==256245== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256245== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256245== Command: ../cub3D error_test/extra_player8.cub
+==256245== 
+==256245== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256245== 
+==256245== HEAP SUMMARY:
+==256245==     in use at exit: 0 bytes in 0 blocks
+==256245==   total heap usage: 273 allocs, 273 frees, 4,532 bytes allocated
+==256245== 
+==256245== All heap blocks were freed -- no leaks are possible
+==256245== 
+==256245== For lists of detected and suppressed errors, rerun with: -s
+==256245== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/not_walled1.cub...
+###########################################################################
+==256254== Memcheck, a memory error detector
+==256254== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256254== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256254== Command: ../cub3D error_test/not_walled1.cub
+==256254== 
+==256254== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256254== 
+==256254== HEAP SUMMARY:
+==256254==     in use at exit: 0 bytes in 0 blocks
+==256254==   total heap usage: 263 allocs, 263 frees, 4,267 bytes allocated
+==256254== 
+==256254== All heap blocks were freed -- no leaks are possible
+==256254== 
+==256254== For lists of detected and suppressed errors, rerun with: -s
+==256254== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/not_walled2.cub...
+###########################################################################
+==256263== Memcheck, a memory error detector
+==256263== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256263== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256263== Command: ../cub3D error_test/not_walled2.cub
+==256263== 
+==256263== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256263== 
+==256263== HEAP SUMMARY:
+==256263==     in use at exit: 0 bytes in 0 blocks
+==256263==   total heap usage: 373 allocs, 373 frees, 6,007 bytes allocated
+==256263== 
+==256263== All heap blocks were freed -- no leaks are possible
+==256263== 
+==256263== For lists of detected and suppressed errors, rerun with: -s
+==256263== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/island1.cub...
+###########################################################################
+==256272== Memcheck, a memory error detector
+==256272== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256272== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256272== Command: ../cub3D error_test/island1.cub
+==256272== 
+==256272== Warning: invalid file descriptor -1 in syscall close()
+executed to the end
+==256272== 
+==256272== HEAP SUMMARY:
+==256272==     in use at exit: 0 bytes in 0 blocks
+==256272==   total heap usage: 294 allocs, 294 frees, 9,217 bytes allocated
+==256272== 
+==256272== All heap blocks were freed -- no leaks are possible
+==256272== 
+==256272== For lists of detected and suppressed errors, rerun with: -s
+==256272== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/island2.cub...
+###########################################################################
+==256281== Memcheck, a memory error detector
+==256281== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256281== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256281== Command: ../cub3D error_test/island2.cub
+==256281== 
+==256281== Warning: invalid file descriptor -1 in syscall close()
+executed to the end
+==256281== 
+==256281== HEAP SUMMARY:
+==256281==     in use at exit: 0 bytes in 0 blocks
+==256281==   total heap usage: 286 allocs, 286 frees, 9,037 bytes allocated
+==256281== 
+==256281== All heap blocks were freed -- no leaks are possible
+==256281== 
+==256281== For lists of detected and suppressed errors, rerun with: -s
+==256281== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/island3.cub...
+###########################################################################
+==256290== Memcheck, a memory error detector
+==256290== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256290== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256290== Command: ../cub3D error_test/island3.cub
+==256290== 
+==256290== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256290== 
+==256290== HEAP SUMMARY:
+==256290==     in use at exit: 0 bytes in 0 blocks
+==256290==   total heap usage: 304 allocs, 304 frees, 4,932 bytes allocated
+==256290== 
+==256290== All heap blocks were freed -- no leaks are possible
+==256290== 
+==256290== For lists of detected and suppressed errors, rerun with: -s
+==256290== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/island4.cub...
+###########################################################################
+==256299== Memcheck, a memory error detector
+==256299== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256299== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256299== Command: ../cub3D error_test/island4.cub
+==256299== 
+==256299== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==256299== 
+==256299== HEAP SUMMARY:
+==256299==     in use at exit: 0 bytes in 0 blocks
+==256299==   total heap usage: 304 allocs, 304 frees, 4,932 bytes allocated
+==256299== 
+==256299== All heap blocks were freed -- no leaks are possible
+==256299== 
+==256299== For lists of detected and suppressed errors, rerun with: -s
+==256299== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrong_name.cbu...
+###########################################################################
+==256308== Memcheck, a memory error detector
+==256308== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256308== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256308== Command: ../cub3D error_test/wrong_name.cbu
+==256308== 
+Error
+Map name is invalid
+==256308== 
+==256308== HEAP SUMMARY:
+==256308==     in use at exit: 0 bytes in 0 blocks
+==256308==   total heap usage: 1 allocs, 1 frees, 192 bytes allocated
+==256308== 
+==256308== All heap blocks were freed -- no leaks are possible
+==256308== 
+==256308== For lists of detected and suppressed errors, rerun with: -s
+==256308== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/file.cbuwrong...
+###########################################################################
+==256317== Memcheck, a memory error detector
+==256317== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256317== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256317== Command: ../cub3D error_test/file.cbuwrong
+==256317== 
+Error
+Map name is invalid
+==256317== 
+==256317== HEAP SUMMARY:
+==256317==     in use at exit: 0 bytes in 0 blocks
+==256317==   total heap usage: 1 allocs, 1 frees, 192 bytes allocated
+==256317== 
+==256317== All heap blocks were freed -- no leaks are possible
+==256317== 
+==256317== For lists of detected and suppressed errors, rerun with: -s
+==256317== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/dir_test.cub...
+###########################################################################
+==256326== Memcheck, a memory error detector
+==256326== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==256326== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==256326== Command: ../cub3D error_test/dir_test.cub
+==256326== 
+Error
+Map name is invalid
+==256326== 
+==256326== HEAP SUMMARY:
+==256326==     in use at exit: 0 bytes in 0 blocks
+==256326==   total heap usage: 1 allocs, 1 frees, 192 bytes allocated
+==256326== 
+==256326== All heap blocks were freed -- no leaks are possible
+==256326== 
+==256326== For lists of detected and suppressed errors, rerun with: -s
+==256326== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+

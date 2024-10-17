@@ -1,0 +1,144 @@
+Running test for error_test/extra_RGB1.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/extra_RGB2.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/extra_RGB3.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/extra_RGB4.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/extra_RGB5.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/extra_sprite1.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/extra_sprite2.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/sprite_wrong1.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/wrongmap1.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/wrongmap2.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/missing_RGB1.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/missing_RGB2.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/missing_RGB3.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/wrong_RGB1.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/wrong_RGB2.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/wrong_RGB3.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/extra_player1.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/extra_player2.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/extra_player3.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/extra_player4.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/extra_player5.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/extra_player6.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/extra_player7.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
+Running test for error_test/extra_player8.cub...
+###########################################################################
+valgrind: Unknown option: --leak-check
+valgrind: Use --help for more information or consult the user manual.
+
+
