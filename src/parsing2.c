@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/16 11:52:07 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/17 10:24:27 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ static int8_t	map_information(t_data *data)
 		}
 		i++;
 	}
-	data->map[j] = '\0';
+	data->map[j] = NULL;
 	return (SUCCESS);
 }
 
