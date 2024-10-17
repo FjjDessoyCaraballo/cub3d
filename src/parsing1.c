@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/16 14:59:45 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:41:07 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,15 +97,11 @@ static int8_t	open_file(t_data *data, char *fname)
  */
 int8_t	map_handling(t_data *data, char *fname)
 {
-	if (check_name(fname) == FAILURE)
+	if (check_name(fname) == FAILURE
+		|| open_file(data, fname) == FAILURE)
 	{
 		free(data);
 		exit(err_msg(NULL, NAME, FAILURE));
-	}
-	if (open_file(data, fname) == FAILURE)
-	{
-		free(data);
-		exit(err_msg(NULL, MAP, FAILURE));
 	}
 	if (extract(data) == FAILURE)
 		return (FAILURE);

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:12:41 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/15 11:47:04 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:15:05 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@ static int8_t	no_sprite(t_data *data)
 		if (!ft_strncmp(&data->file[index][0], "N", 1)
 			&& !ft_strncmp(&data->file[index][1], "O", 1))
 		{
+			data->repeat_test++;
+			if (data->repeat_test > 1)
+				return (err_msg(NULL, SPRITE2, FAILURE));
 			sprite = ft_strdup(data->file[index]);
 			if (!sprite)
 				return (err_msg(NULL, MALLOC, FAILURE));
-			data->repeat_test++;
 			data->n_sprite = ft_strdup(sprite_path(sprite));
 			free(sprite);
 			if (!data->n_sprite)
@@ -35,8 +37,6 @@ static int8_t	no_sprite(t_data *data)
 		}
 		index++;
 	}
-	if (data->repeat_test != 1)
-		return (err_msg(NULL, SPRITE2, FAILURE));
 	return (SUCCESS);
 }
 static int8_t	so_sprite(t_data *data)
@@ -51,10 +51,12 @@ static int8_t	so_sprite(t_data *data)
 		if (!ft_strncmp(&data->file[index][0], "S", 1)
 			&& !ft_strncmp(&data->file[index][1], "O", 1))
 		{
+			data->repeat_test++;
+			if (data->repeat_test > 1)
+				return (err_msg(NULL, SPRITE2, FAILURE));
 			sprite = ft_strdup(data->file[index]);
 			if (!sprite)
 				return (err_msg(NULL, MALLOC, FAILURE));
-			data->repeat_test++;
 			data->s_sprite = ft_strdup(sprite_path(sprite));
 			free(sprite);
 			if (!data->s_sprite)
@@ -62,8 +64,6 @@ static int8_t	so_sprite(t_data *data)
 		}
 		index++;
 	}
-	if (data->repeat_test != 1)
-		return (err_msg(NULL, SPRITE2, FAILURE));
 	return (SUCCESS);
 }
 static int8_t	we_sprite(t_data *data)
@@ -78,10 +78,12 @@ static int8_t	we_sprite(t_data *data)
 		if (!ft_strncmp(&data->file[index][0], "W", 1)
 			&& !ft_strncmp(&data->file[index][1], "E", 1))
 		{
+			data->repeat_test++;
+			if (data->repeat_test > 1)
+				return (err_msg(NULL, SPRITE2, FAILURE));
 			sprite = ft_strdup(data->file[index]);
 			if (!sprite)
 				return (err_msg(NULL, MALLOC, FAILURE));
-			data->repeat_test++;
 			data->w_sprite = ft_strdup(sprite_path(sprite));
 			free(sprite);
 			if (!data->w_sprite)
@@ -89,8 +91,6 @@ static int8_t	we_sprite(t_data *data)
 		}
 		index++;
 	}
-	if (data->repeat_test != 1)
-		return (err_msg(NULL, SPRITE2, FAILURE));
 	return (SUCCESS);
 }
 static int8_t	ea_sprite(t_data *data)
@@ -105,10 +105,12 @@ static int8_t	ea_sprite(t_data *data)
 		if (!ft_strncmp(&data->file[index][0], "E", 1)
 			&& !ft_strncmp(&data->file[index][1], "A", 1))
 		{
+			data->repeat_test++;
+			if (data->repeat_test > 1)
+				return (err_msg(NULL, SPRITE2, FAILURE));
 			sprite = ft_strdup(data->file[index]);
 			if (!sprite)
 				return (err_msg(NULL, MALLOC, FAILURE));
-			data->repeat_test++;
 			data->e_sprite = ft_strdup(sprite_path(sprite));
 			free(sprite);
 			if (!data->e_sprite)
@@ -116,8 +118,6 @@ static int8_t	ea_sprite(t_data *data)
 		}
 		index++;
 	}
-	if (data->repeat_test != 1)
-		return (err_msg(NULL, SPRITE2, FAILURE));
 	return (SUCCESS);
 }
 
@@ -148,22 +148,10 @@ int8_t	search_sprites(t_data *data)
 	if (no_sprite(data) == FAILURE)
 		return (FAILURE);
 	if (so_sprite(data) == FAILURE)
-	{
-		free(data->n_sprite);
 		return (FAILURE);
-	}
 	if (we_sprite(data) == FAILURE)
-	{
-		free(data->n_sprite);
-		free(data->s_sprite);
 		return (FAILURE);
-	}
 	if (ea_sprite(data) == FAILURE)
-	{
-		free(data->n_sprite);
-		free(data->s_sprite);
-		free(data->w_sprite);
 		return (FAILURE);
-	}
 	return (SUCCESS);
 }
