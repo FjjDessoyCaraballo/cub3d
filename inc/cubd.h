@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/16 14:55:38 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:51:09 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,18 +70,20 @@
 # define USAGE11 "By: fdessoy- && araveala\n"
 
 /*************************************************/
-/* usage macros **********************************/
+/* fail mssgs   **********************************/
 /*************************************************/
 # define TEXTURE_FAIL "texture invalid or simply missing\n"
 # define IMAGE_FAIL "image invalid\n"
-
+# define IMG_TO_WIN "image could not put to window, check image not corrupt\n"
+# define NEW_IMG "MLX new image allocation failure, clean chache?\n"
+# define RESIZE "MLX failed to resize image, did you ask for something unreasonable?\n"
 /*************************************************/
 /*mlx macros / graphics macros********************/
 /*************************************************/
 # define WIDTH 1920 //~~ will play with sizes 
 # define HEIGHT 1080 //~~ will play with sizes
-# define MINI_WIDTH 200
-# define MINI_HEIGHT 200
+# define MINI_WIDTH 40
+# define MINI_HEIGHT 40
 # define T_SIZE 64 //~~ tile size
 # define MINI_T 32
 # define MINI_OFFSET 10
@@ -187,6 +189,7 @@ typedef	struct s_data
 	mlx_image_t		*im_mini_floor;
 	mlx_image_t		*im_mini_wall;
 	mlx_image_t		*im_mini_player;
+	mlx_image_t		*im_map_player; //effectivly miniplayer
 	mlx_image_t		*im_ray;
 
 }		t_data;
@@ -238,7 +241,9 @@ void	usage(void);
 
 /* in base.c*/
 int		open_window(t_data *data);
-
+/* in key_hooks.c */
+void	keyhookfunc(mlx_key_data_t keydata, void *param);
+void	update_player(t_data *data);
 /* in movement.c */
 void	keyhookfunc(mlx_key_data_t keydata, void *param);
 void    update_player(t_data *data);
@@ -256,17 +261,28 @@ void	collect_ray(t_data *data, int i, double ray_distance);
 void    rotate_left(t_data *data);
 void    rotate_right(t_data *data);
 
+
 /* printer REMOVE LATER */
 void	printer(t_data *data);
 
 /* bonus */
 int		initlize_minimap(t_data *data);
+void	draw_mini_player(t_data *data);
 void	draw_player(t_data *data);
 void	draw_first_line(t_data *data); // simple draw a line from center
 void	draw_line(t_data *data, int i);
 
+/* minimap.c */
+
+/* mimimap_utils_bonus.c */
+void	adjust_mapstart(int *p_x, int *p_y);
+void	draw_first_line(t_data *data);
+void	draw_line(t_data *data, int i);
+void	draw_mini_player(t_data *data);
+
 /* in free.c */
 void	free_data(t_data *data);
-void	draw_map(t_data *data);
+void	draw_mini_map(t_data *data, int x, int y, int index);
+//void	draw_map(t_data *data);
 
 #endif

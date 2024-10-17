@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/16 12:54:15 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:00:57 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ void	stack_ray_data(t_data *data, int i)
 	player_angle = atan2(data->p_dir_y, data->p_dir_x);
 	//bonus
 	data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	//
 	while (i <= RAY_MAX)
 	{
 		current_angle = starting_angle + i * angle_increment;
@@ -143,7 +142,6 @@ void	collect_ray(t_data *data, int i, double ray_distance)
 			//#here#
 			data->ray_len[i] = ray_distance;
 			data->ray_hit[i] = find_direction(data->ray_dir_x, data->ray_dir_y);
-			// hit box
 			return ;
 		}
 

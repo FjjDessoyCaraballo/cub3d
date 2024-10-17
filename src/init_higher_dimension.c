@@ -6,12 +6,16 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/16 10:50:50 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:01:55 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
+/**
+ * set up for 3d stuff 
+ * 
+ */
 /*int	init_bigmap(t_data *data)
 {
 	data->tx_n_wall = mlx_load_png("data->path...wall.png");
