@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 08:37:11 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/17 12:39:09 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/18 09:34:16 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	draw_first_line(t_data *data)
 			mlx_put_pixel(data->im_ray, draw_x, draw_y, red);
 		i++;
 	}
-    //mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
+    mlx_image_to_window(data->mlx, data->im_ray, WIDTH, HEIGHT); // 0, 0
 }
 
 /**
@@ -97,7 +97,7 @@ void	draw_line(t_data *data, int i)
 			mlx_put_pixel(data->im_ray, draw_x, draw_y, red);
 		len++;
 	}
-	mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
+	mlx_image_to_window(data->mlx, data->im_ray, WIDTH, HEIGHT); // 00
 }
 	//if south draw like this
 	/*while (i <= ray_size)
@@ -125,7 +125,7 @@ void	draw_mini_player(t_data *data)
 	uint32_t	red;
 	int			radius;
 	double		center_x;
-	double			center_y;
+	double		center_y;
 	int			y = 0;
 	int			x = 0;
 	int			draw_x;
@@ -136,7 +136,7 @@ void	draw_mini_player(t_data *data)
 	//adjust_mapstart(&p_x, &p_y);
 	red = 0xFF0000FF;
 	radius = MINI_T / 4; // 6
-	data->im_map_player = mlx_new_image(data->mlx, MINI_WIDTH, MINI_HEIGHT);
+	data->im_map_player = mlx_new_image(data->mlx, MINI_WIDTH, MINI_HEIGHT);//WIDTH, MINI_HEIGHT);
 	center_x = (p_x / MINI_T) + MINI_T / 2;
     center_y = (p_y / MINI_T) + MINI_T / 2;
 	//center_x -= (MINI_WIDTH - MINI_T * 6);/// 2;
@@ -159,7 +159,7 @@ void	draw_mini_player(t_data *data)
 		}
 		y++;
 	}
-	mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_HEIGHT);
+	mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_HEIGHT); //MINI_
 }
 
 //#include <string.h> //~~ testing 

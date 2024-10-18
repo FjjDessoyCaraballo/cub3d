@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/17 13:00:57 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:00:59 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,12 +102,18 @@ void	stack_ray_data(t_data *data, int i)
 	data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	while (i <= RAY_MAX)
 	{
+
 		current_angle = starting_angle + i * angle_increment;
 		ray_angle = player_angle + current_angle;
 		data->ray_dir_x = cos(ray_angle);
 		data->ray_dir_y = sin(ray_angle);
-		collect_ray(data, i, 0.0);
-		draw_line(data, i);
+
+		collect_ray(data, i, 0.0, ray_angle);
+		
+		draw_wall(data, i);
+		
+		// comment out for 3d V
+		//draw_line(data, i);
 		i++;
 	}
 }
@@ -121,15 +127,16 @@ array not malloced seperatley, only malloced with data struct, ray_len[120]
 	3. convert ray position back to a comparible number to compare with 2darray for wall hit check
 	4. i think #here# we will need to implement if ray hits wall render 3d or collect data
 */
-void	collect_ray(t_data *data, int i, double ray_distance)
+void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 {
 	double	ppos_pixel_x;
 	double	ppos_pixel_y;
 	double	rpos_pixel_x;
 	double	rpos_pixel_y;
-
+	(void) ray_angle;
 	ppos_pixel_x = (data->x_ppos * T_SIZE) + T_SIZE / 2;
 	ppos_pixel_y = (data->y_ppos * T_SIZE) + T_SIZE / 2;
+	//printf("/t/t/twhat is ray angle at start = %f\n", ray_angle);
 	//while (data->x_ppos >= 0 && data->x_ppos < data->map_width && data->y_ppos >= 0 && data->y_ppos < data->map_length)
 	while (data->x_ppos >= 0 && data->x_ppos < WIDTH && data->y_ppos >= 0 && data->y_ppos < HEIGHT)
 	{
@@ -140,12 +147,15 @@ void	collect_ray(t_data *data, int i, double ray_distance)
 		if (data->map[(int)rpos_pixel_y / T_SIZE][(int)rpos_pixel_x / T_SIZE] == '1')
 		{
 			//#here#
-			data->ray_len[i] = ray_distance;
+			//corrected_distance = ray_distance * cos(data->fov / 2 - ray_angle);
+			//data->ray_len[i] = ray_distance;
+			//data->ray_len[i] = corrected_distance;// * cos(FOV / 2 - ray_angle);
+			data->ray_len[i] = ray_distance + cos(FOV / 2 - ray_angle);
 			data->ray_hit[i] = find_direction(data->ray_dir_x, data->ray_dir_y);
 			return ;
 		}
-
-		ray_distance++;
+		//ray_distance++;
+		ray_distance += 0.1;
 	}
 }
 

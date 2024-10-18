@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/17 14:08:16 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:35:45 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@
 # define ROTATE_ANGLE	0.0872665 // 5 degrees in radians
 # define PI				3.14159265358979323846
 # define DEG2RAD 		(PI / 180.0)
-# define STEP			0.1
+# define STEP			0.03
 /*************************************************/
 /* structs ***************************************/
 /*************************************************/
@@ -265,12 +265,14 @@ void    move_player(t_data *data, double step);
 
 /* in rays.c */
 void	stack_ray_data(t_data *data, int i);
-void	collect_ray(t_data *data, int i, double ray_distance);
+void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle);
 //void	collect_ray(t_data *data); // simle one ray from middle
 
 void    rotate_left(t_data *data);
 void    rotate_right(t_data *data);
 
+/* init_higher_dimension.c #our 3d perspective*/
+int		draw_wall(t_data *data, int i);
 
 /* printer REMOVE LATER */
 void	printer(t_data *data);
@@ -280,7 +282,6 @@ int		initlize_minimap(t_data *data);
 void	draw_mini_player(t_data *data);
 void	draw_player(t_data *data);
 void	draw_first_line(t_data *data); // simple draw a line from center
-void	draw_line(t_data *data, int i);
 
 /* minimap.c */
 

@@ -26,6 +26,7 @@ SRC_FILES = main.c\
 			error.c\
 			base.c\
 			movement.c\
+			key_hooks.c\
 			rays.c\
 			init_higher_dimension.c\
 			minimap.c\

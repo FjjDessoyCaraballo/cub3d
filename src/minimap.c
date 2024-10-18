@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/17 12:44:09 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:08:53 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,9 @@ void	init_mini_player(t_data *data)
 	{
 		while (x < data->map_width)
 		{
-			if (data->map[y][x] == 'N' && x < data->map_width) // N ret char
+			if (data->map[y][x])
+			{
+			if (data->map[y][x] == 'N' && x < data->map_width && y < data->map_length) // N ret char
 			{
 				// reps north right now .
 				data->p_dir_x = 0;
@@ -81,8 +83,9 @@ void	init_mini_player(t_data *data)
 					data->ray_size = 40;
 				data->map[y][x] = '0'; // we dont need the n anymore
 				draw_player(data);
-				draw_first_line(data);
+				//draw_first_line(data);
 				mlx_image_to_window(data->mlx, data->im_mini_player, 0, 0);
+			}
 			}
 			x++;
 		}
@@ -95,7 +98,7 @@ void	init_mini_player(t_data *data)
  * Inits mini texture to mini image and resizes
  */
 int	init_mini_imgs(t_data *data)
-{
+{	
 	data->tx_mini_floor = mlx_load_png("./minimap_textures/floor.png");
 	data->tx_mini_wall = mlx_load_png("./minimap_textures/grass.png");
 	if (data->tx_mini_floor == NULL || data->tx_mini_wall == NULL)
@@ -190,10 +193,10 @@ int	initlize_minimap(t_data *data)
 	if (init_map(data) == FAILURE)
 		return (FAILURE);
 	draw_mini_map(data, 0, 0 , 0);
-	draw_mini_player(data);
-
 	init_mini_player(data);
-	return (0);
+	draw_mini_player(data);
+	//data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	return (SUCCESS);
 }
 
 
