@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 13:51:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/18 14:03:44 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/18 14:06:21 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static	int8_t load_pngs(t_data *data)
 	if (!data->im_n_wall || !data->im_s_wall || !data->im_e_wall
 		|| !data->im_w_wall)
 		return (FAILURE);
+	return (SUCCESS);
 }
 
 int8_t	image_handling(t_data *data)
