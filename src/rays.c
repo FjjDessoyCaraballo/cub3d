@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/18 16:50:29 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/18 17:08:15 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,13 +160,15 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 			
 			if (fabs(cos_angle_diff) < 1e-6)//cos_angle_diff)
 			{
-				printf("waaaaaaaaaaaaaaaaaaaaaaa\n");
-				cos_angle_diff = (cos_angle_diff < 0) ? -1e-6 : 1e-6;
-				if (fabs(cos_angle_diff) < 1e-6)//cos_angle_diff)
-					printf("stilllaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n");
+				//data->ray_len[i] = 1e-0;
+				cos_angle_diff = (cos_angle_diff < 0) ? -1e-2 : 1e-2;
+				//if (fabs(cos_angle_diff) < 1e-6)//cos_angle_diff)
+				//	printf("stilllaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n");
+				//return ;
 			}
 				//printf("ray len = %f\n", data->ray_len[i]);
 			data->ray_len[i] = ray_distance + cos_angle_diff / 2;
+			printf("ray len = %e\n", data->ray_len[i]);
 			//printf("ray len just after = %f\n", data->ray_len[i]);
 			data->ray_hit[i] = find_direction(data->ray_dir_x, data->ray_dir_y);
 			//printf("ray len before print = %f\n", data->ray_len[i]);
