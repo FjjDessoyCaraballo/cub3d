@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/18 13:00:59 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/18 16:50:29 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,21 +142,41 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 	{
 		rpos_pixel_x = ppos_pixel_x + (int)(data->ray_dir_x * ray_distance);
 		rpos_pixel_y = ppos_pixel_y + (int)(data->ray_dir_y * ray_distance);
+		//rpos_pixel_x = ppos_pixel_x + cos(ray_angle) * ray_distance;
+        //rpos_pixel_y = ppos_pixel_y + sin(ray_angle) * ray_distance;
 		if (outof_bounds_check(data, rpos_pixel_y, rpos_pixel_x) == FAILURE)
 			return ;
 		if (data->map[(int)rpos_pixel_y / T_SIZE][(int)rpos_pixel_x / T_SIZE] == '1')
 		{
 			//#here#
-			//corrected_distance = ray_distance * cos(data->fov / 2 - ray_angle);
-			//data->ray_len[i] = ray_distance;
-			//data->ray_len[i] = corrected_distance;// * cos(FOV / 2 - ray_angle);
-			data->ray_len[i] = ray_distance + cos(FOV / 2 - ray_angle);
+			//double r_angle = atan2(rpos_pixel_y, rpos_pixel_x);
+			double r_angle = atan2(rpos_pixel_y - ppos_pixel_y, ppos_pixel_x - rpos_pixel_x);
+			double p_angle = atan2(data->p_dir_y, data->p_dir_x);
+
+			double angle_diff = r_angle - p_angle;
+			angle_diff = fmod(angle_diff + PI, 2 * PI) - PI;
+			double cos_angle_diff = cos(angle_diff);
+			//data->ray_len[i] = ray_distance + cos(r_angle - p_angle) / 2; //cos(FOV / 2 - ray_angle);  
+			
+			if (fabs(cos_angle_diff) < 1e-6)//cos_angle_diff)
+			{
+				printf("waaaaaaaaaaaaaaaaaaaaaaa\n");
+				cos_angle_diff = (cos_angle_diff < 0) ? -1e-6 : 1e-6;
+				if (fabs(cos_angle_diff) < 1e-6)//cos_angle_diff)
+					printf("stilllaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n");
+			}
+				//printf("ray len = %f\n", data->ray_len[i]);
+			data->ray_len[i] = ray_distance + cos_angle_diff / 2;
+			//printf("ray len just after = %f\n", data->ray_len[i]);
 			data->ray_hit[i] = find_direction(data->ray_dir_x, data->ray_dir_y);
+			//printf("ray len before print = %f\n", data->ray_len[i]);
 			return ;
 		}
-		//ray_distance++;
 		ray_distance += 0.1;
 	}
+	
+	//if (data->ray_len[i] == 0)
+	//	data->ray_len = 
 }
 
 // the old collect ray, we could use to draw jus center ray for minimap direction indicator

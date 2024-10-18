@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/18 09:23:07 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/18 16:25:03 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 		else
 			printf("mlx is null for some reason\n");
 	}
+	// this can segfault when random keys pressed , we should confirm first that keys are in raneg
 	if (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT)
 		data->key_pressed[keydata.key] = 1;
 	if (keydata.action == MLX_RELEASE)
