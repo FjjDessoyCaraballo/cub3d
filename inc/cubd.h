@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/17 14:08:16 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:18:20 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
 # define BRK_MAP "Error\nMap is broken ):\n"
 # define CLOSE "Error\nMap is not walled correctly ):<\n"
+# define MLX1 "Error\nMLX failure\n"
 
 # define SUCCESS 0
 # define FAILURE 1

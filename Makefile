@@ -30,6 +30,7 @@ SRC_FILES = main.c\
 			init_higher_dimension.c\
 			minimap.c\
 			minimap_utils_bonus.c\
+			key_hooks.c\
 			printer.c #REMOVE LATER
 
 

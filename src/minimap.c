@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/17 12:44:09 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:18:59 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,12 +186,11 @@ void	draw_mini_map(t_data *data, int x, int y, int index)
 int	initlize_minimap(t_data *data)
 {
 	if (init_mini_imgs(data) == FAILURE)
-		return (FAILURE);
+		return (err_msg(NULL, MLX1, FAILURE));
 	if (init_map(data) == FAILURE)
-		return (FAILURE);
+		return (err_msg(NULL, MLX1, FAILURE));
 	draw_mini_map(data, 0, 0 , 0);
 	draw_mini_player(data);
-
 	init_mini_player(data);
 	return (0);
 }
