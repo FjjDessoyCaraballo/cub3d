@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/18 13:31:47 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:32:33 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int8_t	copy_map(t_data *data)
 	while (data->map[i])
 	{
 		data->mp_cpy[i] = ft_strdup(data->map[i]);
-		if (data->mp_cpy[i])
+		if (!data->mp_cpy[i])
 			return (err_msg(NULL, MALLOC, FAILURE));
 		i++;
 	}
