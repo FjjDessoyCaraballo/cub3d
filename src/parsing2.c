@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/17 10:24:27 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:10:33 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
+// these functions belong to parse2.c
 static int8_t	floor_information(t_data *data)
 {
 	int		index;
@@ -102,6 +103,7 @@ static int8_t	map_information(t_data *data)
 		i++;
 	}
 	data->map[j] = NULL;
+	data->map_width = get_width(data->map);
 	return (SUCCESS);
 }
 
@@ -145,5 +147,3 @@ int8_t	extract(t_data *data)
 		return (FAILURE);
 	return (SUCCESS);
 }
-
-

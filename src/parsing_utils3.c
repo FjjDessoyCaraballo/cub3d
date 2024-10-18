@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils3.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:18:23 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/16 11:56:50 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:09:33 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,30 @@ int8_t	player_exists(t_data *data, char **map)
 
 int8_t	check_original_length(t_data *data)
 {
-	size_t	i;
-
+//	size_t	i;
+	int i;
 	i = 0;
 	while(data->map[i])
 		i++;
 	if (i != data->map_length)
 		return (err_msg(NULL, BRK_MAP, FAILURE));
 	return (SUCCESS);
+}
+
+uint8_t	get_width(char **map)
+{
+	int				i;
+	unsigned int	width;
+
+	i = 0;
+	width = 0;
+	while (map[i])
+	{
+		if (ft_strlen(map[i]) > width)
+			width = ft_strlen(map[i]);
+		i++;
+	}
+	return (width);
 }
 
 int8_t	extra_rgb(char **rgb, int flag)
