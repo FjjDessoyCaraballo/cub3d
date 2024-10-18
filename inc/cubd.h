@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/18 13:35:45 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:54:22 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
 # define BRK_MAP "Error\nMap is broken ):\n"
 # define CLOSE "Error\nMap is not walled correctly ):<\n"
+# define MLX1 "Error\nMLX function error\n"
+# define MLX2 "Eror\nMLX couldn't load images\n"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -242,6 +244,9 @@ int8_t	extra_rgb(char **rgb, int flag);
 int8_t	check_if_walled(t_data *data);
 int8_t	copy_map(t_data *data);
 void	flood_fill(t_data *data, size_t y, size_t x);
+
+/* in img_handling.c */
+int8_t	image_handling(t_data *data)
 
 /* in error.c */
 int		err_msg(char *obj, char *msg, int exit_code);
