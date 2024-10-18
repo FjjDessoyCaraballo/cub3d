@@ -25,6 +25,7 @@ SRC_FILES = main.c\
 			usage.c\
 			error.c\
 			base.c\
+			img_handling.c\
 			movement.c\
 			key_hooks.c\
 			rays.c\

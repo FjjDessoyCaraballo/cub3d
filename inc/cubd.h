@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/18 13:54:22 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/18 15:03:30 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@
 # define BRK_MAP "Error\nMap is broken ):\n"
 # define CLOSE "Error\nMap is not walled correctly ):<\n"
 # define MLX1 "Error\nMLX function error\n"
-# define MLX2 "Eror\nMLX couldn't load images\n"
+# define MLX2 "Error\nMLX couldn't load images\n"
+# define MLX3 "Error\nMLX couldn't draw ceiling/floor\n"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -188,6 +189,8 @@ typedef	struct s_data
 
 	mlx_image_t		*im_current_wall; // could be useful for keeping track which wall we are drawing
 
+	uint32_t		floor_color;
+	uint32_t		ceiling_color;
 
 	//bool	quit; // might no need
 	/*~~bonus stuff~~*/
@@ -246,7 +249,7 @@ int8_t	copy_map(t_data *data);
 void	flood_fill(t_data *data, size_t y, size_t x);
 
 /* in img_handling.c */
-int8_t	image_handling(t_data *data)
+int8_t	image_handling(t_data *data);
 
 /* in error.c */
 int		err_msg(char *obj, char *msg, int exit_code);
