@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/18 17:08:15 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:34:01 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,9 +109,7 @@ void	stack_ray_data(t_data *data, int i)
 		data->ray_dir_y = sin(ray_angle);
 
 		collect_ray(data, i, 0.0, ray_angle);
-		
 		draw_wall(data, i);
-		
 		// comment out for 3d V
 		//draw_line(data, i);
 		i++;
@@ -128,6 +126,35 @@ array not malloced seperatley, only malloced with data struct, ray_len[120]
 	4. i think #here# we will need to implement if ray hits wall render 3d or collect data
 */
 void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
+{
+	double	ppos_pixel_x;
+	double	ppos_pixel_y;
+	double	rpos_pixel_x;
+	double	rpos_pixel_y;
+	(void) ray_angle;
+	ppos_pixel_x = (data->x_ppos * T_SIZE) + T_SIZE / 2;
+	ppos_pixel_y = (data->y_ppos * T_SIZE) + T_SIZE / 2;
+	while (data->x_ppos >= 0 && data->x_ppos < WIDTH && data->y_ppos >= 0 && data->y_ppos < HEIGHT)
+	{
+		rpos_pixel_x = ppos_pixel_x + (int)(data->ray_dir_x * ray_distance);
+		rpos_pixel_y = ppos_pixel_y + (int)(data->ray_dir_y * ray_distance);
+		if (outof_bounds_check(data, rpos_pixel_y, rpos_pixel_x) == FAILURE)
+			return ;
+		if (data->map[(int)rpos_pixel_y / T_SIZE][(int)rpos_pixel_x / T_SIZE] == '1')
+		{
+			//#here#
+			//corrected_distance = ray_distance * cos(data->fov / 2 - ray_angle);
+			//data->ray_len[i] = ray_distance;
+			//data->ray_len[i] = corrected_distance;// * cos(FOV / 2 - ray_angle);
+			data->ray_len[i] = ray_distance + cos(FOV / 2 - ray_angle);
+			data->ray_hit[i] = find_direction(data->ray_dir_x, data->ray_dir_y);
+			return ;
+		}
+		//ray_distance++;
+		ray_distance += 0.1;
+	}
+}
+/*void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 {
 	double	ppos_pixel_x;
 	double	ppos_pixel_y;
@@ -155,9 +182,7 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 
 			double angle_diff = r_angle - p_angle;
 			angle_diff = fmod(angle_diff + PI, 2 * PI) - PI;
-			double cos_angle_diff = cos(angle_diff);
-			//data->ray_len[i] = ray_distance + cos(r_angle - p_angle) / 2; //cos(FOV / 2 - ray_angle);  
-			
+			double cos_angle_diff = cos(angle_diff);			
 			if (fabs(cos_angle_diff) < 1e-6)//cos_angle_diff)
 			{
 				//data->ray_len[i] = 1e-0;
@@ -179,7 +204,7 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 	
 	//if (data->ray_len[i] == 0)
 	//	data->ray_len = 
-}
+}*/
 
 // the old collect ray, we could use to draw jus center ray for minimap direction indicator
 /*void    collect_ray(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/18 13:35:45 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:02:55 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,13 +192,14 @@ typedef	struct s_data
 
 	mlx_texture_t	*tx_mini_floor;
 	mlx_texture_t	*tx_mini_wall;
-	mlx_texture_t	*tx_mini_player;
+	//mlx_texture_t	*tx_mini_player;
+	mlx_image_t		*im_ray;
 	mlx_image_t		*im_map;
 	mlx_image_t		*im_mini_floor;
 	mlx_image_t		*im_mini_wall;
 	mlx_image_t		*im_mini_player;
 	mlx_image_t		*im_map_player; //effectivly miniplayer
-	mlx_image_t		*im_ray;
+	
 
 }		t_data;
 
