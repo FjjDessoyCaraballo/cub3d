@@ -21,6 +21,7 @@ SRC_FILES = main.c\
 			parsing_utils1.c\
 			parsing_utils2.c\
 			parsing_utils3.c\
+			parsing_utils4.c\
 			flood_fill.c\
 			usage.c\
 			error.c\

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/17 14:10:33 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/21 10:00:24 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,11 @@ int8_t	extract(t_data *data)
 		return (FAILURE);
 	if (map_information(data) == FAILURE)
 		return (FAILURE);
-	remove_nl(data->map);
+	rem_map_nl(data->map);
+	remove_nl(data->n_sprite);
+	remove_nl(data->w_sprite);
+	remove_nl(data->s_sprite);
+	remove_nl(data->e_sprite);
 	if (check_original_length(data) == FAILURE)
 		return (FAILURE);
 	if (player_exists(data, data->map) == FAILURE)

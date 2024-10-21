@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/18 15:03:30 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/21 09:58:13 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,14 +234,17 @@ int8_t	rgb_parse(t_data *data, char *str, int flag);
 int8_t	rgb_assignment(t_data *data, char **array, int flag);
 int8_t	allocate_mapmem(t_data *data);
 int8_t	is_map(char *str);
-void	remove_nl(char **map);
+void	rem_map_nl(char **map);
 
 /* in parsing_utils3.c */
 int8_t	only_nl(char *str);
 int8_t	player_exists(t_data *data, char **map);
 int8_t	check_original_length(t_data *data);
 uint8_t	get_width(char **map);
+
+/* in parsing_utils4.c */
 int8_t	extra_rgb(char **rgb, int flag);
+void	remove_nl(char *str);
 
 /* in flood_fill.c */
 int8_t	check_if_walled(t_data *data);

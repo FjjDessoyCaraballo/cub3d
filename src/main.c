@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/18 13:52:07 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/21 09:46:50 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 			free_data(data);
 			return (FAILURE);
 		}
-		printer(data);
+		// printer(data);
 		if (open_window(data) == FAILURE
 			|| initlize_minimap(data) == FAILURE
 			|| image_handling(data) == FAILURE)

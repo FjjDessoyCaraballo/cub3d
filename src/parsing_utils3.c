@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils3.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:18:23 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/17 14:09:33 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/21 09:54:51 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,26 +93,3 @@ uint8_t	get_width(char **map)
 	return (width);
 }
 
-int8_t	extra_rgb(char **rgb, int flag)
-{
-	int	i;
-	int	repeat;
-
-	i = 0;
-	repeat = 0;
-	while (rgb[i])
-	{
-		if (!ft_strncmp(rgb[i], "C", 1)
-			|| !ft_strncmp(rgb[i] , "F", 1))
-			repeat++;
-		i++;
-	}
-	if (repeat != 1)
-	{
-		if (flag == 0)
-			return (err_msg(NULL, RGB4, FAILURE));
-		else
-			return (err_msg(NULL, RGB3, FAILURE));
-	}
-	return (SUCCESS);
-}
