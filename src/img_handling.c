@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 13:51:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/21 15:14:05 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:36:03 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ int8_t	draw_floor_ceiling(t_data *data)
 		}
 		i++;
 	}
-	if (mlx_image_to_window(data->mlx, data->background, WIDTH, HEIGHT) == -1)
-		return (FAILURE);
 	return (SUCCESS);
 }
 

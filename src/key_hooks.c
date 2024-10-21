@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/21 15:13:36 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:36:29 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	update_player(t_data *data)
 	
 		//bonuses for minimap
 	mlx_delete_image(data->mlx, data->im_mini_player);
+	if (mlx_image_to_window(data->mlx, data->background, WIDTH, HEIGHT) == -1)
+		return ;
 	mlx_delete_image(data->mlx, data->im_ray);
 	//comment out 3d V
 	// draw_floor_ceiling(data);

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/21 14:59:24 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:45:56 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	init_mini_player(t_data *data)
 		{
 			if (data->map[y][x])
 			{
-				if (data->map[y][x] == 'N' && x < data->map_width && y < data->map_length) // N ret char
+				if (data->map[y][x] == 'N') // && x < data->map_width && y < data->map_length // N ret char
 				{
 					// reps north right now .
 					data->p_dir_x = 0;
