@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 13:51:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/21 11:06:41 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:14:05 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,36 +31,37 @@ static	int8_t	load_pngs(t_data *data)
 	return (SUCCESS);
 }
 
-static int8_t	load_rgb(t_data *data)
+static int	load_rgb(int r, int g, int b, int a)
 {
-	data->ceiling_color = (data->c_red << 24) |(data->c_green << 24) \
-	| (data->c_blue << 24);
-	data->floor_color = (data->f_red << 24) | (data->f_green << 24) \
-	| (data->f_blue << 24);
-	return (SUCCESS);
+	return (r << 24 | g << 16 | b << 8 | a);
 }
 
-static int8_t	draw_floor_ceiling(t_data *data)
+int8_t	draw_floor_ceiling(t_data *data)
 {
 	int			i;
 	int			j;
-	uint32_t	color;
 
 	i = 0;
+	data->background = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	if (!data->background)
+		return (FAILURE);
 	while (i < HEIGHT)
 	{
 		j = 0;
-		if (i < HEIGHT / 2)
-			color = data->floor_color;
-		else
-			color = data->ceiling_color;
 		while (j < WIDTH)
 		{
-			mlx_put_pixel(data->background, j, i, color);
+			if (i < HEIGHT / 2)
+				mlx_put_pixel(data->background, j, i, load_rgb(data->c_red, \
+				data->c_green, data->c_blue, 255));
+			else
+				mlx_put_pixel(data->background, j, i, load_rgb(data->f_red, \
+				data->f_green, data->f_blue, 255));
 			j++;		
 		}
 		i++;
 	}
+	if (mlx_image_to_window(data->mlx, data->background, WIDTH, HEIGHT) == -1)
+		return (FAILURE);
 	return (SUCCESS);
 }
 
@@ -68,8 +69,6 @@ int8_t	image_handling(t_data *data)
 {
 	if (load_pngs(data) == FAILURE)
 		return (err_msg(NULL, MLX2, FAILURE));
-	if (load_rgb(data) == FAILURE)
-		return (err_msg(NULL, MLX3, FAILURE));
 	if (draw_floor_ceiling(data) == FAILURE)
 		return (err_msg(NULL, MLX4, FAILURE));
 	return (SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/21 09:46:50 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:28:40 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,11 @@ int	main(int argc, char **argv)
 			return (FAILURE);
 		}
 		// printer(data);
-		if (open_window(data) == FAILURE
-			|| initlize_minimap(data) == FAILURE
-			|| image_handling(data) == FAILURE)
+		if (open_window(data) == FAILURE)
+			return (FAILURE);
+		if (image_handling(data) == FAILURE)
+			return (FAILURE);
+		if (initlize_minimap(data) == FAILURE)
 			return (FAILURE);
 		// collect_ray(data); in minimap init for now
 		// **init_3d(data);

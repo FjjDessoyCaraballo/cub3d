@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/18 13:48:40 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/21 14:59:24 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,18 +74,18 @@ void	init_mini_player(t_data *data)
 		{
 			if (data->map[y][x])
 			{
-			if (data->map[y][x] == 'N' && x < data->map_width && y < data->map_length) // N ret char
-			{
-				// reps north right now .
-				data->p_dir_x = 0;
-				data->p_dir_y = -1;
-				if (data->ray_size == 0)
-					data->ray_size = 40;
-				data->map[y][x] = '0'; // we dont need the n anymore
-				draw_player(data);
-				//draw_first_line(data);
-				mlx_image_to_window(data->mlx, data->im_mini_player, 0, 0);
-			}
+				if (data->map[y][x] == 'N' && x < data->map_width && y < data->map_length) // N ret char
+				{
+					// reps north right now .
+					data->p_dir_x = 0;
+					data->p_dir_y = -1;
+					if (data->ray_size == 0)
+						data->ray_size = 40;
+					data->map[y][x] = '0'; // we dont need the n anymore
+					draw_player(data);
+					//draw_first_line(data);
+					mlx_image_to_window(data->mlx, data->im_mini_player, 0, 0);
+				}
 			}
 			x++;
 		}

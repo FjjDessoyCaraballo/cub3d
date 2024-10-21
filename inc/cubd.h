@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/21 11:03:04 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:39:23 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,6 +254,7 @@ int8_t	copy_map(t_data *data);
 void	flood_fill(t_data *data, size_t y, size_t x);
 
 /* in img_handling.c */
+int8_t	draw_floor_ceiling(t_data *data);
 int8_t	image_handling(t_data *data);
 
 /* in error.c */

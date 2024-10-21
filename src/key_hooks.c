@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/18 09:23:07 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:13:36 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,10 @@ void	update_player(t_data *data)
 		strafe_player(data, STEP);
 	
 		//bonuses for minimap
-	
-	mlx_delete_image(data->mlx, data->im_ray);
-	
-	//comment out 3d V
 	mlx_delete_image(data->mlx, data->im_mini_player);
+	mlx_delete_image(data->mlx, data->im_ray);
+	//comment out 3d V
+	// draw_floor_ceiling(data);
 
 	draw_mini_map(data, 0, 0, 0); // bonus
 	
@@ -77,6 +76,7 @@ void	update_player(t_data *data)
 	stack_ray_data(data, 0);
 	
 	mlx_image_to_window(data->mlx, data->im_ray, WIDTH, HEIGHT);
+	// mlx_image_to_window(data->mlx, data->background, WIDTH, HEIGHT);
 	// comment out for 3d
 	mlx_image_to_window(data->mlx, data->im_mini_player, 0, 0);
 }
