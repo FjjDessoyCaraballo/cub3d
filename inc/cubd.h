@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/21 09:58:13 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/21 11:03:04 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@
 # define CLOSE "Error\nMap is not walled correctly ):<\n"
 # define MLX1 "Error\nMLX function error\n"
 # define MLX2 "Error\nMLX couldn't load images\n"
-# define MLX3 "Error\nMLX couldn't draw ceiling/floor\n"
+# define MLX3 "Error\nMLX couldn't load RGB scheme\n"
+# define MLX4 "Error\nMLX couldn't draw ceiling and floor\n"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -186,6 +187,7 @@ typedef	struct s_data
 	mlx_image_t		*im_s_wall;
 	mlx_image_t		*im_e_wall;
 	mlx_image_t		*im_w_wall;
+	mlx_image_t		*background;
 
 	mlx_image_t		*im_current_wall; // could be useful for keeping track which wall we are drawing
 
