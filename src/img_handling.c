@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 13:51:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/22 13:06:57 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 14:17:52 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static	int8_t	load_pngs(t_data *data)
 	return (SUCCESS);
 }
 
-static uint32_t	load_rgb(uint32_t r, uint32_t g, uint32_t b, uint32_t a)
+uint32_t	load_rgb(uint32_t r, uint32_t g, uint32_t b, uint32_t a)
 {
 	return (r << 24 | g << 16 | b << 8 | a);
 }

@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/22 12:20:46 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 15:06:27 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,34 +98,46 @@ static void	clear_img(t_data *data, int i)
 	}	
 }
 
-int	draw_wall(t_data *data, int i)
+static uint32_t rgb(t_data *data, int x, int y)
 {
-	uint32_t red = 0xFF00FFF0;	
+	uint32_t	r;
+	uint32_t	g;
+	uint32_t	b;
+	uint32_t	a;
+	
+	//int position = (y * width + x) * bytes_per_pixel;
+	
+	r = data->im_n_wall->pixels[(y * data->im_n_wall->width + x) * 4]; //4 bytes per pixel
+	g = data->im_n_wall->pixels[((y * data->im_n_wall->width + x) * 4) + 1];
+	b = data->im_n_wall->pixels[((y * data->im_n_wall->width + x) * 4) + 2];
+	a = data->im_n_wall->pixels[((y * data->im_n_wall->width + x) * 4) + 3];
+	return (load_rgb(r, g, b, a));
+}
 
+int	draw_wall(t_data *data, int i, int x, double img_y)
+{
+	//uint32_t red = 0xFF00FFF0;	
 	double	wall_h;
-	int x = 0;
-	double top_of_wall = 0.0; // top of the wall
-	double current_wall_pos = 0.0; //increment going down to the bottom of the floor
-	double wall_bottom = 0.0; //new
+	double top_of_wall;
+	double current_wall_pos;
+	double texture_x; 
 
-	wall_h = 0.0;
 	wall_h = HEIGHT / data->ray_len[i]; // we get the height of the wall based on len
 	top_of_wall = (HEIGHT - wall_h) / 2; // we set our starting point to the top of where thw all begins
 	current_wall_pos = top_of_wall; // we set our incrementer 
-	wall_bottom = top_of_wall + wall_h;
+	texture_x = (double)i / RAY_MAX * data->im_n_wall->width;
 	clear_img(data, i);
-	while (current_wall_pos < wall_bottom)
+	while (current_wall_pos < top_of_wall + wall_h)
 	{
 		if (current_wall_pos > 0 && current_wall_pos < HEIGHT)
 		{
 			x = i * (WIDTH / RAY_MAX);
-			if (x >= 0 && x < WIDTH && data->ray_len[i] > 0) // or not 0
-			{
-				mlx_put_pixel(data->im_ray, x, (int)current_wall_pos, red);					
-			}
+			if (x >= 0 && x < WIDTH && data->ray_len[i] > 0)
+				mlx_put_pixel(data->im_ray, x, (int)current_wall_pos, rgb(data, texture_x, img_y)); // red	
 		}
 //		current_wall_pos += increment;
 		current_wall_pos++;
+		img_y += (double)data->im_n_wall->height / wall_h;//img_y_step;
 	}	
 	return (SUCCESS);
 }
