@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/22 12:50:11 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 13:08:01 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ int	init_map(t_data *data)
 		x = 0;
 		y++;
 	}	
-	if (mlx_image_to_window(data->mlx, data->im_map, MINI_WIDTH, MINI_HEIGHT) == -1)
-		return (err_msg(NULL, IMG_TO_WIN, FAILURE));
+	//if (mlx_image_to_window(data->mlx, data->im_map, MINI_WIDTH, MINI_HEIGHT) == -1)
+	//	return (err_msg(NULL, IMG_TO_WIN, FAILURE));
 	return (SUCCESS);
 }
 
@@ -114,8 +114,6 @@ int	initlize_minimap(t_data *data)
 	if (init_map(data) == FAILURE)
 		return (FAILURE);
 	draw_mini_player(data);
-
-	
 	return (SUCCESS);
 }
 

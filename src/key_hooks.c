@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/22 12:58:13 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 13:06:09 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,15 @@ void	update_player(t_data *data)
 	//draw_floor_ceiling(data);
 		//bonuses for minimap	
 	//mlx_delete_image(data->mlx, data->im_map_player);
-	
-	stack_ray_data(data, 0);
 	draw_mini_map(data, 0, 0, 0); // bonus
+	stack_ray_data(data, 0);
+	
 	
 	//mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_HEIGHT);
-	mlx_image_to_window(data->mlx, data->background, 0, 0);//WIDTH, HEIGHT);
-	mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, HEIGHT);
+	//mlx_image_to_window(data->mlx, data->background, 0, 0);//WIDTH, HEIGHT);
+	//mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, HEIGHT);
+	
+	mlx_image_to_window(data->mlx, data->im_map, 0, 0);
 }
 /* these should not be needed as we will try to only update map around player,
 drawing player only once and deleteing image once game "ends" */

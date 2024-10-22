@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/22 11:17:08 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 13:06:30 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ void	stack_ray_data(t_data *data, int i)
 		draw_wall(data, i);
 		i++;
 	}
+	mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, HEIGHT);
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/22 11:22:18 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 13:08:45 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	main(int argc, char **argv)
 			return (FAILURE);
 		if (initlize_minimap(data) == FAILURE)
 			return (FAILURE);
+		stack_ray_data(data, 0);
 		// collect_ray(data); in minimap init for now
 		// **init_3d(data);
 		mlx_key_hook(data->mlx, &keyhookfunc, data);

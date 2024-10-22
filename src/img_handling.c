@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 13:51:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/22 12:58:10 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 13:06:57 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ int8_t	draw_floor_ceiling(t_data *data)
 		}
 		i++;
 	}
-	//if (mlx_image_to_window(data->mlx, data->background, WIDTH, HEIGHT) == -1)
-	//	return (FAILURE);
+	if (mlx_image_to_window(data->mlx, data->background, 0, 0) == -1)
+		return (FAILURE);
 	return (SUCCESS);
 }
 
