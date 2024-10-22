@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/22 11:21:50 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 11:40:02 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ typedef	struct s_data
 	char	**file;
 	double	ray_len[220]; // could be 240	
 	double	ray_hit[220];
-	char	key_pressed[264]; // num of highest key
+	char	key_pressed[265]; // num of highest key
 	//int		file_len;
 
 	int		map_width; // this was size_t before, needs to change in parsing

@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/22 11:11:54 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 11:48:50 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,18 @@ void draw_wall_slice(t_data *data, int x, double ceiling, double floor, int face
  * 
  */
 
-/*static void	clear_img(t_data *data, int x)
+static void	clear_img(t_data *data, int y)
 {
-	int y;
+	int x;
 
-	y = 0;
-	while (y < HEIGHT)
+	x = 0;
+	while (x < HEIGHT)
 	{
 		mlx_put_pixel(data->im_ray, x, y, 0x00000000);	
-		y++;
+		x++;
 	}
 	
-}*/
+}
 
 int	draw_wall(t_data *data, int i)
 {
@@ -111,7 +111,7 @@ int	draw_wall(t_data *data, int i)
 	top_of_wall = (HEIGHT - wall_h) / 2; // we set our starting point to the top of where thw all begins
 	current_wall_pos = top_of_wall; // we set our incrementer 
 	wall_bottom = top_of_wall + wall_h;
-	//clear_img(data, i);
+	clear_img(data, i);
 	while (current_wall_pos < wall_bottom)
 	{
 		if (current_wall_pos > 0 && current_wall_pos < HEIGHT)

@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/22 11:26:08 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 11:44:47 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,16 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 		else
 			printf("mlx is null for some reason\n");
 	}
+	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_A ||
+        keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_D ||
+        keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_RIGHT)
+	{
+		if (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT)
+			data->key_pressed[keydata.key] = 1;
+		if (keydata.action == MLX_RELEASE)
+			data->key_pressed[keydata.key] = 0;		
+	}
 	// this can segfault when random keys pressed , we should confirm first that keys are in raneg
-	//while (keydata.key)
-	if (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT)
-		data->key_pressed[keydata.key] = 1;
-	if (keydata.action == MLX_RELEASE)
-		data->key_pressed[keydata.key] = 0;
 	update_player(data);
 }
 
