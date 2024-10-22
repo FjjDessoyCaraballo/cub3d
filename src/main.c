@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/18 13:21:50 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/22 13:08:45 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,19 @@ int	main(int argc, char **argv)
 			free_data(data);
 			return (FAILURE);
 		}
-		printer(data);
-		if (open_window(data) == FAILURE
-			|| initlize_minimap(data) == FAILURE)
+		if (open_window(data) == FAILURE)
 			return (FAILURE);
+		if (image_handling(data) == FAILURE)
+			return (FAILURE);
+		if (initlize_minimap(data) == FAILURE)
+			return (FAILURE);
+		stack_ray_data(data, 0);
 		// collect_ray(data); in minimap init for now
 		// **init_3d(data);
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
 		//~~ bonus animation if wanted needs to start here
 		// mlx_loop_hook(data->mlx, &animation_fucn, &data);
 		mlx_loop(data->mlx);
-		printer(data);
 	}
 	else
 		usage();

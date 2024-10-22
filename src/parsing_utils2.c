@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:08:26 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/16 12:03:22 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/21 09:56:11 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int8_t	allocate_mapmem(t_data *data)
 	return (SUCCESS);
 }
 
-void	remove_nl(char **map)
+void	rem_map_nl(char **map)
 {
 	int	i;
 	int	j;

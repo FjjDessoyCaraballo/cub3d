@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/17 14:10:33 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:31:35 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@ static int8_t	floor_information(t_data *data)
 	{
 		if (!ft_strncmp(&data->file[index][0], "F", 1))
 		{
+			data->repeat_test++;
+			if (data->repeat_test > 1)
+				return (err_msg(NULL, RGB3, FAILURE));
 			floor = ft_strdup(data->file[index]);
 			if (!floor)
 				return (err_msg(NULL, MALLOC, FAILURE));
-			data->repeat_test++;
 			if (rgb_parse(data, floor, 1) == FAILURE)
 			{
 				free(floor);
@@ -37,8 +39,6 @@ static int8_t	floor_information(t_data *data)
 		}
 		index++;
 	}
-	if (data->repeat_test != 1)
-		return (err_msg(NULL, RGB3, FAILURE));
 	return (SUCCESS);
 }
 
@@ -53,10 +53,12 @@ static int8_t	ceiling_information(t_data *data)
 	{
 		if (!ft_strncmp(&data->file[index][0], "C", 1))
 		{
+			data->repeat_test++;
+			if (data->repeat_test > 1)
+				return (err_msg(NULL, RGB4, FAILURE));
 			ceiling = ft_strdup(data->file[index]);
 			if (!ceiling)
 				return (err_msg(NULL, MALLOC, FAILURE));
-			data->repeat_test++;
 			if (rgb_parse(data, ceiling, 0) == FAILURE)
 			{
 				free(ceiling);
@@ -66,8 +68,6 @@ static int8_t	ceiling_information(t_data *data)
 		}
 		index++;
 	}
-	if (data->repeat_test != 1)
-		return (err_msg(NULL, RGB4, FAILURE));
 	return (SUCCESS);
 }
 
@@ -102,7 +102,7 @@ static int8_t	map_information(t_data *data)
 		}
 		i++;
 	}
-	data->map[j] = NULL;
+	data->map[j] = 0;
 	data->map_width = get_width(data->map);
 	return (SUCCESS);
 }
@@ -140,7 +140,11 @@ int8_t	extract(t_data *data)
 		return (FAILURE);
 	if (map_information(data) == FAILURE)
 		return (FAILURE);
-	remove_nl(data->map);
+	rem_map_nl(data->map);
+	remove_nl(data->n_sprite);
+	remove_nl(data->w_sprite);
+	remove_nl(data->s_sprite);
+	remove_nl(data->e_sprite);
 	if (check_original_length(data) == FAILURE)
 		return (FAILURE);
 	if (player_exists(data, data->map) == FAILURE)

@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/17 13:01:55 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 12:20:46 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,28 +77,55 @@ void draw_wall_slice(t_data *data, int x, double ceiling, double floor, int face
         }
     }
 }*/
-/*int	draw_walls(t_data *data)
-{
-	
-	int i;
-	double	wall_h;
-	double	cieling_me;
-	double	floor_me;
 
-	i = 0;
-	wall_h = 0.0;
-	cieling_me = 0.0;
-	floor_me = 0.0;
-	while (i <= RAY_MAX)
+/**
+ * Clears a singular line of pixels so we can re draw ne set of pixels on 
+ * a clear canvas, in theory this could only clear pixels that are previouse
+ * wall and not new wall, this code was simpler and payoff for workload
+ * does not have enough value for such low graphics
+ */
+static void	clear_img(t_data *data, int i)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	x = i * (WIDTH / RAY_MAX);
+	while (y < HEIGHT)
 	{
-		//data->im_current__wall = get_texture();
-		
-		//draw_piece(t_data *data, i);
-		i++;
-	}
-	//if (data->hitdir[]	
-}*/
-// draw walls
-// draw floor
-// draw cieling
-// adjust fisheye (tan)
+		mlx_put_pixel(data->im_ray, x, y, 0x00000000);	
+		y++;
+	}	
+}
+
+int	draw_wall(t_data *data, int i)
+{
+	uint32_t red = 0xFF00FFF0;	
+
+	double	wall_h;
+	int x = 0;
+	double top_of_wall = 0.0; // top of the wall
+	double current_wall_pos = 0.0; //increment going down to the bottom of the floor
+	double wall_bottom = 0.0; //new
+
+	wall_h = 0.0;
+	wall_h = HEIGHT / data->ray_len[i]; // we get the height of the wall based on len
+	top_of_wall = (HEIGHT - wall_h) / 2; // we set our starting point to the top of where thw all begins
+	current_wall_pos = top_of_wall; // we set our incrementer 
+	wall_bottom = top_of_wall + wall_h;
+	clear_img(data, i);
+	while (current_wall_pos < wall_bottom)
+	{
+		if (current_wall_pos > 0 && current_wall_pos < HEIGHT)
+		{
+			x = i * (WIDTH / RAY_MAX);
+			if (x >= 0 && x < WIDTH && data->ray_len[i] > 0) // or not 0
+			{
+				mlx_put_pixel(data->im_ray, x, (int)current_wall_pos, red);					
+			}
+		}
+//		current_wall_pos += increment;
+		current_wall_pos++;
+	}	
+	return (SUCCESS);
+}

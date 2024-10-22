@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/18 13:18:20 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/22 11:40:02 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
 # define BRK_MAP "Error\nMap is broken ):\n"
 # define CLOSE "Error\nMap is not walled correctly ):<\n"
-# define MLX1 "Error\nMLX failure\n"
+# define MLX1 "Error\nMLX function error\n"
+# define MLX2 "Error\nMLX couldn't load images\n"
+# define MLX3 "Error\nMLX couldn't load RGB scheme\n"
+# define MLX4 "Error\nMLX couldn't draw ceiling and floor\n"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -103,7 +106,7 @@
 # define ROTATE_ANGLE	0.0872665 // 5 degrees in radians
 # define PI				3.14159265358979323846
 # define DEG2RAD 		(PI / 180.0)
-# define STEP			0.1
+# define STEP			0.03
 /*************************************************/
 /* structs ***************************************/
 /*************************************************/
@@ -120,7 +123,7 @@ typedef	struct s_data
 	char	**file;
 	double	ray_len[220]; // could be 240	
 	double	ray_hit[220];
-	char	key_pressed[264]; // num of highest key
+	char	key_pressed[265]; // num of highest key
 	//int		file_len;
 
 	int		map_width; // this was size_t before, needs to change in parsing
@@ -152,29 +155,29 @@ typedef	struct s_data
 	double	ray_delta_dis_y; // i no other deltas needed , shorten name
 
 	// from parsing
-	int8_t	file_len;
-	int		map_start;
-	int		map_end;
-	char	*floor_info;
-	char	*ceiling_info;
-	size_t	c_red;
-	size_t	c_green;
-	size_t	c_blue;
-	size_t	f_red;
-	size_t	f_green;
-	size_t	f_blue;
-	char	*n_sprite;
-	char	*s_sprite;
-	char	*e_sprite;
-	char	*w_sprite;
-	bool	s_player;
-	bool	n_player;
-	bool	e_player;
-	bool	w_player;
-	double	y_ppos;
-	double	x_ppos;
-	char	**mp_cpy;
-	int		repeat_test;
+	int8_t		file_len;
+	int			map_start;
+	int			map_end;
+	char		*floor_info;
+	char		*ceiling_info;
+	uint32_t	c_red;
+	uint32_t	c_green;
+	uint32_t	c_blue;
+	uint32_t	f_red;
+	uint32_t	f_green;
+	uint32_t	f_blue;
+	char		*n_sprite;
+	char		*s_sprite;
+	char		*e_sprite;
+	char		*w_sprite;
+	bool		s_player;
+	bool		n_player;
+	bool		e_player;
+	bool		w_player;
+	double		y_ppos;
+	double		x_ppos;
+	char		**mp_cpy;
+	int			repeat_test;
 
 	mlx_texture_t	*tx_n_wall;
 	mlx_texture_t	*tx_s_wall;
@@ -184,22 +187,26 @@ typedef	struct s_data
 	mlx_image_t		*im_s_wall;
 	mlx_image_t		*im_e_wall;
 	mlx_image_t		*im_w_wall;
+	mlx_image_t		*background;
 
 	mlx_image_t		*im_current_wall; // could be useful for keeping track which wall we are drawing
 
+	uint32_t		floor_color;
+	uint32_t		ceiling_color;
 
 	//bool	quit; // might no need
 	/*~~bonus stuff~~*/
 
 	mlx_texture_t	*tx_mini_floor;
 	mlx_texture_t	*tx_mini_wall;
-	mlx_texture_t	*tx_mini_player;
+	//mlx_texture_t	*tx_mini_player;
+	mlx_image_t		*im_ray;
 	mlx_image_t		*im_map;
 	mlx_image_t		*im_mini_floor;
 	mlx_image_t		*im_mini_wall;
 	mlx_image_t		*im_mini_player;
 	mlx_image_t		*im_map_player; //effectivly miniplayer
-	mlx_image_t		*im_ray;
+	
 
 }		t_data;
 
@@ -230,19 +237,26 @@ int8_t	rgb_parse(t_data *data, char *str, int flag);
 int8_t	rgb_assignment(t_data *data, char **array, int flag);
 int8_t	allocate_mapmem(t_data *data);
 int8_t	is_map(char *str);
-void	remove_nl(char **map);
+void	rem_map_nl(char **map);
 
 /* in parsing_utils3.c */
 int8_t	only_nl(char *str);
 int8_t	player_exists(t_data *data, char **map);
 int8_t	check_original_length(t_data *data);
 uint8_t	get_width(char **map);
+
+/* in parsing_utils4.c */
 int8_t	extra_rgb(char **rgb, int flag);
+void	remove_nl(char *str);
 
 /* in flood_fill.c */
 int8_t	check_if_walled(t_data *data);
 int8_t	copy_map(t_data *data);
 void	flood_fill(t_data *data, size_t y, size_t x);
+
+/* in img_handling.c */
+int8_t	draw_floor_ceiling(t_data *data);
+int8_t	image_handling(t_data *data);
 
 /* in error.c */
 int		err_msg(char *obj, char *msg, int exit_code);
@@ -266,12 +280,14 @@ void    move_player(t_data *data, double step);
 
 /* in rays.c */
 void	stack_ray_data(t_data *data, int i);
-void	collect_ray(t_data *data, int i, double ray_distance);
+void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle);
 //void	collect_ray(t_data *data); // simle one ray from middle
 
 void    rotate_left(t_data *data);
 void    rotate_right(t_data *data);
 
+/* init_higher_dimension.c #our 3d perspective*/
+int		draw_wall(t_data *data, int i);
 
 /* printer REMOVE LATER */
 void	printer(t_data *data);
@@ -281,7 +297,6 @@ int		initlize_minimap(t_data *data);
 void	draw_mini_player(t_data *data);
 void	draw_player(t_data *data);
 void	draw_first_line(t_data *data); // simple draw a line from center
-void	draw_line(t_data *data, int i);
 
 /* minimap.c */
 

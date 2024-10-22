@@ -8,7 +8,7 @@ VPATH = src:libft:includes
 LIBMLX = ./MLX42
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -Ofast #-fsanitize=address #wun and -0 for mlx
+CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -Ofast -fsanitize=undefined #wun and -0 for mlx
 INCFLAGS = -I ./include -I ./MLX42/include -I /Users/include 
 
 # Main project files
@@ -21,11 +21,14 @@ SRC_FILES = main.c\
 			parsing_utils1.c\
 			parsing_utils2.c\
 			parsing_utils3.c\
+			parsing_utils4.c\
 			flood_fill.c\
 			usage.c\
 			error.c\
 			base.c\
+			img_handling.c\
 			movement.c\
+			key_hooks.c\
 			rays.c\
 			init_higher_dimension.c\
 			minimap.c\

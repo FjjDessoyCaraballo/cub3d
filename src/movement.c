@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/17 12:54:59 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/18 16:10:35 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	strafe_player(t_data *data, double step)
 		//printf("Out of bounds\n");
 		return ;
 	}
-	if (new_x > data->map_width || new_y > data->map_length)
+	if (new_x > data->map_width || new_y > data->map_length || new_x < 0 || new_y < 0)
 	{
 		//printf("Out of bounds new\n");	
 		return ;	
@@ -85,6 +85,7 @@ void	move_player(t_data *data, double step)
 	normalize_vector(&data->p_dir_x, &data->p_dir_y);
 	new_x = (data->x_ppos) + (data->p_dir_x) * step;
 	new_y = (data->y_ppos) + (data->p_dir_y) * step;
+	//printf("mooooove\n");
 	if ((new_x + radius) < 0 || (new_x + radius) > (data->map_width) || (new_y + radius) < 0 || (new_y + radius) > (data->map_length))	
 	{
 		//printf("Out of bounds\n");
