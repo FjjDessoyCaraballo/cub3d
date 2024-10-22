@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
 /*   Updated: 2024/10/21 15:02:55 by araveala         ###   ########.fr       */
@@ -55,6 +55,10 @@
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
 # define BRK_MAP "Error\nMap is broken ):\n"
 # define CLOSE "Error\nMap is not walled correctly ):<\n"
+# define MLX1 "Error\nMLX function error\n"
+# define MLX2 "Error\nMLX couldn't load images\n"
+# define MLX3 "Error\nMLX couldn't load RGB scheme\n"
+# define MLX4 "Error\nMLX couldn't draw ceiling and floor\n"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -170,6 +174,8 @@ typedef	struct s_data
 	bool	n_player;
 	bool	e_player;
 	bool	w_player;
+	int8_t	p_dir_x;
+	int8_t	p_dir_y;
 	double	y_ppos;
 	double	x_ppos;
 	char	**mp_cpy;
@@ -183,9 +189,12 @@ typedef	struct s_data
 	mlx_image_t		*im_s_wall;
 	mlx_image_t		*im_e_wall;
 	mlx_image_t		*im_w_wall;
+	mlx_image_t		*background;
 
 	mlx_image_t		*im_current_wall; // could be useful for keeping track which wall we are drawing
 
+	uint32_t		floor_color;
+	uint32_t		ceiling_color;
 
 	//bool	quit; // might no need
 	/*~~bonus stuff~~*/
@@ -230,19 +239,26 @@ int8_t	rgb_parse(t_data *data, char *str, int flag);
 int8_t	rgb_assignment(t_data *data, char **array, int flag);
 int8_t	allocate_mapmem(t_data *data);
 int8_t	is_map(char *str);
-void	remove_nl(char **map);
+void	rem_map_nl(char **map);
 
 /* in parsing_utils3.c */
 int8_t	only_nl(char *str);
 int8_t	player_exists(t_data *data, char **map);
 int8_t	check_original_length(t_data *data);
 uint8_t	get_width(char **map);
+
+/* in parsing_utils4.c */
 int8_t	extra_rgb(char **rgb, int flag);
+void	remove_nl(char *str);
 
 /* in flood_fill.c */
 int8_t	check_if_walled(t_data *data);
 int8_t	copy_map(t_data *data);
 void	flood_fill(t_data *data, size_t y, size_t x);
+
+/* in img_handling.c */
+int8_t	draw_floor_ceiling(t_data *data);
+int8_t	image_handling(t_data *data);
 
 /* in error.c */
 int		err_msg(char *obj, char *msg, int exit_code);

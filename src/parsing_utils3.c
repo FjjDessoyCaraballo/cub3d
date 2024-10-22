@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils3.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:18:23 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/17 14:09:33 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:34:11 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,33 @@ int8_t	only_nl(char *str)
 		return (FAILURE);
 	return (SUCCESS);
 }
+
 static void	p_pos(t_data *data, char dir, int row, int col)
 {
 	if (dir == 'N')
+	{
 		data->n_player = true;
+		data->p_dir_y = -1;
+	}
 	else if (dir == 'S')
+	{
 		data->s_player = true;
+		data->p_dir_y = 1;
+	}
 	else if (dir == 'W')
+	{
 		data->w_player = true;
+		data->p_dir_x = 1;
+	}
 	else if (dir == 'E')
+	{
 		data->e_player = true;
+		data->p_dir_x = -1;
+	}
 	data->y_ppos = row;
 	data->x_ppos = col;
 }
+
 
 int8_t	player_exists(t_data *data, char **map)
 {
@@ -93,26 +107,3 @@ uint8_t	get_width(char **map)
 	return (width);
 }
 
-int8_t	extra_rgb(char **rgb, int flag)
-{
-	int	i;
-	int	repeat;
-
-	i = 0;
-	repeat = 0;
-	while (rgb[i])
-	{
-		if (!ft_strncmp(rgb[i], "C", 1)
-			|| !ft_strncmp(rgb[i] , "F", 1))
-			repeat++;
-		i++;
-	}
-	if (repeat != 1)
-	{
-		if (flag == 0)
-			return (err_msg(NULL, RGB4, FAILURE));
-		else
-			return (err_msg(NULL, RGB3, FAILURE));
-	}
-	return (SUCCESS);
-}

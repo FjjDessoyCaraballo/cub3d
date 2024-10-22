@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
 /*   Updated: 2024/10/22 10:19:57 by araveala         ###   ########.fr       */
@@ -30,34 +30,24 @@ int	main(int argc, char **argv)
 			return (err_msg(NULL, MALLOC, -1));
 		if (map_handling(data, argv[1]) == FAILURE)
 		{
-			// printer(data);
 			usage();
 			free_data(data);
 			return (FAILURE);
 		}
-		printer(data);
+		// printer(data);
 		if (open_window(data) == FAILURE)
-		{
-			printf("error requires freeing in main \n");
 			return (FAILURE);
-		}
+		if (image_handling(data) == FAILURE)
+			return (FAILURE);
+		if (initlize_minimap(data) == FAILURE)
+			return (FAILURE);
 		// collect_ray(data); in minimap init for now
 		// **init_3d(data);
-		if (initlize_minimap(data) == FAILURE)
-		{
-			printf("error requires freeing in main\n");
-			return (FAILURE);
-		}
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
 		//~~ bonus animation if wanted needs to start here
 		// mlx_loop_hook(data->mlx, &animation_fucn, &data);
 		mlx_loop(data->mlx);
 		printer(data);
-		// if (flag == true)
-		{
-			// free_array(data->file);
-			// mlx_terminate(data->mlx);
-		}
 	}
 	else
 		usage();

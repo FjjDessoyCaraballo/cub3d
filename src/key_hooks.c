@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   key_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
 /*   Updated: 2024/10/22 10:29:30 by araveala         ###   ########.fr       */
@@ -72,7 +72,6 @@ void	update_player(t_data *data)
 	
 	//mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_HEIGHT);
 	mlx_image_to_window(data->mlx, data->im_ray, 0, 0 ); //WIDTH, HEIGHT);
-	
 }
 /* these should not be needed as we will try to only update map around player,
 drawing player only once and deleteing image once game "ends" */
