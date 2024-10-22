@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/22 10:22:14 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:29:30 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 		else
 			printf("mlx is null for some reason\n");
 	}
+	// this can segfault when random keys pressed , we should confirm first that keys are in raneg
 	if (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT)
 		data->key_pressed[keydata.key] = 1;
 	if (keydata.action == MLX_RELEASE)
@@ -61,25 +62,16 @@ void	update_player(t_data *data)
 	if (data->key_pressed[MLX_KEY_D])
 		strafe_player(data, STEP);
 	
-		//bonuses for minimap
-	mlx_delete_image(data->mlx, data->im_mini_player);
-	draw_floor_ceiling(data);
-	mlx_delete_image(data->mlx, data->im_ray);
-	//comment out 3d V
-	// draw_floor_ceiling(data);
-
-	draw_mini_map(data, 0, 0, 0); // bonus
-	
-	// comment out for 3d V
-	//draw_player(data);
-	
-	// in here comment out draw line V
+		//bonuses for minimap	
+	//if (data->im_ray)
+	//if (data->im_ray)
+		//mlx_delete_image(data->mlx, data->im_ray);
+	//mlx_delete_image(data->mlx, data->im_map_player);
 	stack_ray_data(data, 0);
+	//draw_mini_map(data, 0, 0, 0); // bonus
 	
-	mlx_image_to_window(data->mlx, data->im_ray, WIDTH, HEIGHT);
-	// mlx_image_to_window(data->mlx, data->background, WIDTH, HEIGHT);
-	// comment out for 3d
-	mlx_image_to_window(data->mlx, data->im_mini_player, 0, 0);
+	//mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_HEIGHT);
+	mlx_image_to_window(data->mlx, data->im_ray, 0, 0 ); //WIDTH, HEIGHT);
 }
 /* these should not be needed as we will try to only update map around player,
 drawing player only once and deleteing image once game "ends" */

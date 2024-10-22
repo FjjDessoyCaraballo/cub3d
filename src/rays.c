@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/21 12:20:45 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:26:17 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,19 +99,16 @@ void	stack_ray_data(t_data *data, int i)
 	angle_increment = (FOV / RAY_MAX) * DEG2RAD;
 	player_angle = atan2(data->p_dir_y, data->p_dir_x);
 	//bonus
-	data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	//data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	while (i <= RAY_MAX)
 	{
-
 		current_angle = starting_angle + i * angle_increment;
 		ray_angle = player_angle + current_angle;
 		data->ray_dir_x = cos(ray_angle);
 		data->ray_dir_y = sin(ray_angle);
 
 		collect_ray(data, i, 0.0, ray_angle);
-		
 		draw_wall(data, i);
-		
 		// comment out for 3d V
 		//draw_line(data, i);
 		i++;
@@ -136,8 +133,6 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 	(void) ray_angle;
 	ppos_pixel_x = (data->x_ppos * T_SIZE) + T_SIZE / 2;
 	ppos_pixel_y = (data->y_ppos * T_SIZE) + T_SIZE / 2;
-	//printf("/t/t/twhat is ray angle at start = %f\n", ray_angle);
-	//while (data->x_ppos >= 0 && data->x_ppos < data->map_width && data->y_ppos >= 0 && data->y_ppos < data->map_length)
 	while (data->x_ppos >= 0 && data->x_ppos < WIDTH && data->y_ppos >= 0 && data->y_ppos < HEIGHT)
 	{
 		rpos_pixel_x = ppos_pixel_x + (int)(data->ray_dir_x * ray_distance);
@@ -158,6 +153,57 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 		ray_distance += 0.1;
 	}
 }
+/*void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
+{
+	double	ppos_pixel_x;
+	double	ppos_pixel_y;
+	double	rpos_pixel_x;
+	double	rpos_pixel_y;
+	(void) ray_angle;
+	ppos_pixel_x = (data->x_ppos * T_SIZE) + T_SIZE / 2;
+	ppos_pixel_y = (data->y_ppos * T_SIZE) + T_SIZE / 2;
+	//printf("/t/t/twhat is ray angle at start = %f\n", ray_angle);
+	//while (data->x_ppos >= 0 && data->x_ppos < data->map_width && data->y_ppos >= 0 && data->y_ppos < data->map_length)
+	while (data->x_ppos >= 0 && data->x_ppos < WIDTH && data->y_ppos >= 0 && data->y_ppos < HEIGHT)
+	{
+		rpos_pixel_x = ppos_pixel_x + (int)(data->ray_dir_x * ray_distance);
+		rpos_pixel_y = ppos_pixel_y + (int)(data->ray_dir_y * ray_distance);
+		//rpos_pixel_x = ppos_pixel_x + cos(ray_angle) * ray_distance;
+        //rpos_pixel_y = ppos_pixel_y + sin(ray_angle) * ray_distance;
+		if (outof_bounds_check(data, rpos_pixel_y, rpos_pixel_x) == FAILURE)
+			return ;
+		if (data->map[(int)rpos_pixel_y / T_SIZE][(int)rpos_pixel_x / T_SIZE] == '1')
+		{
+			//#here#
+			//double r_angle = atan2(rpos_pixel_y, rpos_pixel_x);
+			double r_angle = atan2(rpos_pixel_y - ppos_pixel_y, ppos_pixel_x - rpos_pixel_x);
+			double p_angle = atan2(data->p_dir_y, data->p_dir_x);
+
+			double angle_diff = r_angle - p_angle;
+			angle_diff = fmod(angle_diff + PI, 2 * PI) - PI;
+			double cos_angle_diff = cos(angle_diff);			
+			if (fabs(cos_angle_diff) < 1e-6)//cos_angle_diff)
+			{
+				//data->ray_len[i] = 1e-0;
+				cos_angle_diff = (cos_angle_diff < 0) ? -1e-2 : 1e-2;
+				//if (fabs(cos_angle_diff) < 1e-6)//cos_angle_diff)
+				//	printf("stilllaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n");
+				//return ;
+			}
+				//printf("ray len = %f\n", data->ray_len[i]);
+			data->ray_len[i] = ray_distance + cos_angle_diff / 2;
+			printf("ray len = %e\n", data->ray_len[i]);
+			//printf("ray len just after = %f\n", data->ray_len[i]);
+			data->ray_hit[i] = find_direction(data->ray_dir_x, data->ray_dir_y);
+			//printf("ray len before print = %f\n", data->ray_len[i]);
+			return ;
+		}
+		ray_distance += 0.1;
+	}
+	
+	//if (data->ray_len[i] == 0)
+	//	data->ray_len = 
+}*/
 
 // the old collect ray, we could use to draw jus center ray for minimap direction indicator
 /*void    collect_ray(t_data *data)

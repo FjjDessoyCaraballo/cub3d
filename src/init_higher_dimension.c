@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/21 12:09:47 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:33:56 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,20 @@ void draw_wall_slice(t_data *data, int x, double ceiling, double floor, int face
 /**
  * 
  */
+
+static void	clear_img(t_data *data, int x)
+{
+	int y;
+
+	y = 0;
+	while (y < HEIGHT)
+	{
+		mlx_put_pixel(data->im_ray, x, y, 0x00000000);	
+		y++;
+	}
+	
+}
+
 int	draw_wall(t_data *data, int i)
 {
 	// testing
@@ -87,41 +101,26 @@ int	draw_wall(t_data *data, int i)
 
 	double	wall_h;
 	int x = 0;
-	//double	cieling_me;
-	//double	floor_me;
-//	double increment = 0.1 / (double)data->ray_len[i]; // make increments smaller 
-	//???
 	double top_of_wall = 0.0; // top of the wall
 	double current_wall_pos = 0.0; //increment going down to the bottom of the floor
 	double wall_bottom = 0.0; //new
 	//???
 
 	wall_h = 0.0;
-
-
-	//cieling_me = 0.0;
-	//floor_me = 0.0;
-	       //     double angle_diff = ray_angle - atan2(data->p_dir_y, data->p_dir_x);
-            //if (angle_diff > PI) angle_diff -= 2 * PI; // Ensure angle_diff is within (-PI, PI)
-            //if (angle_diff < -PI) angle_diff += 2 * PI; // Ensure angle_diff is within (-PI, PI)
-            //double corrected_distance = ray_distance * cos(angle_diff); // Correct for fisheye effect
-
-	//data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);m
 	wall_h = HEIGHT / data->ray_len[i]; // we get the height of the wall based on len
 	top_of_wall = (HEIGHT - wall_h) / 2; // we set our starting point to the top of where thw all begins
 	current_wall_pos = top_of_wall; // we set our incrementer 
 	wall_bottom = top_of_wall + wall_h;
-	//while (current_wall_pos < top_of_wall + wall_h) // we + y untill we have reached wall height from our starting point
+	clear_img(data, i);
 	while (current_wall_pos < wall_bottom)
 	{
-		
 		if (current_wall_pos > 0 && current_wall_pos < HEIGHT)
 		{
-			//data->im_current__wall = get_texture();		
-			// we will add put picel of a image , this will need a directin checker
 			x = i * (WIDTH / RAY_MAX);
-			if (x >= 0 && x < WIDTH)
-				mlx_put_pixel(data->im_ray, x, (int)current_wall_pos, red);
+			if (x >= 0 && x < WIDTH && data->ray_len[i] > 0) // or not 0
+			{
+				mlx_put_pixel(data->im_ray, x, (int)current_wall_pos, red);					
+			}
 		}
 //		current_wall_pos += increment;
 		current_wall_pos++;
