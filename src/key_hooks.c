@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   key_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/22 13:06:09 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 14:19:09 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
-
 
 /*
 ~~cheat sheet~~
@@ -26,12 +25,7 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 
 	data = param;
 	if (keydata.key == MLX_KEY_ESCAPE)
-	{
-		if (data->mlx)
 			mlx_close_window(data->mlx);
-		else
-			printf("mlx is null for some reason\n");
-	}
 	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_A ||
         keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_D ||
         keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_RIGHT)
@@ -71,7 +65,6 @@ void	update_player(t_data *data)
 	//mlx_delete_image(data->mlx, data->im_map_player);
 	draw_mini_map(data, 0, 0, 0); // bonus
 	stack_ray_data(data, 0);
-	
 	
 	//mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_HEIGHT);
 	//mlx_image_to_window(data->mlx, data->background, 0, 0);//WIDTH, HEIGHT);
