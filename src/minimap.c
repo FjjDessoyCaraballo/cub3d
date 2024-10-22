@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/22 10:57:36 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 12:25:11 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,24 +109,15 @@ void	draw_mini_map(t_data *data, int x, int y, int index)
 //adjust_tilesize(data); maybe
 int	initlize_minimap(t_data *data)
 {
-	//data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	//mlx_image_to_window(data->mlx, data->im_ray, WIDTH, HEIGHT);
-//	stack_ray_data(data, 0);
-//	mlx_image_to_window(data->mlx, data->im_ray, WIDTH, HEIGHT);
-	//if (init_mini_imgs(data) == FAILURE)
-	//	return (FAILURE);
-	//if (init_map(data) == FAILURE)
-	//	return (FAILURE);
-	
-		
-	//draw_mini_map(data, 0, 0 , 0);	
-	//draw_mini_player(data);
+	if (init_mini_imgs(data) == FAILURE)
+		return (FAILURE);
+	if (init_map(data) == FAILURE)
+		return (FAILURE);
+	draw_mini_player(data);
 
 	data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	if (data->im_ray == NULL)
 		printf("null on init or ray img\n");
-	//mlx_image_to_window(data->mlx, data->im_ray, WIDTH, HEIGHT);	
-	//mlx_delete_image(data->mlx, data->im_map_player);
 	return (SUCCESS);
 }
 

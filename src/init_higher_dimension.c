@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/22 11:48:50 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 12:20:46 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,26 +77,29 @@ void draw_wall_slice(t_data *data, int x, double ceiling, double floor, int face
         }
     }
 }*/
+
 /**
- * 
+ * Clears a singular line of pixels so we can re draw ne set of pixels on 
+ * a clear canvas, in theory this could only clear pixels that are previouse
+ * wall and not new wall, this code was simpler and payoff for workload
+ * does not have enough value for such low graphics
  */
-
-static void	clear_img(t_data *data, int y)
+static void	clear_img(t_data *data, int i)
 {
-	int x;
+	int	y;
+	int	x;
 
-	x = 0;
-	while (x < HEIGHT)
+	y = 0;
+	x = i * (WIDTH / RAY_MAX);
+	while (y < HEIGHT)
 	{
 		mlx_put_pixel(data->im_ray, x, y, 0x00000000);	
-		x++;
-	}
-	
+		y++;
+	}	
 }
 
 int	draw_wall(t_data *data, int i)
 {
-	// testing
 	uint32_t red = 0xFF00FFF0;	
 
 	double	wall_h;
@@ -104,7 +107,6 @@ int	draw_wall(t_data *data, int i)
 	double top_of_wall = 0.0; // top of the wall
 	double current_wall_pos = 0.0; //increment going down to the bottom of the floor
 	double wall_bottom = 0.0; //new
-	//???
 
 	wall_h = 0.0;
 	wall_h = HEIGHT / data->ray_len[i]; // we get the height of the wall based on len
@@ -124,12 +126,6 @@ int	draw_wall(t_data *data, int i)
 		}
 //		current_wall_pos += increment;
 		current_wall_pos++;
-	}
-	//if (data->hitdir[]	
+	}	
 	return (SUCCESS);
 }
-
-// draw walls
-// draw floor
-// draw cieling
-// adjust fisheye (tan)

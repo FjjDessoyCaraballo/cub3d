@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/22 11:44:47 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 12:24:33 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 		if (keydata.action == MLX_RELEASE)
 			data->key_pressed[keydata.key] = 0;		
 	}
-	// this can segfault when random keys pressed , we should confirm first that keys are in raneg
 	update_player(data);
 }
 
@@ -67,14 +66,11 @@ void	update_player(t_data *data)
 	if (data->key_pressed[MLX_KEY_D])
 		strafe_player(data, STEP);
 	
-	draw_floor_ceiling(data);
+	//draw_floor_ceiling(data);
 		//bonuses for minimap	
-	//if (data->im_ray)
-	//if (data->im_ray)
-		//mlx_delete_image(data->mlx, data->im_ray);
 	//mlx_delete_image(data->mlx, data->im_map_player);
 	stack_ray_data(data, 0);
-	//draw_mini_map(data, 0, 0, 0); // bonus
+	draw_mini_map(data, 0, 0, 0); // bonus
 	
 	//mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_HEIGHT);
 	mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, HEIGHT);

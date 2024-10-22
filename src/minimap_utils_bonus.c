@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 08:37:11 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/21 15:35:58 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 12:25:29 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,8 +149,8 @@ void	draw_mini_player(t_data *data)
 			{
 				draw_x = center_x + x;
 				draw_y = center_y + y;
-				//if (draw_x >= 0 && draw_x < MINI_WIDTH && draw_y >= 0 && draw_y < MINI_HEIGHT)
-				//	mlx_put_pixel(data->im_map_player, draw_x, draw_y, red);
+				if (draw_x >= 0 && draw_x < MINI_WIDTH && draw_y >= 0 && draw_y < MINI_HEIGHT)
+					mlx_put_pixel(data->im_map_player, draw_x, draw_y, red);
 			}
 			x++;
 		}
