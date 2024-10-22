@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 13:51:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/22 12:22:09 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 12:58:10 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int8_t	draw_floor_ceiling(t_data *data)
 	int			j;
 
 	i = 0;
-	data->background = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+
 	if (!data->background)
 		return (FAILURE);
 	while (i < HEIGHT)
@@ -60,13 +60,24 @@ int8_t	draw_floor_ceiling(t_data *data)
 		}
 		i++;
 	}
-	if (mlx_image_to_window(data->mlx, data->background, WIDTH, HEIGHT) == -1)
-		return (FAILURE);
+	//if (mlx_image_to_window(data->mlx, data->background, WIDTH, HEIGHT) == -1)
+	//	return (FAILURE);
+	return (SUCCESS);
+}
+
+static int8_t image_initialization(t_data *data)
+{
+	data->background = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	if (data->background == NULL || data->im_ray == NULL)
+		return (FAILURE); //error message
 	return (SUCCESS);
 }
 
 int8_t	image_handling(t_data *data)
 {
+	if (image_initialization(data) == FAILURE)
+		return (err_msg(NULL, IMAGE_FAIL, FAILURE));
 	if (load_pngs(data) == FAILURE)
 		return (err_msg(NULL, MLX2, FAILURE));
 	if (draw_floor_ceiling(data) == FAILURE)

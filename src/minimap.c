@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/22 12:25:11 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 12:50:11 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	draw_mini_map(t_data *data, int x, int y, int index)
 		x = 0;
 	}
 }
-	
+
 //adjust_tilesize(data); maybe
 int	initlize_minimap(t_data *data)
 {
@@ -115,9 +115,7 @@ int	initlize_minimap(t_data *data)
 		return (FAILURE);
 	draw_mini_player(data);
 
-	data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	if (data->im_ray == NULL)
-		printf("null on init or ray img\n");
+	
 	return (SUCCESS);
 }
 
