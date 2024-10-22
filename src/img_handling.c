@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   img_handling.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 13:51:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/22 10:22:26 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/22 11:23:57 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static	int8_t	load_pngs(t_data *data)
 	return (SUCCESS);
 }
 
-static int	load_rgb(int r, int g, int b, int a)
+static uint32_t	load_rgb(uint32_t r, uint32_t g, uint32_t b, uint32_t a)
 {
 	return (r << 24 | g << 16 | b << 8 | a);
 }

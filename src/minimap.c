@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/22 10:34:29 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:57:36 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,6 @@
 
 
 
-/**
- * This fucntion is soon to become oboslete as almost all
- * data has been collected by parsing, still missing dir_x and y
- * 
- */
-void	init_mini_player(t_data *data)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	y = 0;
-	//~~ char p = loop through bool to find which one is true, return char.
-	//data->im_mini_player = mlx_new_image(data->mlx, MINI_WIDTH, MINI_HEIGHT);
-	//if (data->im_mini_player == NULL)
-	//	return;// (FAILURE);
-	while (y < data->map_length)
-	{
-		while (x < data->map_width)
-		{
-			if (data->map[y][x])
-			{
-				if (data->map[y][x] == 'N' && x < data->map_width && y < data->map_length) // N ret char
-				{
-				// reps north right now .
-					data->p_dir_x = 0;
-					data->p_dir_y = -1;
-					//if (data->ray_size == 0)
-					//	data->ray_size = 40;
-					data->map[y][x] = '0'; // we dont need the n anymore
-					//draw_first_line(data);
-	//				mlx_image_to_window(data->mlx, data->im_mini_player, 0, 0);
-				}
-			}
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-}
 
 /**
  * Inits mini texture to mini image and resizes
@@ -158,8 +118,7 @@ int	initlize_minimap(t_data *data)
 	//if (init_map(data) == FAILURE)
 	//	return (FAILURE);
 	
-	init_mini_player(data);
-	
+		
 	//draw_mini_map(data, 0, 0 , 0);	
 	//draw_mini_player(data);
 

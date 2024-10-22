@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils3.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:18:23 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/22 10:34:11 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:57:13 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int8_t	player_exists(t_data *data, char **map)
 				|| map[i][j] == 'W')
 			{
 				p_pos(data, map[i][j], i, j);
+				map[i][j] = '0';
 				player++;
 			}
 			j++;

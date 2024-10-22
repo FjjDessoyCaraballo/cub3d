@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 13:15:00 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/17 14:10:46 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 11:23:00 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ void	printer(t_data *data)
 		printf("position x: %f\n", data->x_ppos);
 		printf("position y: %f\n", data->y_ppos);
 	}
-	printf("RGB ceiling (red): %li\n", data->c_red);
-	printf("RGB ceiling (green): %li\n", data->c_green);
-	printf("RGB ceiling (blue): %li\n", data->c_blue);
-	printf("RGB floor (red): %li\n", data->f_red);
-	printf("RGB floor (green): %li\n", data->f_green);
-	printf("RGB floor (blue): %li\n", data->f_blue);
+	printf("RGB ceiling (red): %u\n", data->c_red);
+	printf("RGB ceiling (green): %u\n", data->c_green);
+	printf("RGB ceiling (blue): %u\n", data->c_blue);
+	printf("RGB floor (red): %u\n", data->f_red);
+	printf("RGB floor (green): %u\n", data->f_green);
+	printf("RGB floor (blue): %u\n", data->f_blue);
 	printf("\nsprites:\n");
 	printf("%s", data->n_sprite);
 	printf("%s", data->s_sprite);

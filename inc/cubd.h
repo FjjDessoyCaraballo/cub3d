@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/21 15:02:55 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 11:21:50 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,31 +155,29 @@ typedef	struct s_data
 	double	ray_delta_dis_y; // i no other deltas needed , shorten name
 
 	// from parsing
-	int8_t	file_len;
-	int		map_start;
-	int		map_end;
-	char	*floor_info;
-	char	*ceiling_info;
-	size_t	c_red;
-	size_t	c_green;
-	size_t	c_blue;
-	size_t	f_red;
-	size_t	f_green;
-	size_t	f_blue;
-	char	*n_sprite;
-	char	*s_sprite;
-	char	*e_sprite;
-	char	*w_sprite;
-	bool	s_player;
-	bool	n_player;
-	bool	e_player;
-	bool	w_player;
-	int8_t	p_dir_x;
-	int8_t	p_dir_y;
-	double	y_ppos;
-	double	x_ppos;
-	char	**mp_cpy;
-	int		repeat_test;
+	int8_t		file_len;
+	int			map_start;
+	int			map_end;
+	char		*floor_info;
+	char		*ceiling_info;
+	uint32_t	c_red;
+	uint32_t	c_green;
+	uint32_t	c_blue;
+	uint32_t	f_red;
+	uint32_t	f_green;
+	uint32_t	f_blue;
+	char		*n_sprite;
+	char		*s_sprite;
+	char		*e_sprite;
+	char		*w_sprite;
+	bool		s_player;
+	bool		n_player;
+	bool		e_player;
+	bool		w_player;
+	double		y_ppos;
+	double		x_ppos;
+	char		**mp_cpy;
+	int			repeat_test;
 
 	mlx_texture_t	*tx_n_wall;
 	mlx_texture_t	*tx_s_wall;
