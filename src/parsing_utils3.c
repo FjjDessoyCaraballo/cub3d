@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:18:23 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/21 09:54:51 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:34:11 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,33 @@ int8_t	only_nl(char *str)
 		return (FAILURE);
 	return (SUCCESS);
 }
+
 static void	p_pos(t_data *data, char dir, int row, int col)
 {
 	if (dir == 'N')
+	{
 		data->n_player = true;
+		data->p_dir_y = -1;
+	}
 	else if (dir == 'S')
+	{
 		data->s_player = true;
+		data->p_dir_y = 1;
+	}
 	else if (dir == 'W')
+	{
 		data->w_player = true;
+		data->p_dir_x = 1;
+	}
 	else if (dir == 'E')
+	{
 		data->e_player = true;
+		data->p_dir_x = -1;
+	}
 	data->y_ppos = row;
 	data->x_ppos = col;
 }
+
 
 int8_t	player_exists(t_data *data, char **map)
 {

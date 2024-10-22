@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/21 12:39:23 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:26:47 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,8 @@ typedef	struct s_data
 	bool	n_player;
 	bool	e_player;
 	bool	w_player;
+	int8_t	p_dir_x;
+	int8_t	p_dir_y;
 	double	y_ppos;
 	double	x_ppos;
 	char	**mp_cpy;
