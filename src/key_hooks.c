@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/21 15:36:20 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:29:30 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,14 @@ void	update_player(t_data *data)
 	
 		//bonuses for minimap	
 	//if (data->im_ray)
-	if (data->im_ray)
-		mlx_delete_image(data->mlx, data->im_ray);
-	mlx_delete_image(data->mlx, data->im_map_player);
+	//if (data->im_ray)
+		//mlx_delete_image(data->mlx, data->im_ray);
+	//mlx_delete_image(data->mlx, data->im_map_player);
 	stack_ray_data(data, 0);
 	//draw_mini_map(data, 0, 0, 0); // bonus
 	
-	mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_HEIGHT);
-	mlx_image_to_window(data->mlx, data->im_ray, WIDTH, HEIGHT);
+	//mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_HEIGHT);
+	mlx_image_to_window(data->mlx, data->im_ray, 0, 0 ); //WIDTH, HEIGHT);
 	
 }
 /* these should not be needed as we will try to only update map around player,

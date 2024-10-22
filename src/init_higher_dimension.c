@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/21 15:25:22 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:33:56 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,20 @@ void draw_wall_slice(t_data *data, int x, double ceiling, double floor, int face
 /**
  * 
  */
+
+static void	clear_img(t_data *data, int x)
+{
+	int y;
+
+	y = 0;
+	while (y < HEIGHT)
+	{
+		mlx_put_pixel(data->im_ray, x, y, 0x00000000);	
+		y++;
+	}
+	
+}
+
 int	draw_wall(t_data *data, int i)
 {
 	// testing
@@ -97,6 +111,7 @@ int	draw_wall(t_data *data, int i)
 	top_of_wall = (HEIGHT - wall_h) / 2; // we set our starting point to the top of where thw all begins
 	current_wall_pos = top_of_wall; // we set our incrementer 
 	wall_bottom = top_of_wall + wall_h;
+	clear_img(data, i);
 	while (current_wall_pos < wall_bottom)
 	{
 		if (current_wall_pos > 0 && current_wall_pos < HEIGHT)
@@ -104,8 +119,7 @@ int	draw_wall(t_data *data, int i)
 			x = i * (WIDTH / RAY_MAX);
 			if (x >= 0 && x < WIDTH && data->ray_len[i] > 0) // or not 0
 			{
-				//printf("PAITING PIXELS	\n");
-				mlx_put_pixel(data->im_ray, x, (int)current_wall_pos, red);
+				mlx_put_pixel(data->im_ray, x, (int)current_wall_pos, red);					
 			}
 		}
 //		current_wall_pos += increment;

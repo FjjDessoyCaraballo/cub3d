@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/21 15:29:28 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:34:29 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	init_mini_player(t_data *data)
 				// reps north right now .
 					data->p_dir_x = 0;
 					data->p_dir_y = -1;
-					if (data->ray_size == 0)
-						data->ray_size = 40;
+					//if (data->ray_size == 0)
+					//	data->ray_size = 40;
 					data->map[y][x] = '0'; // we dont need the n anymore
 					//draw_first_line(data);
 	//				mlx_image_to_window(data->mlx, data->im_mini_player, 0, 0);
@@ -153,19 +153,21 @@ int	initlize_minimap(t_data *data)
 	//mlx_image_to_window(data->mlx, data->im_ray, WIDTH, HEIGHT);
 //	stack_ray_data(data, 0);
 //	mlx_image_to_window(data->mlx, data->im_ray, WIDTH, HEIGHT);
-	if (init_mini_imgs(data) == FAILURE)
-		return (FAILURE);
+	//if (init_mini_imgs(data) == FAILURE)
+	//	return (FAILURE);
 	//if (init_map(data) == FAILURE)
 	//	return (FAILURE);
+	
 	init_mini_player(data);
+	
 	//draw_mini_map(data, 0, 0 , 0);	
-	draw_mini_player(data);
+	//draw_mini_player(data);
 
-//	stack_ray_data(data, 0);
-//	mlx_image_to_window(data->mlx, data->im_ray, WIDTH, HEIGHT);
-	
+	data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	if (data->im_ray == NULL)
+		printf("null on init or ray img\n");
+	//mlx_image_to_window(data->mlx, data->im_ray, WIDTH, HEIGHT);	
 	//mlx_delete_image(data->mlx, data->im_map_player);
-	
 	return (SUCCESS);
 }
 

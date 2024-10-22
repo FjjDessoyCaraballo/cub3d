@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/21 15:34:01 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:26:17 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,9 @@ void	stack_ray_data(t_data *data, int i)
 	angle_increment = (FOV / RAY_MAX) * DEG2RAD;
 	player_angle = atan2(data->p_dir_y, data->p_dir_x);
 	//bonus
-	data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	//data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	while (i <= RAY_MAX)
 	{
-
 		current_angle = starting_angle + i * angle_increment;
 		ray_angle = player_angle + current_angle;
 		data->ray_dir_x = cos(ray_angle);
