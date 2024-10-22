@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
 /*   Updated: 2024/10/22 13:08:45 by araveala         ###   ########.fr       */
@@ -34,7 +34,6 @@ int	main(int argc, char **argv)
 			free_data(data);
 			return (FAILURE);
 		}
-		// printer(data);
 		if (open_window(data) == FAILURE)
 			return (FAILURE);
 		if (image_handling(data) == FAILURE)
@@ -48,7 +47,6 @@ int	main(int argc, char **argv)
 		//~~ bonus animation if wanted needs to start here
 		// mlx_loop_hook(data->mlx, &animation_fucn, &data);
 		mlx_loop(data->mlx);
-		// printer(data);
 	}
 	else
 		usage();
