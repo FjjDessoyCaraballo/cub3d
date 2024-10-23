@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/22 14:51:28 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:32:50 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@
 # define MINI_OFFSET 10
 # define MINI_SCALE 4 //maybe for minimap
 # define RAY_MAX 1920.0 // could be 240
-# define FOV 90.0 //~~ angle of field of view degrees 
+# define FOV 60.0 //~~ angle of field of view degrees 
 /*************************************************/
 /* math macros ***************************************/
 /*************************************************/
@@ -113,6 +113,15 @@
 /*1.map_width and map_length maps width and height*/
 /*2. p_x and p_y player position p_dir_x and p_dir_y players sight direction*/
 /*3. doubles are better than floats, more percise*/
+
+typedef enum e_dirs
+{
+	NORTH = 1,
+	SOUTH = 2,
+	EAST = 3,
+	WEST = 4
+} t_dirs;
+
 typedef	struct s_data
 {
 	mlx_t	*mlx;
