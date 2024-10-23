@@ -30,10 +30,11 @@ maps=(	"error_test/extra_RGB1.cub"
 		"error_test/extra_player8.cub"
 		"error_test/not_walled1.cub"
 		"error_test/not_walled2.cub"
+		"error_test/not_walled3.cub"
+		"error_test/not_walled4.cub"
+		"error_test/not_walled5.cub"
 		"error_test/island1.cub"
 		"error_test/island2.cub"
-		"error_test/island3.cub"
-		"error_test/island4.cub"
 		"error_test/wrong_name.cbu"
 		"error_test/file.cbuwrong"
 		"error_test/dir_test.cub"
@@ -56,7 +57,7 @@ for map in "${maps[@]}"; do
 	echo "Running test for $map..." | tee -a "$output_file"
 	echo "###########################################################################" | tee -a "$output_file"
 	
-	output=$(valgrind --leak-check=full ../cub3D "$map" >> "$output_file" 2>&1)
+	output=$(valgrind --leak-check=summary -s ../cub3D "$map" >> "$output_file" 2>&1)
 
 	first_line=$(echo "$output" | head -n 1)
 
