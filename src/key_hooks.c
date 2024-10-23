@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/23 13:39:30 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:04:42 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 {
 	t_data	*data;
 
-	data = param;
+	data = (t_data *)param;
 	if (keydata.key == MLX_KEY_ESCAPE)
 	{
 		if (data->mlx)
@@ -73,9 +73,9 @@ void	update_player(t_data *data)
 	stack_ray_data(data, 0);
 	
 	
-	//mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_HEIGHT);
-	//mlx_image_to_window(data->mlx, data->background, 0, 0);//WIDTH, HEIGHT);
-	//mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, HEIGHT);
+	//mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_data->w_height);
+	//mlx_image_to_window(data->mlx, data->background, 0, 0);//WIDTH, data->w_height);
+	//mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, data->w_height);
 	
 	mlx_image_to_window(data->mlx, data->im_map, 0, 0);
 }

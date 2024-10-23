@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/23 14:24:28 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:04:42 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ static int	outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pix
 		//printf("ray bounds000 rpos x = %f also rpos y = %f\n", rpos_pixel_x / 64, rpos_pixel_y / 64);
 		return (FAILURE);		
 	}
-	if (rpos_pixel_y < 0 || rpos_pixel_x / T_SIZE >= data->map_width)//WIDTH)
+	if (rpos_pixel_y < 0 || rpos_pixel_x / T_SIZE >= data->map_width)//data->w_width)
 	{
-		//printf("ray bounds111 rpos x = %f also rpos y = %f and  WIDTH = %d\n", rpos_pixel_x, rpos_pixel_y, WIDTH);
+		//printf("ray bounds111 rpos x = %f also rpos y = %f and  data->w_width = %d\n", rpos_pixel_x, rpos_pixel_y, data->w_width);
 		return (FAILURE);
 	}
-	if (rpos_pixel_y < 0 || rpos_pixel_x / T_SIZE >= HEIGHT)
+	if (rpos_pixel_y < 0 || rpos_pixel_x / T_SIZE >= data->w_height)
 	{
 		//printf("ray bounds2222 ray x = %f\n", rpos_pixel_x);
 		return (FAILURE);
@@ -109,7 +109,7 @@ void	stack_ray_data(t_data *data, int i)
 		draw_wall(data, i, 0, 0);
 		i++;
 	}
-	mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, HEIGHT);
+	mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, data->w_height);
 }
 
 /*
@@ -130,7 +130,7 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 	(void) ray_angle;
 	ppos_pixel_x = (data->x_ppos * T_SIZE) + T_SIZE / 2;
 	ppos_pixel_y = (data->y_ppos * T_SIZE) + T_SIZE / 2;
-	while (data->x_ppos >= 0 && data->x_ppos < WIDTH && data->y_ppos >= 0 && data->y_ppos < HEIGHT)
+	while (data->x_ppos >= 0 && data->x_ppos < data->w_width && data->y_ppos >= 0 && data->y_ppos < data->w_height)
 	{
 		rpos_pixel_x = ppos_pixel_x + (int)(data->ray_dir_x * ray_distance);
 		rpos_pixel_y = ppos_pixel_y + (int)(data->ray_dir_y * ray_distance);
@@ -158,7 +158,7 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 	ppos_pixel_y = (data->y_ppos * T_SIZE) + T_SIZE / 2;
 	//printf("/t/t/twhat is ray angle at start = %f\n", ray_angle);
 	//while (data->x_ppos >= 0 && data->x_ppos < data->map_width && data->y_ppos >= 0 && data->y_ppos < data->map_length)
-	while (data->x_ppos >= 0 && data->x_ppos < WIDTH && data->y_ppos >= 0 && data->y_ppos < HEIGHT)
+	while (data->x_ppos >= 0 && data->x_ppos < data->w_width && data->y_ppos >= 0 && data->y_ppos < data->w_height)
 	{
 		rpos_pixel_x = ppos_pixel_x + (int)(data->ray_dir_x * ray_distance);
 		rpos_pixel_y = ppos_pixel_y + (int)(data->ray_dir_y * ray_distance);
@@ -218,11 +218,11 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 
 	test_x = start_x + (int)(data->p_dir_x * size);
     test_y = start_y+ (int)(data->p_dir_y * size);
-    while (data->x_ppos >= 0 && data->x_ppos < WIDTH && data->y_ppos >= 0 && data->y_ppos < HEIGHT)
+    while (data->x_ppos >= 0 && data->x_ppos < data->w_width && data->y_ppos >= 0 && data->y_ppos < data->w_height)
     {
         if (outof_bounds_check(data) == FAILURE)
             return;
-        if (test_x >= 0 && test_x < WIDTH  && test_y >= 0 && test_y < HEIGHT )
+        if (test_x >= 0 && test_x < data->w_width  && test_y >= 0 && test_y < data->w_height )
         {
             //printf("t 1 = %d and t2 = %d\n", test_x, test_y);
             //printf("player sq = %c\n", data->map[(int)data->y_ppos][(int)data->x_ppos]);
@@ -243,8 +243,8 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 ////cheat sheet for 3d.
 /*#define NUM_RAYS 120
 #define FOV 60.0
-#define SCREEN_HEIGHT 480
-#define SCREEN_WIDTH 640
+#define SCREEN_data->w_height 480
+#define SCREEN_data->w_width 640
 #define DEG2RAD (M_PI / 180.0)
 
 void render_3d_scene(t_data *data) {
@@ -257,17 +257,17 @@ void render_3d_scene(t_data *data) {
         double ray_dir_y = data->p_dir_x * sin(current_angle * DEG2RAD) + data->p_dir_y * cos(current_angle * DEG2RAD);
 
         double ray_length = shoot_ray_and_get_length(data, ray_dir_x, ray_dir_y);
-        double wall_height = SCREEN_HEIGHT / ray_length;
+        double wall_height = SCREEN_data->w_height / ray_length;
 
-        double ceiling = (SCREEN_HEIGHT / 2.0) - (wall_height / 2.0);
-        double floor = (SCREEN_HEIGHT / 2.0) + (wall_height / 2.0);
+        double ceiling = (SCREEN_data->w_height / 2.0) - (wall_height / 2.0);
+        double floor = (SCREEN_data->w_height / 2.0) + (wall_height / 2.0);
 
         draw_wall_slice(data, i, ceiling, floor, ray_length);
     }
 }
 
 void draw_wall_slice(t_data *data, int x, double ceiling, double floor, double ray_length) {
-    for (int y = 0; y < SCREEN_HEIGHT; y++) {
+    for (int y = 0; y < SCREEN_data->w_height; y++) {
         if (y < ceiling) {
             // Draw ceiling
             mlx_put_pixel(data->im_screen, x, y, ceiling_color);
@@ -276,7 +276,7 @@ void draw_wall_slice(t_data *data, int x, double ceiling, double floor, double r
             mlx_put_pixel(data->im_screen, x, y, floor_color);
         } else {
             // Draw wall
-            int texture_y = (y - ceiling) * TEXTURE_HEIGHT / (floor - ceiling);
+            int texture_y = (y - ceiling) * TEXTURE_data->w_height / (floor - ceiling);
             mlx_put_pixel(data->im_screen, x, y, get_wall_texture_color(ray_length, texture_y));
         }
     }

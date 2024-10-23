@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/23 14:32:50 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/23 15:57:42 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,8 @@ typedef	struct s_data
 	double	ray_dir_x;
 	double	ray_dir_y; // coul maybe me player dirs
 
-	
+	int32_t	w_width;
+	int32_t	w_height;
 	double	ray_step_x;
 	double	ray_step_y;
 	//distance measures check which side is closest wall.
@@ -267,8 +268,12 @@ void	flood_fill(t_data *data, size_t y, size_t x);
 int8_t		draw_floor_ceiling(t_data *data);
 int8_t		image_handling(t_data *data);
 uint32_t	load_rgb(uint32_t r, uint32_t g, uint32_t b, uint32_t a);
+
 /* in error.c */
 int		err_msg(char *obj, char *msg, int exit_code);
+
+/* in window_resizing.c */
+void	resize_func(int32_t width, int32_t height, void *param);
 
 /* in usage.c */
 void	usage(void);

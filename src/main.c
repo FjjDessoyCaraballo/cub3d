@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/22 13:08:45 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:21:23 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int argc, char **argv)
 		data = ft_calloc(1, sizeof(t_data));
 		if (!data)
 			return (err_msg(NULL, MALLOC, -1));
+		data->w_width = WIDTH;
+		data->w_height = HEIGHT;
 		if (map_handling(data, argv[1]) == FAILURE)
 		{
 			usage();
@@ -45,6 +47,7 @@ int	main(int argc, char **argv)
 		// collect_ray(data); in minimap init for now
 		// **init_3d(data);
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
+		mlx_resize_hook(data->mlx, &resize_func, data);
 		//~~ bonus animation if wanted needs to start here
 		// mlx_loop_hook(data->mlx, &animation_fucn, &data);
 		mlx_loop(data->mlx);
