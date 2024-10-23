@@ -1,0 +1,610 @@
+Running test for error_test/extra_RGB1.cub...
+###########################################################################
+Error
+RGB (ceiling) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_RGB2.cub...
+###########################################################################
+Error
+RGB values: for God sake, use F or C to define RGB
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_RGB3.cub...
+###########################################################################
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_RGB4.cub...
+###########################################################################
+Error
+RGB values: for God sake, use F or C to define RGB
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_RGB5.cub...
+###########################################################################
+Error
+RGB values: for God sake, use F or C to define RGB
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_sprite1.cub...
+###########################################################################
+Error
+Extra sprites defined for same direction.
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_sprite2.cub...
+###########################################################################
+Error
+Extra sprites defined for same direction.
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_sprite3.cub...
+###########################################################################
+Error
+Extra sprites defined for same direction.
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_sprite4.cub...
+###########################################################################
+Error
+Extra sprites defined for same direction.
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/wrongmap1.cub...
+###########################################################################
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/wrongmap2.cub...
+###########################################################################
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/wrongmap3.cub...
+###########################################################################
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/wrongmap4.cub...
+###########################################################################
+Error
+Map is not walled correctly ):<
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/wrongmap5.cub...
+###########################################################################
+Error
+Map is not walled correctly ):<
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/missing_RGB1.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+Error
+MLX couldn't load images
+w_height: 1080
+w_width: 1920
+
+
+Running test for error_test/missing_RGB2.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+Error
+MLX couldn't load images
+w_height: 1080
+w_width: 1920
+
+
+Running test for error_test/missing_RGB3.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+Error
+MLX couldn't load images
+w_height: 1080
+w_width: 1920
+
+
+Running test for error_test/wrong_RGB1.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+Error
+MLX couldn't load images
+w_height: 1080
+w_width: 1920
+
+
+Running test for error_test/wrong_RGB2.cub...
+###########################################################################
+Error
+RGB values: for God sake, use F or C to define RGB
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/wrong_RGB3.cub...
+###########################################################################
+Error
+RGB values: for God sake, use F or C to define RGB
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_player1.cub...
+###########################################################################
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_player2.cub...
+###########################################################################
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_player3.cub...
+###########################################################################
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_player4.cub...
+###########################################################################
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_player5.cub...
+###########################################################################
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_player6.cub...
+###########################################################################
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_player7.cub...
+###########################################################################
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/extra_player8.cub...
+###########################################################################
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/not_walled1.cub...
+###########################################################################
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/not_walled2.cub...
+###########################################################################
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/not_walled3.cub...
+###########################################################################
+Error
+Map is not walled correctly ):<
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/not_walled4.cub...
+###########################################################################
+Error
+Map is not walled correctly ):<
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/not_walled5.cub...
+###########################################################################
+Error
+Map is not walled correctly ):<
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/island1.cub...
+###########################################################################
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/island2.cub...
+###########################################################################
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_test/wrong_name.cbu...
+###########################################################################
+Error
+Map name is invalid
+
+
+Running test for error_test/file.cbuwrong...
+###########################################################################
+Error
+Map name is invalid
+
+
+Running test for error_test/dir_test.cub...
+###########################################################################
+Error
+Map name is invalid
+
+
+Running test for error_test/gap1.cub...
+###########################################################################
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+

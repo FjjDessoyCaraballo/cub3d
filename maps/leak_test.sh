@@ -38,6 +38,7 @@ maps=(	"error_test/extra_RGB1.cub"
 		"error_test/wrong_name.cbu"
 		"error_test/file.cbuwrong"
 		"error_test/dir_test.cub"
+		"error_test/gap1.cub"
 )
 
 # log directory
