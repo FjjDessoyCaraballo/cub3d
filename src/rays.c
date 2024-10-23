@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/22 14:52:28 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:24:28 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int	find_direction(double ray_x, double ray_y)//, double p_x , double p_y)
 		if (ray_x > 0)
 		{
 			//printf("east\n");
-			return (3);
+			return (EAST);
 		}
 		else
 		{
 			//printf("west\n");
-			return (4);
+			return (WEST);
 		}
 	}
 	else
@@ -33,12 +33,12 @@ int	find_direction(double ray_x, double ray_y)//, double p_x , double p_y)
 		if (ray_y > 0)
 		{
 			//printf("south\n");			
-			return (2);
+			return (SOUTH);
 		}
 		else
 		{
 			//printf("north\n");			
-			return (1);
+			return (NORTH);
 		}
 	}
 }
@@ -98,8 +98,6 @@ void	stack_ray_data(t_data *data, int i)
 	starting_angle = -FOV / 2 * DEG2RAD;
 	angle_increment = (FOV / RAY_MAX) * DEG2RAD;
 	player_angle = atan2(data->p_dir_y, data->p_dir_x);
-	//bonus
-	//data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	while (i < RAY_MAX)
 	{
 		current_angle = starting_angle + i * angle_increment;
@@ -141,9 +139,6 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 		if (data->map[(int)rpos_pixel_y / T_SIZE][(int)rpos_pixel_x / T_SIZE] == '1')
 		{
 			//#here#
-			//corrected_distance = ray_distance * cos(data->fov / 2 - ray_angle);
-			//data->ray_len[i] = ray_distance;
-			//data->ray_len[i] = corrected_distance;// * cos(FOV / 2 - ray_angle);
 			data->ray_len[i] = ray_distance + cos(FOV / 2 - ray_angle);
 			data->ray_hit[i] = find_direction(data->ray_dir_x, data->ray_dir_y);
 			return ;
@@ -191,13 +186,15 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 			}
 				//printf("ray len = %f\n", data->ray_len[i]);
 			data->ray_len[i] = ray_distance + cos_angle_diff / 2;
-			printf("ray len = %e\n", data->ray_len[i]);
+			//printf("ray len = %e\n", data->ray_len[i]);
 			//printf("ray len just after = %f\n", data->ray_len[i]);
+			//data->rayx[i] = data->ray_dir_x;
+			//data->rayy[i] = data->ray_dir_y;
 			data->ray_hit[i] = find_direction(data->ray_dir_x, data->ray_dir_y);
 			//printf("ray len before print = %f\n", data->ray_len[i]);
 			return ;
 		}
-		ray_distance += 0.1;
+		ray_distance ++;//= 0.1;
 	}
 	
 	//if (data->ray_len[i] == 0)
