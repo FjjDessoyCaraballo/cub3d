@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/24 10:03:09 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/24 15:09:53 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main(int argc, char **argv)
 		}
 		if (open_window(data) == FAILURE)
 			return (FAILURE);
+
 		if (image_handling(data) == FAILURE)
 			return (FAILURE);
 		if (initlize_minimap(data) == FAILURE)
@@ -43,8 +44,8 @@ int	main(int argc, char **argv)
 		stack_ray_data(data, 0);
 		// collect_ray(data); in minimap init for now
 		// **init_3d(data);
+
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
-		mlx_resize_hook(data->mlx, &resize_func, data);
 		//~~ bonus animation if wanted needs to start here
 		// mlx_loop_hook(data->mlx, &animation_fucn, &data);
 		mlx_loop(data->mlx);

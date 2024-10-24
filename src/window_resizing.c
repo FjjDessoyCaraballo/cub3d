@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_resizing.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:40:33 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/24 09:52:53 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/24 15:07:27 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	resize_func(int32_t width, int32_t height, void *param)
 	t_data *data;
 
 	data = (t_data *)param;
-	data->w_width = width;
-	data->w_height = height;
 	if (data->im_ray)
 		mlx_delete_image(data->mlx, data->im_ray);
 	data->im_ray = mlx_new_image(data->mlx, width, height);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/23 16:04:42 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/24 15:04:12 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ void	update_player(t_data *data)
 	stack_ray_data(data, 0);
 	
 	
-	//mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_data->w_height);
-	//mlx_image_to_window(data->mlx, data->background, 0, 0);//WIDTH, data->w_height);
-	//mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, data->w_height);
+	//mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_HEIGHT);
+	//mlx_image_to_window(data->mlx, data->background, 0, 0);//WIDTH, HEIGHT);
+	//mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, HEIGHT);
 
 	
 	mlx_image_to_window(data->mlx, data->im_map, 0, 0);

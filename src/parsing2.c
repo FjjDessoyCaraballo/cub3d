@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/24 10:02:25 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/24 15:08:22 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,5 @@ int8_t	extract(t_data *data)
 		return (FAILURE);
 	if (player_exists(data, data->map) == FAILURE)
 		return (FAILURE);
-	data->w_width = WIDTH;
-	data->w_height = HEIGHT;
 	return (SUCCESS);
 }
