@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/24 19:13:30 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/24 19:17:56 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,7 @@ int	draw_wall(t_data *data, int i, int x, double img_y)
 					//colour2 = fetch_pixel_rgb(data->im_ray, x, current_wall_pos, 0);
 				}
 				// this is a segv protection
-				if (colour == 0)// || colour == colour2)
+				if (colour == 0)
 					break ;
 				mlx_put_pixel(data->im_ray, x, (int)current_wall_pos, colour);
 			}
