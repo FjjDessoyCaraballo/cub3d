@@ -39,7 +39,13 @@ maps=(	"error_test/extra_RGB1.cub"
 		"error_test/file.cbuwrong"
 		"error_test/dir_test.cub"
 		"error_test/gap1.cub"
+		"error_test/wrong_sprite1.cub"
+		"error_test/wrong_sprite2.cub"
+		"error_test/wrong_sprite3.cub"
+		"error_test/wrong_sprite4.cub"
+		"error_test/wrong_sprite5.cub"
 )
+
 
 # log directory
 log_dir="leak_log"

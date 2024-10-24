@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:41:48 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/23 16:20:14 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/24 10:03:26 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 
 int	open_window(t_data *data)
 {
-	printf("w_height: %i\nw_width: %i\n",data->w_height, data->w_width);
 	data->mlx = mlx_init(data->w_width, data->w_height, "cub3D", true);
 	if (!data->mlx)
 		return (err_msg(NULL, MLX1, FAILURE));

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/23 16:21:23 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/24 10:03:09 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,12 @@ int	main(int argc, char **argv)
 		data = ft_calloc(1, sizeof(t_data));
 		if (!data)
 			return (err_msg(NULL, MALLOC, -1));
-		data->w_width = WIDTH;
-		data->w_height = HEIGHT;
 		if (map_handling(data, argv[1]) == FAILURE)
 		{
 			usage();
 			free_data(data);
 			return (FAILURE);
 		}
-		// printer(data);
 		if (open_window(data) == FAILURE)
 			return (FAILURE);
 		if (image_handling(data) == FAILURE)

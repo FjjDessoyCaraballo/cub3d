@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/24 10:58:22 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/24 10:58:56 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,96 +199,3 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 	//if (data->ray_len[i] == 0)
 	//	data->ray_len = 
 }*/
-
-// the old collect ray, we could use to draw jus center ray for minimap direction indicator
-/*void    collect_ray(t_data *data)
-{
-	int			x;
-	int i;
-    int size;
-	
-	i = 0;
-	x = 0;
-	int start_x = (data->x_ppos * 64) + 32;
-    int start_y = (data->y_ppos * 64) + 32;
-    size = 0;
-    int test_x;
-    int test_y;
-
-	test_x = start_x + (int)(data->p_dir_x * size);
-    test_y = start_y+ (int)(data->p_dir_y * size);
-    while (data->x_ppos >= 0 && data->x_ppos < data->w_width && data->y_ppos >= 0 && data->y_ppos < data->w_height)
-    {
-        if (outof_bounds_check(data) == FAILURE)
-            return;
-        if (test_x >= 0 && test_x < data->w_width  && test_y >= 0 && test_y < data->w_height )
-        {
-            //printf("t 1 = %d and t2 = %d\n", test_x, test_y);
-            //printf("player sq = %c\n", data->map[(int)data->y_ppos][(int)data->x_ppos]);
-            //printf("checkies p x = %f, p_y = %f\n", data->x_ppos, data->y_ppos - STEP);
-            //printf("lets look at athe char = %c\n", data->map[test_y / 64][test_x / 64]);
-            if (data->map[test_y / 64][test_x / 64] == '1')
-            {
-                data->ray_size = size; // data->ray_len[];
-                return;                
-            }
-        }
-		test_x = start_x + (int)(data->p_dir_x * size);
-        test_y = start_y+ (int)(data->p_dir_y * size);
-        size++;
-    }
-}
-*/
-////cheat sheet for 3d.
-/*#define NUM_RAYS 120
-#define FOV 60.0
-#define SCREEN_data->w_height 480
-#define SCREEN_data->w_width 640
-#define DEG2RAD (M_PI / 180.0)
-
-void render_3d_scene(t_data *data) {
-    double angle_step = FOV / NUM_RAYS;
-    double start_angle = -FOV / 2.0;
-
-    for (int i = 0; i < NUM_RAYS; i++) {
-        double current_angle = start_angle + i * angle_step;
-        double ray_dir_x = data->p_dir_x * cos(current_angle * DEG2RAD) - data->p_dir_y * sin(current_angle * DEG2RAD);
-        double ray_dir_y = data->p_dir_x * sin(current_angle * DEG2RAD) + data->p_dir_y * cos(current_angle * DEG2RAD);
-
-        double ray_length = shoot_ray_and_get_length(data, ray_dir_x, ray_dir_y);
-        double wall_height = SCREEN_data->w_height / ray_length;
-
-        double ceiling = (SCREEN_data->w_height / 2.0) - (wall_height / 2.0);
-        double floor = (SCREEN_data->w_height / 2.0) + (wall_height / 2.0);
-
-        draw_wall_slice(data, i, ceiling, floor, ray_length);
-    }
-}
-
-void draw_wall_slice(t_data *data, int x, double ceiling, double floor, double ray_length) {
-    for (int y = 0; y < SCREEN_data->w_height; y++) {
-        if (y < ceiling) {
-            // Draw ceiling
-            mlx_put_pixel(data->im_screen, x, y, ceiling_color);
-        } else if (y > floor) {
-            // Draw floor
-            mlx_put_pixel(data->im_screen, x, y, floor_color);
-        } else {
-            // Draw wall
-            int texture_y = (y - ceiling) * TEXTURE_data->w_height / (floor - ceiling);
-            mlx_put_pixel(data->im_screen, x, y, get_wall_texture_color(ray_length, texture_y));
-        }
-    }
-}
-
-double shoot_ray_and_get_length(t_data *data, double ray_dir_x, double ray_dir_y) {
-    double length = 0;
-    // Your raycasting logic to determine the length
-    return length;
-}
-
-uint32_t get_wall_texture_color(double ray_length, int texture_y) {
-    // Determine the color from the texture based on ray length and y position on the texture
-    return wall_texture[texture_y]; // Example return, should be based on actual texture lookup
-}
-*/

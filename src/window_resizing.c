@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:40:33 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/23 16:26:17 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/24 09:52:53 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	resize_func(int32_t width, int32_t height, void *param)
 	t_data *data;
 
 	data = (t_data *)param;
-	printf("width: %i\n height: %i\n", width, height);
 	data->w_width = width;
 	data->w_height = height;
 	if (data->im_ray)
