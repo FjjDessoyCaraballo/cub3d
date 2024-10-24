@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   img_handling.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 13:51:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/22 13:06:57 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:24:56 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static	int8_t	load_pngs(t_data *data)
 	return (SUCCESS);
 }
 
-static uint32_t	load_rgb(uint32_t r, uint32_t g, uint32_t b, uint32_t a)
+uint32_t	load_rgb(uint32_t r, uint32_t g, uint32_t b, uint32_t a)
 {
 	return (r << 24 | g << 16 | b << 8 | a);
 }
@@ -42,15 +42,14 @@ int8_t	draw_floor_ceiling(t_data *data)
 	int			j;
 
 	i = 0;
-
 	if (!data->background)
 		return (FAILURE);
-	while (i < HEIGHT)
+	while (i < data->w_height)
 	{
 		j = 0;
-		while (j < WIDTH)
+		while (j < data->w_width)
 		{
-			if (i < HEIGHT / 2)
+			if (i < data->w_height / 2)
 				mlx_put_pixel(data->background, j, i, load_rgb(data->c_red, \
 				data->c_green, data->c_blue, 255));
 			else
@@ -67,8 +66,8 @@ int8_t	draw_floor_ceiling(t_data *data)
 
 static int8_t image_initialization(t_data *data)
 {
-	data->background = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	data->background = mlx_new_image(data->mlx, data->w_width, data->w_height);
+	data->im_ray = mlx_new_image(data->mlx, data->w_width, data->w_height);
 	if (data->background == NULL || data->im_ray == NULL)
 		return (FAILURE); //error message
 	return (SUCCESS);

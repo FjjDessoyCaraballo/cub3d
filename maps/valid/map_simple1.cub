@@ -1,14 +1,10 @@
-NO ./path_to_the_north_texture
-WE ./path_to_the_west_texture
-SO ./path_to_the_south_texture
-EA ./path_to_the_east_texture
+NO ./minimap_textures/wall_n_sprite.png
+WE ./minimap_textures/wall_w_sprite.png
+SO ./minimap_textures/wall_s_sprite.png
+EA ./minimap_textures/wall_e_sprite.png
 
 C 225,30,0
 F 220,100,0
-
-11111
-10001
-11111
 
 111111111111111111111111111
 100000000000000000000000001

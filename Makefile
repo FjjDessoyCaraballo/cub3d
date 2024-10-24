@@ -30,6 +30,7 @@ SRC_FILES = main.c\
 			movement.c\
 			key_hooks.c\
 			rays.c\
+			window_resizing.c\
 			init_higher_dimension.c\
 			minimap.c\
 			minimap_utils_bonus.c\

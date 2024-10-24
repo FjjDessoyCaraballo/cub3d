@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/22 11:40:02 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/23 15:57:42 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@
 # define MINI_T 32
 # define MINI_OFFSET 10
 # define MINI_SCALE 4 //maybe for minimap
-# define RAY_MAX 220.0 // could be 240
-# define FOV 90.0 //~~ angle of field of view degrees 
+# define RAY_MAX 1920.0 // could be 240
+# define FOV 60.0 //~~ angle of field of view degrees 
 /*************************************************/
 /* math macros ***************************************/
 /*************************************************/
@@ -113,6 +113,15 @@
 /*1.map_width and map_length maps width and height*/
 /*2. p_x and p_y player position p_dir_x and p_dir_y players sight direction*/
 /*3. doubles are better than floats, more percise*/
+
+typedef enum e_dirs
+{
+	NORTH = 1,
+	SOUTH = 2,
+	EAST = 3,
+	WEST = 4
+} t_dirs;
+
 typedef	struct s_data
 {
 	mlx_t	*mlx;
@@ -121,8 +130,8 @@ typedef	struct s_data
 	char	**map;
 	bool	broken_map;
 	char	**file;
-	double	ray_len[220]; // could be 240	
-	double	ray_hit[220];
+	double	ray_len[1920]; // could be 240	
+	double	ray_hit[1920];
 	char	key_pressed[265]; // num of highest key
 	//int		file_len;
 
@@ -140,7 +149,8 @@ typedef	struct s_data
 	double	ray_dir_x;
 	double	ray_dir_y; // coul maybe me player dirs
 
-	
+	int32_t	w_width;
+	int32_t	w_height;
 	double	ray_step_x;
 	double	ray_step_y;
 	//distance measures check which side is closest wall.
@@ -255,11 +265,15 @@ int8_t	copy_map(t_data *data);
 void	flood_fill(t_data *data, size_t y, size_t x);
 
 /* in img_handling.c */
-int8_t	draw_floor_ceiling(t_data *data);
-int8_t	image_handling(t_data *data);
+int8_t		draw_floor_ceiling(t_data *data);
+int8_t		image_handling(t_data *data);
+uint32_t	load_rgb(uint32_t r, uint32_t g, uint32_t b, uint32_t a);
 
 /* in error.c */
 int		err_msg(char *obj, char *msg, int exit_code);
+
+/* in window_resizing.c */
+void	resize_func(int32_t width, int32_t height, void *param);
 
 /* in usage.c */
 void	usage(void);
@@ -287,7 +301,7 @@ void    rotate_left(t_data *data);
 void    rotate_right(t_data *data);
 
 /* init_higher_dimension.c #our 3d perspective*/
-int		draw_wall(t_data *data, int i);
+int		draw_wall(t_data *data, int i, int x, double img_y);
 
 /* printer REMOVE LATER */
 void	printer(t_data *data);

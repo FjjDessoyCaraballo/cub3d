@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/22 13:08:01 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:10:13 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	init_map(t_data *data)
 		x = 0;
 		y++;
 	}	
-	//if (mlx_image_to_window(data->mlx, data->im_map, MINI_WIDTH, MINI_HEIGHT) == -1)
+	//if (mlx_image_to_window(data->mlx, data->im_map, MINI_WIDTH, MINI_data->w_height) == -1)
 	//	return (err_msg(NULL, IMG_TO_WIN, FAILURE));
 	return (SUCCESS);
 }
@@ -131,22 +131,22 @@ int adjust_tilesize(t_data *data)
 {
 	size_t	x_comp;
 	size_t	y_comp;
-	if (data->map_width * data->t_size > WIDTH || data->map_length * data->t_size > HEIGHT)
+	if (data->map_width * data->t_size > data->w_width || data->map_length * data->t_size > data->w_height)
 	{
 		x_comp = data->map_width * data->t_size;
 		y_comp = data->map_length * data->t_size;
-		if (x_comp > y_comp && x_comp > WIDTH)
+		if (x_comp > y_comp && x_comp > data->w_width)
 		{
-			while (data->map_width * data->t_size > WIDTH)
+			while (data->map_width * data->t_size > data->w_width)
 			{
 				data->t_size -= 1;
 				if (data->t_size < 21)
 					printf("error in tile size\n");
 			}
 		}
-		else if (data->map_length * data->t_size > HEIGHT)
+		else if (data->map_length * data->t_size > data->w_height)
 		{
-			while (data->map_length * data->t_size > HEIGHT)
+			while (data->map_length * data->t_size > data->w_height)
 			{
 				data->t_size -= 1;	
 				if (data->t_size < 21)
@@ -176,7 +176,7 @@ int adjust_tilesize(t_data *data)
 
 	red = 0xFF0000FF;
 	radius = 20 / 2;
-	data->im_mini_player = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	data->im_mini_player = mlx_new_image(data->mlx, data->w_width, data->w_height);
 	center_x = (int)(data->x_ppos * T_SIZE) + T_SIZE / 2;
 	center_y = (int)(data->y_ppos * T_SIZE) + T_SIZE / 2;
 	y = -radius;
@@ -189,7 +189,7 @@ int adjust_tilesize(t_data *data)
 			{
 				draw_x = center_x + x;
 				draw_y = center_y + y;
-				if (draw_x >= 0 && draw_x < WIDTH && draw_y >= 0 && draw_y < HEIGHT)
+				if (draw_x >= 0 && draw_x < data->w_width && draw_y >= 0 && draw_y < data->w_height)
 					mlx_put_pixel(data->im_mini_player, draw_x, draw_y, red);
 			}
 			x++;

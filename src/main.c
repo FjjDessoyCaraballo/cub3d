@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/22 13:08:45 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/24 10:03:09 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	main(int argc, char **argv)
 		// collect_ray(data); in minimap init for now
 		// **init_3d(data);
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
+		mlx_resize_hook(data->mlx, &resize_func, data);
 		//~~ bonus animation if wanted needs to start here
 		// mlx_loop_hook(data->mlx, &animation_fucn, &data);
 		mlx_loop(data->mlx);

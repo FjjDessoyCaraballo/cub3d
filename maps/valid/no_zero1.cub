@@ -1,0 +1,11 @@
+NO ./minimap_textures/wall_no_sprite.png
+WE ./minimap_textures/wall_we_sprite.png
+SO ./minimap_textures/wall_s_sprite.png
+EA ./minimap_textures/wall_e_sprite.png
+
+C 225,30,0
+F 220,100,0
+
+111
+1N1
+111
