@@ -46,6 +46,8 @@ int8_t	copy_map(t_data *data)
 	while (data->map[i])
 	{
 		data->mp_cpy[i] = ft_strdup(data->map[i]);
+		if (!data->mp_cpy[i])
+			return (err_msg(NULL, MALLOC, FAILURE));
 		i++;
 	}
 	return (SUCCESS);

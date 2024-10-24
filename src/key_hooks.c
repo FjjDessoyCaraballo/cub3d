@@ -12,7 +12,6 @@
 
 #include "../inc/cubd.h"
 
-
 /*
 ~~cheat sheet~~
     1. key_pressed 0 = Set the key state to released
@@ -26,12 +25,7 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 
 	data = (t_data *)param;
 	if (keydata.key == MLX_KEY_ESCAPE)
-	{
-		if (data->mlx)
 			mlx_close_window(data->mlx);
-		else
-			printf("mlx is null for some reason\n");
-	}
 	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_A ||
         keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_D ||
         keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_RIGHT)
@@ -76,6 +70,7 @@ void	update_player(t_data *data)
 	//mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_data->w_height);
 	//mlx_image_to_window(data->mlx, data->background, 0, 0);//WIDTH, data->w_height);
 	//mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, data->w_height);
+
 	
 	mlx_image_to_window(data->mlx, data->im_map, 0, 0);
 }

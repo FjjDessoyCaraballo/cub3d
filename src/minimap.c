@@ -110,7 +110,7 @@ void	draw_mini_map(t_data *data, int x, int y, int index)
 int	initlize_minimap(t_data *data)
 {
 	if (init_mini_imgs(data) == FAILURE)
-		return (FAILURE);
+		return (err_msg(NULL, MLX1, FAILURE));
 	if (init_map(data) == FAILURE)
 		return (FAILURE);
 	draw_mini_player(data);

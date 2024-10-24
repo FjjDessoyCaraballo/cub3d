@@ -48,7 +48,6 @@ int	main(int argc, char **argv)
 		//~~ bonus animation if wanted needs to start here
 		// mlx_loop_hook(data->mlx, &animation_fucn, &data);
 		mlx_loop(data->mlx);
-		// printer(data);
 	}
 	else
 		usage();
