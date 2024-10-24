@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/23 16:04:42 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/24 10:58:22 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ void	stack_ray_data(t_data *data, int i)
 		ray_angle = player_angle + current_angle;
 		data->ray_dir_x = cos(ray_angle);
 		data->ray_dir_y = sin(ray_angle);
-		
 		collect_ray(data, i, 0.0, ray_angle);
 		draw_wall(data, i, 0, 0);
 		i++;
@@ -144,7 +143,7 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 			return ;
 		}
 		//ray_distance++;
-		ray_distance += 0.1;
+		ray_distance += 0.5;
 	}
 }
 /*void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
