@@ -60,6 +60,7 @@ all: libmlx $(NAME)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(INCFLAGS) $(LIBFT_INC) -g -c $< -o $@
+
 libmlx:
 	@if [ ! -d "$(LIBMLX)" ]; then git clone https://github.com/codam-coding-college/MLX42.git $(LIBMLX); fi
 	@cmake ./MLX42 -B ./MLX42/build
