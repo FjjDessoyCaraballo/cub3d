@@ -1,0 +1,252 @@
+Running test for valid_maps/map1.cub...
+###########################################################################
+==295389== Memcheck, a memory error detector
+==295389== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295389== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295389== Command: ../cub3D valid_maps/map1.cub
+==295389== 
+==295389== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map name is invalid
+==295389== 
+==295389== HEAP SUMMARY:
+==295389==     in use at exit: 0 bytes in 0 blocks
+==295389==   total heap usage: 1 allocs, 1 frees, 31,464 bytes allocated
+==295389== 
+==295389== All heap blocks were freed -- no leaks are possible
+==295389== 
+==295389== For lists of detected and suppressed errors, rerun with: -s
+==295389== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for valid_maps/map2.cub...
+###########################################################################
+==295398== Memcheck, a memory error detector
+==295398== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295398== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295398== Command: ../cub3D valid_maps/map2.cub
+==295398== 
+==295398== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map name is invalid
+==295398== 
+==295398== HEAP SUMMARY:
+==295398==     in use at exit: 0 bytes in 0 blocks
+==295398==   total heap usage: 1 allocs, 1 frees, 31,464 bytes allocated
+==295398== 
+==295398== All heap blocks were freed -- no leaks are possible
+==295398== 
+==295398== For lists of detected and suppressed errors, rerun with: -s
+==295398== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for valid_maps/map3.cub...
+###########################################################################
+==295407== Memcheck, a memory error detector
+==295407== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295407== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295407== Command: ../cub3D valid_maps/map3.cub
+==295407== 
+==295407== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map name is invalid
+==295407== 
+==295407== HEAP SUMMARY:
+==295407==     in use at exit: 0 bytes in 0 blocks
+==295407==   total heap usage: 1 allocs, 1 frees, 31,464 bytes allocated
+==295407== 
+==295407== All heap blocks were freed -- no leaks are possible
+==295407== 
+==295407== For lists of detected and suppressed errors, rerun with: -s
+==295407== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for valid_maps/map4.cub...
+###########################################################################
+==295416== Memcheck, a memory error detector
+==295416== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295416== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295416== Command: ../cub3D valid_maps/map4.cub
+==295416== 
+==295416== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map name is invalid
+==295416== 
+==295416== HEAP SUMMARY:
+==295416==     in use at exit: 0 bytes in 0 blocks
+==295416==   total heap usage: 1 allocs, 1 frees, 31,464 bytes allocated
+==295416== 
+==295416== All heap blocks were freed -- no leaks are possible
+==295416== 
+==295416== For lists of detected and suppressed errors, rerun with: -s
+==295416== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for valid_maps/no_zero1.cub...
+###########################################################################
+==295425== Memcheck, a memory error detector
+==295425== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295425== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295425== Command: ../cub3D valid_maps/no_zero1.cub
+==295425== 
+==295425== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map name is invalid
+==295425== 
+==295425== HEAP SUMMARY:
+==295425==     in use at exit: 0 bytes in 0 blocks
+==295425==   total heap usage: 1 allocs, 1 frees, 31,464 bytes allocated
+==295425== 
+==295425== All heap blocks were freed -- no leaks are possible
+==295425== 
+==295425== For lists of detected and suppressed errors, rerun with: -s
+==295425== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for valid_maps/no_zero2.cub...
+###########################################################################
+==295434== Memcheck, a memory error detector
+==295434== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295434== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295434== Command: ../cub3D valid_maps/no_zero2.cub
+==295434== 
+==295434== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map name is invalid
+==295434== 
+==295434== HEAP SUMMARY:
+==295434==     in use at exit: 0 bytes in 0 blocks
+==295434==   total heap usage: 1 allocs, 1 frees, 31,464 bytes allocated
+==295434== 
+==295434== All heap blocks were freed -- no leaks are possible
+==295434== 
+==295434== For lists of detected and suppressed errors, rerun with: -s
+==295434== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for valid_maps/no_zero3.cub...
+###########################################################################
+==295443== Memcheck, a memory error detector
+==295443== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295443== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295443== Command: ../cub3D valid_maps/no_zero3.cub
+==295443== 
+==295443== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map name is invalid
+==295443== 
+==295443== HEAP SUMMARY:
+==295443==     in use at exit: 0 bytes in 0 blocks
+==295443==   total heap usage: 1 allocs, 1 frees, 31,464 bytes allocated
+==295443== 
+==295443== All heap blocks were freed -- no leaks are possible
+==295443== 
+==295443== For lists of detected and suppressed errors, rerun with: -s
+==295443== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for valid_maps/no_zero4.cub...
+###########################################################################
+==295452== Memcheck, a memory error detector
+==295452== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295452== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295452== Command: ../cub3D valid_maps/no_zero4.cub
+==295452== 
+==295452== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map name is invalid
+==295452== 
+==295452== HEAP SUMMARY:
+==295452==     in use at exit: 0 bytes in 0 blocks
+==295452==   total heap usage: 1 allocs, 1 frees, 31,464 bytes allocated
+==295452== 
+==295452== All heap blocks were freed -- no leaks are possible
+==295452== 
+==295452== For lists of detected and suppressed errors, rerun with: -s
+==295452== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for valid_maps/map_simple1.cub...
+###########################################################################
+==295461== Memcheck, a memory error detector
+==295461== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295461== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295461== Command: ../cub3D valid_maps/map_simple1.cub
+==295461== 
+==295461== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map name is invalid
+==295461== 
+==295461== HEAP SUMMARY:
+==295461==     in use at exit: 0 bytes in 0 blocks
+==295461==   total heap usage: 1 allocs, 1 frees, 31,464 bytes allocated
+==295461== 
+==295461== All heap blocks were freed -- no leaks are possible
+==295461== 
+==295461== For lists of detected and suppressed errors, rerun with: -s
+==295461== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for valid_maps/map_simple2.cub...
+###########################################################################
+==295470== Memcheck, a memory error detector
+==295470== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295470== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295470== Command: ../cub3D valid_maps/map_simple2.cub
+==295470== 
+==295470== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map name is invalid
+==295470== 
+==295470== HEAP SUMMARY:
+==295470==     in use at exit: 0 bytes in 0 blocks
+==295470==   total heap usage: 1 allocs, 1 frees, 31,464 bytes allocated
+==295470== 
+==295470== All heap blocks were freed -- no leaks are possible
+==295470== 
+==295470== For lists of detected and suppressed errors, rerun with: -s
+==295470== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for valid_maps/map_simple3.cub...
+###########################################################################
+==295479== Memcheck, a memory error detector
+==295479== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295479== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295479== Command: ../cub3D valid_maps/map_simple3.cub
+==295479== 
+==295479== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map name is invalid
+==295479== 
+==295479== HEAP SUMMARY:
+==295479==     in use at exit: 0 bytes in 0 blocks
+==295479==   total heap usage: 1 allocs, 1 frees, 31,464 bytes allocated
+==295479== 
+==295479== All heap blocks were freed -- no leaks are possible
+==295479== 
+==295479== For lists of detected and suppressed errors, rerun with: -s
+==295479== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for valid_maps/map_simple4.cub...
+###########################################################################
+==295488== Memcheck, a memory error detector
+==295488== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295488== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295488== Command: ../cub3D valid_maps/map_simple4.cub
+==295488== 
+==295488== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map name is invalid
+==295488== 
+==295488== HEAP SUMMARY:
+==295488==     in use at exit: 0 bytes in 0 blocks
+==295488==   total heap usage: 1 allocs, 1 frees, 31,464 bytes allocated
+==295488== 
+==295488== All heap blocks were freed -- no leaks are possible
+==295488== 
+==295488== For lists of detected and suppressed errors, rerun with: -s
+==295488== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
