@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/23 15:57:42 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/24 17:59:38 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@
 # define MINI_SCALE 4 //maybe for minimap
 # define RAY_MAX 1920.0 // could be 240
 # define FOV 60.0 //~~ angle of field of view degrees 
+# define WALL_SCALE_FACTOR 0.01
+# define RADIUS (20.0 / (double)T_SIZE)//??
 /*************************************************/
 /* math macros ***************************************/
 /*************************************************/
@@ -107,6 +109,11 @@
 # define PI				3.14159265358979323846
 # define DEG2RAD 		(PI / 180.0)
 # define STEP			0.03
+# define TAN_OF_FOV		(tan(FOV / 2 * PI / 180))// might not need this
+# define DIST_TO_PLANE	((WIDTH / 2) / TAN_OF_FOV)
+# define SEGMENT		(WIDTH / RAY_MAX)
+# define STARTING_ANGLE	(-FOV / 2 * DEG2RAD)
+# define ANGLE_INCREMENT ((FOV / RAY_MAX) * DEG2RAD)	
 /*************************************************/
 /* structs ***************************************/
 /*************************************************/
@@ -132,6 +139,8 @@ typedef	struct s_data
 	char	**file;
 	double	ray_len[1920]; // could be 240	
 	double	ray_hit[1920];
+	//double	ray_len;
+	//double	ray_hit;
 	char	key_pressed[265]; // num of highest key
 	//int		file_len;
 
@@ -149,8 +158,11 @@ typedef	struct s_data
 	double	ray_dir_x;
 	double	ray_dir_y; // coul maybe me player dirs
 
-	int32_t	w_width;
-	int32_t	w_height;
+	int	w_width;
+	int	w_height;
+
+	//int32_t	w_width;
+	//int32_t	w_height;
 	double	ray_step_x;
 	double	ray_step_y;
 	//distance measures check which side is closest wall.
@@ -268,12 +280,8 @@ void	flood_fill(t_data *data, size_t y, size_t x);
 int8_t		draw_floor_ceiling(t_data *data);
 int8_t		image_handling(t_data *data);
 uint32_t	load_rgb(uint32_t r, uint32_t g, uint32_t b, uint32_t a);
-
 /* in error.c */
 int		err_msg(char *obj, char *msg, int exit_code);
-
-/* in window_resizing.c */
-void	resize_func(int32_t width, int32_t height, void *param);
 
 /* in usage.c */
 void	usage(void);

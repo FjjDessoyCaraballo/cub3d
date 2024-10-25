@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   img_handling.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 13:51:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/23 16:24:56 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/24 15:04:12 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ int8_t	draw_floor_ceiling(t_data *data)
 	i = 0;
 	if (!data->background)
 		return (FAILURE);
-	while (i < data->w_height)
+	while (i < HEIGHT)
 	{
 		j = 0;
-		while (j < data->w_width)
+		while (j < WIDTH)
 		{
-			if (i < data->w_height / 2)
+			if (i < HEIGHT / 2)
 				mlx_put_pixel(data->background, j, i, load_rgb(data->c_red, \
 				data->c_green, data->c_blue, 255));
 			else
@@ -66,8 +66,8 @@ int8_t	draw_floor_ceiling(t_data *data)
 
 static int8_t image_initialization(t_data *data)
 {
-	data->background = mlx_new_image(data->mlx, data->w_width, data->w_height);
-	data->im_ray = mlx_new_image(data->mlx, data->w_width, data->w_height);
+	data->background = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	if (data->background == NULL || data->im_ray == NULL)
 		return (FAILURE); //error message
 	return (SUCCESS);
