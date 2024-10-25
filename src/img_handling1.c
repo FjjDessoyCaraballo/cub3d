@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   img_handling.c                                     :+:      :+:    :+:   */
+/*   img_handling1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 13:51:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/24 15:04:12 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/25 13:52:50 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,6 @@ int8_t	image_handling(t_data *data)
 		return (err_msg(NULL, MLX2, FAILURE));
 	if (draw_floor_ceiling(data) == FAILURE)
 		return (err_msg(NULL, MLX4, FAILURE));
+	delete_textures(data);
 	return (SUCCESS);
 }

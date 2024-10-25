@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/25 10:50:41 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/25 14:03:23 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ int	main(int argc, char **argv)
 		}
 		if (open_window(data) == FAILURE)
 			return (FAILURE);
-
-		if (image_handling(data) == FAILURE)
-			return (FAILURE);
 		if (initlize_minimap(data) == FAILURE)
+			return (FAILURE);
+		if (image_handling(data) == FAILURE)
 			return (FAILURE);
 		stack_ray_data(data, 0);
 		// collect_ray(data); in minimap init for now
@@ -49,8 +48,9 @@ int	main(int argc, char **argv)
 		//~~ bonus animation if wanted needs to start here
 		// mlx_loop_hook(data->mlx, &animation_fucn, &data);
 		mlx_loop(data->mlx);
-		mlx_close_window(data->mlx);
 		mlx_terminate(data->mlx);
+		bonus_delete(data);
+		free_data(data);
 	}
 	else
 		usage();

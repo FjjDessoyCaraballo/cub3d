@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/24 17:59:38 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/25 14:04:02 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@
 # define MLX2 "Error\nMLX couldn't load images\n"
 # define MLX3 "Error\nMLX couldn't load RGB scheme\n"
 # define MLX4 "Error\nMLX couldn't draw ceiling and floor\n"
+# define MLX5 "Error\nMLX couldn't delete images/textures\n"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -276,10 +277,15 @@ int8_t	check_if_walled(t_data *data);
 int8_t	copy_map(t_data *data);
 void	flood_fill(t_data *data, size_t y, size_t x);
 
-/* in img_handling.c */
+/* in img_handling1.c */
 int8_t		draw_floor_ceiling(t_data *data);
 int8_t		image_handling(t_data *data);
 uint32_t	load_rgb(uint32_t r, uint32_t g, uint32_t b, uint32_t a);
+
+/* in img_handling2.c */
+void	delete_textures(t_data *data);
+void	delete_images(t_data *data);
+
 /* in error.c */
 int		err_msg(char *obj, char *msg, int exit_code);
 
@@ -288,9 +294,11 @@ void	usage(void);
 
 /* in base.c*/
 int		open_window(t_data *data);
+
 /* in key_hooks.c */
 void	keyhookfunc(mlx_key_data_t keydata, void *param);
 void	update_player(t_data *data);
+
 /* in movement.c */
 void	keyhookfunc(mlx_key_data_t keydata, void *param);
 void    update_player(t_data *data);
@@ -319,6 +327,7 @@ int		initlize_minimap(t_data *data);
 void	draw_mini_player(t_data *data);
 void	draw_player(t_data *data);
 void	draw_first_line(t_data *data); // simple draw a line from center
+void	bonus_delete(t_data *data);
 
 /* minimap.c */
 

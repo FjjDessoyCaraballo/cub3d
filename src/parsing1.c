@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/24 10:02:20 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/25 13:43:05 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,6 @@ int8_t	map_handling(t_data *data, char *fname)
 			return (err_msg(NULL, CLOSE, FAILURE));
 		}
 	}
+	free_array(data->mp_cpy);
 	return (SUCCESS);
 }
