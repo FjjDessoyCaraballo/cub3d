@@ -1,0 +1,220 @@
+Running test for error_test/extra_RGB1.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_RGB2.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_RGB3.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_RGB4.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_RGB5.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_sprite1.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_sprite2.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_sprite3.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_sprite4.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrongmap1.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrongmap2.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrongmap3.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrongmap4.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrongmap5.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/missing_RGB1.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/missing_RGB2.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/missing_RGB3.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_RGB1.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_RGB2.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_RGB3.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player1.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player2.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player3.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player4.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player5.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player6.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player7.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player8.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/not_walled1.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/not_walled2.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/not_walled3.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/not_walled4.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/not_walled5.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/island1.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/island2.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_name.cbu...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/file.cbuwrong...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/dir_test.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/gap1.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_sprite1.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_sprite2.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_sprite3.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_sprite4.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_sprite5.cub...
+###########################################################################
+./tests.sh: line 66: ../cub3D: No such file or directory
+
+

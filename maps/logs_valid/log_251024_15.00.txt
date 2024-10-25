@@ -1,0 +1,60 @@
+Running test for valid/map1.cub...
+###########################################################################
+./valid_map_test.sh: line 34: ../cub3D: No such file or directory
+
+
+Running test for valid/map2.cub...
+###########################################################################
+./valid_map_test.sh: line 34: ../cub3D: No such file or directory
+
+
+Running test for valid/map3.cub...
+###########################################################################
+./valid_map_test.sh: line 34: ../cub3D: No such file or directory
+
+
+Running test for valid/map4.cub...
+###########################################################################
+./valid_map_test.sh: line 34: ../cub3D: No such file or directory
+
+
+Running test for valid/no_zero1.cub...
+###########################################################################
+./valid_map_test.sh: line 34: ../cub3D: No such file or directory
+
+
+Running test for valid/no_zero2.cub...
+###########################################################################
+./valid_map_test.sh: line 34: ../cub3D: No such file or directory
+
+
+Running test for valid/no_zero3.cub...
+###########################################################################
+./valid_map_test.sh: line 34: ../cub3D: No such file or directory
+
+
+Running test for valid/no_zero4.cub...
+###########################################################################
+./valid_map_test.sh: line 34: ../cub3D: No such file or directory
+
+
+Running test for valid/map_simple1.cub...
+###########################################################################
+./valid_map_test.sh: line 34: ../cub3D: No such file or directory
+
+
+Running test for valid/map_simple2.cub...
+###########################################################################
+./valid_map_test.sh: line 34: ../cub3D: No such file or directory
+
+
+Running test for valid/map_simple3.cub...
+###########################################################################
+./valid_map_test.sh: line 34: ../cub3D: No such file or directory
+
+
+Running test for valid/map_simple4.cub...
+###########################################################################
+./valid_map_test.sh: line 34: ../cub3D: No such file or directory
+
+

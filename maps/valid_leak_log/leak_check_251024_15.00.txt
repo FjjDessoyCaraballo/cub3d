@@ -1,0 +1,60 @@
+Running test for valid/map1.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for valid/map2.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for valid/map3.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for valid/map4.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for valid/no_zero1.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for valid/no_zero2.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for valid/no_zero3.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for valid/no_zero4.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for valid/map_simple1.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for valid/map_simple2.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for valid/map_simple3.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for valid/map_simple4.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
