@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/25 14:04:02 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/28 10:47:26 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -311,6 +311,7 @@ void    move_player(t_data *data, double step);
 /* in rays.c */
 void	stack_ray_data(t_data *data, int i);
 void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle);
+int		find_direction(t_data *data, double ray_x, double ray_y);
 //void	collect_ray(t_data *data); // simle one ray from middle
 
 void    rotate_left(t_data *data);

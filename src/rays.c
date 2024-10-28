@@ -6,15 +6,19 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/25 16:19:09 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/28 10:52:05 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
 //ray_data->dist_to_wall = sqrtf((ray_x - data->x_ppos) * (ray_x - data->x_ppos) 
-int	find_direction(double ray_x, double ray_y)//, double p_x , double p_y)
+int	find_direction(t_data *data, double ray_x, double ray_y)//, double p_x , double p_y)
 {
+	
+	data->ray_delta_x = fabs(1 / data->ray_dir_x);
+	data->ray_delta_y = fabs(1 / data->ray_dir_y);
+	// if (data->)
 	if (fabs(ray_x) > (fabs(ray_y)))
 	{
 		if (ray_x > 0)
@@ -163,12 +167,12 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 		{
 			//#here#
 			data->ray_len[i] = ray_distance + cos(FOV / 2 - ray_angle);
-			data->ray_hit[i] = find_direction(data->ray_dir_x, data->ray_dir_y);
+			data->ray_hit[i] = find_direction(data, data->ray_dir_x, data->ray_dir_y);
 			//data->ray_hit[i] = find_direction(rpos_pixel_x, rpos_pixel_y);
 			//draw_wall(data, i, 0, 0);
 			return ;
 		}
 		//ray_distance++;
-		ray_distance += 0.5;
+		ray_distance += 0.3;
 	}
 }
