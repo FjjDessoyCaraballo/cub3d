@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/24 17:59:38 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/25 19:08:39 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,6 +169,8 @@ typedef	struct s_data
 	double	ray_side_dis_x;
 	double	ray_side_dis_y;
 	
+	double	exact_x;
+	double 	exact_y;
 	double	distance_to_wall;
 	// side distance to wall????
 	double	ray_delta_x;

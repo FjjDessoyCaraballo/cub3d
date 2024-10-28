@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/24 19:17:56 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/28 14:49:09 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,10 +144,13 @@ int	draw_wall(t_data *data, int i, int x, double img_y)
 	wall_h = HEIGHT / data->ray_len[i] * DIST_TO_PLANE * WALL_SCALE_FACTOR; // we get the height of the wall based on len
 	top_of_wall = (HEIGHT - wall_h) / 2; // we set our starting point to the top of where th wall begins
 	current_wall_pos = top_of_wall; // we set our incrementer 
-	//img_x = (double)i / RAY_MAX * data->im_current_wall->width;
-	x = i * SEGMENT;
+	img_x = (double)i / RAY_MAX * data->im_current_wall->width;
+	
+	x = i * SEGMENT;//data->im_current_wall->width;// % (double)data->im_current_wall->width;
+	//x = i * WIDTH / data->im_current_wall->width;
 	img_y_inc = (double)data->im_current_wall->height / wall_h;
     current_wall_pos = top_of_wall;
+	//printf("player ma pos%d\n", data->map[(int)data->y_ppos][(int)data->x_ppos]);
 	while (current_wall_pos < top_of_wall + wall_h)
 	{
 		if (x >= 0 && x < WIDTH && current_wall_pos > 0 && current_wall_pos < HEIGHT)
@@ -160,7 +163,8 @@ int	draw_wall(t_data *data, int i, int x, double img_y)
 			/*~~many thin blocks~~*/
 			//img_x = (int)((x % T_SIZE) % T_SIZE) % data->im_current_wall->width;
 			
-			img_x = (int)((x % T_SIZE) % T_SIZE) % data->im_current_wall->width * 8;
+			//img_x = (int)((x % T_SIZE) % T_SIZE) % data->im_current_wall->width;
+			//printf("whats img x = %f\n", img_x);
 			//img_x = (x % data->im_current_wall->width);
 				/*~~this was a fun piece of code, try it~~*/
 			//img_y = (uint32_t)(current_wall_pos - top_of_wall) % data->im_current_wall->height;  // Tiling the texture vertically
@@ -173,13 +177,15 @@ int	draw_wall(t_data *data, int i, int x, double img_y)
 				}
 				// this is a segv protection
 				if (colour == 0)
+				{
+					printf("draw all breaks at = i = %d\n", i);
 					break ;
+				}
 				mlx_put_pixel(data->im_ray, x, (int)current_wall_pos, colour);
 			}
 		}
 		current_wall_pos++;
 		img_y += img_y_inc;
 	}
-	//}
 	return (SUCCESS);
 }

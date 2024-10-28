@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/24 15:09:53 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/28 14:16:32 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ int	main(int argc, char **argv)
 			return (FAILURE);
 		if (initlize_minimap(data) == FAILURE)
 			return (FAILURE);
+		data->exact_x = data->x_ppos * T_SIZE / 2;
+		data->exact_y = data->y_ppos * T_SIZE / 2;
 		stack_ray_data(data, 0);
+		//mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, HEIGHT);
 		// collect_ray(data); in minimap init for now
 		// **init_3d(data);
 

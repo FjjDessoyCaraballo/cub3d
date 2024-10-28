@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/24 18:05:55 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/25 19:09:33 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ void	strafe_player(t_data *data, double step)
 		if (map_char == '0' || map_char == '1') //bonus ====== != '1')		
 		{
 			data->x_ppos = new_x;
+			data->exact_x = new_x;
 			data->y_ppos = new_y;
+			data->exact_y = new_y;
 		}
 	}
 
@@ -97,7 +99,10 @@ void	move_player(t_data *data, double step)
 		if (map_char == '0' || map_char == '1') //bonus ====== != '1')
 		{
 			data->x_ppos = new_x;
+			data->exact_x = new_x;
 			data->y_ppos = new_y;
+			data->exact_y = new_y;
+			
 		}
 	}
 }
