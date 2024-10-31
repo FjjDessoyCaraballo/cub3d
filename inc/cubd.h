@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/25 19:08:39 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/31 14:59:00 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,29 +129,57 @@ typedef enum e_dirs
 	WEST = 4
 } t_dirs;
 
+typedef sutrct s_texture
+{
+	mlx_texture_t	*tx_n_wall;
+	mlx_texture_t	*tx_s_wall;
+	mlx_texture_t	*tx_e_wall;
+	mlx_texture_t	*tx_w_wall;
+	mlx_texture_t	*tx_mini_floor;
+	mlx_texture_t	*tx_mini_wall;
+	uint32_t		floor_color;
+	uint32_t		ceiling_color;
+}	t_texture;
+
+typedef struct s_img
+{
+	mlx_t			*mlx;
+	mlx_image_t		*im_n_wall;	
+	mlx_image_t		*im_s_wall;
+	mlx_image_t		*im_e_wall;
+	mlx_image_t		*im_w_wall;
+	mlx_image_t		*background;
+	mlx_image_t		*im_current_wall;
+	mlx_image_t		*im_ray;
+	mlx_image_t		*im_map;
+	mlx_image_t		*im_mini_floor;
+	mlx_image_t		*im_mini_wall;
+	mlx_image_t		*im_mini_player;
+	mlx_image_t		*im_map_player;
+}	t_img;
+
 typedef	struct s_data
 {
-	mlx_t	*mlx;
-	mlx_t	*main_window; //~~ not sure if needed yet
-	mlx_t	*mini_window;
-	char	**map;
-	bool	broken_map;
-	char	**file;
-	double	ray_len[1920]; // could be 240	
-	double	ray_hit[1920];
-	//double	ray_len;
-	//double	ray_hit;
-	char	key_pressed[265]; // num of highest key
-	//int		file_len;
+	t_img		*img;
+	t_texture	*texture;
+	mlx_t		*mlx;
+	char		**map;
+	bool		broken_map;
+	char		**file;
+	double		ray_len[1920]; // could be 240	
+	double		ray_hit[1920];
+	char		key_pressed[265]; // num of highest key
 
 	int		map_width; // this was size_t before, needs to change in parsing
 	int		map_length; // this was size_t before, needs to change in parsing
 
-	//int		ray_hit;
 	int		side_hit; // if we want to handle shading
 	double	ray_size;
 	double	p_dir_x;
 	double	p_dir_y;
+
+	double	scale_x;
+	double	scale_y;
 
 	double	ray_x;
 	double	ray_y;
@@ -161,8 +189,6 @@ typedef	struct s_data
 	int	w_width;
 	int	w_height;
 
-	//int32_t	w_width;
-	//int32_t	w_height;
 	double	ray_step_x;
 	double	ray_step_y;
 	//distance measures check which side is closest wall.
@@ -179,66 +205,37 @@ typedef	struct s_data
 	double	ray_delta_dis_y; // i no other deltas needed , shorten name
 
 	// from parsing
-	int8_t		file_len;
-	int			map_start;
-	int			map_end;
-	char		*floor_info;
-	char		*ceiling_info;
-	uint32_t	c_red;
-	uint32_t	c_green;
-	uint32_t	c_blue;
-	uint32_t	f_red;
-	uint32_t	f_green;
-	uint32_t	f_blue;
-	char		*n_sprite;
-	char		*s_sprite;
-	char		*e_sprite;
-	char		*w_sprite;
-	bool		s_player;
-	bool		n_player;
-	bool		e_player;
-	bool		w_player;
-	double		y_ppos;
-	double		x_ppos;
-	char		**mp_cpy;
-	int			repeat_test;
-
-	mlx_texture_t	*tx_n_wall;
-	mlx_texture_t	*tx_s_wall;
-	mlx_texture_t	*tx_e_wall;
-	mlx_texture_t	*tx_w_wall;
-	mlx_image_t		*im_n_wall;	
-	mlx_image_t		*im_s_wall;
-	mlx_image_t		*im_e_wall;
-	mlx_image_t		*im_w_wall;
-	mlx_image_t		*background;
-
-	mlx_image_t		*im_current_wall; // could be useful for keeping track which wall we are drawing
-
-	uint32_t		floor_color;
-	uint32_t		ceiling_color;
-
-	//bool	quit; // might no need
-	/*~~bonus stuff~~*/
-
-	mlx_texture_t	*tx_mini_floor;
-	mlx_texture_t	*tx_mini_wall;
-	//mlx_texture_t	*tx_mini_player;
-	mlx_image_t		*im_ray;
-	mlx_image_t		*im_map;
-	mlx_image_t		*im_mini_floor;
-	mlx_image_t		*im_mini_wall;
-	mlx_image_t		*im_mini_player;
-	mlx_image_t		*im_map_player; //effectivly miniplayer
-	
-
+	int8_t			file_len;
+	int				map_start;
+	int				map_end;
+	char			*floor_info;
+	char			*ceiling_info;
+	uint32_t		c_red;
+	uint32_t		c_green;
+	uint32_t		c_blue;
+	uint32_t		f_red;
+	uint32_t		f_green;
+	uint32_t		f_blue;
+	char			*n_sprite;
+	char			*s_sprite;
+	char			*e_sprite;
+	char			*w_sprite;
+	bool			s_player;
+	bool			n_player;
+	bool			e_player;
+	bool			w_player;
+	double			y_ppos;
+	double			x_ppos;
+	char			**mp_cpy;
+	int				repeat_test;
 }		t_data;
 
-/*typedef struct s_img
-{
-	mlx_image_t	*img;
-	uint32_t 	*pixels; // for pllayer rotation, maybe only minimap
-}	t_img;*/
+	//int		file_len;
+	//double	ray_len;
+	//double	ray_hit;
+	//int		ray_hit;
+	//int32_t	w_width;
+	//int32_t	w_height;
 
 /*************************************************/
 /* functions *************************************/
