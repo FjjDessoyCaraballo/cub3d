@@ -1,0 +1,206 @@
+Running test for error_test/extra_RGB1.cub...
+###########################################################################
+==295923== Memcheck, a memory error detector
+==295923== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295923== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295923== Command: ../cub3D error_test/extra_RGB1.cub
+==295923== 
+==295923== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (ceiling) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==295923== 
+==295923== HEAP SUMMARY:
+==295923==     in use at exit: 0 bytes in 0 blocks
+==295923==   total heap usage: 387 allocs, 387 frees, 37,399 bytes allocated
+==295923== 
+==295923== All heap blocks were freed -- no leaks are possible
+==295923== 
+==295923== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_RGB2.cub...
+###########################################################################
+==295932== Memcheck, a memory error detector
+==295932== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295932== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295932== Command: ../cub3D error_test/extra_RGB2.cub
+==295932== 
+==295932== Warning: invalid file descriptor -1 in syscall close()
+==295932== Invalid read of size 8
+==295932==    at 0x4030D0: break_commas (parsing_utils1.c:81)
+==295932==    by 0x4030D0: separate_rgb (parsing_utils1.c:105)
+==295932==    by 0x4030D0: rgb_parse (parsing_utils1.c:152)
+==295932==    by 0x402982: floor_information (parsing2.c:33)
+==295932==    by 0x402982: extract (parsing2.c:135)
+==295932==    by 0x4027EE: map_handling (parsing1.c:106)
+==295932==    by 0x40255F: main (main.c:31)
+==295932==  Address 0x4d9b628 is 8 bytes after a block of size 16 alloc'd
+==295932==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==295932==    by 0x405D8B: ft_split (ft_split.c:67)
+==295932==    by 0x4030BF: break_commas (parsing_utils1.c:78)
+==295932==    by 0x4030BF: separate_rgb (parsing_utils1.c:105)
+==295932==    by 0x4030BF: rgb_parse (parsing_utils1.c:152)
+==295932==    by 0x402982: floor_information (parsing2.c:33)
+==295932==    by 0x402982: extract (parsing2.c:135)
+==295932==    by 0x4027EE: map_handling (parsing1.c:106)
+==295932==    by 0x40255F: main (main.c:31)
+==295932== 
+==295932== Invalid read of size 1
+==295932==    at 0x405BEB: ft_atoi (ft_atoi.c:20)
+==295932==    by 0x4032B9: rgb_assignment (parsing_utils2.c:44)
+==295932==    by 0x40310D: break_commas (parsing_utils1.c:86)
+==295932==    by 0x40310D: separate_rgb (parsing_utils1.c:105)
+==295932==    by 0x40310D: rgb_parse (parsing_utils1.c:152)
+==295932==    by 0x402982: floor_information (parsing2.c:33)
+==295932==    by 0x402982: extract (parsing2.c:135)
+==295932==    by 0x4027EE: map_handling (parsing1.c:106)
+==295932==    by 0x40255F: main (main.c:31)
+==295932==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==295932== 
+==295932== 
+==295932== Process terminating with default action of signal 11 (SIGSEGV)
+==295932==  Access not within mapped region at address 0x0
+==295932==    at 0x405BEB: ft_atoi (ft_atoi.c:20)
+==295932==    by 0x4032B9: rgb_assignment (parsing_utils2.c:44)
+==295932==    by 0x40310D: break_commas (parsing_utils1.c:86)
+==295932==    by 0x40310D: separate_rgb (parsing_utils1.c:105)
+==295932==    by 0x40310D: rgb_parse (parsing_utils1.c:152)
+==295932==    by 0x402982: floor_information (parsing2.c:33)
+==295932==    by 0x402982: extract (parsing2.c:135)
+==295932==    by 0x4027EE: map_handling (parsing1.c:106)
+==295932==    by 0x40255F: main (main.c:31)
+==295932==  If you believe this happened as a result of a stack
+==295932==  overflow in your program's main thread (unlikely but
+==295932==  possible), you can try to increase the size of the
+==295932==  main thread stack using the --main-stacksize= flag.
+==295932==  The main thread stack size used in this run was 8388608.
+==295932== 
+==295932== HEAP SUMMARY:
+==295932==     in use at exit: 32,327 bytes in 32 blocks
+==295932==   total heap usage: 382 allocs, 350 frees, 37,331 bytes allocated
+==295932== 
+==295932== LEAK SUMMARY:
+==295932==    definitely lost: 0 bytes in 0 blocks
+==295932==    indirectly lost: 0 bytes in 0 blocks
+==295932==      possibly lost: 0 bytes in 0 blocks
+==295932==    still reachable: 32,327 bytes in 32 blocks
+==295932==         suppressed: 0 bytes in 0 blocks
+==295932== Rerun with --leak-check=full to see details of leaked memory
+==295932== 
+==295932== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==295932== 
+==295932== 1 errors in context 1 of 2:
+==295932== Invalid read of size 1
+==295932==    at 0x405BEB: ft_atoi (ft_atoi.c:20)
+==295932==    by 0x4032B9: rgb_assignment (parsing_utils2.c:44)
+==295932==    by 0x40310D: break_commas (parsing_utils1.c:86)
+==295932==    by 0x40310D: separate_rgb (parsing_utils1.c:105)
+==295932==    by 0x40310D: rgb_parse (parsing_utils1.c:152)
+==295932==    by 0x402982: floor_information (parsing2.c:33)
+==295932==    by 0x402982: extract (parsing2.c:135)
+==295932==    by 0x4027EE: map_handling (parsing1.c:106)
+==295932==    by 0x40255F: main (main.c:31)
+==295932==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==295932== 
+==295932== 
+==295932== 1 errors in context 2 of 2:
+==295932== Invalid read of size 8
+==295932==    at 0x4030D0: break_commas (parsing_utils1.c:81)
+==295932==    by 0x4030D0: separate_rgb (parsing_utils1.c:105)
+==295932==    by 0x4030D0: rgb_parse (parsing_utils1.c:152)
+==295932==    by 0x402982: floor_information (parsing2.c:33)
+==295932==    by 0x402982: extract (parsing2.c:135)
+==295932==    by 0x4027EE: map_handling (parsing1.c:106)
+==295932==    by 0x40255F: main (main.c:31)
+==295932==  Address 0x4d9b628 is 8 bytes after a block of size 16 alloc'd
+==295932==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==295932==    by 0x405D8B: ft_split (ft_split.c:67)
+==295932==    by 0x4030BF: break_commas (parsing_utils1.c:78)
+==295932==    by 0x4030BF: separate_rgb (parsing_utils1.c:105)
+==295932==    by 0x4030BF: rgb_parse (parsing_utils1.c:152)
+==295932==    by 0x402982: floor_information (parsing2.c:33)
+==295932==    by 0x402982: extract (parsing2.c:135)
+==295932==    by 0x4027EE: map_handling (parsing1.c:106)
+==295932==    by 0x40255F: main (main.c:31)
+==295932== 
+==295932== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_RGB3.cub...
+###########################################################################
+==295947== Memcheck, a memory error detector
+==295947== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295947== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295947== Command: ../cub3D error_test/extra_RGB3.cub
+==295947== 
+==295947== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==295947== 
+==295947== HEAP SUMMARY:
+==295947==     in use at exit: 65 bytes in 5 blocks
+==295947==   total heap usage: 375 allocs, 370 frees, 37,292 bytes allocated
+==295947== 
+==295947== LEAK SUMMARY:
+==295947==    definitely lost: 0 bytes in 0 blocks
+==295947==    indirectly lost: 0 bytes in 0 blocks
+==295947==      possibly lost: 0 bytes in 0 blocks
+==295947==    still reachable: 65 bytes in 5 blocks
+==295947==         suppressed: 0 bytes in 0 blocks
+==295947== Rerun with --leak-check=full to see details of leaked memory
+==295947== 
+==295947== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_RGB4.cub...
+###########################################################################
+==295956== Memcheck, a memory error detector
+==295956== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==295956== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==295956== Command: ../cub3D error_test/extra_RGB4.cub
+==295956== 
+==295956== 
+==295956== Process terminating with default action of signal 2 (SIGINT)
+==295956==    at 0x4026B16: __open_nocancel (open64_nocancel.c:39)
+==295956==    by 0x4006978: open_verify.constprop.0 (dl-load.c:1626)
+==295956==    by 0x4007107: open_path (dl-load.c:1922)
+==295956==    by 0x400A6B0: _dl_map_object (dl-load.c:2158)
+==295956==    by 0x4003494: openaux (dl-deps.c:64)
+==295956==    by 0x401D349: _dl_catch_exception (dl-error-skeleton.c:208)
+==295956==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==295956==    by 0x402339F: dl_main (rtld.c:1970)
+==295956==    by 0x401F83B: _dl_sysdep_start (dl-sysdep.c:256)
+==295956==    by 0x4021597: _dl_start_final (rtld.c:507)
+==295956==    by 0x4021597: _dl_start (rtld.c:596)
+==295956==    by 0x4020297: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+==295956==    by 0x1: ???
+==295956== 
+==295956== HEAP SUMMARY:
+==295956==     in use at exit: 0 bytes in 0 blocks
+==295956==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==295956== 
+==295956== All heap blocks were freed -- no leaks are possible
+==295956== 
+==295956== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

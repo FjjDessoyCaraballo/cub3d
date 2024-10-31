@@ -1,0 +1,72 @@
+Running test for valid_maps/map1.cub...
+###########################################################################
+Error
+Map name is invalid
+
+
+Running test for valid_maps/map2.cub...
+###########################################################################
+Error
+Map name is invalid
+
+
+Running test for valid_maps/map3.cub...
+###########################################################################
+Error
+Map name is invalid
+
+
+Running test for valid_maps/map4.cub...
+###########################################################################
+Error
+Map name is invalid
+
+
+Running test for valid_maps/no_zero1.cub...
+###########################################################################
+Error
+Map name is invalid
+
+
+Running test for valid_maps/no_zero2.cub...
+###########################################################################
+Error
+Map name is invalid
+
+
+Running test for valid_maps/no_zero3.cub...
+###########################################################################
+Error
+Map name is invalid
+
+
+Running test for valid_maps/no_zero4.cub...
+###########################################################################
+Error
+Map name is invalid
+
+
+Running test for valid_maps/map_simple1.cub...
+###########################################################################
+Error
+Map name is invalid
+
+
+Running test for valid_maps/map_simple2.cub...
+###########################################################################
+Error
+Map name is invalid
+
+
+Running test for valid_maps/map_simple3.cub...
+###########################################################################
+Error
+Map name is invalid
+
+
+Running test for valid_maps/map_simple4.cub...
+###########################################################################
+Error
+Map name is invalid
+
+

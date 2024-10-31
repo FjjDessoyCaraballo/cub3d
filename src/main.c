@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
 /*   Updated: 2024/10/28 14:16:32 by araveala         ###   ########.fr       */
@@ -28,15 +28,15 @@ int	main(int argc, char **argv)
 		data = ft_calloc(1, sizeof(t_data));
 		if (!data)
 			return (err_msg(NULL, MALLOC, -1));
-		if (map_handling(data, argv[1]) == FAILURE)
+		if (map_handling(data, argv[1]) == FAILURE
+			|| open_window(data) == FAILURE
+			|| initlize_minimap(data) == FAILURE
+			|| image_handling(data) == FAILURE)
 		{
 			usage();
 			free_data(data);
 			return (FAILURE);
 		}
-		if (open_window(data) == FAILURE)
-			return (FAILURE);
-
 		if (image_handling(data) == FAILURE)
 			return (FAILURE);
 		if (initlize_minimap(data) == FAILURE)
@@ -47,11 +47,13 @@ int	main(int argc, char **argv)
 		//mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, HEIGHT);
 		// collect_ray(data); in minimap init for now
 		// **init_3d(data);
-
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
 		//~~ bonus animation if wanted needs to start here
 		// mlx_loop_hook(data->mlx, &animation_fucn, &data);
 		mlx_loop(data->mlx);
+		bonus_delete(data);
+		mlx_terminate(data->mlx);
+		free_data(data);
 	}
 	else
 		usage();

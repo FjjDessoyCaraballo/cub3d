@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   init_higher_dimension.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
 /*   Updated: 2024/10/28 14:49:09 by araveala         ###   ########.fr       */

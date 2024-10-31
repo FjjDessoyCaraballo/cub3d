@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/24 15:04:12 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/25 16:32:14 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 	t_data	*data;
 
 	data = (t_data *)param;
-	if (keydata.key == MLX_KEY_ESCAPE)
-			mlx_close_window(data->mlx);
 	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_A ||
         keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_D ||
         keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_RIGHT)
@@ -36,6 +34,8 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 			data->key_pressed[keydata.key] = 0;		
 	}
 	update_player(data);
+	if (keydata.key == MLX_KEY_ESCAPE)
+		mlx_close_window(data->mlx);
 }
 
 /**
@@ -44,7 +44,6 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
  * bonus material used now for visualisation
  * of proggress 
  **/
-
 void	update_player(t_data *data)
 {
 	if (data->key_pressed[MLX_KEY_RIGHT])
@@ -59,19 +58,14 @@ void	update_player(t_data *data)
 		strafe_player(data, -STEP);
 	if (data->key_pressed[MLX_KEY_D])
 		strafe_player(data, STEP);
-	
 	//draw_floor_ceiling(data);
 		//bonuses for minimap	
 	//mlx_delete_image(data->mlx, data->im_map_player);
 	draw_mini_map(data, 0, 0, 0); // bonus
 	stack_ray_data(data, 0);
-	
-	
 	//mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_HEIGHT);
 	//mlx_image_to_window(data->mlx, data->background, 0, 0);//WIDTH, HEIGHT);
 	//mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, HEIGHT);
-
-	
 	mlx_image_to_window(data->mlx, data->im_map, 0, 0);
 }
 /* these should not be needed as we will try to only update map around player,

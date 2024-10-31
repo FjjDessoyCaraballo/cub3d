@@ -1,0 +1,240 @@
+Running test for valid/map1.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for valid/map2.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for valid/map3.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for valid/map4.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for valid/no_zero1.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for valid/no_zero2.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for valid/no_zero3.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for valid/no_zero4.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for valid/map_simple1.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for valid/map_simple2.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for valid/map_simple3.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for valid/map_simple4.cub...
+###########################################################################
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+

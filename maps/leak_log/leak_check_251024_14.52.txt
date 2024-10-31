@@ -1,0 +1,2754 @@
+Running test for error_test/extra_RGB1.cub...
+###########################################################################
+==294444== Memcheck, a memory error detector
+==294444== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294444== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294444== Command: ../cub3D error_test/extra_RGB1.cub
+==294444== 
+==294444== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (ceiling) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294444== 
+==294444== HEAP SUMMARY:
+==294444==     in use at exit: 0 bytes in 0 blocks
+==294444==   total heap usage: 387 allocs, 387 frees, 37,399 bytes allocated
+==294444== 
+==294444== All heap blocks were freed -- no leaks are possible
+==294444== 
+==294444== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_RGB2.cub...
+###########################################################################
+==294453== Memcheck, a memory error detector
+==294453== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294453== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294453== Command: ../cub3D error_test/extra_RGB2.cub
+==294453== 
+==294453== Warning: invalid file descriptor -1 in syscall close()
+==294453== Invalid read of size 8
+==294453==    at 0x4030D0: break_commas (parsing_utils1.c:81)
+==294453==    by 0x4030D0: separate_rgb (parsing_utils1.c:105)
+==294453==    by 0x4030D0: rgb_parse (parsing_utils1.c:152)
+==294453==    by 0x402982: floor_information (parsing2.c:33)
+==294453==    by 0x402982: extract (parsing2.c:135)
+==294453==    by 0x4027EE: map_handling (parsing1.c:106)
+==294453==    by 0x40255F: main (main.c:31)
+==294453==  Address 0x4d9b628 is 8 bytes after a block of size 16 alloc'd
+==294453==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294453==    by 0x405D8B: ft_split (ft_split.c:67)
+==294453==    by 0x4030BF: break_commas (parsing_utils1.c:78)
+==294453==    by 0x4030BF: separate_rgb (parsing_utils1.c:105)
+==294453==    by 0x4030BF: rgb_parse (parsing_utils1.c:152)
+==294453==    by 0x402982: floor_information (parsing2.c:33)
+==294453==    by 0x402982: extract (parsing2.c:135)
+==294453==    by 0x4027EE: map_handling (parsing1.c:106)
+==294453==    by 0x40255F: main (main.c:31)
+==294453== 
+==294453== Invalid read of size 1
+==294453==    at 0x405BEB: ft_atoi (ft_atoi.c:20)
+==294453==    by 0x4032B9: rgb_assignment (parsing_utils2.c:44)
+==294453==    by 0x40310D: break_commas (parsing_utils1.c:86)
+==294453==    by 0x40310D: separate_rgb (parsing_utils1.c:105)
+==294453==    by 0x40310D: rgb_parse (parsing_utils1.c:152)
+==294453==    by 0x402982: floor_information (parsing2.c:33)
+==294453==    by 0x402982: extract (parsing2.c:135)
+==294453==    by 0x4027EE: map_handling (parsing1.c:106)
+==294453==    by 0x40255F: main (main.c:31)
+==294453==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==294453== 
+==294453== 
+==294453== Process terminating with default action of signal 11 (SIGSEGV)
+==294453==  Access not within mapped region at address 0x0
+==294453==    at 0x405BEB: ft_atoi (ft_atoi.c:20)
+==294453==    by 0x4032B9: rgb_assignment (parsing_utils2.c:44)
+==294453==    by 0x40310D: break_commas (parsing_utils1.c:86)
+==294453==    by 0x40310D: separate_rgb (parsing_utils1.c:105)
+==294453==    by 0x40310D: rgb_parse (parsing_utils1.c:152)
+==294453==    by 0x402982: floor_information (parsing2.c:33)
+==294453==    by 0x402982: extract (parsing2.c:135)
+==294453==    by 0x4027EE: map_handling (parsing1.c:106)
+==294453==    by 0x40255F: main (main.c:31)
+==294453==  If you believe this happened as a result of a stack
+==294453==  overflow in your program's main thread (unlikely but
+==294453==  possible), you can try to increase the size of the
+==294453==  main thread stack using the --main-stacksize= flag.
+==294453==  The main thread stack size used in this run was 8388608.
+==294453== 
+==294453== HEAP SUMMARY:
+==294453==     in use at exit: 32,327 bytes in 32 blocks
+==294453==   total heap usage: 382 allocs, 350 frees, 37,331 bytes allocated
+==294453== 
+==294453== LEAK SUMMARY:
+==294453==    definitely lost: 0 bytes in 0 blocks
+==294453==    indirectly lost: 0 bytes in 0 blocks
+==294453==      possibly lost: 0 bytes in 0 blocks
+==294453==    still reachable: 32,327 bytes in 32 blocks
+==294453==         suppressed: 0 bytes in 0 blocks
+==294453== Rerun with --leak-check=full to see details of leaked memory
+==294453== 
+==294453== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==294453== 
+==294453== 1 errors in context 1 of 2:
+==294453== Invalid read of size 1
+==294453==    at 0x405BEB: ft_atoi (ft_atoi.c:20)
+==294453==    by 0x4032B9: rgb_assignment (parsing_utils2.c:44)
+==294453==    by 0x40310D: break_commas (parsing_utils1.c:86)
+==294453==    by 0x40310D: separate_rgb (parsing_utils1.c:105)
+==294453==    by 0x40310D: rgb_parse (parsing_utils1.c:152)
+==294453==    by 0x402982: floor_information (parsing2.c:33)
+==294453==    by 0x402982: extract (parsing2.c:135)
+==294453==    by 0x4027EE: map_handling (parsing1.c:106)
+==294453==    by 0x40255F: main (main.c:31)
+==294453==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==294453== 
+==294453== 
+==294453== 1 errors in context 2 of 2:
+==294453== Invalid read of size 8
+==294453==    at 0x4030D0: break_commas (parsing_utils1.c:81)
+==294453==    by 0x4030D0: separate_rgb (parsing_utils1.c:105)
+==294453==    by 0x4030D0: rgb_parse (parsing_utils1.c:152)
+==294453==    by 0x402982: floor_information (parsing2.c:33)
+==294453==    by 0x402982: extract (parsing2.c:135)
+==294453==    by 0x4027EE: map_handling (parsing1.c:106)
+==294453==    by 0x40255F: main (main.c:31)
+==294453==  Address 0x4d9b628 is 8 bytes after a block of size 16 alloc'd
+==294453==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294453==    by 0x405D8B: ft_split (ft_split.c:67)
+==294453==    by 0x4030BF: break_commas (parsing_utils1.c:78)
+==294453==    by 0x4030BF: separate_rgb (parsing_utils1.c:105)
+==294453==    by 0x4030BF: rgb_parse (parsing_utils1.c:152)
+==294453==    by 0x402982: floor_information (parsing2.c:33)
+==294453==    by 0x402982: extract (parsing2.c:135)
+==294453==    by 0x4027EE: map_handling (parsing1.c:106)
+==294453==    by 0x40255F: main (main.c:31)
+==294453== 
+==294453== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_RGB3.cub...
+###########################################################################
+==294469== Memcheck, a memory error detector
+==294469== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294469== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294469== Command: ../cub3D error_test/extra_RGB3.cub
+==294469== 
+==294469== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294469== 
+==294469== HEAP SUMMARY:
+==294469==     in use at exit: 65 bytes in 5 blocks
+==294469==   total heap usage: 375 allocs, 370 frees, 37,292 bytes allocated
+==294469== 
+==294469== LEAK SUMMARY:
+==294469==    definitely lost: 0 bytes in 0 blocks
+==294469==    indirectly lost: 0 bytes in 0 blocks
+==294469==      possibly lost: 0 bytes in 0 blocks
+==294469==    still reachable: 65 bytes in 5 blocks
+==294469==         suppressed: 0 bytes in 0 blocks
+==294469== Rerun with --leak-check=full to see details of leaked memory
+==294469== 
+==294469== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_RGB4.cub...
+###########################################################################
+==294478== Memcheck, a memory error detector
+==294478== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294478== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294478== Command: ../cub3D error_test/extra_RGB4.cub
+==294478== 
+==294478== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB values: for God sake, use F or C to define RGB
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294478== 
+==294478== HEAP SUMMARY:
+==294478==     in use at exit: 0 bytes in 0 blocks
+==294478==   total heap usage: 381 allocs, 381 frees, 37,363 bytes allocated
+==294478== 
+==294478== All heap blocks were freed -- no leaks are possible
+==294478== 
+==294478== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_RGB5.cub...
+###########################################################################
+==294487== Memcheck, a memory error detector
+==294487== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294487== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294487== Command: ../cub3D error_test/extra_RGB5.cub
+==294487== 
+==294487== Warning: invalid file descriptor -1 in syscall close()
+Error
+RGB values: for God sake, use F or C to define RGB
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294487== 
+==294487== HEAP SUMMARY:
+==294487==     in use at exit: 0 bytes in 0 blocks
+==294487==   total heap usage: 390 allocs, 390 frees, 37,451 bytes allocated
+==294487== 
+==294487== All heap blocks were freed -- no leaks are possible
+==294487== 
+==294487== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_sprite1.cub...
+###########################################################################
+==294496== Memcheck, a memory error detector
+==294496== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294496== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294496== Command: ../cub3D error_test/extra_sprite1.cub
+==294496== 
+==294496== Warning: invalid file descriptor -1 in syscall close()
+Error
+Extra sprites defined for same direction.
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294496== 
+==294496== HEAP SUMMARY:
+==294496==     in use at exit: 0 bytes in 0 blocks
+==294496==   total heap usage: 403 allocs, 403 frees, 37,801 bytes allocated
+==294496== 
+==294496== All heap blocks were freed -- no leaks are possible
+==294496== 
+==294496== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_sprite2.cub...
+###########################################################################
+==294505== Memcheck, a memory error detector
+==294505== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294505== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294505== Command: ../cub3D error_test/extra_sprite2.cub
+==294505== 
+==294505== Warning: invalid file descriptor -1 in syscall close()
+Error
+Extra sprites defined for same direction.
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294505== 
+==294505== HEAP SUMMARY:
+==294505==     in use at exit: 0 bytes in 0 blocks
+==294505==   total heap usage: 401 allocs, 401 frees, 37,738 bytes allocated
+==294505== 
+==294505== All heap blocks were freed -- no leaks are possible
+==294505== 
+==294505== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_sprite3.cub...
+###########################################################################
+==294514== Memcheck, a memory error detector
+==294514== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294514== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294514== Command: ../cub3D error_test/extra_sprite3.cub
+==294514== 
+==294514== Warning: invalid file descriptor -1 in syscall close()
+Error
+Extra sprites defined for same direction.
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294514== 
+==294514== HEAP SUMMARY:
+==294514==     in use at exit: 0 bytes in 0 blocks
+==294514==   total heap usage: 397 allocs, 397 frees, 37,612 bytes allocated
+==294514== 
+==294514== All heap blocks were freed -- no leaks are possible
+==294514== 
+==294514== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_sprite4.cub...
+###########################################################################
+==294523== Memcheck, a memory error detector
+==294523== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294523== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294523== Command: ../cub3D error_test/extra_sprite4.cub
+==294523== 
+==294523== Warning: invalid file descriptor -1 in syscall close()
+Error
+Extra sprites defined for same direction.
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294523== 
+==294523== HEAP SUMMARY:
+==294523==     in use at exit: 0 bytes in 0 blocks
+==294523==   total heap usage: 399 allocs, 399 frees, 37,675 bytes allocated
+==294523== 
+==294523== All heap blocks were freed -- no leaks are possible
+==294523== 
+==294523== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrongmap1.cub...
+###########################################################################
+==294532== Memcheck, a memory error detector
+==294532== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294532== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294532== Command: ../cub3D error_test/wrongmap1.cub
+==294532== 
+==294532== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294532== 
+==294532== HEAP SUMMARY:
+==294532==     in use at exit: 0 bytes in 0 blocks
+==294532==   total heap usage: 387 allocs, 387 frees, 37,925 bytes allocated
+==294532== 
+==294532== All heap blocks were freed -- no leaks are possible
+==294532== 
+==294532== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrongmap2.cub...
+###########################################################################
+==294541== Memcheck, a memory error detector
+==294541== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294541== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294541== Command: ../cub3D error_test/wrongmap2.cub
+==294541== 
+==294541== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294541== 
+==294541== HEAP SUMMARY:
+==294541==     in use at exit: 0 bytes in 0 blocks
+==294541==   total heap usage: 387 allocs, 387 frees, 37,917 bytes allocated
+==294541== 
+==294541== All heap blocks were freed -- no leaks are possible
+==294541== 
+==294541== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrongmap3.cub...
+###########################################################################
+==294550== Memcheck, a memory error detector
+==294550== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294550== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294550== Command: ../cub3D error_test/wrongmap3.cub
+==294550== 
+==294550== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294550== 
+==294550== HEAP SUMMARY:
+==294550==     in use at exit: 0 bytes in 0 blocks
+==294550==   total heap usage: 378 allocs, 378 frees, 37,742 bytes allocated
+==294550== 
+==294550== All heap blocks were freed -- no leaks are possible
+==294550== 
+==294550== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrongmap4.cub...
+###########################################################################
+==294559== Memcheck, a memory error detector
+==294559== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294559== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294559== Command: ../cub3D error_test/wrongmap4.cub
+==294559== 
+==294559== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is not walled correctly ):<
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294559== 
+==294559== HEAP SUMMARY:
+==294559==     in use at exit: 0 bytes in 0 blocks
+==294559==   total heap usage: 395 allocs, 395 frees, 38,363 bytes allocated
+==294559== 
+==294559== All heap blocks were freed -- no leaks are possible
+==294559== 
+==294559== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrongmap5.cub...
+###########################################################################
+==294569== Memcheck, a memory error detector
+==294569== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294569== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294569== Command: ../cub3D error_test/wrongmap5.cub
+==294569== 
+==294569== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is not walled correctly ):<
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294569== 
+==294569== HEAP SUMMARY:
+==294569==     in use at exit: 0 bytes in 0 blocks
+==294569==   total heap usage: 395 allocs, 395 frees, 38,367 bytes allocated
+==294569== 
+==294569== All heap blocks were freed -- no leaks are possible
+==294569== 
+==294569== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/missing_RGB1.cub...
+###########################################################################
+==294578== Memcheck, a memory error detector
+==294578== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294578== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294578== Command: ../cub3D error_test/missing_RGB1.cub
+==294578== 
+==294578== Warning: invalid file descriptor -1 in syscall close()
+==294578== Invalid read of size 8
+==294578==    at 0x40286A8: strncmp (strcmp.S:172)
+==294578==    by 0x400668D: is_dst (dl-load.c:216)
+==294578==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294578==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294578==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294578==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294578==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294578==    by 0x4003494: openaux (dl-deps.c:64)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294578==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294578==  Address 0x4fbaa69 is 9 bytes inside a block of size 15 alloc'd
+==294578==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294578==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294578==    by 0x40271DF: strdup (strdup.c:42)
+==294578==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294578==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294578==    by 0x4003494: openaux (dl-deps.c:64)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294578==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294578== 
+==294578== Invalid read of size 8
+==294578==    at 0x40286A8: strncmp (strcmp.S:172)
+==294578==    by 0x400668D: is_dst (dl-load.c:216)
+==294578==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294578==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294578==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294578==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294578==    by 0x4003494: openaux (dl-deps.c:64)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294578==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294578==  Address 0x4fbaa69 is 9 bytes inside a block of size 15 alloc'd
+==294578==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294578==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294578==    by 0x40271DF: strdup (strdup.c:42)
+==294578==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294578==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294578==    by 0x4003494: openaux (dl-deps.c:64)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294578==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294578== 
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294578== 
+==294578== HEAP SUMMARY:
+==294578==     in use at exit: 6,320,933 bytes in 10,092 blocks
+==294578==   total heap usage: 72,373 allocs, 62,281 frees, 20,391,059 bytes allocated
+==294578== 
+==294578== LEAK SUMMARY:
+==294578==    definitely lost: 0 bytes in 1 blocks
+==294578==    indirectly lost: 0 bytes in 0 blocks
+==294578==      possibly lost: 110,078 bytes in 275 blocks
+==294578==    still reachable: 6,210,855 bytes in 9,816 blocks
+==294578==                       of which reachable via heuristic:
+==294578==                         newarray           : 768,888 bytes in 9 blocks
+==294578==                         multipleinheritance: 14,400 bytes in 21 blocks
+==294578==         suppressed: 0 bytes in 0 blocks
+==294578== Rerun with --leak-check=full to see details of leaked memory
+==294578== 
+==294578== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==294578== 
+==294578== 1 errors in context 1 of 2:
+==294578== Invalid read of size 8
+==294578==    at 0x40286A8: strncmp (strcmp.S:172)
+==294578==    by 0x400668D: is_dst (dl-load.c:216)
+==294578==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294578==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294578==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294578==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294578==    by 0x4003494: openaux (dl-deps.c:64)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294578==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294578==  Address 0x4fbaa69 is 9 bytes inside a block of size 15 alloc'd
+==294578==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294578==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294578==    by 0x40271DF: strdup (strdup.c:42)
+==294578==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294578==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294578==    by 0x4003494: openaux (dl-deps.c:64)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294578==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294578== 
+==294578== 
+==294578== 1 errors in context 2 of 2:
+==294578== Invalid read of size 8
+==294578==    at 0x40286A8: strncmp (strcmp.S:172)
+==294578==    by 0x400668D: is_dst (dl-load.c:216)
+==294578==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294578==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294578==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294578==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294578==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294578==    by 0x4003494: openaux (dl-deps.c:64)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294578==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294578==  Address 0x4fbaa69 is 9 bytes inside a block of size 15 alloc'd
+==294578==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294578==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294578==    by 0x40271DF: strdup (strdup.c:42)
+==294578==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294578==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294578==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294578==    by 0x4003494: openaux (dl-deps.c:64)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294578==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294578==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294578==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294578== 
+==294578== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/missing_RGB2.cub...
+###########################################################################
+==294596== Memcheck, a memory error detector
+==294596== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294596== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294596== Command: ../cub3D error_test/missing_RGB2.cub
+==294596== 
+==294596== Warning: invalid file descriptor -1 in syscall close()
+==294596== Invalid read of size 8
+==294596==    at 0x40286A8: strncmp (strcmp.S:172)
+==294596==    by 0x400668D: is_dst (dl-load.c:216)
+==294596==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294596==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294596==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294596==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294596==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294596==    by 0x4003494: openaux (dl-deps.c:64)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294596==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294596==  Address 0x4fbb089 is 9 bytes inside a block of size 15 alloc'd
+==294596==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294596==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294596==    by 0x40271DF: strdup (strdup.c:42)
+==294596==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294596==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294596==    by 0x4003494: openaux (dl-deps.c:64)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294596==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294596== 
+==294596== Invalid read of size 8
+==294596==    at 0x40286A8: strncmp (strcmp.S:172)
+==294596==    by 0x400668D: is_dst (dl-load.c:216)
+==294596==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294596==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294596==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294596==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294596==    by 0x4003494: openaux (dl-deps.c:64)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294596==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294596==  Address 0x4fbb089 is 9 bytes inside a block of size 15 alloc'd
+==294596==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294596==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294596==    by 0x40271DF: strdup (strdup.c:42)
+==294596==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294596==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294596==    by 0x4003494: openaux (dl-deps.c:64)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294596==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294596== 
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294596== 
+==294596== HEAP SUMMARY:
+==294596==     in use at exit: 6,320,933 bytes in 10,092 blocks
+==294596==   total heap usage: 72,392 allocs, 62,300 frees, 20,391,299 bytes allocated
+==294596== 
+==294596== LEAK SUMMARY:
+==294596==    definitely lost: 0 bytes in 1 blocks
+==294596==    indirectly lost: 0 bytes in 0 blocks
+==294596==      possibly lost: 110,078 bytes in 275 blocks
+==294596==    still reachable: 6,210,855 bytes in 9,816 blocks
+==294596==                       of which reachable via heuristic:
+==294596==                         newarray           : 768,888 bytes in 9 blocks
+==294596==                         multipleinheritance: 14,400 bytes in 21 blocks
+==294596==         suppressed: 0 bytes in 0 blocks
+==294596== Rerun with --leak-check=full to see details of leaked memory
+==294596== 
+==294596== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==294596== 
+==294596== 1 errors in context 1 of 2:
+==294596== Invalid read of size 8
+==294596==    at 0x40286A8: strncmp (strcmp.S:172)
+==294596==    by 0x400668D: is_dst (dl-load.c:216)
+==294596==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294596==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294596==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294596==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294596==    by 0x4003494: openaux (dl-deps.c:64)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294596==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294596==  Address 0x4fbb089 is 9 bytes inside a block of size 15 alloc'd
+==294596==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294596==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294596==    by 0x40271DF: strdup (strdup.c:42)
+==294596==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294596==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294596==    by 0x4003494: openaux (dl-deps.c:64)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294596==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294596== 
+==294596== 
+==294596== 1 errors in context 2 of 2:
+==294596== Invalid read of size 8
+==294596==    at 0x40286A8: strncmp (strcmp.S:172)
+==294596==    by 0x400668D: is_dst (dl-load.c:216)
+==294596==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294596==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294596==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294596==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294596==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294596==    by 0x4003494: openaux (dl-deps.c:64)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294596==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294596==  Address 0x4fbb089 is 9 bytes inside a block of size 15 alloc'd
+==294596==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294596==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294596==    by 0x40271DF: strdup (strdup.c:42)
+==294596==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294596==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294596==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294596==    by 0x4003494: openaux (dl-deps.c:64)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294596==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294596==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294596==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294596== 
+==294596== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/missing_RGB3.cub...
+###########################################################################
+==294613== Memcheck, a memory error detector
+==294613== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294613== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294613== Command: ../cub3D error_test/missing_RGB3.cub
+==294613== 
+==294613== Warning: invalid file descriptor -1 in syscall close()
+==294613== Invalid read of size 8
+==294613==    at 0x40286A8: strncmp (strcmp.S:172)
+==294613==    by 0x400668D: is_dst (dl-load.c:216)
+==294613==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294613==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294613==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294613==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294613==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294613==    by 0x4003494: openaux (dl-deps.c:64)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294613==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294613==  Address 0x4fbb089 is 9 bytes inside a block of size 15 alloc'd
+==294613==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294613==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294613==    by 0x40271DF: strdup (strdup.c:42)
+==294613==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294613==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294613==    by 0x4003494: openaux (dl-deps.c:64)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294613==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294613== 
+==294613== Invalid read of size 8
+==294613==    at 0x40286A8: strncmp (strcmp.S:172)
+==294613==    by 0x400668D: is_dst (dl-load.c:216)
+==294613==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294613==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294613==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294613==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294613==    by 0x4003494: openaux (dl-deps.c:64)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294613==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294613==  Address 0x4fbb089 is 9 bytes inside a block of size 15 alloc'd
+==294613==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294613==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294613==    by 0x40271DF: strdup (strdup.c:42)
+==294613==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294613==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294613==    by 0x4003494: openaux (dl-deps.c:64)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294613==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294613== 
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294613== 
+==294613== HEAP SUMMARY:
+==294613==     in use at exit: 6,320,933 bytes in 10,092 blocks
+==294613==   total heap usage: 72,392 allocs, 62,300 frees, 20,391,305 bytes allocated
+==294613== 
+==294613== LEAK SUMMARY:
+==294613==    definitely lost: 0 bytes in 1 blocks
+==294613==    indirectly lost: 0 bytes in 0 blocks
+==294613==      possibly lost: 110,078 bytes in 275 blocks
+==294613==    still reachable: 6,210,855 bytes in 9,816 blocks
+==294613==                       of which reachable via heuristic:
+==294613==                         newarray           : 768,888 bytes in 9 blocks
+==294613==                         multipleinheritance: 14,400 bytes in 21 blocks
+==294613==         suppressed: 0 bytes in 0 blocks
+==294613== Rerun with --leak-check=full to see details of leaked memory
+==294613== 
+==294613== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==294613== 
+==294613== 1 errors in context 1 of 2:
+==294613== Invalid read of size 8
+==294613==    at 0x40286A8: strncmp (strcmp.S:172)
+==294613==    by 0x400668D: is_dst (dl-load.c:216)
+==294613==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294613==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294613==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294613==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294613==    by 0x4003494: openaux (dl-deps.c:64)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294613==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294613==  Address 0x4fbb089 is 9 bytes inside a block of size 15 alloc'd
+==294613==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294613==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294613==    by 0x40271DF: strdup (strdup.c:42)
+==294613==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294613==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294613==    by 0x4003494: openaux (dl-deps.c:64)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294613==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294613== 
+==294613== 
+==294613== 1 errors in context 2 of 2:
+==294613== Invalid read of size 8
+==294613==    at 0x40286A8: strncmp (strcmp.S:172)
+==294613==    by 0x400668D: is_dst (dl-load.c:216)
+==294613==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294613==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294613==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294613==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294613==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294613==    by 0x4003494: openaux (dl-deps.c:64)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294613==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294613==  Address 0x4fbb089 is 9 bytes inside a block of size 15 alloc'd
+==294613==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294613==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294613==    by 0x40271DF: strdup (strdup.c:42)
+==294613==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294613==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294613==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294613==    by 0x4003494: openaux (dl-deps.c:64)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294613==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294613==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294613==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294613== 
+==294613== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrong_RGB1.cub...
+###########################################################################
+==294630== Memcheck, a memory error detector
+==294630== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294630== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294630== Command: ../cub3D error_test/wrong_RGB1.cub
+==294630== 
+==294630== Warning: invalid file descriptor -1 in syscall close()
+==294630== Invalid read of size 8
+==294630==    at 0x40286A8: strncmp (strcmp.S:172)
+==294630==    by 0x400668D: is_dst (dl-load.c:216)
+==294630==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294630==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294630==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294630==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294630==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294630==    by 0x4003494: openaux (dl-deps.c:64)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294630==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294630==  Address 0x4fbb3a9 is 9 bytes inside a block of size 15 alloc'd
+==294630==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294630==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294630==    by 0x40271DF: strdup (strdup.c:42)
+==294630==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294630==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294630==    by 0x4003494: openaux (dl-deps.c:64)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294630==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294630== 
+==294630== Invalid read of size 8
+==294630==    at 0x40286A8: strncmp (strcmp.S:172)
+==294630==    by 0x400668D: is_dst (dl-load.c:216)
+==294630==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294630==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294630==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294630==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294630==    by 0x4003494: openaux (dl-deps.c:64)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294630==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294630==  Address 0x4fbb3a9 is 9 bytes inside a block of size 15 alloc'd
+==294630==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294630==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294630==    by 0x40271DF: strdup (strdup.c:42)
+==294630==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294630==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294630==    by 0x4003494: openaux (dl-deps.c:64)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294630==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294630== 
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294630== 
+==294630== HEAP SUMMARY:
+==294630==     in use at exit: 6,320,933 bytes in 10,092 blocks
+==294630==   total heap usage: 72,400 allocs, 62,308 frees, 20,399,219 bytes allocated
+==294630== 
+==294630== LEAK SUMMARY:
+==294630==    definitely lost: 0 bytes in 1 blocks
+==294630==    indirectly lost: 0 bytes in 0 blocks
+==294630==      possibly lost: 110,078 bytes in 275 blocks
+==294630==    still reachable: 6,210,855 bytes in 9,816 blocks
+==294630==                       of which reachable via heuristic:
+==294630==                         newarray           : 768,888 bytes in 9 blocks
+==294630==                         multipleinheritance: 14,400 bytes in 21 blocks
+==294630==         suppressed: 0 bytes in 0 blocks
+==294630== Rerun with --leak-check=full to see details of leaked memory
+==294630== 
+==294630== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==294630== 
+==294630== 1 errors in context 1 of 2:
+==294630== Invalid read of size 8
+==294630==    at 0x40286A8: strncmp (strcmp.S:172)
+==294630==    by 0x400668D: is_dst (dl-load.c:216)
+==294630==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294630==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294630==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294630==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294630==    by 0x4003494: openaux (dl-deps.c:64)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294630==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294630==  Address 0x4fbb3a9 is 9 bytes inside a block of size 15 alloc'd
+==294630==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294630==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294630==    by 0x40271DF: strdup (strdup.c:42)
+==294630==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294630==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294630==    by 0x4003494: openaux (dl-deps.c:64)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294630==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294630== 
+==294630== 
+==294630== 1 errors in context 2 of 2:
+==294630== Invalid read of size 8
+==294630==    at 0x40286A8: strncmp (strcmp.S:172)
+==294630==    by 0x400668D: is_dst (dl-load.c:216)
+==294630==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294630==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294630==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294630==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294630==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294630==    by 0x4003494: openaux (dl-deps.c:64)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294630==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294630==  Address 0x4fbb3a9 is 9 bytes inside a block of size 15 alloc'd
+==294630==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294630==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294630==    by 0x40271DF: strdup (strdup.c:42)
+==294630==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294630==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294630==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294630==    by 0x4003494: openaux (dl-deps.c:64)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294630==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294630==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294630==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294630== 
+==294630== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrong_RGB2.cub...
+###########################################################################
+==294647== Memcheck, a memory error detector
+==294647== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294647== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294647== Command: ../cub3D error_test/wrong_RGB2.cub
+==294647== 
+==294647== Warning: invalid file descriptor -1 in syscall close()
+==294647== Invalid read of size 8
+==294647==    at 0x4030D0: break_commas (parsing_utils1.c:81)
+==294647==    by 0x4030D0: separate_rgb (parsing_utils1.c:105)
+==294647==    by 0x4030D0: rgb_parse (parsing_utils1.c:152)
+==294647==    by 0x402982: floor_information (parsing2.c:33)
+==294647==    by 0x402982: extract (parsing2.c:135)
+==294647==    by 0x4027EE: map_handling (parsing1.c:106)
+==294647==    by 0x40255F: main (main.c:31)
+==294647==  Address 0x4d9b2f8 is 8 bytes after a block of size 16 alloc'd
+==294647==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294647==    by 0x405D8B: ft_split (ft_split.c:67)
+==294647==    by 0x4030BF: break_commas (parsing_utils1.c:78)
+==294647==    by 0x4030BF: separate_rgb (parsing_utils1.c:105)
+==294647==    by 0x4030BF: rgb_parse (parsing_utils1.c:152)
+==294647==    by 0x402982: floor_information (parsing2.c:33)
+==294647==    by 0x402982: extract (parsing2.c:135)
+==294647==    by 0x4027EE: map_handling (parsing1.c:106)
+==294647==    by 0x40255F: main (main.c:31)
+==294647== 
+==294647== Invalid read of size 1
+==294647==    at 0x405BEB: ft_atoi (ft_atoi.c:20)
+==294647==    by 0x4032B9: rgb_assignment (parsing_utils2.c:44)
+==294647==    by 0x40310D: break_commas (parsing_utils1.c:86)
+==294647==    by 0x40310D: separate_rgb (parsing_utils1.c:105)
+==294647==    by 0x40310D: rgb_parse (parsing_utils1.c:152)
+==294647==    by 0x402982: floor_information (parsing2.c:33)
+==294647==    by 0x402982: extract (parsing2.c:135)
+==294647==    by 0x4027EE: map_handling (parsing1.c:106)
+==294647==    by 0x40255F: main (main.c:31)
+==294647==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==294647== 
+==294647== 
+==294647== Process terminating with default action of signal 11 (SIGSEGV)
+==294647==  Access not within mapped region at address 0x0
+==294647==    at 0x405BEB: ft_atoi (ft_atoi.c:20)
+==294647==    by 0x4032B9: rgb_assignment (parsing_utils2.c:44)
+==294647==    by 0x40310D: break_commas (parsing_utils1.c:86)
+==294647==    by 0x40310D: separate_rgb (parsing_utils1.c:105)
+==294647==    by 0x40310D: rgb_parse (parsing_utils1.c:152)
+==294647==    by 0x402982: floor_information (parsing2.c:33)
+==294647==    by 0x402982: extract (parsing2.c:135)
+==294647==    by 0x4027EE: map_handling (parsing1.c:106)
+==294647==    by 0x40255F: main (main.c:31)
+==294647==  If you believe this happened as a result of a stack
+==294647==  overflow in your program's main thread (unlikely but
+==294647==  possible), you can try to increase the size of the
+==294647==  main thread stack using the --main-stacksize= flag.
+==294647==  The main thread stack size used in this run was 8388608.
+==294647== 
+==294647== HEAP SUMMARY:
+==294647==     in use at exit: 32,306 bytes in 31 blocks
+==294647==   total heap usage: 372 allocs, 341 frees, 37,189 bytes allocated
+==294647== 
+==294647== LEAK SUMMARY:
+==294647==    definitely lost: 0 bytes in 0 blocks
+==294647==    indirectly lost: 0 bytes in 0 blocks
+==294647==      possibly lost: 0 bytes in 0 blocks
+==294647==    still reachable: 32,306 bytes in 31 blocks
+==294647==         suppressed: 0 bytes in 0 blocks
+==294647== Rerun with --leak-check=full to see details of leaked memory
+==294647== 
+==294647== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==294647== 
+==294647== 1 errors in context 1 of 2:
+==294647== Invalid read of size 1
+==294647==    at 0x405BEB: ft_atoi (ft_atoi.c:20)
+==294647==    by 0x4032B9: rgb_assignment (parsing_utils2.c:44)
+==294647==    by 0x40310D: break_commas (parsing_utils1.c:86)
+==294647==    by 0x40310D: separate_rgb (parsing_utils1.c:105)
+==294647==    by 0x40310D: rgb_parse (parsing_utils1.c:152)
+==294647==    by 0x402982: floor_information (parsing2.c:33)
+==294647==    by 0x402982: extract (parsing2.c:135)
+==294647==    by 0x4027EE: map_handling (parsing1.c:106)
+==294647==    by 0x40255F: main (main.c:31)
+==294647==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==294647== 
+==294647== 
+==294647== 1 errors in context 2 of 2:
+==294647== Invalid read of size 8
+==294647==    at 0x4030D0: break_commas (parsing_utils1.c:81)
+==294647==    by 0x4030D0: separate_rgb (parsing_utils1.c:105)
+==294647==    by 0x4030D0: rgb_parse (parsing_utils1.c:152)
+==294647==    by 0x402982: floor_information (parsing2.c:33)
+==294647==    by 0x402982: extract (parsing2.c:135)
+==294647==    by 0x4027EE: map_handling (parsing1.c:106)
+==294647==    by 0x40255F: main (main.c:31)
+==294647==  Address 0x4d9b2f8 is 8 bytes after a block of size 16 alloc'd
+==294647==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294647==    by 0x405D8B: ft_split (ft_split.c:67)
+==294647==    by 0x4030BF: break_commas (parsing_utils1.c:78)
+==294647==    by 0x4030BF: separate_rgb (parsing_utils1.c:105)
+==294647==    by 0x4030BF: rgb_parse (parsing_utils1.c:152)
+==294647==    by 0x402982: floor_information (parsing2.c:33)
+==294647==    by 0x402982: extract (parsing2.c:135)
+==294647==    by 0x4027EE: map_handling (parsing1.c:106)
+==294647==    by 0x40255F: main (main.c:31)
+==294647== 
+==294647== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrong_RGB3.cub...
+###########################################################################
+==294663== Memcheck, a memory error detector
+==294663== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294663== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294663== Command: ../cub3D error_test/wrong_RGB3.cub
+==294663== 
+==294663== Warning: invalid file descriptor -1 in syscall close()
+==294663== Invalid read of size 8
+==294663==    at 0x4030D0: break_commas (parsing_utils1.c:81)
+==294663==    by 0x4030D0: separate_rgb (parsing_utils1.c:105)
+==294663==    by 0x4030D0: rgb_parse (parsing_utils1.c:152)
+==294663==    by 0x402982: floor_information (parsing2.c:33)
+==294663==    by 0x402982: extract (parsing2.c:135)
+==294663==    by 0x4027EE: map_handling (parsing1.c:106)
+==294663==    by 0x40255F: main (main.c:31)
+==294663==  Address 0x4d9b598 is 8 bytes after a block of size 16 alloc'd
+==294663==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294663==    by 0x405D8B: ft_split (ft_split.c:67)
+==294663==    by 0x4030BF: break_commas (parsing_utils1.c:78)
+==294663==    by 0x4030BF: separate_rgb (parsing_utils1.c:105)
+==294663==    by 0x4030BF: rgb_parse (parsing_utils1.c:152)
+==294663==    by 0x402982: floor_information (parsing2.c:33)
+==294663==    by 0x402982: extract (parsing2.c:135)
+==294663==    by 0x4027EE: map_handling (parsing1.c:106)
+==294663==    by 0x40255F: main (main.c:31)
+==294663== 
+==294663== Invalid read of size 1
+==294663==    at 0x405BEB: ft_atoi (ft_atoi.c:20)
+==294663==    by 0x4032B9: rgb_assignment (parsing_utils2.c:44)
+==294663==    by 0x40310D: break_commas (parsing_utils1.c:86)
+==294663==    by 0x40310D: separate_rgb (parsing_utils1.c:105)
+==294663==    by 0x40310D: rgb_parse (parsing_utils1.c:152)
+==294663==    by 0x402982: floor_information (parsing2.c:33)
+==294663==    by 0x402982: extract (parsing2.c:135)
+==294663==    by 0x4027EE: map_handling (parsing1.c:106)
+==294663==    by 0x40255F: main (main.c:31)
+==294663==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==294663== 
+==294663== 
+==294663== Process terminating with default action of signal 11 (SIGSEGV)
+==294663==  Access not within mapped region at address 0x0
+==294663==    at 0x405BEB: ft_atoi (ft_atoi.c:20)
+==294663==    by 0x4032B9: rgb_assignment (parsing_utils2.c:44)
+==294663==    by 0x40310D: break_commas (parsing_utils1.c:86)
+==294663==    by 0x40310D: separate_rgb (parsing_utils1.c:105)
+==294663==    by 0x40310D: rgb_parse (parsing_utils1.c:152)
+==294663==    by 0x402982: floor_information (parsing2.c:33)
+==294663==    by 0x402982: extract (parsing2.c:135)
+==294663==    by 0x4027EE: map_handling (parsing1.c:106)
+==294663==    by 0x40255F: main (main.c:31)
+==294663==  If you believe this happened as a result of a stack
+==294663==  overflow in your program's main thread (unlikely but
+==294663==  possible), you can try to increase the size of the
+==294663==  main thread stack using the --main-stacksize= flag.
+==294663==  The main thread stack size used in this run was 8388608.
+==294663== 
+==294663== HEAP SUMMARY:
+==294663==     in use at exit: 32,326 bytes in 31 blocks
+==294663==   total heap usage: 380 allocs, 349 frees, 37,337 bytes allocated
+==294663== 
+==294663== LEAK SUMMARY:
+==294663==    definitely lost: 0 bytes in 0 blocks
+==294663==    indirectly lost: 0 bytes in 0 blocks
+==294663==      possibly lost: 0 bytes in 0 blocks
+==294663==    still reachable: 32,326 bytes in 31 blocks
+==294663==         suppressed: 0 bytes in 0 blocks
+==294663== Rerun with --leak-check=full to see details of leaked memory
+==294663== 
+==294663== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==294663== 
+==294663== 1 errors in context 1 of 2:
+==294663== Invalid read of size 1
+==294663==    at 0x405BEB: ft_atoi (ft_atoi.c:20)
+==294663==    by 0x4032B9: rgb_assignment (parsing_utils2.c:44)
+==294663==    by 0x40310D: break_commas (parsing_utils1.c:86)
+==294663==    by 0x40310D: separate_rgb (parsing_utils1.c:105)
+==294663==    by 0x40310D: rgb_parse (parsing_utils1.c:152)
+==294663==    by 0x402982: floor_information (parsing2.c:33)
+==294663==    by 0x402982: extract (parsing2.c:135)
+==294663==    by 0x4027EE: map_handling (parsing1.c:106)
+==294663==    by 0x40255F: main (main.c:31)
+==294663==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==294663== 
+==294663== 
+==294663== 1 errors in context 2 of 2:
+==294663== Invalid read of size 8
+==294663==    at 0x4030D0: break_commas (parsing_utils1.c:81)
+==294663==    by 0x4030D0: separate_rgb (parsing_utils1.c:105)
+==294663==    by 0x4030D0: rgb_parse (parsing_utils1.c:152)
+==294663==    by 0x402982: floor_information (parsing2.c:33)
+==294663==    by 0x402982: extract (parsing2.c:135)
+==294663==    by 0x4027EE: map_handling (parsing1.c:106)
+==294663==    by 0x40255F: main (main.c:31)
+==294663==  Address 0x4d9b598 is 8 bytes after a block of size 16 alloc'd
+==294663==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294663==    by 0x405D8B: ft_split (ft_split.c:67)
+==294663==    by 0x4030BF: break_commas (parsing_utils1.c:78)
+==294663==    by 0x4030BF: separate_rgb (parsing_utils1.c:105)
+==294663==    by 0x4030BF: rgb_parse (parsing_utils1.c:152)
+==294663==    by 0x402982: floor_information (parsing2.c:33)
+==294663==    by 0x402982: extract (parsing2.c:135)
+==294663==    by 0x4027EE: map_handling (parsing1.c:106)
+==294663==    by 0x40255F: main (main.c:31)
+==294663== 
+==294663== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player1.cub...
+###########################################################################
+==294677== Memcheck, a memory error detector
+==294677== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294677== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294677== Command: ../cub3D error_test/extra_player1.cub
+==294677== 
+==294677== Warning: invalid file descriptor -1 in syscall close()
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294677== 
+==294677== HEAP SUMMARY:
+==294677==     in use at exit: 0 bytes in 0 blocks
+==294677==   total heap usage: 269 allocs, 269 frees, 35,773 bytes allocated
+==294677== 
+==294677== All heap blocks were freed -- no leaks are possible
+==294677== 
+==294677== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player2.cub...
+###########################################################################
+==294687== Memcheck, a memory error detector
+==294687== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294687== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294687== Command: ../cub3D error_test/extra_player2.cub
+==294687== 
+==294687== Warning: invalid file descriptor -1 in syscall close()
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294687== 
+==294687== HEAP SUMMARY:
+==294687==     in use at exit: 0 bytes in 0 blocks
+==294687==   total heap usage: 269 allocs, 269 frees, 35,773 bytes allocated
+==294687== 
+==294687== All heap blocks were freed -- no leaks are possible
+==294687== 
+==294687== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player3.cub...
+###########################################################################
+==294696== Memcheck, a memory error detector
+==294696== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294696== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294696== Command: ../cub3D error_test/extra_player3.cub
+==294696== 
+==294696== Warning: invalid file descriptor -1 in syscall close()
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294696== 
+==294696== HEAP SUMMARY:
+==294696==     in use at exit: 0 bytes in 0 blocks
+==294696==   total heap usage: 269 allocs, 269 frees, 35,773 bytes allocated
+==294696== 
+==294696== All heap blocks were freed -- no leaks are possible
+==294696== 
+==294696== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player4.cub...
+###########################################################################
+==294705== Memcheck, a memory error detector
+==294705== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294705== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294705== Command: ../cub3D error_test/extra_player4.cub
+==294705== 
+==294705== Warning: invalid file descriptor -1 in syscall close()
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294705== 
+==294705== HEAP SUMMARY:
+==294705==     in use at exit: 0 bytes in 0 blocks
+==294705==   total heap usage: 269 allocs, 269 frees, 35,773 bytes allocated
+==294705== 
+==294705== All heap blocks were freed -- no leaks are possible
+==294705== 
+==294705== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player5.cub...
+###########################################################################
+==294714== Memcheck, a memory error detector
+==294714== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294714== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294714== Command: ../cub3D error_test/extra_player5.cub
+==294714== 
+==294714== Warning: invalid file descriptor -1 in syscall close()
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294714== 
+==294714== HEAP SUMMARY:
+==294714==     in use at exit: 0 bytes in 0 blocks
+==294714==   total heap usage: 269 allocs, 269 frees, 35,773 bytes allocated
+==294714== 
+==294714== All heap blocks were freed -- no leaks are possible
+==294714== 
+==294714== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player6.cub...
+###########################################################################
+==294723== Memcheck, a memory error detector
+==294723== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294723== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294723== Command: ../cub3D error_test/extra_player6.cub
+==294723== 
+==294723== Warning: invalid file descriptor -1 in syscall close()
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294723== 
+==294723== HEAP SUMMARY:
+==294723==     in use at exit: 0 bytes in 0 blocks
+==294723==   total heap usage: 269 allocs, 269 frees, 35,773 bytes allocated
+==294723== 
+==294723== All heap blocks were freed -- no leaks are possible
+==294723== 
+==294723== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player7.cub...
+###########################################################################
+==294732== Memcheck, a memory error detector
+==294732== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294732== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294732== Command: ../cub3D error_test/extra_player7.cub
+==294732== 
+==294732== Warning: invalid file descriptor -1 in syscall close()
+Error
+Must have one player character(N, W, S, or E)
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294732== 
+==294732== HEAP SUMMARY:
+==294732==     in use at exit: 0 bytes in 0 blocks
+==294732==   total heap usage: 269 allocs, 269 frees, 35,773 bytes allocated
+==294732== 
+==294732== All heap blocks were freed -- no leaks are possible
+==294732== 
+==294732== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/extra_player8.cub...
+###########################################################################
+==294741== Memcheck, a memory error detector
+==294741== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294741== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294741== Command: ../cub3D error_test/extra_player8.cub
+==294741== 
+==294741== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294741== 
+==294741== HEAP SUMMARY:
+==294741==     in use at exit: 0 bytes in 0 blocks
+==294741==   total heap usage: 273 allocs, 273 frees, 35,828 bytes allocated
+==294741== 
+==294741== All heap blocks were freed -- no leaks are possible
+==294741== 
+==294741== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/not_walled1.cub...
+###########################################################################
+==294750== Memcheck, a memory error detector
+==294750== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294750== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294750== Command: ../cub3D error_test/not_walled1.cub
+==294750== 
+==294750== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294750== 
+==294750== HEAP SUMMARY:
+==294750==     in use at exit: 0 bytes in 0 blocks
+==294750==   total heap usage: 284 allocs, 284 frees, 36,146 bytes allocated
+==294750== 
+==294750== All heap blocks were freed -- no leaks are possible
+==294750== 
+==294750== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/not_walled2.cub...
+###########################################################################
+==294759== Memcheck, a memory error detector
+==294759== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294759== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294759== Command: ../cub3D error_test/not_walled2.cub
+==294759== 
+==294759== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294759== 
+==294759== HEAP SUMMARY:
+==294759==     in use at exit: 0 bytes in 0 blocks
+==294759==   total heap usage: 398 allocs, 398 frees, 38,106 bytes allocated
+==294759== 
+==294759== All heap blocks were freed -- no leaks are possible
+==294759== 
+==294759== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/not_walled3.cub...
+###########################################################################
+==294768== Memcheck, a memory error detector
+==294768== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294768== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294768== Command: ../cub3D error_test/not_walled3.cub
+==294768== 
+==294768== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is not walled correctly ):<
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294768== 
+==294768== HEAP SUMMARY:
+==294768==     in use at exit: 0 bytes in 0 blocks
+==294768==   total heap usage: 413 allocs, 413 frees, 38,571 bytes allocated
+==294768== 
+==294768== All heap blocks were freed -- no leaks are possible
+==294768== 
+==294768== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/not_walled4.cub...
+###########################################################################
+==294777== Memcheck, a memory error detector
+==294777== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294777== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294777== Command: ../cub3D error_test/not_walled4.cub
+==294777== 
+==294777== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is not walled correctly ):<
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294777== 
+==294777== HEAP SUMMARY:
+==294777==     in use at exit: 0 bytes in 0 blocks
+==294777==   total heap usage: 413 allocs, 413 frees, 38,571 bytes allocated
+==294777== 
+==294777== All heap blocks were freed -- no leaks are possible
+==294777== 
+==294777== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/not_walled5.cub...
+###########################################################################
+==294786== Memcheck, a memory error detector
+==294786== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294786== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294786== Command: ../cub3D error_test/not_walled5.cub
+==294786== 
+==294786== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is not walled correctly ):<
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294786== 
+==294786== HEAP SUMMARY:
+==294786==     in use at exit: 0 bytes in 0 blocks
+==294786==   total heap usage: 413 allocs, 413 frees, 38,571 bytes allocated
+==294786== 
+==294786== All heap blocks were freed -- no leaks are possible
+==294786== 
+==294786== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/island1.cub...
+###########################################################################
+==294795== Memcheck, a memory error detector
+==294795== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294795== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294795== Command: ../cub3D error_test/island1.cub
+==294795== 
+==294795== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294795== 
+==294795== HEAP SUMMARY:
+==294795==     in use at exit: 0 bytes in 0 blocks
+==294795==   total heap usage: 302 allocs, 302 frees, 36,209 bytes allocated
+==294795== 
+==294795== All heap blocks were freed -- no leaks are possible
+==294795== 
+==294795== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/island2.cub...
+###########################################################################
+==294804== Memcheck, a memory error detector
+==294804== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294804== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294804== Command: ../cub3D error_test/island2.cub
+==294804== 
+==294804== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294804== 
+==294804== HEAP SUMMARY:
+==294804==     in use at exit: 0 bytes in 0 blocks
+==294804==   total heap usage: 304 allocs, 304 frees, 36,228 bytes allocated
+==294804== 
+==294804== All heap blocks were freed -- no leaks are possible
+==294804== 
+==294804== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrong_name.cbu...
+###########################################################################
+==294813== Memcheck, a memory error detector
+==294813== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294813== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294813== Command: ../cub3D error_test/wrong_name.cbu
+==294813== 
+Error
+Map name is invalid
+==294813== 
+==294813== HEAP SUMMARY:
+==294813==     in use at exit: 0 bytes in 0 blocks
+==294813==   total heap usage: 1 allocs, 1 frees, 31,464 bytes allocated
+==294813== 
+==294813== All heap blocks were freed -- no leaks are possible
+==294813== 
+==294813== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/file.cbuwrong...
+###########################################################################
+==294822== Memcheck, a memory error detector
+==294822== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294822== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294822== Command: ../cub3D error_test/file.cbuwrong
+==294822== 
+Error
+Map name is invalid
+==294822== 
+==294822== HEAP SUMMARY:
+==294822==     in use at exit: 0 bytes in 0 blocks
+==294822==   total heap usage: 1 allocs, 1 frees, 31,464 bytes allocated
+==294822== 
+==294822== All heap blocks were freed -- no leaks are possible
+==294822== 
+==294822== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/dir_test.cub...
+###########################################################################
+==294831== Memcheck, a memory error detector
+==294831== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294831== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294831== Command: ../cub3D error_test/dir_test.cub
+==294831== 
+==294831== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map name is invalid
+==294831== 
+==294831== HEAP SUMMARY:
+==294831==     in use at exit: 0 bytes in 0 blocks
+==294831==   total heap usage: 1 allocs, 1 frees, 31,464 bytes allocated
+==294831== 
+==294831== All heap blocks were freed -- no leaks are possible
+==294831== 
+==294831== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/gap1.cub...
+###########################################################################
+==294840== Memcheck, a memory error detector
+==294840== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294840== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294840== Command: ../cub3D error_test/gap1.cub
+==294840== 
+==294840== Warning: invalid file descriptor -1 in syscall close()
+Error
+Map is broken ):
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294840== 
+==294840== HEAP SUMMARY:
+==294840==     in use at exit: 0 bytes in 0 blocks
+==294840==   total heap usage: 302 allocs, 302 frees, 36,209 bytes allocated
+==294840== 
+==294840== All heap blocks were freed -- no leaks are possible
+==294840== 
+==294840== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrong_sprite1.cub...
+###########################################################################
+==294849== Memcheck, a memory error detector
+==294849== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294849== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294849== Command: ../cub3D error_test/wrong_sprite1.cub
+==294849== 
+==294849== Warning: invalid file descriptor -1 in syscall close()
+==294849== Invalid read of size 8
+==294849==    at 0x40286A8: strncmp (strcmp.S:172)
+==294849==    by 0x400668D: is_dst (dl-load.c:216)
+==294849==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294849==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294849==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294849==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294849==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294849==    by 0x4003494: openaux (dl-deps.c:64)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294849==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294849==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294849==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294849==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294849==    by 0x40271DF: strdup (strdup.c:42)
+==294849==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294849==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294849==    by 0x4003494: openaux (dl-deps.c:64)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294849==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294849== 
+==294849== Invalid read of size 8
+==294849==    at 0x40286A8: strncmp (strcmp.S:172)
+==294849==    by 0x400668D: is_dst (dl-load.c:216)
+==294849==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294849==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294849==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294849==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294849==    by 0x4003494: openaux (dl-deps.c:64)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294849==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294849==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294849==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294849==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294849==    by 0x40271DF: strdup (strdup.c:42)
+==294849==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294849==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294849==    by 0x4003494: openaux (dl-deps.c:64)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294849==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294849== 
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294849== 
+==294849== HEAP SUMMARY:
+==294849==     in use at exit: 6,320,933 bytes in 10,092 blocks
+==294849==   total heap usage: 72,408 allocs, 62,316 frees, 20,391,129 bytes allocated
+==294849== 
+==294849== LEAK SUMMARY:
+==294849==    definitely lost: 0 bytes in 1 blocks
+==294849==    indirectly lost: 0 bytes in 0 blocks
+==294849==      possibly lost: 110,078 bytes in 275 blocks
+==294849==    still reachable: 6,210,855 bytes in 9,816 blocks
+==294849==                       of which reachable via heuristic:
+==294849==                         newarray           : 768,888 bytes in 9 blocks
+==294849==                         multipleinheritance: 14,400 bytes in 21 blocks
+==294849==         suppressed: 0 bytes in 0 blocks
+==294849== Rerun with --leak-check=full to see details of leaked memory
+==294849== 
+==294849== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==294849== 
+==294849== 1 errors in context 1 of 2:
+==294849== Invalid read of size 8
+==294849==    at 0x40286A8: strncmp (strcmp.S:172)
+==294849==    by 0x400668D: is_dst (dl-load.c:216)
+==294849==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294849==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294849==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294849==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294849==    by 0x4003494: openaux (dl-deps.c:64)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294849==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294849==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294849==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294849==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294849==    by 0x40271DF: strdup (strdup.c:42)
+==294849==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294849==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294849==    by 0x4003494: openaux (dl-deps.c:64)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294849==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294849== 
+==294849== 
+==294849== 1 errors in context 2 of 2:
+==294849== Invalid read of size 8
+==294849==    at 0x40286A8: strncmp (strcmp.S:172)
+==294849==    by 0x400668D: is_dst (dl-load.c:216)
+==294849==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294849==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294849==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294849==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294849==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294849==    by 0x4003494: openaux (dl-deps.c:64)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294849==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294849==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294849==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294849==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294849==    by 0x40271DF: strdup (strdup.c:42)
+==294849==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294849==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294849==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294849==    by 0x4003494: openaux (dl-deps.c:64)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294849==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294849==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294849==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294849== 
+==294849== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrong_sprite2.cub...
+###########################################################################
+==294866== Memcheck, a memory error detector
+==294866== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294866== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294866== Command: ../cub3D error_test/wrong_sprite2.cub
+==294866== 
+==294866== Warning: invalid file descriptor -1 in syscall close()
+==294866== Invalid read of size 8
+==294866==    at 0x40286A8: strncmp (strcmp.S:172)
+==294866==    by 0x400668D: is_dst (dl-load.c:216)
+==294866==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294866==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294866==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294866==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294866==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294866==    by 0x4003494: openaux (dl-deps.c:64)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294866==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294866==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294866==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294866==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294866==    by 0x40271DF: strdup (strdup.c:42)
+==294866==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294866==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294866==    by 0x4003494: openaux (dl-deps.c:64)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294866==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294866== 
+==294866== Invalid read of size 8
+==294866==    at 0x40286A8: strncmp (strcmp.S:172)
+==294866==    by 0x400668D: is_dst (dl-load.c:216)
+==294866==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294866==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294866==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294866==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294866==    by 0x4003494: openaux (dl-deps.c:64)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294866==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294866==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294866==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294866==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294866==    by 0x40271DF: strdup (strdup.c:42)
+==294866==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294866==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294866==    by 0x4003494: openaux (dl-deps.c:64)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294866==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294866== 
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294866== 
+==294866== HEAP SUMMARY:
+==294866==     in use at exit: 6,320,933 bytes in 10,092 blocks
+==294866==   total heap usage: 72,408 allocs, 62,316 frees, 20,391,129 bytes allocated
+==294866== 
+==294866== LEAK SUMMARY:
+==294866==    definitely lost: 0 bytes in 1 blocks
+==294866==    indirectly lost: 0 bytes in 0 blocks
+==294866==      possibly lost: 110,078 bytes in 275 blocks
+==294866==    still reachable: 6,210,855 bytes in 9,816 blocks
+==294866==                       of which reachable via heuristic:
+==294866==                         newarray           : 768,888 bytes in 9 blocks
+==294866==                         multipleinheritance: 14,400 bytes in 21 blocks
+==294866==         suppressed: 0 bytes in 0 blocks
+==294866== Rerun with --leak-check=full to see details of leaked memory
+==294866== 
+==294866== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==294866== 
+==294866== 1 errors in context 1 of 2:
+==294866== Invalid read of size 8
+==294866==    at 0x40286A8: strncmp (strcmp.S:172)
+==294866==    by 0x400668D: is_dst (dl-load.c:216)
+==294866==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294866==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294866==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294866==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294866==    by 0x4003494: openaux (dl-deps.c:64)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294866==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294866==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294866==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294866==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294866==    by 0x40271DF: strdup (strdup.c:42)
+==294866==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294866==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294866==    by 0x4003494: openaux (dl-deps.c:64)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294866==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294866== 
+==294866== 
+==294866== 1 errors in context 2 of 2:
+==294866== Invalid read of size 8
+==294866==    at 0x40286A8: strncmp (strcmp.S:172)
+==294866==    by 0x400668D: is_dst (dl-load.c:216)
+==294866==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294866==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294866==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294866==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294866==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294866==    by 0x4003494: openaux (dl-deps.c:64)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294866==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294866==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294866==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294866==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294866==    by 0x40271DF: strdup (strdup.c:42)
+==294866==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294866==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294866==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294866==    by 0x4003494: openaux (dl-deps.c:64)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294866==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294866==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294866==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294866== 
+==294866== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrong_sprite3.cub...
+###########################################################################
+==294882== Memcheck, a memory error detector
+==294882== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294882== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294882== Command: ../cub3D error_test/wrong_sprite3.cub
+==294882== 
+==294882== Warning: invalid file descriptor -1 in syscall close()
+==294882== Invalid read of size 8
+==294882==    at 0x40286A8: strncmp (strcmp.S:172)
+==294882==    by 0x400668D: is_dst (dl-load.c:216)
+==294882==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294882==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294882==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294882==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294882==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294882==    by 0x4003494: openaux (dl-deps.c:64)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294882==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294882==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294882==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294882==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294882==    by 0x40271DF: strdup (strdup.c:42)
+==294882==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294882==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294882==    by 0x4003494: openaux (dl-deps.c:64)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294882==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294882== 
+==294882== Invalid read of size 8
+==294882==    at 0x40286A8: strncmp (strcmp.S:172)
+==294882==    by 0x400668D: is_dst (dl-load.c:216)
+==294882==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294882==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294882==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294882==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294882==    by 0x4003494: openaux (dl-deps.c:64)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294882==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294882==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294882==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294882==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294882==    by 0x40271DF: strdup (strdup.c:42)
+==294882==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294882==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294882==    by 0x4003494: openaux (dl-deps.c:64)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294882==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294882== 
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294882== 
+==294882== HEAP SUMMARY:
+==294882==     in use at exit: 6,320,933 bytes in 10,092 blocks
+==294882==   total heap usage: 72,411 allocs, 62,319 frees, 20,391,545 bytes allocated
+==294882== 
+==294882== LEAK SUMMARY:
+==294882==    definitely lost: 0 bytes in 1 blocks
+==294882==    indirectly lost: 0 bytes in 0 blocks
+==294882==      possibly lost: 110,078 bytes in 275 blocks
+==294882==    still reachable: 6,210,855 bytes in 9,816 blocks
+==294882==                       of which reachable via heuristic:
+==294882==                         newarray           : 768,888 bytes in 9 blocks
+==294882==                         multipleinheritance: 14,400 bytes in 21 blocks
+==294882==         suppressed: 0 bytes in 0 blocks
+==294882== Rerun with --leak-check=full to see details of leaked memory
+==294882== 
+==294882== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==294882== 
+==294882== 1 errors in context 1 of 2:
+==294882== Invalid read of size 8
+==294882==    at 0x40286A8: strncmp (strcmp.S:172)
+==294882==    by 0x400668D: is_dst (dl-load.c:216)
+==294882==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294882==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294882==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294882==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294882==    by 0x4003494: openaux (dl-deps.c:64)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294882==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294882==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294882==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294882==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294882==    by 0x40271DF: strdup (strdup.c:42)
+==294882==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294882==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294882==    by 0x4003494: openaux (dl-deps.c:64)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294882==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294882== 
+==294882== 
+==294882== 1 errors in context 2 of 2:
+==294882== Invalid read of size 8
+==294882==    at 0x40286A8: strncmp (strcmp.S:172)
+==294882==    by 0x400668D: is_dst (dl-load.c:216)
+==294882==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294882==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294882==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294882==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294882==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294882==    by 0x4003494: openaux (dl-deps.c:64)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294882==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294882==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294882==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294882==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294882==    by 0x40271DF: strdup (strdup.c:42)
+==294882==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294882==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294882==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294882==    by 0x4003494: openaux (dl-deps.c:64)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294882==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294882==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294882==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294882== 
+==294882== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrong_sprite4.cub...
+###########################################################################
+==294899== Memcheck, a memory error detector
+==294899== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294899== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294899== Command: ../cub3D error_test/wrong_sprite4.cub
+==294899== 
+==294899== Warning: invalid file descriptor -1 in syscall close()
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294899== 
+==294899== HEAP SUMMARY:
+==294899==     in use at exit: 6,320,933 bytes in 10,092 blocks
+==294899==   total heap usage: 72,410 allocs, 62,318 frees, 20,399,345 bytes allocated
+==294899== 
+==294899== LEAK SUMMARY:
+==294899==    definitely lost: 0 bytes in 1 blocks
+==294899==    indirectly lost: 0 bytes in 0 blocks
+==294899==      possibly lost: 110,078 bytes in 275 blocks
+==294899==    still reachable: 6,210,855 bytes in 9,816 blocks
+==294899==                       of which reachable via heuristic:
+==294899==                         newarray           : 768,888 bytes in 9 blocks
+==294899==                         multipleinheritance: 14,400 bytes in 21 blocks
+==294899==         suppressed: 0 bytes in 0 blocks
+==294899== Rerun with --leak-check=full to see details of leaked memory
+==294899== 
+==294899== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+Running test for error_test/wrong_sprite5.cub...
+###########################################################################
+==294915== Memcheck, a memory error detector
+==294915== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==294915== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==294915== Command: ../cub3D error_test/wrong_sprite5.cub
+==294915== 
+==294915== Warning: invalid file descriptor -1 in syscall close()
+==294915== Invalid read of size 8
+==294915==    at 0x40286A8: strncmp (strcmp.S:172)
+==294915==    by 0x400668D: is_dst (dl-load.c:216)
+==294915==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294915==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294915==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294915==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294915==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294915==    by 0x4003494: openaux (dl-deps.c:64)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294915==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294915==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294915==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294915==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294915==    by 0x40271DF: strdup (strdup.c:42)
+==294915==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294915==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294915==    by 0x4003494: openaux (dl-deps.c:64)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294915==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294915== 
+==294915== Invalid read of size 8
+==294915==    at 0x40286A8: strncmp (strcmp.S:172)
+==294915==    by 0x400668D: is_dst (dl-load.c:216)
+==294915==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294915==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294915==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294915==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294915==    by 0x4003494: openaux (dl-deps.c:64)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294915==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294915==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294915==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294915==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294915==    by 0x40271DF: strdup (strdup.c:42)
+==294915==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294915==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294915==    by 0x4003494: openaux (dl-deps.c:64)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294915==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294915== 
+MLX42: LodePNG: failed to open file for reading
+MLX42: LodePNG: failed to open file for reading
+texture invalid or simply missing
+Error
+MLX function error
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+==294915== 
+==294915== HEAP SUMMARY:
+==294915==     in use at exit: 6,320,933 bytes in 10,092 blocks
+==294915==   total heap usage: 72,408 allocs, 62,316 frees, 20,391,129 bytes allocated
+==294915== 
+==294915== LEAK SUMMARY:
+==294915==    definitely lost: 0 bytes in 1 blocks
+==294915==    indirectly lost: 0 bytes in 0 blocks
+==294915==      possibly lost: 110,078 bytes in 275 blocks
+==294915==    still reachable: 6,210,855 bytes in 9,816 blocks
+==294915==                       of which reachable via heuristic:
+==294915==                         newarray           : 768,888 bytes in 9 blocks
+==294915==                         multipleinheritance: 14,400 bytes in 21 blocks
+==294915==         suppressed: 0 bytes in 0 blocks
+==294915== Rerun with --leak-check=full to see details of leaked memory
+==294915== 
+==294915== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==294915== 
+==294915== 1 errors in context 1 of 2:
+==294915== Invalid read of size 8
+==294915==    at 0x40286A8: strncmp (strcmp.S:172)
+==294915==    by 0x400668D: is_dst (dl-load.c:216)
+==294915==    by 0x4007F79: _dl_dst_substitute (dl-load.c:295)
+==294915==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294915==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294915==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294915==    by 0x4003494: openaux (dl-deps.c:64)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294915==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294915==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294915==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294915==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294915==    by 0x40271DF: strdup (strdup.c:42)
+==294915==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294915==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294915==    by 0x4003494: openaux (dl-deps.c:64)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294915==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294915== 
+==294915== 
+==294915== 1 errors in context 2 of 2:
+==294915== Invalid read of size 8
+==294915==    at 0x40286A8: strncmp (strcmp.S:172)
+==294915==    by 0x400668D: is_dst (dl-load.c:216)
+==294915==    by 0x400810E: _dl_dst_count (dl-load.c:253)
+==294915==    by 0x400810E: expand_dynamic_string_token (dl-load.c:395)
+==294915==    by 0x40082B7: fillin_rpath.isra.0 (dl-load.c:483)
+==294915==    by 0x4008602: decompose_rpath (dl-load.c:654)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294915==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294915==    by 0x4003494: openaux (dl-deps.c:64)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294915==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294915==  Address 0x4fbb699 is 9 bytes inside a block of size 15 alloc'd
+==294915==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==294915==    by 0x40271DF: malloc (rtld-malloc.h:56)
+==294915==    by 0x40271DF: strdup (strdup.c:42)
+==294915==    by 0x4008594: decompose_rpath (dl-load.c:629)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:696)
+==294915==    by 0x400ABF5: cache_rpath (dl-load.c:677)
+==294915==    by 0x400ABF5: _dl_map_object (dl-load.c:2165)
+==294915==    by 0x4003494: openaux (dl-deps.c:64)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x4003C7B: _dl_map_object_deps (dl-deps.c:248)
+==294915==    by 0x400EA0E: dl_open_worker_begin (dl-open.c:592)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x400DF99: dl_open_worker (dl-open.c:782)
+==294915==    by 0x4B33A97: _dl_catch_exception (dl-error-skeleton.c:208)
+==294915==    by 0x400E34D: _dl_open (dl-open.c:883)
+==294915== 
+==294915== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+

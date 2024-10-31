@@ -1,0 +1,220 @@
+Running test for error_test/extra_RGB1.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_RGB2.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_RGB3.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_RGB4.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_RGB5.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_sprite1.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_sprite2.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_sprite3.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_sprite4.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrongmap1.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrongmap2.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrongmap3.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrongmap4.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrongmap5.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/missing_RGB1.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/missing_RGB2.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/missing_RGB3.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_RGB1.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_RGB2.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_RGB3.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player1.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player2.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player3.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player4.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player5.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player6.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player7.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/extra_player8.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/not_walled1.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/not_walled2.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/not_walled3.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/not_walled4.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/not_walled5.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/island1.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/island2.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_name.cbu...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/file.cbuwrong...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/dir_test.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/gap1.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_sprite1.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_sprite2.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_sprite3.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_sprite4.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
+Running test for error_test/wrong_sprite5.cub...
+###########################################################################
+valgrind: ../cub3D: No such file or directory
+
+
