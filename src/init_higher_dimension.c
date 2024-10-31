@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/31 10:45:23 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/31 16:05:28 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,21 +72,7 @@ int	find_wall(t_data *data, int i)
 		return (FAILURE);
 	return (SUCCESS);
 }
-/*int	find_wall(t_data *data, int i)
-{
-	(void)i;
-	if (data->ray_hit == NORTH)
-		data->im_current_wall = data->im_n_wall;	
-	else if (data->ray_hit == SOUTH)
-		data->im_current_wall = data->im_s_wall;
-	else if (data->ray_hit == EAST)
-		data->im_current_wall = data->im_e_wall;
-	else if (data->ray_hit == WEST)
-		data->im_current_wall = data->im_w_wall;
-	if (data->im_current_wall == NULL)
-		return (FAILURE);
-	return (SUCCESS);
-}*/
+
 
 /*int	draw_wall(t_data *data, int i, int x, double img_y)
 {
@@ -137,27 +123,36 @@ int	draw_wall(t_data *data, int i, int x, double img_y)
 	double current_wall_pos;
 	double img_x; 
 	double img_y_inc;
+	double max_wall_h;
 	uint32_t colour = 0;
-	//double new_len;
-	 //double hit_pos;
 	if (find_wall(data, i) == FAILURE)
 	{
 		printf("failure on ray number = %d\n", i);
 		return (FAILURE);
 	}
-	//new_len = data->ray_len[i] * T_SIZE;
-	//printf("new len = %f\n", new_len);
-	if (data->ray_len[i] <= 0)
-		printf("WZOOOOOOOOO\n");
-	//wall_h = HEIGHT / new_len;
-	//printf("what is wall height = %f\n", wall_h);
-	wall_h = HEIGHT / data->ray_len[i] * DIST_TO_PLANE * WALL_SCALE_FACTOR; // we get the height of the wall based on len
-	if (wall_h <= 0)
-		printf("oho\n");
-	top_of_wall = (HEIGHT - wall_h) / 2;// * T_SIZE; // we set our starting point to the top of where th wall begins
-	if (top_of_wall <= 0)
-		printf("eeeek\n");
-	//printf("what is ray_x = %f\n", data->ray_x);
+	x = i * SEGMENT;
+	img_x = (double)i / RAY_MAX * data->im_current_wall->width;
+	wall_h = HEIGHT / data->ray_len[i] * WALL_SCALE;//DIST_TO_PLANE * WALL_SCALE_FACTOR; // we get the height of the wall based on len
+	// if we reach maximum it will only be because we are close , so we adjust it by -1 to ensure
+	//it gets drawn any way inorder to fill in the gaps  
+	// seperate function if this is the case, for faster drawing 
+	if (wall_h > HEIGHT)
+	{
+		wall_h = HEIGHT - 1;
+		img_y_inc = data->im_current_wall->height / wall_h;
+		for (current_wall_pos = 0; current_wall_pos < HEIGHT; current_wall_pos++)
+		{
+			img_y = current_wall_pos * img_y_inc;
+			colour = fetch_pixel_rgb(data->im_current_wall, img_x, img_y, 0);
+			 // Protection against segmentation faults
+			if (colour != 0)
+			{
+				mlx_put_pixel(data->im_ray, x, current_wall_pos, colour);
+			}
+		}
+		return (SUCCESS);
+	}
+	top_of_wall = (HEIGHT - wall_h) / 2;; // we set our starting point to the top of where th wall begins
 	current_wall_pos = top_of_wall; // we set our incrementer 
 	/*if (data->ray_hit[i] == EAST || data->ray_hit[i] == WEST) {
         // Vertical wall, use y-coordinate
@@ -168,25 +163,12 @@ int	draw_wall(t_data *data, int i, int x, double img_y)
         hit_pos = fmod(data->ray_x, 64.0) / 64.0;
         img_x = (int)(hit_pos * data->im_current_wall->width);
     }*/
-	//img_x = (img_x < 0) ? 0 : (img_x >= data->im_current_wall->width) ? data->im_current_wall->width - 1 : img_x;
-	//printf("what si imgx = %u\n", img_x);
-	//double hit_position = fmod(data->ray_x, 64.0) / 64.0;
-	//printf("hit ps = %f\n", hit_pos);
-	//img_x = (uint32_t)hit_position * data->im_current_wall->width + 1;
-	//printf("imgx = %u\n", img_x);
+   
 	img_x = (double)i / RAY_MAX * data->im_current_wall->width;
-	//img_x = data->im_current_wall->width - x / RAY_MAX;
-	//if (img_x <= 0)
-	//{
-	//	img_x = 0.01;//data->ray_len[i];
-	//	printf("img x issues = %f at = %d wall_h = %f current img width = %u\n", img_x, i, wall_h, data->im_current_wall->width);//, hit_pos);
-	//}
-	x = i * SEGMENT;
 	img_y_inc = data->im_current_wall->height / wall_h;
     current_wall_pos = top_of_wall;
-	//if (current_wall_pos < 0)
-	//	printf("current_wall_pos = %f\n", current_wall_pos);
-	while (current_wall_pos > 0 && current_wall_pos < top_of_wall + wall_h && current_wall_pos < HEIGHT)
+	max_wall_h = top_of_wall + wall_h;
+	while (current_wall_pos > 0 && current_wall_pos < max_wall_h && current_wall_pos < HEIGHT)
 	{
 		if (x >= 0 && x <= WIDTH && current_wall_pos > 0 && current_wall_pos <= HEIGHT)
 		{
@@ -198,25 +180,16 @@ int	draw_wall(t_data *data, int i, int x, double img_y)
 				{
 					colour = fetch_pixel_rgb(data->im_current_wall, img_x, img_y, 0);
 				// this is a segv protection
-					if (colour == 0 || colour == 0x00000000)
+					if (colour == 0)
 					{
-						printf("we at ray = %d\n", i);
 						printf("Color is 0 at img_x = %f, img_y = %f, current_wall_pos = %f\n", img_x, current_wall_pos, img_y);
 						break ;
 					}
 					mlx_put_pixel(data->im_ray, x, current_wall_pos, colour);
 				}
-				else
-				{
-					printf("didnt stick a a pixel on wall on ray = %d\n", i); // does not print anything	
-					printf("imgy = %f width img = %u imgx = %f\n", img_y, data->im_current_wall->height, img_x);
-				}
 			}
 		}
 		current_wall_pos++;
-		if (current_wall_pos <= 0)
-			printf("yaar\n");
-		//img_y += img_y_inc;
 	}
 	//printf("wall_h = %f top_of_wall = %f current_wall_pos = %f\n", wall_h, top_of_wall, current_wall_pos);
 	return (SUCCESS);

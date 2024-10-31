@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/30 16:39:34 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/31 15:57:44 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,8 @@
 # define MINI_SCALE 4 //maybe for minimap
 # define RAY_MAX 1920.0 // could be 240
 # define FOV 60.0 //~~ angle of field of view degrees 
-# define WALL_SCALE_FACTOR 0.01
+//# define WALL_SCALE_FACTOR 0.01
+# define WALL_SCALE ((WIDTH / 2) / TAN_OF_FOV) * 0.01
 # define RADIUS (20.0 / (double)T_SIZE)//??
 /*************************************************/
 /* math macros ***************************************/
@@ -110,7 +111,7 @@
 # define DEG2RAD 		(PI / 180.0)
 # define STEP			0.03
 # define TAN_OF_FOV		(tan(FOV / 2 * PI / 180))// might not need this
-# define DIST_TO_PLANE	((WIDTH / 2) / TAN_OF_FOV)
+//# define DIST_TO_PLANE	((WIDTH / 2) / TAN_OF_FOV)
 # define SEGMENT		(WIDTH / RAY_MAX)
 # define STARTING_ANGLE	(-FOV / 2 * DEG2RAD)
 # define ANGLE_INCREMENT ((FOV / RAY_MAX) * DEG2RAD)
