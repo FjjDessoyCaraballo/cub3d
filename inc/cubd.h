@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/25 19:08:39 by araveala         ###   ########.fr       */
+/*   Updated: 2024/10/30 16:39:34 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,8 @@
 # define DIST_TO_PLANE	((WIDTH / 2) / TAN_OF_FOV)
 # define SEGMENT		(WIDTH / RAY_MAX)
 # define STARTING_ANGLE	(-FOV / 2 * DEG2RAD)
-# define ANGLE_INCREMENT ((FOV / RAY_MAX) * DEG2RAD)	
+# define ANGLE_INCREMENT ((FOV / RAY_MAX) * DEG2RAD)
+# define EPSILON 0.0000000000000000000000000000000000000000000000001
 /*************************************************/
 /* structs ***************************************/
 /*************************************************/
