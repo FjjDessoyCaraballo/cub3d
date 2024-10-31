@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/31 09:59:12 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/31 10:00:00 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,7 +204,7 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 			data->ray_hit[i] = find_direction(data->ray_dir_x, data->ray_dir_y);
 			return ;
 		}
-		ray_distance += 0.3;
+		ray_distance += 0.1;
 	}
 }
 
