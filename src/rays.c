@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/01 13:26:59 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/01 14:44:02 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,16 @@ int	find_direction(int side, double ray_x, double ray_y)
 	if (side == 0)
 	{
 		if (ray_x > 0)
-		{
-			//printf("east\n");
 			return (EAST);
-		}
 		else
-		{
-			//printf("west\n");
 			return (WEST);
-		}
 	}
 	else
 	{
 		if (ray_y > 0)
-		{
-			//printf("south\n");			
 			return (SOUTH);
-		}
-		else
-		{
-			//printf("north\n");			
+		else			
 			return (NORTH);
-		}
 	}
 	return (0);
 }
@@ -51,35 +39,19 @@ int	find_direction(int side, double ray_x, double ray_y)
  */
 static int	outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pixel_x)
 {
-
 	if (rpos_pixel_y / T_SIZE > data->map_length || rpos_pixel_x / T_SIZE > data->map_width)
-	{
-		//printf("y top bound = %d x top bound = %d\n", data->map_length, data->map_width);
-		//printf("ray bounds000 rpos x = %f also rpos y = %f\n", rpos_pixel_x / 64, rpos_pixel_y / 64);
 		return (FAILURE);		
-	}
-	if (rpos_pixel_y < 0 || rpos_pixel_x / T_SIZE >= data->map_width)//WIDTH)
-	{
-		//printf("ray bounds111 rpos x = %f also rpos y = %f and  WIDTH = %d\n", rpos_pixel_x, rpos_pixel_y, WIDTH);
+	if (rpos_pixel_y < 0 || rpos_pixel_x / T_SIZE >= data->map_width)
 		return (FAILURE);
-	}
 	if (rpos_pixel_y < 0 || rpos_pixel_x / T_SIZE >= HEIGHT)
-	{
-		//printf("ray bounds2222 ray x = %f\n", rpos_pixel_x);
 		return (FAILURE);
-	}
-	if (data->y_ppos - STEP > data->map_length)// - 1)
-	{
-		//printf("ray bounds3333\n");	
+	if (data->y_ppos - STEP > data->map_length)
+		return (FAILURE);
+	if (data->x_ppos + STEP > data->map_width)
 		return (FAILURE);	
-	}
-	if (data->x_ppos + STEP > data->map_width)// - 1)
-	{
-		//printf("ray bounds4444\n");	
-		return (FAILURE);	
-	}
 	return (SUCCESS);
 }
+
 /**
  * clears the whole buffer for a clean canvas for the next set of rays
  * by putting a transparent pixel everywhere, transparent allows us
@@ -151,68 +123,91 @@ void	stack_ray_data(t_data *data, int i)
 /**
  * collects ray information based on when a wall is hit using a size of pixels
  */
-void collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
+double	calculate_initial_position(double position) 
 {
-    double	ppos_pixel_x = (data->x_ppos) * T_SIZE;
-    double	ppos_pixel_y = (data->y_ppos) * T_SIZE;
-	double	player_angle = ray_distance; 
-	double	delta_dist_x = fabs(1 / data->ray_dir_x);
-    double	delta_dist_y = fabs(1 / data->ray_dir_y);
-    double	perp_wall_dist;
+	return (position * T_SIZE);
+}
 
-
-    int		map_x = (int)(data->x_ppos);
-    int		map_y = (int)(data->y_ppos);
-    double	side_dist_x; // one function returning side_dist
-    int 	step_x; // one function returning step
-	if (data->ray_dir_x < 0)
+void	calculate_side_distances(t_data *data, double *side_dist_x, double *side_dist_y, int *step_x, int *step_y, double delta_dist_x, double delta_dist_y, double ppos_pixel_x, double ppos_pixel_y, int map_x, int map_y)
+{
+	if (data->ray_dir_x < 0) 
 	{
-        step_x = -1;
-        side_dist_x = (ppos_pixel_x - map_x * T_SIZE) * delta_dist_x;
-    }
-	else
-	{
-        step_x = 1;
-        side_dist_x = ((map_x + 1) * T_SIZE - ppos_pixel_x) * delta_dist_x;
-    }
-	
-	int		step_y;
-	double	side_dist_y;
-    if (data->ray_dir_y < 0)
-	{
-        step_y = -1;
-        side_dist_y = (ppos_pixel_y - map_y * T_SIZE) * delta_dist_y;
-    }
-	else
-	{
-        step_y = 1;
-        side_dist_y = ((map_y + 1) * T_SIZE - ppos_pixel_y) * delta_dist_y;
-    }
-
-
-
-    int hit = 0;
-    int side = 0;
-    while (hit == 0)
-	{
-        if (side_dist_x < side_dist_y) {
-            side_dist_x += delta_dist_x * T_SIZE;
-            map_x += step_x;
-            side = 0;
-        } else {
-            side_dist_y += delta_dist_y * T_SIZE;
-            map_y += step_y;
-            side = 1;
-        }
-        if (outof_bounds_check(data, map_y, map_x) == FAILURE)
-            return ;
-		if (data->map[(int)map_y][(int)map_x] == '1')
-			hit = 1;
+        *step_x = -1;
+        *side_dist_x = (ppos_pixel_x - map_x * T_SIZE) * delta_dist_x;
 	}
-    if (side == 0)
-		perp_wall_dist = ((map_x * T_SIZE - ppos_pixel_x) + (1 - step_x) * T_SIZE / 2) / data->ray_dir_x;
-    else
-		perp_wall_dist = ((map_y * T_SIZE - ppos_pixel_y) + (1 - step_y) * T_SIZE / 2) / data->ray_dir_y;
-	data->ray_len[i] = perp_wall_dist * cos(ray_angle - player_angle);
+	else
+	{
+		*step_x = 1;
+		*side_dist_x = ((map_x + 1) * T_SIZE - ppos_pixel_x) * delta_dist_x;
+	}
+	if (data->ray_dir_y < 0)
+	{
+	*step_y = -1;
+	*side_dist_y = (ppos_pixel_y - map_y * T_SIZE) * delta_dist_y;
+    }
+	else
+	{
+		*step_y = 1;
+		*side_dist_y = ((map_y + 1) * T_SIZE - ppos_pixel_y) * delta_dist_y;
+	}
+}
+
+void	perform_dda(t_data *data, int *map_x, int *map_y, double *side_dist_x, double *side_dist_y, double delta_dist_x, double delta_dist_y, int step_x, int step_y, int *side, int *hit) 
+{
+	while (*hit == 0)
+	{
+		if (*side_dist_x < *side_dist_y)
+		{
+			*side_dist_x += delta_dist_x * T_SIZE;
+			*map_x += step_x;
+			*side = 0;
+        }
+		else
+		{
+			*side_dist_y += delta_dist_y * T_SIZE;
+			*map_y += step_y;
+			*side = 1;
+		}
+		if (outof_bounds_check(data, *map_y, *map_x) == FAILURE || data->map[*map_y][*map_x] == '1')
+		{
+			*hit = 1;
+		}
+	}
+}
+
+double	calculate_perpendicular_distance(int map_x, int map_y, double ppos_pixel_x, double ppos_pixel_y, int side, int step_x, int step_y, t_data *data)
+{
+	if (side == 0)
+		return ((map_x * T_SIZE - ppos_pixel_x) + (1 - step_x) * T_SIZE / 2) / data->ray_dir_x;
+	else
+		return ((map_y * T_SIZE - ppos_pixel_y) + (1 - step_y) * T_SIZE / 2) / data->ray_dir_y;
+}
+
+void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
+{
+	double	ppos_pixel_x;
+	double	ppos_pixel_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+
+	delta_dist_x = fabs(1 / data->ray_dir_x);
+	delta_dist_y = fabs(1 / data->ray_dir_y);
+	ppos_pixel_x = calculate_initial_position(data->x_ppos);
+	ppos_pixel_y = calculate_initial_position(data->y_ppos);
+	int	map_x = (int)data->x_ppos;
+	int	map_y = (int)data->y_ppos;
+	int	step_x, step_y;
+	double	side_dist_x;
+	double	side_dist_y;
+    
+    calculate_side_distances(data, &side_dist_x, &side_dist_y, &step_x, &step_y, delta_dist_x, delta_dist_y, ppos_pixel_x, ppos_pixel_y, map_x, map_y);
+
+    int	hit = 0;
+	int	side = 0;
+    perform_dda(data, &map_x, &map_y, &side_dist_x, &side_dist_y, delta_dist_x, delta_dist_y, step_x, step_y, &side, &hit);
+
+    double perp_wall_dist = calculate_perpendicular_distance(map_x, map_y, ppos_pixel_x, ppos_pixel_y, side, step_x, step_y, data);
+    data->ray_len[i] = perp_wall_dist * cos(ray_angle - ray_distance);
     data->ray_hit[i] = find_direction(side, data->ray_dir_x, data->ray_dir_y);
 }
+
