@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/24 15:04:12 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/01 14:15:21 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	init_mini_imgs(t_data *data)
 	data->im_mini_wall = mlx_texture_to_image(data->mlx, data->tx_mini_wall);
 	if (data->im_mini_floor == NULL || data->im_mini_wall == NULL)
 		return (err_msg(NULL, IMAGE_FAIL, FAILURE));
+	mlx_delete_texture(data->tx_mini_floor);
+	mlx_delete_texture(data->tx_mini_wall);
 	if (mlx_resize_image(data->im_mini_floor, MINI_T, MINI_T) == false)
 		return (err_msg(NULL, RESIZE, FAILURE));
 	if (mlx_resize_image(data->im_mini_wall, MINI_T, MINI_T) == false)

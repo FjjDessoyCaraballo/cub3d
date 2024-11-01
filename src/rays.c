@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/01 10:16:48 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/01 13:26:59 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,25 +129,16 @@ void	stack_ray_data(t_data *data, int i)
 	double	current_angle;
 	double	player_angle;
 	double	ray_angle;
-
-    current_angle = 0;
-    ray_angle = 0;
+	
+	data->exact_x = data->x_ppos * T_SIZE / 2;
+	data->exact_y = data->y_ppos * T_SIZE / 2;
+	current_angle = 0;
+	ray_angle = 0;
 	player_angle = atan2(data->p_dir_y, data->p_dir_x); 
 	clear_image(data);
-
-/**
- * please keep for now incase of potential use
- * 	//double plane_x = -data->p_dir_y * (FOV / 2);
- *  //double plane_y = data->p_dir_x * (FOV / 2);// perpendicular to player direction
- * Also note, can we change clear_image to be :
- * ft_memset(data->im_ray, 0, (data->im_ray->height * data->im_ray->width) * 4);
- * i could not make it work , it has potential to improve perfomance
- */
 	while (i < RAY_MAX)
 	{
-		//current_angle = STARTING_ANGLE + i * ANGLE_INCREMENT;
-		//ray_angle = player_angle + current_angle;
-		ray_angle = player_angle + (i - RAY_MAX / 2) * ANGLE_INCREMENT; //caera_x ?
+		ray_angle = player_angle + (i - RAY_MAX / 2) * ANGLE_INCREMENT;
 		data->ray_dir_x = cos(ray_angle);
 		data->ray_dir_y = sin(ray_angle);
 		collect_ray(data, i, player_angle, ray_angle);
@@ -162,17 +153,18 @@ void	stack_ray_data(t_data *data, int i)
  */
 void collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 {
-    double ppos_pixel_x = (data->x_ppos) * T_SIZE;
-    double ppos_pixel_y = (data->y_ppos) * T_SIZE;
+    double	ppos_pixel_x = (data->x_ppos) * T_SIZE;
+    double	ppos_pixel_y = (data->y_ppos) * T_SIZE;
+	double	player_angle = ray_distance; 
+	double	delta_dist_x = fabs(1 / data->ray_dir_x);
+    double	delta_dist_y = fabs(1 / data->ray_dir_y);
+    double	perp_wall_dist;
 
-	double player_angle = ray_distance; 
-	double delta_dist_x = fabs(1/ data->ray_dir_x);
-    double delta_dist_y = fabs(1 / data->ray_dir_y);
-    double side_dist_x, side_dist_y;
-    int step_x, step_y;
-    double map_x = (int)(data->x_ppos);
-    double map_y = (int)(data->y_ppos);
-    double perp_wall_dist;
+
+    int		map_x = (int)(data->x_ppos);
+    int		map_y = (int)(data->y_ppos);
+    double	side_dist_x; // one function returning side_dist
+    int 	step_x; // one function returning step
 	if (data->ray_dir_x < 0)
 	{
         step_x = -1;
@@ -183,6 +175,9 @@ void collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
         step_x = 1;
         side_dist_x = ((map_x + 1) * T_SIZE - ppos_pixel_x) * delta_dist_x;
     }
+	
+	int		step_y;
+	double	side_dist_y;
     if (data->ray_dir_y < 0)
 	{
         step_y = -1;
@@ -193,6 +188,9 @@ void collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
         step_y = 1;
         side_dist_y = ((map_y + 1) * T_SIZE - ppos_pixel_y) * delta_dist_y;
     }
+
+
+
     int hit = 0;
     int side = 0;
     while (hit == 0)
@@ -207,7 +205,7 @@ void collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
             side = 1;
         }
         if (outof_bounds_check(data, map_y, map_x) == FAILURE)
-            return;
+            return ;
 		if (data->map[(int)map_y][(int)map_x] == '1')
 			hit = 1;
 	}
@@ -216,50 +214,5 @@ void collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
     else
 		perp_wall_dist = ((map_y * T_SIZE - ppos_pixel_y) + (1 - step_y) * T_SIZE / 2) / data->ray_dir_y;
 	data->ray_len[i] = perp_wall_dist * cos(ray_angle - player_angle);
-	// im keeping this for an idea, if the idea is easy, idea = shadowing
-	//data->ray_x = ppos_pixel_x + perp_wall_dist * data->ray_dir_x;
-	//data->ray_y = ppos_pixel_y + perp_wall_dist * data->ray_dir_y;
     data->ray_hit[i] = find_direction(side, data->ray_dir_x, data->ray_dir_y);
 }
-
-/**
- * original collect ray we where using, incase of needed reference, after testing over 50 times 
- * we can remove!
- */
-
-/*void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
-{
-	double	ppos_pixel_x;
-	double	ppos_pixel_y;
-	double	rpos_pixel_x;
-	double	rpos_pixel_y;
-	
-	int grid_x, grid_y;
-	(void)ray_angle;
-	ppos_pixel_x = (data->x_ppos * T_SIZE);
-	ppos_pixel_y = (data->y_ppos * T_SIZE);
-	while (data->x_ppos >= 0 && data->x_ppos < WIDTH && data->y_ppos >= 0 && data->y_ppos < HEIGHT)
-	{
-
-		rpos_pixel_x = ppos_pixel_x + (data->ray_dir_x * ray_distance);
-		rpos_pixel_y = ppos_pixel_y + (data->ray_dir_y * ray_distance);
-		grid_x = (int)(rpos_pixel_x / T_SIZE);
-        grid_y = (int)(rpos_pixel_y / T_SIZE);
-
-		if (outof_bounds_check(data, rpos_pixel_y, rpos_pixel_x) == FAILURE)
-			return ;
-		if (data->map[grid_y][grid_x] == '1')
-		{
-			//plotLine(data , i, ppos_pixel_x, ppos_pixel_y, rpos_pixel_x, rpos_pixel_y);
-			data->ray_len[i] = sqrt(pow(rpos_pixel_x - ppos_pixel_x, 2) + pow(rpos_pixel_y - ppos_pixel_y, 2));
-			//if (i > 0)
-			printf("check ray lemn = %f\n", data->ray_len[i]);
-			//	printf("the i = %d difference between i prevand now i = %f\n",i, data->ray_len[i - 1] - data->ray_len[i]);
-			//data->ray_len[i] = ray_distance + cos(FOV / 2 - ray_angle);
-			data->ray_hit[i] = find_direction(data->ray_dir_x, data->ray_dir_y);
-			return ;
-		}
-		ray_distance += 0.1;
-	}
-}*/
-
