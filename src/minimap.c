@@ -6,14 +6,16 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/01 17:21:57 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/01 17:27:34 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
 
-
+/**
+ * Turns things transparent
+ */
 void make_minimap_transparent(mlx_image_t *image, float transparency)
 {
 	uint32_t y = 0;
@@ -24,17 +26,11 @@ void make_minimap_transparent(mlx_image_t *image, float transparency)
         while (x < image->width)
 		{
             pixel = (uint32_t *)(image->pixels + (y * image->width + x) * sizeof(uint32_t));
-            
-            // Extract RGBA components
             uint8_t r = (*pixel >> 24) & 0xF0;
             uint8_t g = (*pixel >> 16) & 0xF0;
             uint8_t b = (*pixel >> 8) & 0xF0;
             uint8_t a = (*pixel) & 0xF0;
-
-            // Adjust the alpha channel
             a = (uint8_t)(a * transparency);
-            
-            // Recompose the pixel with the new alpha value
             *pixel = (r << 24) | (g << 16) | (b << 8) | a;
 			x++;
         }
@@ -66,15 +62,6 @@ int	init_mini_imgs(t_data *data)
  * Create an image and fill each tile with both floor and wall
  * instances will be utilized in draw minimap to switch images on and off.
  */
-/*void draw_mini_wall(t_data *data, int x, int y, uint32_t colour)
-{
-
-	for (int j = 0; j < MINI_T; j++) {
-        for (int i = 0; i < MINI_T; i++) {
-            mlx_put_pixel(data->im_map, x + i, y + j, colour); // Replace WALL_COLOR with actual color
-        }
-    }
-}*/
 
 void draw_mini_tile(t_data *data, int x, int y, u_int32_t colour)
 {
@@ -86,7 +73,7 @@ void draw_mini_tile(t_data *data, int x, int y, u_int32_t colour)
 		
         while (i < MINI_T)
 		{
-            mlx_put_pixel(data->im_map, x + i, y + j, colour); // Replace FLOOR_COLOR with actual color
+            mlx_put_pixel(data->im_map, x + i, y + j, colour);
 	    	i++;
 	    }
 		i = 0;
@@ -215,45 +202,5 @@ int adjust_tilesize(t_data *data)
 	}
 	return (0);
 }*/
-/**
- * This draws a red circle as a player marker on the screen.
- * It is utilized right now just to visualize a 2d perspective where the 
- * 3d perspective will go, can be removed once the minimap is complete , will be switched
- * off when the 3d starts to get rendered.
- * no return vallue as its for testing right now
- */
-/*void	draw_player(t_data *data)
-{
-	uint32_t	red;
-	int			radius;
-	int			center_x;
-	int			center_y;
-	int			y;
-	int			x;
-	int			draw_x;
-	int			draw_y;
 
-	red = 0xFF0000FF;
-	radius = 20 / 2;
-	data->im_mini_player = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	center_x = (int)(data->x_ppos * T_SIZE) + T_SIZE / 2;
-	center_y = (int)(data->y_ppos * T_SIZE) + T_SIZE / 2;
-	y = -radius;
-	while (y <= radius)
-	{
-		x = -radius;
-		while (x <= radius)
-		{
-			if ((x * x) + (y * y) <= (radius * radius))
-			{
-				draw_x = center_x + x;
-				draw_y = center_y + y;
-				if (draw_x >= 0 && draw_x < WIDTH && draw_y >= 0 && draw_y < HEIGHT)
-					mlx_put_pixel(data->im_mini_player, draw_x, draw_y, red);
-			}
-			x++;
-		}
-		y++;
-	}
-}*/
 
