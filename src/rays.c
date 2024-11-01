@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/01 10:16:48 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/01 12:33:21 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ void	stack_ray_data(t_data *data, int i)
     ray_angle = 0;
 	player_angle = atan2(data->p_dir_y, data->p_dir_x); 
 	clear_image(data);
-
+	
 /**
  * please keep for now incase of potential use
  * 	//double plane_x = -data->p_dir_y * (FOV / 2);
@@ -154,7 +154,7 @@ void	stack_ray_data(t_data *data, int i)
 		draw_wall(data, i, 0, 0);
 		i++;
 	}
-	mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
+	//mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
 }
 
 /**

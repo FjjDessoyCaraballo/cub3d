@@ -6,12 +6,30 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/24 15:04:12 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/01 16:54:09 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
+
+int	toggle_minimap(t_data *data)
+{
+	if (data->im_map->instances[0].enabled == 0)
+	{
+		data->im_map->instances[0].enabled = 1;
+		data->im_map_player->instances[0].enabled = 1;
+		data->im_mini_ray->instances[0].enabled = 1;	
+		
+	}
+	else
+	{
+		data->im_map->instances[0].enabled = 0;
+		data->im_map_player->instances[0].enabled = 0;
+		data->im_mini_ray->instances[0].enabled = 0;	
+	}
+	return (0); // could be void
+}
 /*
 ~~cheat sheet~~
     1. key_pressed 0 = Set the key state to released
@@ -34,6 +52,10 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 			data->key_pressed[keydata.key] = 1;
 		if (keydata.action == MLX_RELEASE)
 			data->key_pressed[keydata.key] = 0;		
+	}
+	if (keydata.key == MLX_KEY_M && keydata.action == MLX_PRESS)
+	{
+		toggle_minimap(data);
 	}
 	update_player(data);
 }
@@ -60,19 +82,17 @@ void	update_player(t_data *data)
 	if (data->key_pressed[MLX_KEY_D])
 		strafe_player(data, STEP);
 	
-	//draw_floor_ceiling(data);
 		//bonuses for minimap	
 	//mlx_delete_image(data->mlx, data->im_map_player);
-	draw_mini_map(data, 0, 0, 0); // bonus
 	stack_ray_data(data, 0);
-	
+	//printf("z for ray = %u z for map = %u\n", data->im_ray->instances->z, data->im_map->instances->z);
 	
 	//mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_HEIGHT);
 	//mlx_image_to_window(data->mlx, data->background, 0, 0);//WIDTH, HEIGHT);
 	//mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, HEIGHT);
 
 	
-	mlx_image_to_window(data->mlx, data->im_map, 0, 0);
+	
 }
 /* these should not be needed as we will try to only update map around player,
 drawing player only once and deleteing image once game "ends" */

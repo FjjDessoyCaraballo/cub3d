@@ -6,11 +6,34 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/28 14:16:32 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/01 16:38:23 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
+
+/**
+ * We finalize the scenery by putting images to window , adjusting the mini player 
+ * and setting the layering depths of the images so they all display correctly.
+ */
+int	set_view(t_data * data)
+{
+	mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
+	mlx_image_to_window(data->mlx, data->im_map, 0, 0);
+	mlx_image_to_window(data->mlx, data->im_map_player, 0, 0);
+	mlx_image_to_window(data->mlx, data->im_mini_ray,  0, 0);
+	data->im_map_player->instances[0].x = (data->x_ppos - 0.5) * MINI_T;
+	data->im_map_player->instances[0].y = (data->y_ppos - 0.5) * MINI_T;	
+	mlx_set_instance_depth(data->im_ray->instances, 1);
+	mlx_set_instance_depth(data->im_map->instances, 2);
+	mlx_set_instance_depth(data->im_map_player->instances, 3);	
+	mlx_set_instance_depth(data->im_mini_ray->instances, 4);
+	//errr??
+	data->im_mini_ray->instances[0].x = (data->x_ppos - 0.5) * MINI_T;
+	data->im_mini_ray->instances[0].y = (data->y_ppos - 0.5) * MINI_T;	
+
+	return(0); //success
+}
 
 /*~~ main
 1. initilize minimap is for the bonuse but utalized right now for visualizing 
@@ -36,18 +59,12 @@ int	main(int argc, char **argv)
 		}
 		if (open_window(data) == FAILURE)
 			return (FAILURE);
-
 		if (image_handling(data) == FAILURE)
 			return (FAILURE);
+		stack_ray_data(data, 0);
 		if (initlize_minimap(data) == FAILURE)
 			return (FAILURE);
-		data->exact_x = data->x_ppos * T_SIZE / 2;
-		data->exact_y = data->y_ppos * T_SIZE / 2;
-		stack_ray_data(data, 0);
-		//mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, HEIGHT);
-		// collect_ray(data); in minimap init for now
-		// **init_3d(data);
-
+		set_view(data);
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
 		//~~ bonus animation if wanted needs to start here
 		// mlx_loop_hook(data->mlx, &animation_fucn, &data);

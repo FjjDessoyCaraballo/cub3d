@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/24 15:04:12 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/01 17:10:14 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,34 @@
 
 
 
+void make_minimap_transparent(mlx_image_t *image, float transparency)
+{
+	uint32_t y = 0;
+	uint32_t x = 0;
+	uint32_t *pixel;
+    while (y < image->height)
+	{
+        while (x < image->width)
+		{
+            pixel = (uint32_t *)(image->pixels + (y * image->width + x) * sizeof(uint32_t));
+            
+            // Extract RGBA components
+            uint8_t r = (*pixel >> 24) & 0xF0;
+            uint8_t g = (*pixel >> 16) & 0xF0;
+            uint8_t b = (*pixel >> 8) & 0xF0;
+            uint8_t a = (*pixel) & 0xF0;
 
+            // Adjust the alpha channel
+            a = (uint8_t)(a * transparency);
+            
+            // Recompose the pixel with the new alpha value
+            *pixel = (r << 24) | (g << 16) | (b << 8) | a;
+			x++;
+        }
+		x = 0;
+		y++;
+    }
+}
 /**
  * Inits mini texture to mini image and resizes
  */
@@ -39,7 +66,71 @@ int	init_mini_imgs(t_data *data)
  * Create an image and fill each tile with both floor and wall
  * instances will be utilized in draw minimap to switch images on and off.
  */
+/*void draw_mini_wall(t_data *data, int x, int y, uint32_t colour)
+{
+
+	for (int j = 0; j < MINI_T; j++) {
+        for (int i = 0; i < MINI_T; i++) {
+            mlx_put_pixel(data->im_map, x + i, y + j, colour); // Replace WALL_COLOR with actual color
+        }
+    }
+}*/
+
+void draw_mini_tile(t_data *data, int x, int y, u_int32_t colour)
+{
+	int j = 0;
+	int i = 0;
+	
+    while (j < MINI_T)
+	{
+		
+        while (i < MINI_T)
+		{
+            mlx_put_pixel(data->im_map, x + i, y + j, colour); // Replace FLOOR_COLOR with actual color
+	    	i++;
+	    }
+		i = 0;
+	    j++;
+	}
+}
+
 int	init_map(t_data *data)
+{
+	int	x;
+	int	y;
+	uint32_t colour;
+    
+	colour = 0;
+	x = 0;
+	y = 0;
+	data->im_map = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	if (data->im_map == NULL)
+		return (err_msg(NULL, NEW_IMG, FAILURE));
+	while (y < data->map_length)
+	{
+		while (x < data->map_width)
+		{
+			if (data->map[y][x] == '1')
+			{
+				colour = fetch_pixel_rgb(data->im_mini_wall, x, y, 0);
+				draw_mini_tile(data, x * MINI_T, y * MINI_T, colour);
+			}
+			else if (data->map[y][x] == '0')
+			{
+				colour = fetch_pixel_rgb(data->im_mini_floor, x, y, 0);
+				draw_mini_tile(data, x * MINI_T, y * MINI_T, colour);
+			}
+			x++;
+		}
+		x = 0;
+		y++;
+	}
+	make_minimap_transparent(data->im_map, 0.9f);
+	return (SUCCESS);
+}
+
+///original below
+/*int	init_map(t_data *data)
 {
 	int	x;
 	int	y;
@@ -65,55 +156,23 @@ int	init_map(t_data *data)
 	//if (mlx_image_to_window(data->mlx, data->im_map, MINI_WIDTH, MINI_HEIGHT) == -1)
 	//	return (err_msg(NULL, IMG_TO_WIN, FAILURE));
 	return (SUCCESS);
-}
+}*/
 
-/**
- * Under construction , switching of isntances of images based
- * on player position translated to minimap sizes.
- */
-void	draw_mini_map(t_data *data, int x, int y, int index)
-{
-	int p_x;
-	int p_y;
-
-	p_x = (int)data->x_ppos;
-	p_y = (int)data->y_ppos;
-	adjust_mapstart(&p_x, &p_y);
-	while (y < 7 && ++y)
-	{
-		while (x < 7 && ++x)
-		{
-	        if ((p_y + y) >= data->map_length || (p_x + x) >= data->map_width)
-			{
-				//data->im_mini_wall->instances[index].enabled = 1;
-				//data->im_mini_floor->instances[index].enabled = 0;
-				break ;
-			}
-			
-			else if (data->map[p_y + y][p_x + x] == '1')
-			{
-				data->im_mini_wall->instances[index].enabled = 1;
-				data->im_mini_floor->instances[index].enabled = 0;
-			}
-			else if (data->map[p_y + y][p_x + x] == '0')
-			{
-				data->im_mini_wall->instances[index].enabled = 0;
-				data->im_mini_floor->instances[index].enabled = 1;
-			}
-			index++;
-        }
-		x = 0;
-	}
-}
 
 //adjust_tilesize(data); maybe
 int	initlize_minimap(t_data *data)
 {
+	//printf("pos x = %f, pops y = %f\n", data->x_ppos - 0.5, data->y_ppos);
 	if (init_mini_imgs(data) == FAILURE)
 		return (err_msg(NULL, MLX1, FAILURE));
+	data->im_map = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	if (init_map(data) == FAILURE)
 		return (FAILURE);
+	
+//	data->im_map_player = mlx_new_image(data->mlx, MINI_WIDTH, MINI_HEIGHT);
 	draw_mini_player(data);
+	data->im_mini_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	draw_first_line(data, data->line_x, data->line_y);
 	return (SUCCESS);
 }
 

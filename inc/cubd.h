@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/01 10:18:51 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/01 16:12:47 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,15 +163,15 @@ typedef	struct s_data
 	double	ray_side_dis_x;
 	double	ray_side_dis_y;
 	
-	double	exact_x;
-	double 	exact_y;
 	double	distance_to_wall;
 	// side distance to wall????
 	double	ray_delta_x;
 	double	ray_delta_y; // i no other deltas needed , shorten name
 	double	ray_delta_dis_x;
 	double	ray_delta_dis_y; // i no other deltas needed , shorten name
-
+	// minimap
+	int		line_x;
+	int		line_y;
 	// from parsing
 	int8_t		file_len;
 	int			map_start;
@@ -217,12 +217,12 @@ typedef	struct s_data
 
 	mlx_texture_t	*tx_mini_floor;
 	mlx_texture_t	*tx_mini_wall;
-	//mlx_texture_t	*tx_mini_player;
 	mlx_image_t		*im_ray;
 	mlx_image_t		*im_map;
 	mlx_image_t		*im_mini_floor;
 	mlx_image_t		*im_mini_wall;
 	mlx_image_t		*im_mini_player;
+	mlx_image_t		*im_mini_ray;
 	mlx_image_t		*im_map_player; //effectivly miniplayer
 	
 
@@ -306,7 +306,7 @@ void    rotate_right(t_data *data);
 
 /* init_higher_dimension.c #our 3d perspective*/
 int		draw_wall(t_data *data, int i, int x, double img_y);
-
+uint32_t fetch_pixel_rgb(mlx_image_t *img, int x, int y, int pos);
 /* printer REMOVE LATER */
 void	printer(t_data *data);
 
@@ -314,16 +314,16 @@ void	printer(t_data *data);
 int		initlize_minimap(t_data *data);
 void	draw_mini_player(t_data *data);
 void	draw_player(t_data *data);
-void	draw_first_line(t_data *data); // simple draw a line from center
+//void	draw_first_line(t_data *data); // simple draw a line from center
 
 /* minimap.c */
-
+int		init_map(t_data *data);
 /* mimimap_utils_bonus.c */
 void	adjust_mapstart(int *p_x, int *p_y);
-void	draw_first_line(t_data *data);
+void	draw_first_line(t_data *data, int new_x, int new_y);
 void	draw_line(t_data *data, int i);
 void	draw_mini_player(t_data *data);
-
+void	wipe_line(t_data *data);
 /* in free.c */
 void	free_data(t_data *data);
 void	draw_mini_map(t_data *data, int x, int y, int index);

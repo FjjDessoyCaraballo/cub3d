@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/01 10:11:15 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/01 13:46:06 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /**
  * Find the colour from the textures specified pixel should be drawn next
  */
-static uint32_t fetch_pixel_rgb(mlx_image_t *img, int x, int y, int pos)
+uint32_t fetch_pixel_rgb(mlx_image_t *img, int x, int y, int pos)
 {
 	uint32_t	r;
 	uint32_t	g;
@@ -117,7 +117,7 @@ int	draw_wall(t_data *data, int i, int x, double img_y)
 		}
 		return (SUCCESS);
 	}
-	top_of_wall = (HEIGHT - wall_h) / 2;; // we set our starting point to the top of where th wall begins
+	top_of_wall = (HEIGHT - wall_h) / 2; // we set our starting point to the top of where th wall begins
 	current_wall_pos = top_of_wall; // we set our incrementer 
 	img_x = (double)i / RAY_MAX * data->im_current_wall->width;
 	img_y_inc = data->im_current_wall->height / wall_h;
