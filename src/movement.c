@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/18 16:10:35 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/01 10:19:34 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,12 @@ void	strafe_player(t_data *data, double step)
 {
 	double	new_x;
 	double	new_y;
-	double	radius;
 	char	map_char;
 	
-	radius = 10.0 / (double)T_SIZE;
 	normalize_vector(&data->p_dir_x, &data->p_dir_y);
 	new_x = (data->x_ppos) + (-data->p_dir_y) * step;
 	new_y = (data->y_ppos) + (data->p_dir_x) * step;
-	if ((new_x + radius) < 0 || (new_x - radius) > (data->map_width) || (new_y + radius) < 0 || (new_y - radius) > (data->map_length))
+	if ((new_x + RADIUS) < 0 || (new_x - RADIUS) > (data->map_width) || (new_y + RADIUS) < 0 || (new_y - RADIUS) > (data->map_length))
 	{
 		//printf("Out of bounds\n");
 		return ;
@@ -50,19 +48,13 @@ void	strafe_player(t_data *data, double step)
 	if (new_x < data->map_width && new_y < data->map_length)
 	{	
 		if (map_char == ' ' || map_char == '\0' || map_char == '\n')
-		{
-			//double dify = new_y - (int)floor(new_y);
-			//double difx = new_x -  (int)floor(new_x);
-			//printf("dify = %f dif x = %f\n", dify, difx);
-			//data->x_ppos -= (-data->p_dir_y) - dify;// - STEP;//(STEP * 2); // 0.5 worked good
-    	    //data->y_ppos -= (data->p_dir_x) - difx;// - STEP;//(STEP * 2);
-			//printf("strafe new x = %f and new y = %f\n", new_x , new_y);
 			return ;	
-		}
-		else if (map_char == '0' || map_char == '1') //bonus ====== != '1')		
+		if (map_char == '0' || map_char == '1') //bonus ====== != '1')		
 		{
 			data->x_ppos = new_x;
+			data->exact_x = new_x;
 			data->y_ppos = new_y;
+			data->exact_y = new_y;
 		}
 	}
 
@@ -78,15 +70,12 @@ void	move_player(t_data *data, double step)
 {
 	double	new_x;
 	double	new_y;
-	double	radius;
 	char	map_char;
 
-	radius = 10.0 / (double)T_SIZE + STEP;
 	normalize_vector(&data->p_dir_x, &data->p_dir_y);
 	new_x = (data->x_ppos) + (data->p_dir_x) * step;
 	new_y = (data->y_ppos) + (data->p_dir_y) * step;
-	//printf("mooooove\n");
-	if ((new_x + radius) < 0 || (new_x + radius) > (data->map_width) || (new_y + radius) < 0 || (new_y + radius) > (data->map_length))	
+	if ((new_x + RADIUS) < 0 || (new_x + RADIUS) > (data->map_width) || (new_y + RADIUS) < 0 || (new_y + RADIUS) > (data->map_length))	
 	{
 		//printf("Out of bounds\n");
 		return ;
@@ -103,10 +92,13 @@ void	move_player(t_data *data, double step)
 			//printf("new x = %f and new y = %f\n", new_x , new_y);
 			return ;
 		}
-		else if (map_char == '0' || map_char == '1') //bonus ====== != '1')
+		if (map_char == '0' || map_char == '1') //bonus ====== != '1')
 		{
 			data->x_ppos = new_x;
+			data->exact_x = new_x;
 			data->y_ppos = new_y;
+			data->exact_y = new_y;
+			
 		}
 	}
 }
@@ -120,36 +112,3 @@ void	rotate_player(t_data *data, double angle)
 	data->p_dir_y = prev_dir_x * sin(angle) + data->p_dir_y * cos(angle);
 	normalize_vector(&data->p_dir_x, &data->p_dir_y);
 }
-
-/* garveyard of potential */
-
-/*void initialize_player_direction(t_data *data, char initial_facing) {
-	if (initial_facing == 'N') {
-		data->p_dir_x = 0;
-		data->p_dir_y = -1;
-	} else if (initial_facing == 'S') {
-		data->p_dir_x = 0;
-		data->p_dir_y = 1;
-	} else if (initial_facing == 'E') {
-		data->p_dir_x = 1;
-		data->p_dir_y = 0;
-	} else if (initial_facing == 'W') {
-		data->p_dir_x = -1;
-		data->p_dir_y = 0;
-	}
-}*/
-/*~~ bonus stuff but easier for visualisation~~*/
-/*static void	update_array(t_data *data, int flag)
-{
-	data->map[data->y_ppos][data->x_ppos] = '0';
-	if (flag == 1)
-		data->x_ppos = data->x_ppos + 1;
-	if (flag == 2)
-		data->x_ppos = data->x_ppos - 1;
-	if (flag == 3)
-		data->y_ppos = data->y_ppos + 1;
-	if (flag == 4)
-		data->y_ppos = data->y_ppos - 1;
-	data->map[data->y_ppos][data->x_ppos] = 'N'; // this should adjust to which way we are facing
-	//d->steps += 1;
-}*/

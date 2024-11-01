@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 08:37:11 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/23 16:11:51 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/24 17:36:53 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,17 @@ void	draw_first_line(t_data *data)
 	i = 0;
 	start_x = (data->x_ppos * T_SIZE) + T_SIZE / 2;
 	start_y = (data->y_ppos * T_SIZE) + T_SIZE / 2;
-	data->im_ray = mlx_new_image(data->mlx, data->w_width, data->w_height);
+	data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	// if north draw up so -y
 	while (i <= 40)
 	{
 		draw_x = start_x + (int)(data->p_dir_x * i);
 		draw_y = start_y + (int)(data->p_dir_y * i);
-		if (draw_x >= 0 && draw_x < data->w_width && draw_y >= 0 && draw_y < data->w_height)
+		if (draw_x >= 0 && draw_x < WIDTH && draw_y >= 0 && draw_y < HEIGHT)
 			mlx_put_pixel(data->im_ray, draw_x, draw_y, red);
 		i++;
 	}
-    mlx_image_to_window(data->mlx, data->im_ray, data->w_width, data->w_height); // 0, 0
+    mlx_image_to_window(data->mlx, data->im_ray, WIDTH, HEIGHT); // 0, 0
 }
 
 /**
@@ -75,7 +75,7 @@ void	draw_first_line(t_data *data)
  * if statment or collected information in parsing will set data->ray_dir*
  * to correct directin
  */
-void	draw_line(t_data *data, int i)
+/*void	draw_line(t_data *data, int i)
 {
 	uint32_t	red;
 	int			len;
@@ -93,21 +93,21 @@ void	draw_line(t_data *data, int i)
 	{
 		draw_x = start_x + (int)(data->ray_dir_x * len);
 		draw_y = start_y + (int)(data->ray_dir_y * len);
-		if (draw_x >= 0 && draw_x < data->w_width && draw_y >= 0 && draw_y < data->w_height)
+		if (draw_x >= 0 && draw_x < WIDTH && draw_y >= 0 && draw_y < HEIGHT)
 			mlx_put_pixel(data->im_ray, draw_x, draw_y, red);
 		len++;
 	}
-	mlx_image_to_window(data->mlx, data->im_ray, data->w_width, data->w_height); // 00
+	mlx_image_to_window(data->mlx, data->im_ray, WIDTH, HEIGHT); // 00
 }
 	//if south draw like this
-	/*while (i <= ray_size)
+	while (i <= ray_size)
 	{
 		printf("bug hunting 2\n");
 		printf("the iii = %d\n", i);
 		// this part would draw a line up to down 
 		int draw_x = start_x; // + i
 		int draw_y = start_y + i; // + x
-		if (draw_x >= 0 && draw_x < data->w_width && draw_y >= 0 && draw_y < data->w_height)
+		if (draw_x >= 0 && draw_x < WIDTH && draw_y >= 0 && draw_y < HEIGHT)
 		{
 			printf("draw x = %d\n", draw_x);
 			printf("draw y = %d\n", draw_y);
@@ -156,11 +156,11 @@ void	draw_mini_player(t_data *data)
 		}
 		y++;
 	}
-	//data->im_ray = mlx_new_image(data->mlx, data->w_width, data->w_height);
+	//data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	//mlx_put_pixel(data->im_ray, 1, 1, red);
-	//mlx_image_to_window(data->mlx, data->im_ray, MINI_data->w_width, MINI_data->w_height);
+	//mlx_image_to_window(data->mlx, data->im_ray, MINI_WIDTH, MINI_HEIGHT);
 	mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_HEIGHT);
-//	mlx_image_to_window(data->mlx, data->im_ray, data->w_width, data->w_height);
+//	mlx_image_to_window(data->mlx, data->im_ray, WIDTH, HEIGHT);
 }
 
 //#include <string.h> //~~ testing 
