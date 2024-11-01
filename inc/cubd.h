@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/01 16:12:47 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/01 17:21:43 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,10 @@
 /*************************************************/
 /* structs ***************************************/
 /*************************************************/
+//bonuses
+# define RED 0xFF0000FF
+# define M_RADIUS (MINI_T / 4)
+# define M_RADIUS_M (M_RADIUS * M_RADIUS)
 /*1.map_width and map_length maps width and height*/
 /*2. p_x and p_y player position p_dir_x and p_dir_y players sight direction*/
 /*3. doubles are better than floats, more percise*/
@@ -212,7 +216,6 @@ typedef	struct s_data
 	uint32_t		floor_color;
 	uint32_t		ceiling_color;
 
-	//bool	quit; // might no need
 	/*~~bonus stuff~~*/
 
 	mlx_texture_t	*tx_mini_floor;
@@ -312,7 +315,7 @@ void	printer(t_data *data);
 
 /* bonus */
 int		initlize_minimap(t_data *data);
-void	draw_mini_player(t_data *data);
+//void	draw_mini_player(t_data *data);
 void	draw_player(t_data *data);
 //void	draw_first_line(t_data *data); // simple draw a line from center
 
@@ -322,7 +325,7 @@ int		init_map(t_data *data);
 void	adjust_mapstart(int *p_x, int *p_y);
 void	draw_first_line(t_data *data, int new_x, int new_y);
 void	draw_line(t_data *data, int i);
-void	draw_mini_player(t_data *data);
+void	draw_mini_player(t_data *data, int y, int x);
 void	wipe_line(t_data *data);
 /* in free.c */
 void	free_data(t_data *data);
