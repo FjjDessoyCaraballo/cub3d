@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/25 19:09:33 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/01 10:19:34 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,8 @@ void	strafe_player(t_data *data, double step)
 {
 	double	new_x;
 	double	new_y;
-	//double	radius;
 	char	map_char;
 	
-	//radius = 20.0 / (double)T_SIZE;
 	normalize_vector(&data->p_dir_x, &data->p_dir_y);
 	new_x = (data->x_ppos) + (-data->p_dir_y) * step;
 	new_y = (data->y_ppos) + (data->p_dir_x) * step;
@@ -72,10 +70,8 @@ void	move_player(t_data *data, double step)
 {
 	double	new_x;
 	double	new_y;
-	//double	radius;
 	char	map_char;
 
-	//radius = 20.0 / (double)T_SIZE + STEP;
 	normalize_vector(&data->p_dir_x, &data->p_dir_y);
 	new_x = (data->x_ppos) + (data->p_dir_x) * step;
 	new_y = (data->y_ppos) + (data->p_dir_y) * step;

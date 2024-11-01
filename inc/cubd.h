@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/31 15:57:44 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/01 10:18:51 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@
 # define MINI_SCALE 4 //maybe for minimap
 # define RAY_MAX 1920.0 // could be 240
 # define FOV 60.0 //~~ angle of field of view degrees 
-//# define WALL_SCALE_FACTOR 0.01
 # define WALL_SCALE ((WIDTH / 2) / TAN_OF_FOV) * 0.01
 # define RADIUS (20.0 / (double)T_SIZE)//??
 /*************************************************/
@@ -111,7 +110,6 @@
 # define DEG2RAD 		(PI / 180.0)
 # define STEP			0.03
 # define TAN_OF_FOV		(tan(FOV / 2 * PI / 180))// might not need this
-//# define DIST_TO_PLANE	((WIDTH / 2) / TAN_OF_FOV)
 # define SEGMENT		(WIDTH / RAY_MAX)
 # define STARTING_ANGLE	(-FOV / 2 * DEG2RAD)
 # define ANGLE_INCREMENT ((FOV / RAY_MAX) * DEG2RAD)
@@ -139,17 +137,13 @@ typedef	struct s_data
 	char	**map;
 	bool	broken_map;
 	char	**file;
-	double	ray_len[1920]; // could be 240	
+	double	ray_len[1920]; // should it be WIDTH?
 	double	ray_hit[1920];
-	//double	ray_len;
-	//double	ray_hit;
 	char	key_pressed[265]; // num of highest key
-	//int		file_len;
 
 	int		map_width; // this was size_t before, needs to change in parsing
 	int		map_length; // this was size_t before, needs to change in parsing
 
-	//int		ray_hit;
 	int		side_hit; // if we want to handle shading
 	double	ray_size;
 	double	p_dir_x;
@@ -158,13 +152,11 @@ typedef	struct s_data
 	double	ray_x;
 	double	ray_y;
 	double	ray_dir_x;
-	double	ray_dir_y; // coul maybe me player dirs
+	double	ray_dir_y;
 
 	int	w_width;
 	int	w_height;
 
-	//int32_t	w_width;
-	//int32_t	w_height;
 	double	ray_step_x;
 	double	ray_step_y;
 	//distance measures check which side is closest wall.
@@ -215,7 +207,7 @@ typedef	struct s_data
 	mlx_image_t		*im_w_wall;
 	mlx_image_t		*background;
 
-	mlx_image_t		*im_current_wall; // could be useful for keeping track which wall we are drawing
+	mlx_image_t		*im_current_wall;
 
 	uint32_t		floor_color;
 	uint32_t		ceiling_color;
@@ -335,6 +327,5 @@ void	draw_mini_player(t_data *data);
 /* in free.c */
 void	free_data(t_data *data);
 void	draw_mini_map(t_data *data, int x, int y, int index);
-//void	draw_map(t_data *data);
 
 #endif

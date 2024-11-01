@@ -6,13 +6,16 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/31 15:50:54 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/01 10:16:48 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
-int	find_direction(int side, double ray_x, double ray_y)//, double p_x , double p_y)
+/**
+ * Finds which wall is being hit and matches it to a texture.
+ */
+int	find_direction(int side, double ray_x, double ray_y)
 {
 	if (side == 0)
 	{
@@ -43,6 +46,9 @@ int	find_direction(int side, double ray_x, double ray_y)//, double p_x , double 
 	return (0);
 }
 
+/**
+ * out of bounds check, could be improved and checked that we are not checking nonsense
+ */
 static int	outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pixel_x)
 {
 
@@ -97,7 +103,7 @@ static void clear_image(t_data *data)
 		y++;
     }
 }
-// might need to malloc array before all of this
+
 /* collect and draw a ray based on math~~angles, pie and radians
 to calculate and draw each ray , collecting usable data for each ray, 
 we increment per ray and rays angle.
@@ -128,18 +134,22 @@ void	stack_ray_data(t_data *data, int i)
     ray_angle = 0;
 	player_angle = atan2(data->p_dir_y, data->p_dir_x); 
 	clear_image(data);
-	//double plane_x = -data->p_dir_y * (FOV / 2); // perpendicular to player direction
-	//double plane_y = data->p_dir_x * (FOV / 2);
-	//ft_memset(data->im_ray, 0, (data->im_ray->height * data->im_ray->width) * 4);
+
+/**
+ * please keep for now incase of potential use
+ * 	//double plane_x = -data->p_dir_y * (FOV / 2);
+ *  //double plane_y = data->p_dir_x * (FOV / 2);// perpendicular to player direction
+ * Also note, can we change clear_image to be :
+ * ft_memset(data->im_ray, 0, (data->im_ray->height * data->im_ray->width) * 4);
+ * i could not make it work , it has potential to improve perfomance
+ */
 	while (i < RAY_MAX)
 	{
 		//current_angle = STARTING_ANGLE + i * ANGLE_INCREMENT;
 		//ray_angle = player_angle + current_angle;
 		ray_angle = player_angle + (i - RAY_MAX / 2) * ANGLE_INCREMENT; //caera_x ?
-		//printf("whats the ray angle = %f\n", ray_angle);
 		data->ray_dir_x = cos(ray_angle);
 		data->ray_dir_y = sin(ray_angle);
-		//printf("Ray number: %d, Ray angle: %f, ray_dir_x = %f, ray_dir_y = %f\n", i, ray_angle, data->ray_dir_x, data->ray_dir_y);
 		collect_ray(data, i, player_angle, ray_angle);
 		draw_wall(data, i, 0, 0);
 		i++;
@@ -147,7 +157,9 @@ void	stack_ray_data(t_data *data, int i)
 	mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
 }
 
-////lets fuck about and find out !
+/**
+ * collects ray information based on when a wall is hit using a size of pixels
+ */
 void collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 {
     double ppos_pixel_x = (data->x_ppos) * T_SIZE;
@@ -203,18 +215,17 @@ void collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 		perp_wall_dist = ((map_x * T_SIZE - ppos_pixel_x) + (1 - step_x) * T_SIZE / 2) / data->ray_dir_x;
     else
 		perp_wall_dist = ((map_y * T_SIZE - ppos_pixel_y) + (1 - step_y) * T_SIZE / 2) / data->ray_dir_y;
-    //printf("perp wall distance = %f\n", perp_wall_dist);
 	data->ray_len[i] = perp_wall_dist * cos(ray_angle - player_angle);
-	//printf("ray len = %f\n", data->ray_len[i]);
-	
-	// im keeping this for an idea, if the idea is easy.
+	// im keeping this for an idea, if the idea is easy, idea = shadowing
 	//data->ray_x = ppos_pixel_x + perp_wall_dist * data->ray_dir_x;
 	//data->ray_y = ppos_pixel_y + perp_wall_dist * data->ray_dir_y;
     data->ray_hit[i] = find_direction(side, data->ray_dir_x, data->ray_dir_y);
 }
 
-
-////original down here 
+/**
+ * original collect ray we where using, incase of needed reference, after testing over 50 times 
+ * we can remove!
+ */
 
 /*void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 {
