@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/28 10:47:26 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/28 11:44:15 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,11 +166,13 @@ typedef	struct s_data
 	//int32_t	w_height;
 	double	ray_step_x;
 	double	ray_step_y;
+	
 	//distance measures check which side is closest wall.
 	double	ray_side_dis_x;
 	double	ray_side_dis_y;
 	
 	double	distance_to_wall;
+	
 	// side distance to wall????
 	double	ray_delta_x;
 	double	ray_delta_y; // i no other deltas needed , shorten name

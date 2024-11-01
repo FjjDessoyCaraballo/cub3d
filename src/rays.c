@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/10/28 10:52:05 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/10/28 12:13:11 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,33 +18,52 @@ int	find_direction(t_data *data, double ray_x, double ray_y)//, double p_x , dou
 	
 	data->ray_delta_x = fabs(1 / data->ray_dir_x);
 	data->ray_delta_y = fabs(1 / data->ray_dir_y);
-	// if (data->)
-	if (fabs(ray_x) > (fabs(ray_y)))
+	if (data->ray_dir_x < 0)
 	{
-		if (ray_x > 0)
-		{
-			//printf("east\n");
-			return (EAST);
-		}
-		else
-		{
-			//printf("west\n");
-			return (WEST);
-		}
+		data->p_dir_x = -1;
+		data-> = (1.0 - data->x_ppos) * data->ray_delta_x;
 	}
 	else
 	{
-		if (ray_y > 0)
-		{
-			//printf("south\n");			
-			return (SOUTH);
-		}
-		else
-		{
-			//printf("north\n");			
-			return (NORTH);
-		}
+		data->p_dir_x = 1;
+		data->
 	}
+	if (data->ray_dir_y < 0)
+	{
+		data->p_dir_y = -1;
+		data->
+	}
+	else
+	{
+		data->p_dir_y = 1;
+		data-> = (1.0 - data->y_ppos) * data->ray_delta_y;
+	}
+	// if (fabs(ray_x) > (fabs(ray_y)))
+	// {
+	// 	if (ray_x > 0)
+	// 	{
+	// 		//printf("east\n");
+	// 		return (EAST);
+	// 	}
+	// 	else
+	// 	{
+	// 		//printf("west\n");
+	// 		return (WEST);
+	// 	}
+	// }
+	// else
+	// {
+	// 	if (ray_y > 0)
+	// 	{
+	// 		//printf("south\n");			
+	// 		return (SOUTH);
+	// 	}
+	// 	else
+	// 	{
+	// 		//printf("north\n");			
+	// 		return (NORTH);
+	// 	}
+	// }
 }
 
 static int	outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pixel_x)
@@ -173,6 +192,6 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 			return ;
 		}
 		//ray_distance++;
-		ray_distance += 0.3;
+		ray_distance += 0.5;
 	}
 }
