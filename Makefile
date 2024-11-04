@@ -30,7 +30,8 @@ SRC_FILES = main.c\
 			img_handling2.c\
 			movement.c\
 			key_hooks.c\
-			rays.c\
+			rays1.c\
+			rays2.c\
 			window_resizing.c\
 			init_higher_dimension.c\
 			minimap.c\
