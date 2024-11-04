@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 12:11:16 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 15:46:45 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:59:18 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,6 @@ void	stack_ray_data(t_data *data, int i)
 	double	ray_angle;
 	double	tan_fov;
 
-	data->radius = (20 / (double)T_SIZE);
-	data->exact_x = data->x_ppos * T_SIZE / 2;
-	data->exact_y = data->y_ppos * T_SIZE / 2;
 	tan_fov = (tan(FOV / 2 * PI / 180));
 	data->wall_scale = ((WIDTH / 2) / tan_fov) * 0.01;
 	current_angle = 0;
@@ -107,7 +104,7 @@ void	stack_ray_data(t_data *data, int i)
 	clear_image(data);
 	while (i < RAY_MAX)
 	{
-		ray_angle = player_angle + (i - RAY_MAX / 2) * ANGLE_INCREMENT;
+		ray_angle = player_angle + (i - RAY_MAX / 2) * data->angle_increment;
 		data->ray_dir_x = cos(ray_angle);
 		data->ray_dir_y = sin(ray_angle);
 		collect_ray(data, i, player_angle, ray_angle);

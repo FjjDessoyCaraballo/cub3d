@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 15:48:17 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:03:21 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,26 +89,20 @@
 /*************************************************/
 /*mlx macros / graphics macros********************/
 /*************************************************/
-# define WIDTH 1920
-# define HEIGHT 1080
-# define MINI_WIDTH 40
-# define MINI_HEIGHT 40
-# define T_SIZE 64
-# define MINI_T 32
-# define MINI_OFFSET 10
-# define MINI_SCALE 4
-# define RAY_MAX 1920.0
-# define FOV 60.0
-/*************************************************/
-/* math macros ***************************************/
-/*************************************************/
+# define WIDTH			1920
+# define HEIGHT			1080
+# define MINI_WIDTH		40
+# define MINI_HEIGHT	40
+# define T_SIZE			64
+# define MINI_T			32
+# define MINI_OFFSET 	10
+# define MINI_SCALE 	4
+# define RAY_MAX 		1920.0
+# define FOV 			60.0
 # define ROTATE_ANGLE	0.0872665
 # define PI				3.14159265358979323846
 # define STEP			0.03
 # define DEG2RAD 		0.01745329252
-# define SEGMENT		(WIDTH / RAY_MAX)
-# define STARTING_ANGLE	(-FOV / 2 * DEG2RAD)
-# define ANGLE_INCREMENT ((FOV / RAY_MAX) * DEG2RAD)
 # define EPSILON 0.0000000000000000000000000000000000000000000000001
 /*************************************************/
 /* structs ***************************************/
@@ -143,6 +137,7 @@ typedef struct s_data
 	double			p_dir_x;
 	double			p_dir_y;
 	double			wall_scale;
+	double			angle_increment;
 	double			radius;
 	double			ray_x;
 	double			ray_y;

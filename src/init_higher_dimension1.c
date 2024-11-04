@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/04 15:47:18 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:02:48 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 */
 void	initialize_wall_params(t_data *data, int i, double *w_h, double *img_x)
 {
-	data->wall_line = i * SEGMENT;
+	data->wall_line = i * (WIDTH / RAY_MAX);
 	*img_x = (double)i / RAY_MAX * data->im_current_wall->width;
 	*w_h = HEIGHT / data->ray_len[i] * data->wall_scale;
 	if (*w_h > HEIGHT)
