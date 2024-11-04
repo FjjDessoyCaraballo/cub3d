@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/04 10:10:03 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 10:13:33 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,32 +152,33 @@ void	calculate_side_distances(t_data *data, double *side_dist_x, double *side_di
 	}
 }
 
-void	perform_dda(t_data *data, int *map_x, int *map_y, double *side_dist_x, double *side_dist_y, double delta_dist_x, double delta_dist_y, int *side, int *hit) 
+void	perform_dda(t_data *data, int *map_x, int *map_y, double *side_dist_x, double *side_dist_y, double delta_dist_x, double delta_dist_y) 
 {
-	while (*hit == 0)
+	data->side = 0;
+	data->hit = 0;
+	while (data->hit == 0)
 	{
 		if (*side_dist_x < *side_dist_y)
 		{
 			*side_dist_x += delta_dist_x * T_SIZE;
 			*map_x += data->step_x;
-			*side = 0;
+			data->side = 0;
         }
 		else
 		{
 			*side_dist_y += delta_dist_y * T_SIZE;
 			*map_y += data->step_y;
-			*side = 1;
+			data->side = 1;
 		}
 		if (outof_bounds_check(data, *map_y, *map_x) == FAILURE || data->map[*map_y][*map_x] == '1')
-		{
-			*hit = 1;
-		}
+			data->hit = 1;
 	}
 }
 
-double	calculate_perpendicular_distance(int map_x, int map_y, double ppos_pixel_x, double ppos_pixel_y, int side, int step_x, int step_y, t_data *data)
+
+double	calculate_perpendicular_distance(int map_x, int map_y, double ppos_pixel_x, double ppos_pixel_y, int step_x, int step_y, t_data *data)
 {
-	if (side == 0)
+	if (data->side == 0)
 		return ((map_x * T_SIZE - ppos_pixel_x) + (1 - step_x) * T_SIZE / 2) / data->ray_dir_x;
 	else
 		return ((map_y * T_SIZE - ppos_pixel_y) + (1 - step_y) * T_SIZE / 2) / data->ray_dir_y;
@@ -202,13 +203,10 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 	double	side_dist_y;
     
     calculate_side_distances(data, &side_dist_x, &side_dist_y, delta_dist_x, delta_dist_y, ppos_pixel_x, ppos_pixel_y, map_x, map_y);
+    perform_dda(data, &map_x, &map_y, &side_dist_x, &side_dist_y, delta_dist_x, delta_dist_y);
 
-    int	hit = 0;
-	int	side = 0;
-    perform_dda(data, &map_x, &map_y, &side_dist_x, &side_dist_y, delta_dist_x, delta_dist_y, &side, &hit);
-
-    double perp_wall_dist = calculate_perpendicular_distance(map_x, map_y, ppos_pixel_x, ppos_pixel_y, side, data->step_x, data->step_y, data);
+    double perp_wall_dist = calculate_perpendicular_distance(map_x, map_y, ppos_pixel_x, ppos_pixel_y,  data->step_x, data->step_y, data);
     data->ray_len[i] = perp_wall_dist * cos(ray_angle - ray_distance);
-    data->ray_hit[i] = find_direction(side, data->ray_dir_x, data->ray_dir_y);
+    data->ray_hit[i] = find_direction(data->side, data->ray_dir_x, data->ray_dir_y);
 }
 
