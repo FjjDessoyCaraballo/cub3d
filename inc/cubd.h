@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 15:13:29 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:25:00 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,19 +100,19 @@
 # define MINI_SCALE 4
 # define RAY_MAX 1920.0
 # define FOV 60.0
-# define WALL_SCALE ((WIDTH / 2) / TAN_OF_FOV) * 0.01
-# define RADIUS (20.0 / (double)T_SIZE)
 /*************************************************/
 /* math macros ***************************************/
 /*************************************************/
 # define ROTATE_ANGLE	0.0872665
 # define PI				3.14159265358979323846
-# define DEG2RAD 		(PI / 180.0)
 # define STEP			0.03
+# define DEG2RAD 		(PI / 180.0)
+# define RADIUS (20.0 / (double)T_SIZE)
 # define TAN_OF_FOV		(tan(FOV / 2 * PI / 180))
 # define SEGMENT		(WIDTH / RAY_MAX)
 # define STARTING_ANGLE	(-FOV / 2 * DEG2RAD)
 # define ANGLE_INCREMENT ((FOV / RAY_MAX) * DEG2RAD)
+# define WALL_SCALE ((WIDTH / 2) / TAN_OF_FOV) * 0.01
 # define EPSILON 0.0000000000000000000000000000000000000000000000001
 /*************************************************/
 /* structs ***************************************/
