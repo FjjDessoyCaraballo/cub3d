@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 10:11:25 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 10:15:46 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,9 @@ typedef	struct s_data
 
 	int	step_x;
 	int	step_y;
+
+	int	map_x;
+	int	map_y;
 
 	int	side;
 	int	hit;
