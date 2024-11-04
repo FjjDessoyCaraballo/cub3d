@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/04 10:13:33 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 10:14:13 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,12 +176,12 @@ void	perform_dda(t_data *data, int *map_x, int *map_y, double *side_dist_x, doub
 }
 
 
-double	calculate_perpendicular_distance(int map_x, int map_y, double ppos_pixel_x, double ppos_pixel_y, int step_x, int step_y, t_data *data)
+double	calculate_perpendicular_distance(int map_x, int map_y, double ppos_pixel_x, double ppos_pixel_y, t_data *data)
 {
 	if (data->side == 0)
-		return ((map_x * T_SIZE - ppos_pixel_x) + (1 - step_x) * T_SIZE / 2) / data->ray_dir_x;
+		return ((map_x * T_SIZE - ppos_pixel_x) + (1 - data->step_x) * T_SIZE / 2) / data->ray_dir_x;
 	else
-		return ((map_y * T_SIZE - ppos_pixel_y) + (1 - step_y) * T_SIZE / 2) / data->ray_dir_y;
+		return ((map_y * T_SIZE - ppos_pixel_y) + (1 - data->step_y) * T_SIZE / 2) / data->ray_dir_y;
 }
 
 void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
@@ -205,7 +205,7 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
     calculate_side_distances(data, &side_dist_x, &side_dist_y, delta_dist_x, delta_dist_y, ppos_pixel_x, ppos_pixel_y, map_x, map_y);
     perform_dda(data, &map_x, &map_y, &side_dist_x, &side_dist_y, delta_dist_x, delta_dist_y);
 
-    double perp_wall_dist = calculate_perpendicular_distance(map_x, map_y, ppos_pixel_x, ppos_pixel_y,  data->step_x, data->step_y, data);
+    double perp_wall_dist = calculate_perpendicular_distance(map_x, map_y, ppos_pixel_x, ppos_pixel_y, data);
     data->ray_len[i] = perp_wall_dist * cos(ray_angle - ray_distance);
     data->ray_hit[i] = find_direction(data->side, data->ray_dir_x, data->ray_dir_y);
 }
