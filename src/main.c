@@ -6,19 +6,21 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/01 14:09:37 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:02:15 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
-/*~~ main
-1. initilize minimap is for the bonuse but utalized right now for visualizing 
-map creation, player movement and ray casting for now
-2. mlx_key_hook() is for player movement and esc key function 
-3. mlx_loop(data->mlx) needs to be located where it is 
-4. mlx_terminate seg faults at the moment , could be an issue of needing a flag
-~~*/
+/** 
+ * main
+ * 
+	1. initilize minimap is for the bonuse but utalized right now for visualizing 
+	map creation, player movement and ray casting for now
+	2. mlx_key_hook() is for player movement and esc key function 
+	3. mlx_loop(data->mlx) needs to be located where it is 
+	4. mlx_terminate seg faults at the moment , could be an issue of needing a flag
+*/
 int	main(int argc, char **argv)
 {
 	static t_data	*data;
@@ -41,13 +43,9 @@ int	main(int argc, char **argv)
 		mlx_image_to_window(data->mlx, data->im_map, 0, 0);
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
 		draw_mini_map(data, 0, 0, 0);
-		mlx_loop(data->mlx);
-		delete_images(data);
-		mlx_terminate(data->mlx);
-		free_data(data);
+		wrap_up(data);
 	}
 	else
 		usage();
-	printf("executed to the end\n");
 	return (SUCCESS);
 }

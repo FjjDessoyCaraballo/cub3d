@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/04 14:47:31 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:56:03 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	calculate_side_distances(t_data *data, double delta_x, double delta_y)
 	{
 		data->step_y = -1;
 		data->side_dist_y = (data->ppos_pix_y - data->map_y * T_SIZE) * delta_y;
-    }
+	}
 	else
 	{
 		data->step_y = 1;
@@ -46,7 +46,7 @@ void	calculate_side_distances(t_data *data, double delta_x, double delta_y)
 	}
 }
 
-void	perform_dda(t_data *data, double delta_dist_x, double delta_dist_y) 
+void	perform_dda(t_data *data, double delta_dist_x, double delta_dist_y)
 {
 	data->side = 0;
 	data->hit = 0;
@@ -57,7 +57,7 @@ void	perform_dda(t_data *data, double delta_dist_x, double delta_dist_y)
 			data->side_dist_x += delta_dist_x * T_SIZE;
 			data->map_x += data->step_x;
 			data->side = 0;
-        }
+		}
 		else
 		{
 			data->side_dist_y += delta_dist_y * T_SIZE;
@@ -70,16 +70,16 @@ void	perform_dda(t_data *data, double delta_dist_x, double delta_dist_y)
 	}
 }
 
-
 double	calculate_perpendicular_distance(t_data *data)
 {
 	if (data->side == 0)
-		return ((data->map_x * T_SIZE - data->ppos_pix_x) + (1 - data->step_x) \
-			* T_SIZE / 2) / data->ray_dir_x;
+		return (((data->map_x * T_SIZE - data->ppos_pix_x) + (1 - data->step_x) \
+			* T_SIZE / 2) / data->ray_dir_x);
 	else
-		return ((data->map_y * T_SIZE - data->ppos_pix_y) + (1 - data->step_y) \
-			* T_SIZE / 2) / data->ray_dir_y;
+		return (((data->map_y * T_SIZE - data->ppos_pix_y) + (1 - data->step_y) \
+			* T_SIZE / 2) / data->ray_dir_y);
 }
+
 /** Collect and draw a ray based on math~~angles, pie and radians
  * to calculate and draw each ray , collecting usable data for each ray, 
  * we increment per ray and rays angle. Collect_rays last argumentg is 0.0 
@@ -94,17 +94,17 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 {
 	double	delta_dist_x;
 	double	delta_dist_y;
-	
+
 	delta_dist_x = fabs(1 / data->ray_dir_x);
 	delta_dist_y = fabs(1 / data->ray_dir_y);
 	data->ppos_pix_x = calculate_initial_position(data->x_ppos);
 	data->ppos_pix_y = calculate_initial_position(data->y_ppos);
 	data->map_x = (int)data->x_ppos;
 	data->map_y = (int)data->y_ppos;
-    calculate_side_distances(data, delta_dist_x, delta_dist_y);
-    perform_dda(data, delta_dist_x, delta_dist_y);
-    data->perp_wall_dist = calculate_perpendicular_distance(data);
-    data->ray_len[i] = data->perp_wall_dist * cos(ray_angle - ray_distance);
-    data->ray_hit[i] = find_direction(data->side, data->ray_dir_x, data->ray_dir_y);
+	calculate_side_distances(data, delta_dist_x, delta_dist_y);
+	perform_dda(data, delta_dist_x, delta_dist_y);
+	data->perp_wall_dist = calculate_perpendicular_distance(data);
+	data->ray_len[i] = data->perp_wall_dist * cos(ray_angle - ray_distance);
+	data->ray_hit[i] = find_direction(data->side, data->ray_dir_x, \
+		data->ray_dir_y);
 }
-

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 14:09:31 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:13:29 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,30 +86,30 @@
 # define IMAGE_FAIL "image invalid\n"
 # define IMG_TO_WIN "image could not put to window, check image not corrupt\n"
 # define NEW_IMG "MLX new image allocation failure, clean chache?\n"
-# define RESIZE "MLX failed to resize image, did you ask for something unreasonable?\n"
+# define RESIZE "MLX failed to resize image\n"
 /*************************************************/
 /*mlx macros / graphics macros********************/
 /*************************************************/
-# define WIDTH 1920 //~~ will play with sizes 
-# define HEIGHT 1080 //~~ will play with sizes
+# define WIDTH 1920
+# define HEIGHT 1080
 # define MINI_WIDTH 40
 # define MINI_HEIGHT 40
-# define T_SIZE 64 //~~ tile size
+# define T_SIZE 64
 # define MINI_T 32
 # define MINI_OFFSET 10
-# define MINI_SCALE 4 //maybe for minimap
-# define RAY_MAX 1920.0 // could be 240
-# define FOV 60.0 //~~ angle of field of view degrees 
+# define MINI_SCALE 4
+# define RAY_MAX 1920.0
+# define FOV 60.0
 # define WALL_SCALE ((WIDTH / 2) / TAN_OF_FOV) * 0.01
-# define RADIUS (20.0 / (double)T_SIZE)//??
+# define RADIUS (20.0 / (double)T_SIZE)
 /*************************************************/
 /* math macros ***************************************/
 /*************************************************/
-# define ROTATE_ANGLE	0.0872665 // 5 degrees in radians
+# define ROTATE_ANGLE	0.0872665
 # define PI				3.14159265358979323846
 # define DEG2RAD 		(PI / 180.0)
 # define STEP			0.03
-# define TAN_OF_FOV		(tan(FOV / 2 * PI / 180))// might not need this
+# define TAN_OF_FOV		(tan(FOV / 2 * PI / 180))
 # define SEGMENT		(WIDTH / RAY_MAX)
 # define STARTING_ANGLE	(-FOV / 2 * DEG2RAD)
 # define ANGLE_INCREMENT ((FOV / RAY_MAX) * DEG2RAD)
@@ -127,9 +127,9 @@ typedef enum e_dirs
 	SOUTH = 2,
 	EAST = 3,
 	WEST = 4
-} t_dirs;
+}	t_dirs;
 
-typedef	struct s_data
+typedef struct s_data
 {
 	mlx_t			*mlx;
 	mlx_t			*main_window;
@@ -163,7 +163,7 @@ typedef	struct s_data
 	double			ray_side_dis_x;
 	double			ray_side_dis_y;
 	double			exact_x;
-	double 			exact_y;
+	double			exact_y;
 	double			distance_to_wall;
 	double			ray_delta_x;
 	double			ray_delta_y;
@@ -175,7 +175,6 @@ typedef	struct s_data
 	double			ppos_pix_x;
 	double			ppos_pix_y;
 	int				wall_line;
-	
 	int8_t			file_len;
 	int				map_start;
 	int				map_end;
@@ -220,7 +219,6 @@ typedef	struct s_data
 	mlx_image_t		*im_mini_player;
 	mlx_image_t		*im_map_player;
 }		t_data;
-
 
 /*************************************************/
 /* functions *************************************/
@@ -275,6 +273,7 @@ int			err_msg(char *obj, char *msg, int exit_code);
 
 /* in usage.c */
 void		usage(void);
+void		wrap_up(t_data *data);
 
 /* in base.c*/
 int			open_window(t_data *data);
@@ -285,38 +284,43 @@ void		update_player(t_data *data);
 
 /* in movement.c */
 void		keyhookfunc(mlx_key_data_t keydata, void *param);
-void    	update_player(t_data *data);
+void		update_player(t_data *data);
 
 //~~~~~~~~~~~~~~//
 void		rotate_player(t_data *data, double angle);
-void    	strafe_player(t_data *data, double step);
-void    	move_player(t_data *data, double step);
+void		strafe_player(t_data *data, double step);
+void		move_player(t_data *data, double step);
 
 /* in rays1.c */
-void		collect_ray(t_data *data, int i, double ray_distance, double ray_angle);
+void		collect_ray(t_data *data, int i, double ray_distance, \
+						double ray_angle);
 double		calculate_perpendicular_distance(t_data *data);
-void		perform_dda(t_data *data, double delta_dist_x, double delta_dist_y) ;
-void		calculate_side_distances(t_data *data, double delta_dist_x, double delta_dist_y);
-double		calculate_initial_position(double position) ;
+void		perform_dda(t_data *data, double delta_dist_x, double delta_dist_y);
+void		calculate_side_distances(t_data *data, double delta_dist_x, \
+						double delta_dist_y);
+double		calculate_initial_position(double position);
 
 /* in rays2.c */
 int			find_direction(int side, double ray_x, double ray_y);
-int			outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pixel_x);
+int			outof_bounds_check(t_data *data, double rpos_pixel_y, \
+						double rpos_pixel_x);
 void		stack_ray_data(t_data *data, int i);
 
-void    	rotate_left(t_data *data);
-void    	rotate_right(t_data *data);
+void		rotate_left(t_data *data);
+void		rotate_right(t_data *data);
 
 /* init_higher_dimension1.c */
-void		initialize_wall_params(t_data *data, int i, double *w_h, double *img_x);
+void		initialize_wall_params(t_data *data, int i, double *w_h, \
+						double *img_x);
 void		draw_stretched_wall(t_data *data, double img_x, double wall_h);
-void		draw_regular_wall(t_data *data, double wall_h, double img_x, double top_of_wall);
+void		draw_regular_wall(t_data *data, double wall_h, double img_x, \
+						double top_of_wall);
 int			draw_wall(t_data *data, int i);
 
 /* init_higher_dimension2.c */
 int			find_wall(t_data *data, int i);
 int			check_for_wall_failure(t_data *data, int i);
-	
+
 /* bonus */
 int			initlize_minimap(t_data *data);
 void		draw_mini_player(t_data *data);
