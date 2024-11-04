@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 13:39:53 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:09:31 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -308,7 +308,7 @@ void    	rotate_left(t_data *data);
 void    	rotate_right(t_data *data);
 
 /* init_higher_dimension1.c */
-void		initialize_wall_params(t_data *data, int i, double *wall_h, double *img_x);
+void		initialize_wall_params(t_data *data, int i, double *w_h, double *img_x);
 void		draw_stretched_wall(t_data *data, double img_x, double wall_h);
 void		draw_regular_wall(t_data *data, double wall_h, double img_x, double top_of_wall);
 int			draw_wall(t_data *data, int i);

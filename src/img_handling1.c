@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   img_handling.c                                     :+:      :+:    :+:   */
+/*   img_handling1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 13:51:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/01 13:28:28 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:07:50 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int8_t	draw_floor_ceiling(t_data *data)
 			else
 				mlx_put_pixel(data->background, j, i, load_rgb(data->f_red, \
 				data->f_green, data->f_blue, 255));
-			j++;		
+			j++;
 		}
 		i++;
 	}
@@ -64,12 +64,12 @@ int8_t	draw_floor_ceiling(t_data *data)
 	return (SUCCESS);
 }
 
-static int8_t image_initialization(t_data *data)
+static int8_t	image_initialization(t_data *data)
 {
 	data->background = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	data->im_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	if (data->background == NULL || data->im_ray == NULL)
-		return (FAILURE); //error message
+		return (FAILURE);
 	return (SUCCESS);
 }
 

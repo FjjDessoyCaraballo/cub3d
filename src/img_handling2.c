@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 13:28:46 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 13:35:50 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:08:33 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 /**
  * Find the colour from the textures specified pixel should be drawn next
  */
-uint32_t fetch_pixel_rgb(mlx_image_t *img, int x, int y, int pos)
+uint32_t	fetch_pixel_rgb(mlx_image_t *img, int x, int y, int pos)
 {
 	uint32_t	r;
 	uint32_t	g;
 	uint32_t	b;
 	uint32_t	a;
-	
+
 	if (img != NULL)
 	{
 		pos = (y * img->width + x) * 4;
-		r = img->pixels[pos]; //4 bytes per pixel
+		r = img->pixels[pos];
 		g = img->pixels[pos + 1];
 		b = img->pixels[pos + 2];
 		a = img->pixels[pos + 3];
