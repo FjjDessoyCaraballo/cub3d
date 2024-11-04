@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/01 13:44:49 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 10:03:53 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,9 @@ typedef	struct s_data
 	double	ray_y;
 	double	ray_dir_x;
 	double	ray_dir_y;
+
+	int	step_x;
+	int	step_y;
 
 	int	w_width;
 	int	w_height;
