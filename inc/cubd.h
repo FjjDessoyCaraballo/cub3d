@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 10:15:46 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 10:20:49 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,40 +132,32 @@ typedef enum e_dirs
 typedef	struct s_data
 {
 	mlx_t	*mlx;
-	mlx_t	*main_window; //~~ not sure if needed yet
+	mlx_t	*main_window;
 	mlx_t	*mini_window;
 	char	**map;
 	bool	broken_map;
 	char	**file;
-	double	ray_len[1920]; // should it be WIDTH?
+	double	ray_len[1920];
 	double	ray_hit[1920];
-	char	key_pressed[265]; // num of highest key
-
-	int		map_width; // this was size_t before, needs to change in parsing
-	int		map_length; // this was size_t before, needs to change in parsing
-
-	int		side_hit; // if we want to handle shading
+	char	key_pressed[265];
+	int		map_width;
+	int		map_length;
+	int		side_hit;
 	double	ray_size;
 	double	p_dir_x;
 	double	p_dir_y;
-
 	double	ray_x;
 	double	ray_y;
 	double	ray_dir_x;
 	double	ray_dir_y;
-
 	int	step_x;
 	int	step_y;
-
 	int	map_x;
 	int	map_y;
-
 	int	side;
 	int	hit;
-
 	int	w_width;
 	int	w_height;
-
 	double	ray_step_x;
 	double	ray_step_y;
 	//distance measures check which side is closest wall.
@@ -205,7 +197,6 @@ typedef	struct s_data
 	double		x_ppos;
 	char		**mp_cpy;
 	int			repeat_test;
-
 	mlx_texture_t	*tx_n_wall;
 	mlx_texture_t	*tx_s_wall;
 	mlx_texture_t	*tx_e_wall;
@@ -215,15 +206,11 @@ typedef	struct s_data
 	mlx_image_t		*im_e_wall;
 	mlx_image_t		*im_w_wall;
 	mlx_image_t		*background;
-
 	mlx_image_t		*im_current_wall;
-
 	uint32_t		floor_color;
 	uint32_t		ceiling_color;
-
 	//bool	quit; // might no need
 	/*~~bonus stuff~~*/
-
 	mlx_texture_t	*tx_mini_floor;
 	mlx_texture_t	*tx_mini_wall;
 	//mlx_texture_t	*tx_mini_player;
@@ -232,9 +219,7 @@ typedef	struct s_data
 	mlx_image_t		*im_mini_floor;
 	mlx_image_t		*im_mini_wall;
 	mlx_image_t		*im_mini_player;
-	mlx_image_t		*im_map_player; //effectivly miniplayer
-	
-
+	mlx_image_t		*im_map_player;
 }		t_data;
 
 /*typedef struct s_img
