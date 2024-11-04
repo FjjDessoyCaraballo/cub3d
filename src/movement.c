@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/04 14:32:57 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:39:11 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ void	strafe_player(t_data *data, double step)
 	normalize_vector(&data->p_dir_x, &data->p_dir_y);
 	new_x = (data->x_ppos) + (-data->p_dir_y) * step;
 	new_y = (data->y_ppos) + (data->p_dir_x) * step;
-	if ((new_x + RADIUS) < 0 || (new_x - RADIUS) > (data->map_width)
-		|| (new_y + RADIUS) < 0 || (new_y - RADIUS) > (data->map_length))
+	if ((new_x + data->radius) < 0
+		|| (new_x - data->radius) > (data->map_width)
+		|| (new_y + data->radius) < 0
+		|| (new_y - data->radius) > (data->map_length))
 		return ;
 	if (new_x > data->map_width || new_y > data->map_length
 		|| new_x < 0 || new_y < 0)
@@ -77,8 +79,10 @@ void	move_player(t_data *data, double step)
 	normalize_vector(&data->p_dir_x, &data->p_dir_y);
 	new_x = (data->x_ppos) + (data->p_dir_x) * step;
 	new_y = (data->y_ppos) + (data->p_dir_y) * step;
-	if ((new_x + RADIUS) < 0 || (new_x + RADIUS) > (data->map_width)
-		|| (new_y + RADIUS) < 0 || (new_y + RADIUS) > (data->map_length))
+	if ((new_x + data->radius) < 0
+		|| (new_x + data->radius) > (data->map_width)
+		|| (new_y + data->radius) < 0
+		|| (new_y + data->radius) > (data->map_length))
 		return ;
 	if (new_x < data->map_width && new_y < data->map_length)
 	{
