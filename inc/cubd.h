@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 12:19:56 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 13:39:53 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,8 @@ typedef	struct s_data
 	double			side_dist_x;
 	double			ppos_pix_x;
 	double			ppos_pix_y;
+	int				wall_line;
+	
 	int8_t			file_len;
 	int				map_start;
 	int				map_end;
@@ -264,6 +266,7 @@ int8_t		image_handling(t_data *data);
 uint32_t	load_rgb(uint32_t r, uint32_t g, uint32_t b, uint32_t a);
 
 /* in img_handling2.c */
+uint32_t	fetch_pixel_rgb(mlx_image_t *img, int x, int y, int pos);
 void		delete_pngs(t_data *data);
 void		delete_images(t_data *data);
 
@@ -304,12 +307,16 @@ void		stack_ray_data(t_data *data, int i);
 void    	rotate_left(t_data *data);
 void    	rotate_right(t_data *data);
 
-/* init_higher_dimension.c #our 3d perspective*/
-int			draw_wall(t_data *data, int i, int x, double img_y);
+/* init_higher_dimension1.c */
+void		initialize_wall_params(t_data *data, int i, double *wall_h, double *img_x);
+void		draw_stretched_wall(t_data *data, double img_x, double wall_h);
+void		draw_regular_wall(t_data *data, double wall_h, double img_x, double top_of_wall);
+int			draw_wall(t_data *data, int i);
 
-/* printer REMOVE LATER */
-void		printer(t_data *data);
-
+/* init_higher_dimension2.c */
+int			find_wall(t_data *data, int i);
+int			check_for_wall_failure(t_data *data, int i);
+	
 /* bonus */
 int			initlize_minimap(t_data *data);
 void		draw_mini_player(t_data *data);

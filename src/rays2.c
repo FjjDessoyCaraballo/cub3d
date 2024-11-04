@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 12:11:16 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 12:11:39 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 13:20:32 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	stack_ray_data(t_data *data, int i)
 		data->ray_dir_x = cos(ray_angle);
 		data->ray_dir_y = sin(ray_angle);
 		collect_ray(data, i, player_angle, ray_angle);
-		draw_wall(data, i, 0, 0);
+		draw_wall(data, i);
 		i++;
 	}
 	mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
