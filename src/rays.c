@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/04 10:18:45 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 12:01:32 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,45 +128,45 @@ double	calculate_initial_position(double position)
 	return (position * T_SIZE);
 }
 
-void	calculate_side_distances(t_data *data, double *side_dist_x, double *side_dist_y, double delta_dist_x, double delta_dist_y, double ppos_pixel_x, double ppos_pixel_y)
+void	calculate_side_distances(t_data *data, double delta_dist_x, double delta_dist_y, double ppos_pixel_x, double ppos_pixel_y)
 {
 	if (data->ray_dir_x < 0) 
 	{
         data->step_x = -1;
-        *side_dist_x = (ppos_pixel_x - data->map_x * T_SIZE) * delta_dist_x;
+        data->side_dist_x = (ppos_pixel_x - data->map_x * T_SIZE) * delta_dist_x;
 	}
 	else
 	{
 		data->step_x = 1;
-		*side_dist_x = ((data->map_x + 1) * T_SIZE - ppos_pixel_x) * delta_dist_x;
+		data->side_dist_x = ((data->map_x + 1) * T_SIZE - ppos_pixel_x) * delta_dist_x;
 	}
 	if (data->ray_dir_y < 0)
 	{
 	data->step_y = -1;
-	*side_dist_y = (ppos_pixel_y - data->map_y * T_SIZE) * delta_dist_y;
+	data->side_dist_y = (ppos_pixel_y - data->map_y * T_SIZE) * delta_dist_y;
     }
 	else
 	{
 		data->step_y = 1;
-		*side_dist_y = ((data->map_y + 1) * T_SIZE - ppos_pixel_y) * delta_dist_y;
+		data->side_dist_y = ((data->map_y + 1) * T_SIZE - ppos_pixel_y) * delta_dist_y;
 	}
 }
 
-void	perform_dda(t_data *data, double *side_dist_x, double *side_dist_y, double delta_dist_x, double delta_dist_y) 
+void	perform_dda(t_data *data, double delta_dist_x, double delta_dist_y) 
 {
 	data->side = 0;
 	data->hit = 0;
 	while (data->hit == 0)
 	{
-		if (*side_dist_x < *side_dist_y)
+		if (data->side_dist_x < data->side_dist_y)
 		{
-			*side_dist_x += delta_dist_x * T_SIZE;
+			data->side_dist_x += delta_dist_x * T_SIZE;
 			data->map_x += data->step_x;
 			data->side = 0;
         }
 		else
 		{
-			*side_dist_y += delta_dist_y * T_SIZE;
+			data->side_dist_y += delta_dist_y * T_SIZE;
 			data->map_y += data->step_y;
 			data->side = 1;
 		}
@@ -190,23 +190,17 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 	double	ppos_pixel_y;
 	double	delta_dist_x;
 	double	delta_dist_y;
-
+	
 	delta_dist_x = fabs(1 / data->ray_dir_x);
 	delta_dist_y = fabs(1 / data->ray_dir_y);
 	ppos_pixel_x = calculate_initial_position(data->x_ppos);
 	ppos_pixel_y = calculate_initial_position(data->y_ppos);
-
 	data->map_x = (int)data->x_ppos;
 	data->map_y = (int)data->y_ppos;
-	
-	double	side_dist_x;
-	double	side_dist_y;
-    
-    calculate_side_distances(data, &side_dist_x, &side_dist_y, delta_dist_x, delta_dist_y, ppos_pixel_x, ppos_pixel_y);
-    perform_dda(data, &side_dist_x, &side_dist_y, delta_dist_x, delta_dist_y);
-
-    double perp_wall_dist = calculate_perpendicular_distance(ppos_pixel_x, ppos_pixel_y, data);
-    data->ray_len[i] = perp_wall_dist * cos(ray_angle - ray_distance);
+    calculate_side_distances(data, delta_dist_x, delta_dist_y, ppos_pixel_x, ppos_pixel_y);
+    perform_dda(data, delta_dist_x, delta_dist_y);
+    data->perp_wall_dist = calculate_perpendicular_distance(ppos_pixel_x, ppos_pixel_y, data);
+    data->ray_len[i] = data->perp_wall_dist * cos(ray_angle - ray_distance);
     data->ray_hit[i] = find_direction(data->side, data->ray_dir_x, data->ray_dir_y);
 }
 

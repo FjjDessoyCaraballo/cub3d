@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 10:20:49 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 12:01:56 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,6 +172,11 @@ typedef	struct s_data
 	double	ray_delta_y; // i no other deltas needed , shorten name
 	double	ray_delta_dis_x;
 	double	ray_delta_dis_y; // i no other deltas needed , shorten name
+	double	perp_wall_dist;
+	double	side_dist_y;
+	double	side_dist_x;
+
+	
 
 	// from parsing
 	int8_t		file_len;
