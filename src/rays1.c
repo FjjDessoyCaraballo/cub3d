@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/04 12:15:33 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:47:31 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,34 @@
 /**
  * Collects ray information based on when a wall is hit using a size of pixels
  */
-double	calculate_initial_position(double position) 
+double	calculate_initial_position(double position)
 {
 	return (position * T_SIZE);
 }
 
-void	calculate_side_distances(t_data *data, double delta_dist_x, double delta_dist_y)
+void	calculate_side_distances(t_data *data, double delta_x, double delta_y)
 {
-	if (data->ray_dir_x < 0) 
+	if (data->ray_dir_x < 0)
 	{
-        data->step_x = -1;
-        data->side_dist_x = (data->ppos_pix_x - data->map_x * T_SIZE) * delta_dist_x;
+		data->step_x = -1;
+		data->side_dist_x = (data->ppos_pix_x - data->map_x * T_SIZE) * delta_x;
 	}
 	else
 	{
 		data->step_x = 1;
 		data->side_dist_x = ((data->map_x + 1) * T_SIZE - data->ppos_pix_x) \
-			* delta_dist_x;
+			* delta_x;
 	}
 	if (data->ray_dir_y < 0)
 	{
-	data->step_y = -1;
-	data->side_dist_y = (data->ppos_pix_y - data->map_y * T_SIZE) * delta_dist_y;
+		data->step_y = -1;
+		data->side_dist_y = (data->ppos_pix_y - data->map_y * T_SIZE) * delta_y;
     }
 	else
 	{
 		data->step_y = 1;
 		data->side_dist_y = ((data->map_y + 1) * T_SIZE - data->ppos_pix_y) \
-			* delta_dist_y;
+			* delta_y;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:54:31 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/21 09:57:55 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:45:33 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int8_t	extra_rgb(char **rgb, int flag)
 	while (rgb[i])
 	{
 		if (!ft_strncmp(rgb[i], "C", 1)
-			|| !ft_strncmp(rgb[i] , "F", 1))
+			|| !ft_strncmp(rgb[i], "F", 1))
 			repeat++;
 		i++;
 	}

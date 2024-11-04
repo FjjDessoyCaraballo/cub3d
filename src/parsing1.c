@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/01 14:27:34 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:40:06 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static int8_t	open_file(t_data *data, char *fname)
 	while (i < data->file_len)
 		data->file[i++] = get_next_line(fd);
 	close(fd);
-	return (SUCCESS);	
+	return (SUCCESS);
 }
 
 /** Here we are parsing out the file and checking for possible

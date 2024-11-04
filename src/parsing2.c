@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/24 15:08:22 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:41:01 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int8_t	floor_information(t_data *data)
 
 	index = 0;
 	data->repeat_test = 0;
-	while(data->file[index])
+	while (data->file[index])
 	{
 		if (!ft_strncmp(&data->file[index][0], "F", 1))
 		{
@@ -90,7 +90,7 @@ static int8_t	map_information(t_data *data)
 		return (err_msg(NULL, MALLOC, FAILURE));
 	i = data->map_start;
 	j = 0;
-	while(i <= data->map_end - 1)
+	while (i <= data->map_end - 1)
 	{
 		if (is_map(data->file[i]) == SUCCESS
 			&& only_nl(data->file[i]) == SUCCESS)
