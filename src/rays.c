@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/01 12:33:21 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:59:26 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,16 @@ int	find_direction(int side, double ray_x, double ray_y)
 	if (side == 0)
 	{
 		if (ray_x > 0)
-		{
-			//printf("east\n");
 			return (EAST);
-		}
 		else
-		{
-			//printf("west\n");
 			return (WEST);
-		}
 	}
 	else
 	{
 		if (ray_y > 0)
-		{
-			//printf("south\n");			
 			return (SOUTH);
-		}
 		else
-		{
-			//printf("north\n");			
 			return (NORTH);
-		}
 	}
 	return (0);
 }
@@ -53,31 +41,15 @@ static int	outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pix
 {
 
 	if (rpos_pixel_y / T_SIZE > data->map_length || rpos_pixel_x / T_SIZE > data->map_width)
-	{
-		//printf("y top bound = %d x top bound = %d\n", data->map_length, data->map_width);
-		//printf("ray bounds000 rpos x = %f also rpos y = %f\n", rpos_pixel_x / 64, rpos_pixel_y / 64);
 		return (FAILURE);		
-	}
-	if (rpos_pixel_y < 0 || rpos_pixel_x / T_SIZE >= data->map_width)//WIDTH)
-	{
-		//printf("ray bounds111 rpos x = %f also rpos y = %f and  WIDTH = %d\n", rpos_pixel_x, rpos_pixel_y, WIDTH);
+	if (rpos_pixel_y < 0 || rpos_pixel_x / T_SIZE >= data->map_width)
 		return (FAILURE);
-	}
 	if (rpos_pixel_y < 0 || rpos_pixel_x / T_SIZE >= HEIGHT)
-	{
-		//printf("ray bounds2222 ray x = %f\n", rpos_pixel_x);
 		return (FAILURE);
-	}
-	if (data->y_ppos - STEP > data->map_length)// - 1)
-	{
-		//printf("ray bounds3333\n");	
+	if (data->y_ppos - STEP > data->map_length)
 		return (FAILURE);	
-	}
-	if (data->x_ppos + STEP > data->map_width)// - 1)
-	{
-		//printf("ray bounds4444\n");	
+	if (data->x_ppos + STEP > data->map_width)
 		return (FAILURE);	
-	}
 	return (SUCCESS);
 }
 /**
@@ -145,16 +117,13 @@ void	stack_ray_data(t_data *data, int i)
  */
 	while (i < RAY_MAX)
 	{
-		//current_angle = STARTING_ANGLE + i * ANGLE_INCREMENT;
-		//ray_angle = player_angle + current_angle;
-		ray_angle = player_angle + (i - RAY_MAX / 2) * ANGLE_INCREMENT; //caera_x ?
+		ray_angle = player_angle + (i - RAY_MAX / 2) * ANGLE_INCREMENT;
 		data->ray_dir_x = cos(ray_angle);
 		data->ray_dir_y = sin(ray_angle);
 		collect_ray(data, i, player_angle, ray_angle);
 		draw_wall(data, i, 0, 0);
 		i++;
 	}
-	//mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
 }
 
 /**

@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/01 17:27:34 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:57:22 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void make_minimap_transparent(mlx_image_t *image, float transparency)
         while (x < image->width)
 		{
             pixel = (uint32_t *)(image->pixels + (y * image->width + x) * sizeof(uint32_t));
-            uint8_t r = (*pixel >> 24) & 0xF0;
-            uint8_t g = (*pixel >> 16) & 0xF0;
-            uint8_t b = (*pixel >> 8) & 0xF0;
-            uint8_t a = (*pixel) & 0xF0;
+            uint8_t r = (*pixel >> 16) & 0xF0;
+            uint8_t g = (*pixel >> 8) & 0xF0;
+            uint8_t b = (*pixel) & 0xF0;
+            uint8_t a = (*pixel >> 24) & 0xF0;
             a = (uint8_t)(a * transparency);
-            *pixel = (r << 24) | (g << 16) | (b << 8) | a;
+            *pixel = ((uint32_t)a << 24) | (r << 16) | (g << 8) | b;
 			x++;
         }
 		x = 0;
@@ -51,10 +51,12 @@ int	init_mini_imgs(t_data *data)
 	data->im_mini_wall = mlx_texture_to_image(data->mlx, data->tx_mini_wall);
 	if (data->im_mini_floor == NULL || data->im_mini_wall == NULL)
 		return (err_msg(NULL, IMAGE_FAIL, FAILURE));
-	if (mlx_resize_image(data->im_mini_floor, MINI_T, MINI_T) == false)
-		return (err_msg(NULL, RESIZE, FAILURE));
-	if (mlx_resize_image(data->im_mini_wall, MINI_T, MINI_T) == false)
-		return (err_msg(NULL, RESIZE, FAILURE));
+	data->im_map = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	data->im_map_player = mlx_new_image(data->mlx, MINI_WIDTH, MINI_HEIGHT);
+	data->im_mini_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	if (data->im_map == NULL || data->im_map_player == NULL 
+	|| data->im_mini_ray == NULL)
+		return (err_msg(NULL, NEW_IMG, FAILURE));
 	return (SUCCESS);
 }
 
@@ -63,7 +65,7 @@ int	init_mini_imgs(t_data *data)
  * instances will be utilized in draw minimap to switch images on and off.
  */
 
-void draw_mini_tile(t_data *data, int x, int y, u_int32_t colour)
+void draw_mini_tile(t_data *data, int x, int y, uint32_t colour)
 {
 	int j = 0;
 	int i = 0;
@@ -81,18 +83,11 @@ void draw_mini_tile(t_data *data, int x, int y, u_int32_t colour)
 	}
 }
 
-int	init_map(t_data *data)
+int	init_map(t_data *data, int x, int y, uint32_t colour)
 {
-	int	x;
-	int	y;
-	uint32_t colour;
-    
 	colour = 0;
 	x = 0;
 	y = 0;
-	data->im_map = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	if (data->im_map == NULL)
-		return (err_msg(NULL, NEW_IMG, FAILURE));
 	while (y < data->map_length)
 	{
 		while (x < data->map_width)
@@ -112,54 +107,20 @@ int	init_map(t_data *data)
 		x = 0;
 		y++;
 	}
-	make_minimap_transparent(data->im_map, 0.9f);
+	make_minimap_transparent(data->im_map, 0.6f);
 	return (SUCCESS);
 }
-
-///original below
-/*int	init_map(t_data *data)
-{
-	int	x;
-	int	y;
-	
-	x = 0;
-	y = 0;
-	data->im_map = mlx_new_image(data->mlx, MINI_WIDTH, MINI_HEIGHT);
-	if (data->im_map == NULL)
-		return (err_msg(NULL, NEW_IMG, FAILURE));
-	while (y < 7)
-	{
-		while (x < 7)
-		{
-			if (mlx_image_to_window(data->mlx, data->im_mini_floor, x * MINI_T, y * MINI_T) == -1)
-				return (err_msg(NULL, IMG_TO_WIN, FAILURE));
-			if (mlx_image_to_window(data->mlx, data->im_mini_wall, x * MINI_T, y * MINI_T) == -1)
-				return (err_msg(NULL, IMG_TO_WIN, FAILURE));
-			x++;
-		}
-		x = 0;
-		y++;
-	}	
-	//if (mlx_image_to_window(data->mlx, data->im_map, MINI_WIDTH, MINI_HEIGHT) == -1)
-	//	return (err_msg(NULL, IMG_TO_WIN, FAILURE));
-	return (SUCCESS);
-}*/
-
 
 //adjust_tilesize(data); maybe
 int	initlize_minimap(t_data *data)
 {
-	//printf("pos x = %f, pops y = %f\n", data->x_ppos - 0.5, data->y_ppos);
 	if (init_mini_imgs(data) == FAILURE)
 		return (err_msg(NULL, MLX1, FAILURE));
-	data->im_map = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	if (init_map(data) == FAILURE)
+	if (init_map(data, 0, 0, 0) == FAILURE)
 		return (FAILURE);
-	
-//	data->im_map_player = mlx_new_image(data->mlx, MINI_WIDTH, MINI_HEIGHT);
 	draw_mini_player(data, 0, 0);
-	data->im_mini_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	draw_first_line(data, data->line_x, data->line_y);
+	draw_mini_line(data, 0, 0);
+	set_view(data);
 	return (SUCCESS);
 }
 

@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/01 17:21:43 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:51:44 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,9 +173,6 @@ typedef	struct s_data
 	double	ray_delta_y; // i no other deltas needed , shorten name
 	double	ray_delta_dis_x;
 	double	ray_delta_dis_y; // i no other deltas needed , shorten name
-	// minimap
-	int		line_x;
-	int		line_y;
 	// from parsing
 	int8_t		file_len;
 	int			map_start;
@@ -320,13 +317,15 @@ void	draw_player(t_data *data);
 //void	draw_first_line(t_data *data); // simple draw a line from center
 
 /* minimap.c */
-int		init_map(t_data *data);
+//int		init_map(t_data *data);
+int	init_map(t_data *data, int x, int y, uint32_t colour);
+void	draw_mini_line(t_data *data, int new_x, int new_y);
 /* mimimap_utils_bonus.c */
 void	adjust_mapstart(int *p_x, int *p_y);
-void	draw_first_line(t_data *data, int new_x, int new_y);
 void	draw_line(t_data *data, int i);
 void	draw_mini_player(t_data *data, int y, int x);
-void	wipe_line(t_data *data);
+void	wipe_line(t_data *data, int new_x, int new_y);
+int		set_view(t_data * data);
 /* in free.c */
 void	free_data(t_data *data);
 void	draw_mini_map(t_data *data, int x, int y, int index);

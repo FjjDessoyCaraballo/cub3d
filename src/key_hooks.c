@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/01 16:54:09 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:50:18 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int	toggle_minimap(t_data *data)
 	{
 		data->im_map->instances[0].enabled = 1;
 		data->im_map_player->instances[0].enabled = 1;
-		data->im_mini_ray->instances[0].enabled = 1;	
-		
+		data->im_mini_ray->instances[0].enabled = 1;
 	}
 	else
 	{
@@ -81,20 +80,6 @@ void	update_player(t_data *data)
 		strafe_player(data, -STEP);
 	if (data->key_pressed[MLX_KEY_D])
 		strafe_player(data, STEP);
-	
 		//bonuses for minimap	
-	//mlx_delete_image(data->mlx, data->im_map_player);
 	stack_ray_data(data, 0);
-	//printf("z for ray = %u z for map = %u\n", data->im_ray->instances->z, data->im_map->instances->z);
-	
-	//mlx_image_to_window(data->mlx, data->im_map_player, MINI_WIDTH, MINI_HEIGHT);
-	//mlx_image_to_window(data->mlx, data->background, 0, 0);//WIDTH, HEIGHT);
-	//mlx_image_to_window(data->mlx, data->im_ray, 0, 0); //WIDTH, HEIGHT);
-
-	
-	
 }
-/* these should not be needed as we will try to only update map around player,
-drawing player only once and deleteing image once game "ends" */
-	//mlx_delete_image(data->mlx, data->im_map_player);
-	//draw_mini_player(data);	
