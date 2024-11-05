@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/05 15:41:37 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:23:10 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	main(int argc, char **argv)
 			return (err_msg(NULL, MALLOC, -1));
 		if (map_handling(data, argv[1]) == FAILURE
 			|| open_window(data) == FAILURE
-			|| image_handling(data) == FAILURE
-			|| initlize_minimap(data) == FAILURE)
+			|| image_handling(data) == FAILURE)
+//			|| initlize_minimap(data) == FAILURE)
 		{
 			usage();
 			free_data(data);
@@ -42,7 +42,9 @@ int	main(int argc, char **argv)
 		data->x_ppos += 0.5;
 		data->y_ppos += 0.5;
 		stack_ray_data(data, 0);
-		mlx_image_to_window(data->mlx, data->im_map, 0, 0);
+		if (initlize_minimap(data) == FAILURE)
+			return (FAILURE);
+		//mlx_image_to_window(data->mlx, data->im_map, 0, 0);
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
 		wrap_up(data);
 	}
