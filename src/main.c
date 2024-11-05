@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/05 15:13:35 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:21:52 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 		stack_ray_data(data, 0);
 		mlx_image_to_window(data->mlx, data->im_map, 0, 0);
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
-		draw_mini_map(data, 0, 0, 0);
+		// draw_mini_map(data, 0, 0, 0);
 		wrap_up(data);
 	}
 	else
