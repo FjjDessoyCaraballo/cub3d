@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:12:41 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/17 12:15:05 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:42:00 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int8_t	no_sprite(t_data *data)
 
 	index = 0;
 	data->repeat_test = 0;
-	while(data->file[index])
+	while (data->file[index])
 	{
 		if (!ft_strncmp(&data->file[index][0], "N", 1)
 			&& !ft_strncmp(&data->file[index][1], "O", 1))
@@ -39,6 +39,7 @@ static int8_t	no_sprite(t_data *data)
 	}
 	return (SUCCESS);
 }
+
 static int8_t	so_sprite(t_data *data)
 {
 	int			index;
@@ -46,7 +47,7 @@ static int8_t	so_sprite(t_data *data)
 
 	index = 0;
 	data->repeat_test = 0;
-	while(data->file[index])
+	while (data->file[index])
 	{
 		if (!ft_strncmp(&data->file[index][0], "S", 1)
 			&& !ft_strncmp(&data->file[index][1], "O", 1))
@@ -66,6 +67,7 @@ static int8_t	so_sprite(t_data *data)
 	}
 	return (SUCCESS);
 }
+
 static int8_t	we_sprite(t_data *data)
 {
 	int			index;
@@ -73,7 +75,7 @@ static int8_t	we_sprite(t_data *data)
 
 	index = 0;
 	data->repeat_test = 0;
-	while(data->file[index])
+	while (data->file[index])
 	{
 		if (!ft_strncmp(&data->file[index][0], "W", 1)
 			&& !ft_strncmp(&data->file[index][1], "E", 1))
@@ -93,6 +95,7 @@ static int8_t	we_sprite(t_data *data)
 	}
 	return (SUCCESS);
 }
+
 static int8_t	ea_sprite(t_data *data)
 {
 	int			index;
@@ -100,7 +103,7 @@ static int8_t	ea_sprite(t_data *data)
 
 	index = 0;
 	data->repeat_test = 0;
-	while(data->file[index])
+	while (data->file[index])
 	{
 		if (!ft_strncmp(&data->file[index][0], "E", 1)
 			&& !ft_strncmp(&data->file[index][1], "A", 1))

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/05 14:57:22 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:14:47 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
-
 
 /**
  * Turns things transparent
@@ -111,7 +110,6 @@ int	init_map(t_data *data, int x, int y, uint32_t colour)
 	return (SUCCESS);
 }
 
-//adjust_tilesize(data); maybe
 int	initlize_minimap(t_data *data)
 {
 	if (init_mini_imgs(data) == FAILURE)
@@ -123,45 +121,3 @@ int	initlize_minimap(t_data *data)
 	set_view(data);
 	return (SUCCESS);
 }
-
-
-/* here lies a thoughst graveyard */
-
-/*
-this fucntion may not be needed, it readjust the tile size (pixels)
-based on screen width and height, should we want to make sure everything fits
-no matter the size of the map, up untill the pixels become too small for a 
-visually functioning game.
-*/
-/* 
-int adjust_tilesize(t_data *data)
-{
-	size_t	x_comp;
-	size_t	y_comp;
-	if (data->map_width * data->t_size > WIDTH || data->map_length * data->t_size > HEIGHT)
-	{
-		x_comp = data->map_width * data->t_size;
-		y_comp = data->map_length * data->t_size;
-		if (x_comp > y_comp && x_comp > WIDTH)
-		{
-			while (data->map_width * data->t_size > WIDTH)
-			{
-				data->t_size -= 1;
-				if (data->t_size < 21)
-					printf("error in tile size\n");
-			}
-		}
-		else if (data->map_length * data->t_size > HEIGHT)
-		{
-			while (data->map_length * data->t_size > HEIGHT)
-			{
-				data->t_size -= 1;	
-				if (data->t_size < 21)
-					printf("error in tile size\n");
-			}
-		}
-	}
-	return (0);
-}*/
-
-

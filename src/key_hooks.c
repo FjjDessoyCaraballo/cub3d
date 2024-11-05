@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/05 13:50:18 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:12:48 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,15 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 
 	data = (t_data *)param;
 	if (keydata.key == MLX_KEY_ESCAPE)
-			mlx_close_window(data->mlx);
-	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_A ||
-        keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_D ||
-        keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_RIGHT)
+		mlx_close_window(data->mlx);
+	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_A
+		|| keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_D
+		|| keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_RIGHT)
 	{
 		if (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT)
 			data->key_pressed[keydata.key] = 1;
 		if (keydata.action == MLX_RELEASE)
-			data->key_pressed[keydata.key] = 0;		
+			data->key_pressed[keydata.key] = 0;
 	}
 	if (keydata.key == MLX_KEY_M && keydata.action == MLX_PRESS)
 	{
@@ -65,7 +65,6 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
  * bonus material used now for visualisation
  * of proggress 
  **/
-
 void	update_player(t_data *data)
 {
 	if (data->key_pressed[MLX_KEY_RIGHT])
@@ -80,6 +79,5 @@ void	update_player(t_data *data)
 		strafe_player(data, -STEP);
 	if (data->key_pressed[MLX_KEY_D])
 		strafe_player(data, STEP);
-		//bonuses for minimap	
 	stack_ray_data(data, 0);
 }

@@ -26,15 +26,17 @@ SRC_FILES = main.c\
 			usage.c\
 			error.c\
 			base.c\
-			img_handling.c\
+			img_handling1.c\
+			img_handling2.c\
 			movement.c\
 			key_hooks.c\
-			rays.c\
+			rays1.c\
+			rays2.c\
 			window_resizing.c\
-			init_higher_dimension.c\
+			init_higher_dimension1.c\
+			init_higher_dimension2.c\
 			minimap.c\
 			minimap_utils_bonus.c\
-			printer.c #REMOVE LATER
 
 
 # Object files

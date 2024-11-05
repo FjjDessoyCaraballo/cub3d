@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movement.c                                         :+:      :+:    :+:   */
+/*   movement_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/05 14:55:23 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:17:06 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 /****this is the bonus version */
 /**
- * This computes the magnitude of the vector using the Pythagorean theorem, 
- * to simplyfy our directin numbers in an attempt to make math on these numbers easier
+ * This computes the magnitude of the vector using the 
+ * Pythagorean theorem, to simplyfy our directin numbers in an attempt to 
+ * make math on these numbers easier.
 */
 void	normalize_vector(double *x, double *y)
 {
@@ -68,20 +69,18 @@ void	strafe_player(t_data *data, double step)
 	double	new_x;
 	double	new_y;
 	char	map_char;
-	
+
 	normalize_vector(&data->p_dir_x, &data->p_dir_y);
 	new_x = (data->x_ppos) + (-data->p_dir_y) * step;
 	new_y = (data->y_ppos) + (data->p_dir_x) * step;
-	if ((new_x + RADIUS) < 0 || (new_x - RADIUS) > (data->map_width) || (new_y + RADIUS) < 0 || (new_y - RADIUS) > (data->map_length))
-	{
-		//printf("Out of bounds\n");
+	if ((new_x + data->radius) < 0
+		|| (new_x - data->radius) > (data->map_width)
+		|| (new_y + data->radius) < 0
+		|| (new_y - data->radius) > (data->map_length))
 		return ;
-	}
-	if (new_x > data->map_width || new_y > data->map_length || new_x < 0 || new_y < 0)
-	{
-		//printf("Out of bounds new\n");	
-		return ;	
-	}
+	if (new_x > data->map_width || new_y > data->map_length
+		|| new_x < 0 || new_y < 0)
+		return ;
 	map_char = data->map[(int)floor(new_y)][(int)floor(new_x)];
 	if (new_x < data->map_width && new_y < data->map_length)
 	{	
@@ -97,14 +96,16 @@ void	strafe_player(t_data *data, double step)
 			data->im_mini_ray->instances[0].y = (data->y_ppos - 0.5) * MINI_T;
 		}
 	}
-
 }
 
 /**
- * moving player so that they dont go out of bounds, challenge is preventing entry to existing tiles
- * that are marked space, ive left some solutions in theory but i will move on for now, as im not sure this will
- * have much value to our project, especially since this problem should go away in the bonus
- * 1. floor and ceil are math.h functions, floor rounds down from decimal
+ * moving player so that they dont go out of bounds, challenge is
+ * preventing entry to existing tiles that are marked space, ive 
+ * left some solutions in theory but i will move on for now, 
+ * as im not sure this will have much value to our project, 
+ * especially since this problem should go away in the bonus
+ * 1. floor and ceil are math.h functions, floor rounds 
+ * down from decimal
 */
 /*void	move_player(t_data *data, double step)
 {
@@ -140,21 +141,17 @@ void	move_player(t_data *data, double step)
 	normalize_vector(&data->p_dir_x, &data->p_dir_y);
 	new_x = (data->x_ppos) + (data->p_dir_x) * step;
 	new_y = (data->y_ppos) + (data->p_dir_y) * step;
-	if ((new_x + RADIUS) < 0 || (new_x + RADIUS) > (data->map_width) || (new_y + RADIUS) < 0 || (new_y + RADIUS) > (data->map_length))	
-	{
-		//printf("Out of bounds\n");
+	if ((new_x + data->radius) < 0
+		|| (new_x + data->radius) > (data->map_width)
+		|| (new_y + data->radius) < 0
+		|| (new_y + data->radius) > (data->map_length))
 		return ;
-	}
 	if (new_x < data->map_width && new_y < data->map_length)
 	{
 		if ((int)floor(new_y) < 0 || (int)floor(new_x) < 0)
 			return ;
 		map_char = data->map[(int)floor(new_y)][(int)floor(new_x)];
 		if (map_char == ' ' || map_char == '\0' || map_char == '\n')
-		{
-			//data->x_ppos -= (data->p_dir_x) * STEP;//0.5;
-            //data->y_ppos -= (data->p_dir_y) * STEP;//0.5;
-			//printf("new x = %f and new y = %f\n", new_x , new_y);
 			return ;
 		}
 		if (map_char == '0')

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:08:26 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/21 09:56:11 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:43:48 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ int8_t	rgb_assignment(t_data *data, char **array, int flag)
 	{
 		data->c_red = ft_atoi(array[0]);
 		data->c_green = ft_atoi(array[1]);
-		data->c_blue = ft_atoi(array[2]);	
+		data->c_blue = ft_atoi(array[2]);
 	}
 	else
 	{
 		data->f_red = ft_atoi(array[0]);
 		data->f_green = ft_atoi(array[1]);
-		data->f_blue = ft_atoi(array[2]);	
+		data->f_blue = ft_atoi(array[2]);
 	}
 	return (SUCCESS);
 }

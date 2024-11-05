@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_resizing.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:40:33 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/24 15:07:27 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:00:07 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	resize_func(int32_t width, int32_t height, void *param)
 {
-	t_data *data;
+	t_data	*data;
 
 	data = (t_data *)param;
 	if (data->im_ray)
