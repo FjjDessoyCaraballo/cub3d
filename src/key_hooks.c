@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/05 15:12:48 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:27:36 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,7 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 			data->key_pressed[keydata.key] = 0;
 	}
 	if (keydata.key == MLX_KEY_M && keydata.action == MLX_PRESS)
-	{
 		toggle_minimap(data);
-	}
 	update_player(data);
 }
 
