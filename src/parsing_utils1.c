@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/16 12:14:25 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:43:15 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char	*sprite_path(char *str)
 	}
 	return (NULL);
 }
+
 /**
  * `check_rgb_range()` will check if the metadata that we gathered from
  * the file are within the range of `0` to `255`. They're all variables of
@@ -73,7 +74,7 @@ static int8_t	check_rgb_range(t_data *data)
  */
 static int8_t	break_commas(t_data *data, char *rgb_str, int flag)
 {
-	static char **array;
+	static char	**array;
 
 	array = ft_split(rgb_str, ',');
 	if (!array)
@@ -98,7 +99,7 @@ static int8_t	break_commas(t_data *data, char *rgb_str, int flag)
 static int8_t	separate_rgb(t_data *data, char *str, int flag)
 {
 	char	*rgb;
-	
+
 	rgb = ft_strdup(str);
 	if (!rgb)
 		return (FAILURE);
@@ -156,7 +157,6 @@ int8_t	rgb_parse(t_data *data, char *str, int flag)
 		}
 		index++;
 	}
-		
 	free_array(info);
 	return (SUCCESS);
 }

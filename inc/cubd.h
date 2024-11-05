@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/01 13:44:49 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:03:21 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@
 
 # define SUCCESS 0
 # define FAILURE 1
-# define SUFFER 65
 
 /*************************************************/
 /* usage macros **********************************/
@@ -86,33 +85,24 @@
 # define IMAGE_FAIL "image invalid\n"
 # define IMG_TO_WIN "image could not put to window, check image not corrupt\n"
 # define NEW_IMG "MLX new image allocation failure, clean chache?\n"
-# define RESIZE "MLX failed to resize image, did you ask for something unreasonable?\n"
+# define RESIZE "MLX failed to resize image\n"
 /*************************************************/
 /*mlx macros / graphics macros********************/
 /*************************************************/
-# define WIDTH 1920 //~~ will play with sizes 
-# define HEIGHT 1080 //~~ will play with sizes
-# define MINI_WIDTH 40
-# define MINI_HEIGHT 40
-# define T_SIZE 64 //~~ tile size
-# define MINI_T 32
-# define MINI_OFFSET 10
-# define MINI_SCALE 4 //maybe for minimap
-# define RAY_MAX 1920.0 // could be 240
-# define FOV 60.0 //~~ angle of field of view degrees 
-# define WALL_SCALE ((WIDTH / 2) / TAN_OF_FOV) * 0.01
-# define RADIUS (20.0 / (double)T_SIZE)//??
-/*************************************************/
-/* math macros ***************************************/
-/*************************************************/
-# define ROTATE_ANGLE	0.0872665 // 5 degrees in radians
+# define WIDTH			1920
+# define HEIGHT			1080
+# define MINI_WIDTH		40
+# define MINI_HEIGHT	40
+# define T_SIZE			64
+# define MINI_T			32
+# define MINI_OFFSET 	10
+# define MINI_SCALE 	4
+# define RAY_MAX 		1920.0
+# define FOV 			60.0
+# define ROTATE_ANGLE	0.0872665
 # define PI				3.14159265358979323846
-# define DEG2RAD 		(PI / 180.0)
 # define STEP			0.03
-# define TAN_OF_FOV		(tan(FOV / 2 * PI / 180))// might not need this
-# define SEGMENT		(WIDTH / RAY_MAX)
-# define STARTING_ANGLE	(-FOV / 2 * DEG2RAD)
-# define ANGLE_INCREMENT ((FOV / RAY_MAX) * DEG2RAD)
+# define DEG2RAD 		0.01745329252
 # define EPSILON 0.0000000000000000000000000000000000000000000000001
 /*************************************************/
 /* structs ***************************************/
@@ -127,76 +117,80 @@ typedef enum e_dirs
 	SOUTH = 2,
 	EAST = 3,
 	WEST = 4
-} t_dirs;
+}	t_dirs;
 
-typedef	struct s_data
+typedef struct s_data
 {
-	mlx_t	*mlx;
-	mlx_t	*main_window; //~~ not sure if needed yet
-	mlx_t	*mini_window;
-	char	**map;
-	bool	broken_map;
-	char	**file;
-	double	ray_len[1920]; // should it be WIDTH?
-	double	ray_hit[1920];
-	char	key_pressed[265]; // num of highest key
-
-	int		map_width; // this was size_t before, needs to change in parsing
-	int		map_length; // this was size_t before, needs to change in parsing
-
-	int		side_hit; // if we want to handle shading
-	double	ray_size;
-	double	p_dir_x;
-	double	p_dir_y;
-
-	double	ray_x;
-	double	ray_y;
-	double	ray_dir_x;
-	double	ray_dir_y;
-
-	int	w_width;
-	int	w_height;
-
-	double	ray_step_x;
-	double	ray_step_y;
-	//distance measures check which side is closest wall.
-	double	ray_side_dis_x;
-	double	ray_side_dis_y;
-	
-	double	exact_x;
-	double 	exact_y;
-	double	distance_to_wall;
-	// side distance to wall????
-	double	ray_delta_x;
-	double	ray_delta_y; // i no other deltas needed , shorten name
-	double	ray_delta_dis_x;
-	double	ray_delta_dis_y; // i no other deltas needed , shorten name
-
-	// from parsing
-	int8_t		file_len;
-	int			map_start;
-	int			map_end;
-	char		*floor_info;
-	char		*ceiling_info;
-	uint32_t	c_red;
-	uint32_t	c_green;
-	uint32_t	c_blue;
-	uint32_t	f_red;
-	uint32_t	f_green;
-	uint32_t	f_blue;
-	char		*n_sprite;
-	char		*s_sprite;
-	char		*e_sprite;
-	char		*w_sprite;
-	bool		s_player;
-	bool		n_player;
-	bool		e_player;
-	bool		w_player;
-	double		y_ppos;
-	double		x_ppos;
-	char		**mp_cpy;
-	int			repeat_test;
-
+	mlx_t			*mlx;
+	mlx_t			*main_window;
+	mlx_t			*mini_window;
+	char			**map;
+	bool			broken_map;
+	char			**file;
+	double			ray_len[1920];
+	double			ray_hit[1920];
+	char			key_pressed[265];
+	int				map_width;
+	int				map_length;
+	int				side_hit;
+	double			ray_size;
+	double			p_dir_x;
+	double			p_dir_y;
+	double			wall_scale;
+	double			angle_increment;
+	double			radius;
+	double			ray_x;
+	double			ray_y;
+	double			ray_dir_x;
+	double			ray_dir_y;
+	int				step_x;
+	int				step_y;
+	int				map_x;
+	int				map_y;
+	int				side;
+	int				hit;
+	int				w_width;
+	int				w_height;
+	double			ray_step_x;
+	double			ray_step_y;
+	double			ray_side_dis_x;
+	double			ray_side_dis_y;
+	double			exact_x;
+	double			exact_y;
+	double			distance_to_wall;
+	double			ray_delta_x;
+	double			ray_delta_y;
+	double			ray_delta_dis_x;
+	double			ray_delta_dis_y;
+	double			perp_wall_dist;
+	double			side_dist_y;
+	double			side_dist_x;
+	double			ppos_pix_x;
+	double			ppos_pix_y;
+	int				wall_line;
+	int8_t			file_len;
+	int				map_start;
+	int				map_end;
+	char			*floor_info;
+	char			*ceiling_info;
+	uint32_t		c_red;
+	uint32_t		c_green;
+	uint32_t		c_blue;
+	uint32_t		f_red;
+	uint32_t		f_green;
+	uint32_t		f_blue;
+	char			*n_sprite;
+	char			*s_sprite;
+	char			*e_sprite;
+	char			*w_sprite;
+	bool			s_player;
+	bool			n_player;
+	bool			e_player;
+	bool			w_player;
+	double			y_ppos;
+	double			x_ppos;
+	char			**mp_cpy;
+	int				repeat_test;
 	mlx_texture_t	*tx_n_wall;
 	mlx_texture_t	*tx_s_wall;
 	mlx_texture_t	*tx_e_wall;
@@ -206,71 +200,56 @@ typedef	struct s_data
 	mlx_image_t		*im_e_wall;
 	mlx_image_t		*im_w_wall;
 	mlx_image_t		*background;
-
 	mlx_image_t		*im_current_wall;
-
 	uint32_t		floor_color;
 	uint32_t		ceiling_color;
-
-	//bool	quit; // might no need
-	/*~~bonus stuff~~*/
-
 	mlx_texture_t	*tx_mini_floor;
 	mlx_texture_t	*tx_mini_wall;
-	//mlx_texture_t	*tx_mini_player;
 	mlx_image_t		*im_ray;
 	mlx_image_t		*im_map;
 	mlx_image_t		*im_mini_floor;
 	mlx_image_t		*im_mini_wall;
 	mlx_image_t		*im_mini_player;
-	mlx_image_t		*im_map_player; //effectivly miniplayer
-	
-
+	mlx_image_t		*im_map_player;
 }		t_data;
-
-/*typedef struct s_img
-{
-	mlx_image_t	*img;
-	uint32_t 	*pixels; // for pllayer rotation, maybe only minimap
-}	t_img;*/
 
 /*************************************************/
 /* functions *************************************/
 /*************************************************/
 
 /* in parsing1.c */
-int8_t	map_handling(t_data *data, char *argv);
+int8_t		map_handling(t_data *data, char *argv);
 
 /* in parsing2.c */
-int8_t	extract(t_data *data);
+int8_t		extract(t_data *data);
 
 /* in parsing3.c */
-int8_t	search_sprites(t_data *data);
+int8_t		search_sprites(t_data *data);
 
 /* in parsing_utils.c */
-char	*sprite_path(char *str);
-int8_t	rgb_parse(t_data *data, char *str, int flag);
+char		*sprite_path(char *str);
+int8_t		rgb_parse(t_data *data, char *str, int flag);
 
 /* in parsing_utils2.c */
-int8_t	rgb_assignment(t_data *data, char **array, int flag);
-int8_t	allocate_mapmem(t_data *data);
-int8_t	is_map(char *str);
-void	rem_map_nl(char **map);
+int8_t		rgb_assignment(t_data *data, char **array, int flag);
+int8_t		allocate_mapmem(t_data *data);
+int8_t		is_map(char *str);
+void		rem_map_nl(char **map);
 
 /* in parsing_utils3.c */
-int8_t	only_nl(char *str);
-int8_t	player_exists(t_data *data, char **map);
-int8_t	check_original_length(t_data *data);
-uint8_t	get_width(char **map);
+int8_t		only_nl(char *str);
+int8_t		player_exists(t_data *data, char **map);
+int8_t		check_original_length(t_data *data);
+uint8_t		get_width(char **map);
 
 /* in parsing_utils4.c */
-int8_t	extra_rgb(char **rgb, int flag);
-void	remove_nl(char *str);
+int8_t		extra_rgb(char **rgb, int flag);
+void		remove_nl(char *str);
 
 /* in flood_fill.c */
-int8_t	check_if_walled(t_data *data);
-int8_t	copy_map(t_data *data);
-void	flood_fill(t_data *data, size_t y, size_t x);
+int8_t		check_if_walled(t_data *data);
+int8_t		copy_map(t_data *data);
+void		flood_fill(t_data *data, size_t y, size_t x);
 
 /* in img_handling1.c */
 int8_t		draw_floor_ceiling(t_data *data);
@@ -278,61 +257,79 @@ int8_t		image_handling(t_data *data);
 uint32_t	load_rgb(uint32_t r, uint32_t g, uint32_t b, uint32_t a);
 
 /* in img_handling2.c */
-void	delete_pngs(t_data *data);
-void	delete_images(t_data *data);
+uint32_t	fetch_pixel_rgb(mlx_image_t *img, int x, int y, int pos);
+void		delete_pngs(t_data *data);
+void		delete_images(t_data *data);
 
 /* in error.c */
-int		err_msg(char *obj, char *msg, int exit_code);
+int			err_msg(char *obj, char *msg, int exit_code);
 
 /* in usage.c */
-void	usage(void);
+void		usage(void);
+void		wrap_up(t_data *data);
 
 /* in base.c*/
-int		open_window(t_data *data);
+int			open_window(t_data *data);
 
 /* in key_hooks.c */
-void	keyhookfunc(mlx_key_data_t keydata, void *param);
-void	update_player(t_data *data);
+void		keyhookfunc(mlx_key_data_t keydata, void *param);
+void		update_player(t_data *data);
 
 /* in movement.c */
-void	keyhookfunc(mlx_key_data_t keydata, void *param);
-void    update_player(t_data *data);
+void		keyhookfunc(mlx_key_data_t keydata, void *param);
+void		update_player(t_data *data);
 
 //~~~~~~~~~~~~~~//
-void	rotate_player(t_data *data, double angle);
-void    strafe_player(t_data *data, double step);
-void    move_player(t_data *data, double step);
+void		rotate_player(t_data *data, double angle);
+void		strafe_player(t_data *data, double step);
+void		move_player(t_data *data, double step);
 
-/* in rays.c */
-void	stack_ray_data(t_data *data, int i);
-void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle);
-//void	collect_ray(t_data *data); // simle one ray from middle
+/* in rays1.c */
+void		collect_ray(t_data *data, int i, double ray_distance, \
+						double ray_angle);
+double		calculate_perpendicular_distance(t_data *data);
+void		perform_dda(t_data *data, double delta_dist_x, double delta_dist_y);
+void		calculate_side_distances(t_data *data, double delta_dist_x, \
+						double delta_dist_y);
+double		calculate_initial_position(double position);
 
-void    rotate_left(t_data *data);
-void    rotate_right(t_data *data);
+/* in rays2.c */
+int			find_direction(int side, double ray_x, double ray_y);
+int			outof_bounds_check(t_data *data, double rpos_pixel_y, \
+						double rpos_pixel_x);
+void		stack_ray_data(t_data *data, int i);
 
-/* init_higher_dimension.c #our 3d perspective*/
-int		draw_wall(t_data *data, int i, int x, double img_y);
+void		rotate_left(t_data *data);
+void		rotate_right(t_data *data);
 
-/* printer REMOVE LATER */
-void	printer(t_data *data);
+/* init_higher_dimension1.c */
+void		initialize_wall_params(t_data *data, int i, double *w_h, \
+						double *img_x);
+void		draw_stretched_wall(t_data *data, double img_x, double wall_h);
+void		draw_regular_wall(t_data *data, double wall_h, double img_x, \
+						double top_of_wall);
+int			draw_wall(t_data *data, int i);
+
+/* init_higher_dimension2.c */
+int			find_wall(t_data *data, int i);
+int			check_for_wall_failure(t_data *data, int i);
 
 /* bonus */
-int		initlize_minimap(t_data *data);
-void	draw_mini_player(t_data *data);
-void	draw_player(t_data *data);
-void	draw_first_line(t_data *data); // simple draw a line from center
+int			initlize_minimap(t_data *data);
+void		draw_mini_player(t_data *data);
+void		draw_player(t_data *data);
+void		draw_first_line(t_data *data);
 
 /* minimap.c */
 
 /* mimimap_utils_bonus.c */
-void	adjust_mapstart(int *p_x, int *p_y);
-void	draw_first_line(t_data *data);
-void	draw_line(t_data *data, int i);
-void	draw_mini_player(t_data *data);
+void		adjust_mapstart(int *p_x, int *p_y);
+void		draw_first_line(t_data *data);
+void		draw_line(t_data *data, int i);
+void		draw_mini_player(t_data *data);
 
 /* in free.c */
-void	free_data(t_data *data);
-void	draw_mini_map(t_data *data, int x, int y, int index);
+void		free_data(t_data *data);
+void		draw_mini_map(t_data *data, int x, int y, int index);
 
 #endif

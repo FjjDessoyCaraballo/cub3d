@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/10/23 15:08:42 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:06:01 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int8_t	copy_map(t_data *data)
 void	flood_fill(t_data *data, size_t y, size_t x)
 {
 	if (y == 0 || x == 0 || data->mp_cpy[y][x] == '1'
-		|| data->mp_cpy[y][x] == 'x') 
+		|| data->mp_cpy[y][x] == 'x')
 		return ;
 	if (data->mp_cpy[y][x + 1] == '\0'
 		|| data->mp_cpy[y][x - 1] == '\0'

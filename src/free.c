@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:30:57 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/01 14:18:49 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:06:26 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,5 @@ void	free_data(t_data *data)
 		free_array(data->map);
 	if (data->file)
 		free_array(data->file);
-	if (data->mp_cpy)
-		free_array(data->mp_cpy);
 	free(data);
 }

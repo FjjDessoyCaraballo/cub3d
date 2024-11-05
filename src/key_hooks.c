@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/01 12:58:00 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:18:46 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 
 	data = (t_data *)param;
 	if (keydata.key == MLX_KEY_ESCAPE)
-			mlx_close_window(data->mlx);
-	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_A ||
-        keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_D ||
-        keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_RIGHT)
+		mlx_close_window(data->mlx);
+	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_A
+		|| keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_D
+		|| keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_RIGHT)
 	{
 		if (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT)
 			data->key_pressed[keydata.key] = 1;
 		if (keydata.action == MLX_RELEASE)
-			data->key_pressed[keydata.key] = 0;		
+			data->key_pressed[keydata.key] = 0;
 	}
 	update_player(data);
 }
