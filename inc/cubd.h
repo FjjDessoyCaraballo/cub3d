@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/05 15:19:42 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:22:16 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -310,7 +310,7 @@ void		stack_ray_data(t_data *data, int i);
 /* init_higher_dimension1.c */
 void		initialize_wall_params(t_data *data, int i, double *w_h, \
 						double *img_x);
-void		draw_stretched_wall(t_data *data, double img_x, double wall_h);
+void		draw_stretched_wall(t_data *data, double img_x, double w_h, double ofset);
 void		draw_regular_wall(t_data *data, double wall_h, double img_x, \
 						double top_of_wall);
 int			draw_wall(t_data *data, int i);
@@ -319,6 +319,10 @@ int			draw_wall(t_data *data, int i);
 int			find_wall(t_data *data, int i);
 int			check_for_wall_failure(t_data *data, int i);
 
+/* higher_dimensinal_utils.c */
+double		diff(double wall_h);
+double calculate_depth(t_data *data);
+double	get_inc(t_data *data, double w_h);
 /* bonus */
 int			initlize_minimap(t_data *data);
 // void		draw_mini_player(t_data *data);
@@ -327,7 +331,7 @@ void		draw_first_line(t_data *data);
 
 /* minimap.c */
 //int		init_map(t_data *data);
-int	init_map(t_data *data, int x, int y, uint32_t colour);
+int		init_map(t_data *data, int x, int y, uint32_t colour);
 void	draw_mini_line(t_data *data, int new_x, int new_y);
 
 /* mimimap_utils_bonus.c */

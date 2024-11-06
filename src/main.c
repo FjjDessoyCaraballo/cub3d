@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/05 15:54:26 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/06 10:14:26 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 		data->x_ppos += 0.5;
 		data->y_ppos += 0.5;
 		stack_ray_data(data, 0);
-		// mlx_image_to_window(data->mlx, data->im_m, 0, 0);
+		mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
 		wrap_up(data);
 	}

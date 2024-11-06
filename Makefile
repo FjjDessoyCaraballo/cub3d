@@ -35,6 +35,7 @@ SRC_FILES = main.c\
 			window_resizing.c\
 			init_higher_dimension1.c\
 			init_higher_dimension2.c\
+			higher_dimensional_utils.c \
 
 BONUS = 	main_bonus.c\
 			free.c\
@@ -58,6 +59,7 @@ BONUS = 	main_bonus.c\
 			window_resizing.c\
 			init_higher_dimension1.c\
 			init_higher_dimension2.c\
+			higher_dimensional_utils.c\
 			minimap_bonus.c\
 			minimap_utils_bonus.c\
 

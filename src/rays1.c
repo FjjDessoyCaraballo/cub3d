@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/04 14:56:03 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/06 16:50:45 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,37 @@ double	calculate_perpendicular_distance(t_data *data)
 			* T_SIZE / 2) / data->ray_dir_y);
 }
 
+void calculate_hit_coords(t_data *data, int i)
+{
+	int calc;
+
+	if (data->side == 0) // Vertical wall hit (X-aligned)
+	{
+		if (data->step_x == -1)
+			calc = 1;
+		else
+			calc = 0;
+		data->ray_x = data->map_x + calc;
+		data->ray_y = data->y_ppos + data->ray_len[i] * data->ray_dir_y;
+	}
+	else // Horizontal wall hit (Y-aligned)
+	{ 
+		if (data->step_y == -1)
+			calc = 1;
+		else
+			calc = 0;
+		data->ray_x = data->x_ppos + data->ray_len[i] * data->ray_dir_x;
+		data->ray_y = data->map_y + calc;
+	}
+	//printf("lets check these coords ray_x = %f and ray_y = %f\n", data->ray_x, data->ray_y);
+	//printf("lets check these coords side_dist_x = %f and side_dist_y = %f\n", data->side_dist_x, data->side_dist_y);
+		//printf("lets check these coords delta_dist_x = %f and delta_dist_y = %f\n", delta_dist_x, delta_dist_y);
+	// the directions have been precalculated like below
+	//data->ray_dir_x = cos(ray_angle);
+	//data->ray_dir_y = sin(ray_angle);
+	//printf("ray_dir_x = %f and ray_dir_y = %f\n", data->ray_dir_x, data->ray_dir_y);
+}
+
 /** Collect and draw a ray based on math~~angles, pie and radians
  * to calculate and draw each ray , collecting usable data for each ray, 
  * we increment per ray and rays angle. Collect_rays last argumentg is 0.0 
@@ -107,4 +138,5 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 	data->ray_len[i] = data->perp_wall_dist * cos(ray_angle - ray_distance);
 	data->ray_hit[i] = find_direction(data->side, data->ray_dir_x, \
 		data->ray_dir_y);
+	calculate_hit_coords(data, i);
 }
