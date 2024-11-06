@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 14:43:15 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/06 15:13:06 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,15 +75,10 @@ static int8_t	check_rgb_range(t_data *data)
 static int8_t	break_commas(t_data *data, char *rgb_str, int flag)
 {
 	static char	**array;
-
+	
 	array = ft_split(rgb_str, ',');
 	if (!array)
 		return (FAILURE);
-	if (array[3])
-	{
-		free_array(array);
-		return (err_msg(NULL, RGB7, FAILURE));
-	}
 	if (rgb_assignment(data, array, flag) == FAILURE)
 	{
 		free_array(array);
@@ -95,7 +90,21 @@ static int8_t	break_commas(t_data *data, char *rgb_str, int flag)
 	return (SUCCESS);
 }
 
-/* This function is here just to save lines from rgb_parse */
+/** In `separate_rgb()` the whole set of RGB colours. However, it
+ * is possible that the user will input extra values merely separated
+ * by commas.
+ * 
+ * @param data is our struct containing all information;
+ * 
+ * @param str is our RGB set in string form;
+ * 
+ * @param flag is a binary value that informs if the function will store
+ * the RGB values in ceiling or floor variables of the struct;
+ * 
+ * @return `separate_rgb() returns SUCCESS if all the RGB set has
+ * been correctly informed. If the user fails to inform it correclty
+ * it returns FAILURE.
+*/
 static int8_t	separate_rgb(t_data *data, char *str, int flag)
 {
 	char	*rgb;
@@ -103,6 +112,11 @@ static int8_t	separate_rgb(t_data *data, char *str, int flag)
 	rgb = ft_strdup(str);
 	if (!rgb)
 		return (FAILURE);
+	if (extra_info(rgb) == FAILURE)
+	{
+		free(rgb);
+		return (FAILURE);
+	}
 	if (break_commas(data, rgb, flag) == FAILURE)
 	{
 		free(rgb);
@@ -122,8 +136,13 @@ static int8_t	separate_rgb(t_data *data, char *str, int flag)
  * 
  * @param data Our data struct which stores most of the metadata from
  * the document;
+ * 
  * @param str At this point, rgb_parse() already has the string that
- * matches the regular expression expected from the user;
+ * matches the regular expression expected from the user. The string
+ * expected from the user consists of `C`/`F` and three sets of positive
+ * integers. Therefore, when we split the string in the beginning our
+ * first element of the array will be either `C` or `F`.
+ * 
  * @param flag We use a `int flag` in this function to differentiate if 
  * we are dealing with ceiling or floor, this way we can use the same
  * function for both and not build extra functions later to deal with 
@@ -136,14 +155,12 @@ static int8_t	separate_rgb(t_data *data, char *str, int flag)
  */
 int8_t	rgb_parse(t_data *data, char *str, int flag)
 {
-	static char	**info;
-	int			index;
+	char	**info;
+	int		index;
 
 	info = ft_split(str, ' ');
 	if (!info)
 		return (err_msg(NULL, MALLOC, FAILURE));
-	if (extra_rgb(info, flag) == FAILURE)
-		return (FAILURE);
 	index = 0;
 	while (info[index])
 	{

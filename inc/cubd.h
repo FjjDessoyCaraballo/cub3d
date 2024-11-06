@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/06 11:08:55 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/06 15:26:47 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@
 # define RGB4 "Error\nRGB (ceiling) extra information present in file\n"
 # define RGB5 "Error\nRGB extra information present in file\n"
 # define RGB6 "Error\nRGB values: value must be between 0-255\n"
+# define RGB8 "Error\nFor Gods sake, please stop trying to break this\n"
 # define RGB7 "Error\nRGB values: for God sake, use F or C to define RGB\n"
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
 # define BRK_MAP "Error\nMap is broken ):\n"
@@ -59,6 +60,11 @@
 # define MLX2 "Error\nMLX couldn't load images\n"
 # define MLX3 "Error\nMLX couldn't load RGB scheme\n"
 # define MLX4 "Error\nMLX couldn't draw ceiling and floor\n"
+# define TEXTURE_FAIL "texture invalid or simply missing\n"
+# define IMAGE_FAIL "image invalid\n"
+# define IMG_TO_WIN "image could not put to window, check image not corrupt\n"
+# define NEW_IMG "MLX new image allocation failure, clean chache?\n"
+# define RESIZE "MLX failed to resize image\n"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -78,14 +84,6 @@
 # define USAGE10 "finish the game (:\n\n"
 # define USAGE11 "By: fdessoy- && araveala\n"
 
-/*************************************************/
-/* fail mssgs   **********************************/
-/*************************************************/
-# define TEXTURE_FAIL "texture invalid or simply missing\n"
-# define IMAGE_FAIL "image invalid\n"
-# define IMG_TO_WIN "image could not put to window, check image not corrupt\n"
-# define NEW_IMG "MLX new image allocation failure, clean chache?\n"
-# define RESIZE "MLX failed to resize image\n"
 /*************************************************/
 /*mlx macros / graphics macros********************/
 /*************************************************/
@@ -194,6 +192,8 @@ typedef struct s_data
 	double			y_ppos;
 	double			x_ppos;
 	char			**mp_cpy;
+	int				repeat_floor;
+	int				repeat_ceiling;
 	int				repeat_test;
 	mlx_texture_t	*tx_n_wall;
 	mlx_texture_t	*tx_s_wall;
@@ -250,8 +250,10 @@ int8_t		check_original_length(t_data *data);
 uint8_t		get_width(char **map);
 
 /* in parsing_utils4.c */
-int8_t		extra_rgb(char **rgb, int flag);
 void		remove_nl(char *str);
+int8_t		repeated_rgb(char **file);
+int8_t		repeated_inline(char **file);
+int8_t		extra_info(char *rgb);
 
 /* in flood_fill.c */
 int8_t		check_if_walled(t_data *data);

@@ -6,27 +6,26 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/06 11:05:42 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/06 15:11:20 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
-// these functions belong to parse2.c
 static int8_t	floor_information(t_data *data)
 {
 	int		index;
 	char	*floor;
 
 	index = 0;
-	data->repeat_test = 0;
+	// data->repeat_test = 0;
 	while (data->file[index])
 	{
 		if (!ft_strncmp(&data->file[index][0], "F", 1))
 		{
-			data->repeat_test++;
-			if (data->repeat_test > 1)
-				return (err_msg(NULL, RGB3, FAILURE));
+			// data->repeat_test++;
+			// if (data->repeat_test > 1)
+			// 	return (err_msg(NULL, RGB3, FAILURE));
 			floor = ft_strdup(data->file[index]);
 			if (!floor)
 				return (err_msg(NULL, MALLOC, FAILURE));

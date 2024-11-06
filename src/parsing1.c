@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 14:40:06 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/06 15:12:26 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,9 @@ static int8_t	open_file(t_data *data, char *fname)
  * contain `.cub` suffix. We extract the file data and copy it to
  * our struct for later parsing.
  * 
- * @param data is a pointer to our struct carrying information/data
- * @param fname is the first parameter given by the user
+ * @param data is a pointer to our struct carrying information/data;
+ * 
+ * @param fname is the first parameter given by the user;
  * 
  * @return map_handling() only returns `SUCCESS` or `FAILURE` upon
  * execution.
@@ -99,10 +100,10 @@ int8_t	map_handling(t_data *data, char *fname)
 {
 	if (check_name(fname) == FAILURE
 		|| open_file(data, fname) == FAILURE)
-	{
-		free(data);
-		exit(err_msg(NULL, NAME, FAILURE));
-	}
+		return (err_msg(NULL, NAME, FAILURE));
+	if (repeated_rgb(data->file) == FAILURE
+		|| repeated_inline(data->file) == FAILURE)
+		return (FAILURE);
 	if (extract(data) == FAILURE)
 		return (FAILURE);
 	if (copy_map(data) == FAILURE)
