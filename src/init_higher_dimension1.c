@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/06 17:31:00 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:42:26 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 double calculate_img_x(t_data *data, int i)
 {
 	(void)i;
+	//double test ;
 	double texture_pos;
 	if (data->side == 0) // Vertical wall hit
 	{
@@ -134,6 +135,7 @@ int	draw_wall(t_data *data, int i)
 	double	wall_h;
 	double	img_x;
 	double	top_of_wall;
+
 	if (check_for_wall_failure(data, i) == FAILURE)
 		return (FAILURE);
 	initialize_wall_params(data, i, &wall_h, &img_x);

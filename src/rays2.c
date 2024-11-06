@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 12:11:16 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/06 17:28:58 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:41:42 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	stack_ray_data(t_data *data, int i)
 	double	tan_fov;
 
 	tan_fov = (tan(FOV / 2 * PI / 180));
-	data->wall_scale = ((WIDTH / 2) / tan_fov) * 0.3;
+	data->wall_scale = ((WIDTH / 2) / tan_fov) * 0.03;
 	current_angle = 0;
 	ray_angle = 0;
 	player_angle = atan2(data->p_dir_y, data->p_dir_x);
