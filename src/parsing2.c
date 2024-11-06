@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 15:59:36 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/06 11:05:42 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,8 +150,8 @@ int8_t	extract(t_data *data)
 	if (player_exists(data, data->map) == FAILURE)
 		return (FAILURE);
 	data->radius = (20 / (double)T_SIZE);
-	data->exact_x = data->x_ppos * T_SIZE / 2;
-	data->exact_y = data->y_ppos * T_SIZE / 2;
+	data->x_ppos += 0.5;
+	data->y_ppos += 0.5;
 	data->angle_increment = ((FOV / RAY_MAX) * DEG2RAD);
 	return (SUCCESS);
 }
