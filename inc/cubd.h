@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/06 15:26:47 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/06 18:23:39 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@
 # define RGB4 "Error\nRGB (ceiling) extra information present in file\n"
 # define RGB5 "Error\nRGB extra information present in file\n"
 # define RGB6 "Error\nRGB values: value must be between 0-255\n"
-# define RGB8 "Error\nFor Gods sake, please stop trying to break this\n"
 # define RGB7 "Error\nRGB values: for God sake, use F or C to define RGB\n"
+# define RGB8 "Error\nFor Gods sake, please stop trying to break this\n"
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
 # define BRK_MAP "Error\nMap is broken ):\n"
 # define CLOSE "Error\nMap is not walled correctly ):<\n"
@@ -233,8 +233,9 @@ int8_t		extract(t_data *data);
 /* in parsing3.c */
 int8_t		search_sprites(t_data *data);
 
-/* in parsing_utils.c */
+/* in parsing_utils1.c */
 char		*sprite_path(char *str);
+int8_t		separate_rgb(t_data *data, char *str, int flag);
 int8_t		rgb_parse(t_data *data, char *str, int flag);
 
 /* in parsing_utils2.c */
@@ -254,6 +255,9 @@ void		remove_nl(char *str);
 int8_t		repeated_rgb(char **file);
 int8_t		repeated_inline(char **file);
 int8_t		extra_info(char *rgb);
+
+/* in parsing_utils5.c */
+int8_t		rgb_parse2(t_data *data, char **info, int flag);
 
 /* in flood_fill.c */
 int8_t		check_if_walled(t_data *data);

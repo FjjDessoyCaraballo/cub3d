@@ -22,6 +22,7 @@ SRC_FILES = main.c\
 			parsing_utils2.c\
 			parsing_utils3.c\
 			parsing_utils4.c\
+			parsing_utils5.c\
 			flood_fill.c\
 			usage.c\
 			error.c\
@@ -45,6 +46,7 @@ BONUS = 	main_bonus.c\
 			parsing_utils2.c\
 			parsing_utils3.c\
 			parsing_utils4.c\
+			parsing_utils5.c\
 			flood_fill.c\
 			usage.c\
 			error.c\

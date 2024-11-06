@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/06 15:13:06 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/06 18:32:52 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ static int8_t	break_commas(t_data *data, char *rgb_str, int flag)
  * been correctly informed. If the user fails to inform it correclty
  * it returns FAILURE.
 */
-static int8_t	separate_rgb(t_data *data, char *str, int flag)
+int8_t	separate_rgb(t_data *data, char *str, int flag)
 {
 	char	*rgb;
 
@@ -156,23 +156,16 @@ static int8_t	separate_rgb(t_data *data, char *str, int flag)
 int8_t	rgb_parse(t_data *data, char *str, int flag)
 {
 	char	**info;
-	int		index;
 
-	info = ft_split(str, ' ');
+	info = NULL;
+	if (ft_strchr(str, ' '))
+		info = ft_split(str, ' ');
 	if (!info)
-		return (err_msg(NULL, MALLOC, FAILURE));
-	index = 0;
-	while (info[index])
+		return (err_msg(NULL, RGB8, FAILURE));
+	if (rgb_parse2(data, info, flag))
 	{
-		if (!ft_strncmp(info[index], "C", 1)
-			|| !ft_strncmp(info[index], "F", 1))
-			index++;
-		if (separate_rgb(data, info[index], flag) == FAILURE)
-		{
-			free_array(info);
-			return (FAILURE);
-		}
-		index++;
+		free_array(info);
+		return (FAILURE);
 	}
 	free_array(info);
 	return (SUCCESS);

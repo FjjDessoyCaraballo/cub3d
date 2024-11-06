@@ -1,0 +1,1020 @@
+Running test for error_maps/extra_RGB1.cub...
+###########################################################################
+Error
+RGB (ceiling) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/extra_RGB2.cub...
+###########################################################################
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/extra_RGB3.cub...
+###########################################################################
+Error
+RGB extra information present in file
+Error
+RGB extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/extra_RGB4.cub...
+###########################################################################
+Error
+RGB extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/extra_RGB5.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==224953==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x5e35ac6498fb bp 0x7ffefb560d10 sp 0x7ffefb560cf0 T0)
+==224953==The signal is caused by a READ memory access.
+==224953==Hint: address points to the zero page.
+    #0 0x5e35ac6498fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x5e35ac643c2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x5e35ac643c2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x5e35ac642842 in floor_information src/parsing2.c:32
+    #4 0x5e35ac642842 in extract src/parsing2.c:134
+    #5 0x5e35ac6424aa in map_handling src/parsing1.c:107
+    #6 0x5e35ac641ad8 in main src/main.c:33
+    #7 0x7b8947c2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7b8947c2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x5e35ac641fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==224953==ABORTING
+
+
+Running test for error_maps/extra_RGB6.cub...
+###########################################################################
+Error
+RGB extra information present in file
+Error
+RGB extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/extra_RGB7.cub...
+###########################################################################
+Error
+RGB extra information present in file
+Error
+RGB extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/extra_sprite1.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==224982==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x60f9020bc8fb bp 0x7fff5340fae0 sp 0x7fff5340fac0 T0)
+==224982==The signal is caused by a READ memory access.
+==224982==Hint: address points to the zero page.
+    #0 0x60f9020bc8fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x60f9020b6c2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x60f9020b6c2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x60f9020b5842 in floor_information src/parsing2.c:32
+    #4 0x60f9020b5842 in extract src/parsing2.c:134
+    #5 0x60f9020b54aa in map_handling src/parsing1.c:107
+    #6 0x60f9020b4ad8 in main src/main.c:33
+    #7 0x70139de2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x70139de2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x60f9020b4fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==224982==ABORTING
+
+
+Running test for error_maps/extra_sprite2.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==224991==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x62ad662d98fb bp 0x7ffeb640a690 sp 0x7ffeb640a670 T0)
+==224991==The signal is caused by a READ memory access.
+==224991==Hint: address points to the zero page.
+    #0 0x62ad662d98fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x62ad662d3c2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x62ad662d3c2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x62ad662d2842 in floor_information src/parsing2.c:32
+    #4 0x62ad662d2842 in extract src/parsing2.c:134
+    #5 0x62ad662d24aa in map_handling src/parsing1.c:107
+    #6 0x62ad662d1ad8 in main src/main.c:33
+    #7 0x70136ea2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x70136ea2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x62ad662d1fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==224991==ABORTING
+
+
+Running test for error_maps/extra_sprite3.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225000==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x5df1814b08fb bp 0x7fff0a122080 sp 0x7fff0a122060 T0)
+==225000==The signal is caused by a READ memory access.
+==225000==Hint: address points to the zero page.
+    #0 0x5df1814b08fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x5df1814aac2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x5df1814aac2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x5df1814a9842 in floor_information src/parsing2.c:32
+    #4 0x5df1814a9842 in extract src/parsing2.c:134
+    #5 0x5df1814a94aa in map_handling src/parsing1.c:107
+    #6 0x5df1814a8ad8 in main src/main.c:33
+    #7 0x7358eb62a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7358eb62a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x5df1814a8fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225000==ABORTING
+
+
+Running test for error_maps/extra_sprite4.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225009==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x55e4e15168fb bp 0x7ffd2cdb7c10 sp 0x7ffd2cdb7bf0 T0)
+==225009==The signal is caused by a READ memory access.
+==225009==Hint: address points to the zero page.
+    #0 0x55e4e15168fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x55e4e1510c2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x55e4e1510c2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x55e4e150f842 in floor_information src/parsing2.c:32
+    #4 0x55e4e150f842 in extract src/parsing2.c:134
+    #5 0x55e4e150f4aa in map_handling src/parsing1.c:107
+    #6 0x55e4e150ead8 in main src/main.c:33
+    #7 0x734f2102a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x734f2102a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x55e4e150efe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225009==ABORTING
+
+
+Running test for error_maps/wrongmap1.cub...
+###########################################################################
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrongmap2.cub...
+###########################################################################
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrongmap3.cub...
+###########################################################################
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrongmap4.cub...
+###########################################################################
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrongmap5.cub...
+###########################################################################
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/missing_RGB1.cub...
+###########################################################################
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/missing_RGB2.cub...
+###########################################################################
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/missing_RGB3.cub...
+###########################################################################
+Error
+RGB (ceiling) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_RGB1.cub...
+###########################################################################
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_RGB2.cub...
+###########################################################################
+Error
+RGB (ceiling) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_RGB3.cub...
+###########################################################################
+Error
+RGB (ceiling) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_RGB4.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225128==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x58969f19caf4 bp 0x7ffcb128c600 sp 0x7ffcb128c600 T0)
+==225128==The signal is caused by a READ memory access.
+==225128==Hint: address points to the zero page.
+    #0 0x58969f19caf4 in ft_atoi libft/ft_atoi.c:20
+    #1 0x58969f197140 in rgb_assignment src/parsing_utils2.c:44
+    #2 0x58969f196c73 in break_commas src/parsing_utils1.c:82
+    #3 0x58969f196c73 in separate_rgb src/parsing_utils1.c:120
+    #4 0x58969f196c73 in rgb_parse src/parsing_utils1.c:172
+    #5 0x58969f195842 in floor_information src/parsing2.c:32
+    #6 0x58969f195842 in extract src/parsing2.c:134
+    #7 0x58969f1954aa in map_handling src/parsing1.c:107
+    #8 0x58969f194ad8 in main src/main.c:33
+    #9 0x72c52fa2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #10 0x72c52fa2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #11 0x58969f194fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_atoi.c:20 in ft_atoi
+==225128==ABORTING
+
+
+Running test for error_maps/wrong_RGB5.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225137==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x55ba15fab8fb bp 0x7ffc04708840 sp 0x7ffc04708820 T0)
+==225137==The signal is caused by a READ memory access.
+==225137==Hint: address points to the zero page.
+    #0 0x55ba15fab8fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x55ba15fa5c2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x55ba15fa5c2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x55ba15fa4842 in floor_information src/parsing2.c:32
+    #4 0x55ba15fa4842 in extract src/parsing2.c:134
+    #5 0x55ba15fa44aa in map_handling src/parsing1.c:107
+    #6 0x55ba15fa3ad8 in main src/main.c:33
+    #7 0x798f42a2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x798f42a2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x55ba15fa3fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225137==ABORTING
+
+
+Running test for error_maps/wrong_RGB6.cub...
+###########################################################################
+Error
+For Gods sake, please stop trying to break this
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_RGB7.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225156==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x63a8377828fb bp 0x7fff8b350810 sp 0x7fff8b3507f0 T0)
+==225156==The signal is caused by a READ memory access.
+==225156==Hint: address points to the zero page.
+    #0 0x63a8377828fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x63a83777cc2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x63a83777cc2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x63a83777b842 in floor_information src/parsing2.c:32
+    #4 0x63a83777b842 in extract src/parsing2.c:134
+    #5 0x63a83777b4aa in map_handling src/parsing1.c:107
+    #6 0x63a83777aad8 in main src/main.c:33
+    #7 0x75789ac2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x75789ac2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x63a83777afe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225156==ABORTING
+
+
+Running test for error_maps/extra_player1.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225165==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x605bd08d28fb bp 0x7ffc8a155b30 sp 0x7ffc8a155b10 T0)
+==225165==The signal is caused by a READ memory access.
+==225165==Hint: address points to the zero page.
+    #0 0x605bd08d28fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x605bd08ccc2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x605bd08ccc2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x605bd08cb842 in floor_information src/parsing2.c:32
+    #4 0x605bd08cb842 in extract src/parsing2.c:134
+    #5 0x605bd08cb4aa in map_handling src/parsing1.c:107
+    #6 0x605bd08caad8 in main src/main.c:33
+    #7 0x7f592ba2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7f592ba2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x605bd08cafe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225165==ABORTING
+
+
+Running test for error_maps/extra_player2.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225174==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x58b29d9d88fb bp 0x7ffd4d07ac80 sp 0x7ffd4d07ac60 T0)
+==225174==The signal is caused by a READ memory access.
+==225174==Hint: address points to the zero page.
+    #0 0x58b29d9d88fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x58b29d9d2c2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x58b29d9d2c2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x58b29d9d1842 in floor_information src/parsing2.c:32
+    #4 0x58b29d9d1842 in extract src/parsing2.c:134
+    #5 0x58b29d9d14aa in map_handling src/parsing1.c:107
+    #6 0x58b29d9d0ad8 in main src/main.c:33
+    #7 0x71324fc2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x71324fc2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x58b29d9d0fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225174==ABORTING
+
+
+Running test for error_maps/extra_player3.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225183==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x62f2b29668fb bp 0x7ffc75ebe790 sp 0x7ffc75ebe770 T0)
+==225183==The signal is caused by a READ memory access.
+==225183==Hint: address points to the zero page.
+    #0 0x62f2b29668fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x62f2b2960c2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x62f2b2960c2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x62f2b295f842 in floor_information src/parsing2.c:32
+    #4 0x62f2b295f842 in extract src/parsing2.c:134
+    #5 0x62f2b295f4aa in map_handling src/parsing1.c:107
+    #6 0x62f2b295ead8 in main src/main.c:33
+    #7 0x797a4da2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x797a4da2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x62f2b295efe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225183==ABORTING
+
+
+Running test for error_maps/extra_player4.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225192==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x5ea3178c78fb bp 0x7ffdc67dacb0 sp 0x7ffdc67dac90 T0)
+==225192==The signal is caused by a READ memory access.
+==225192==Hint: address points to the zero page.
+    #0 0x5ea3178c78fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x5ea3178c1c2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x5ea3178c1c2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x5ea3178c0842 in floor_information src/parsing2.c:32
+    #4 0x5ea3178c0842 in extract src/parsing2.c:134
+    #5 0x5ea3178c04aa in map_handling src/parsing1.c:107
+    #6 0x5ea3178bfad8 in main src/main.c:33
+    #7 0x7e5e0b62a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7e5e0b62a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x5ea3178bffe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225192==ABORTING
+
+
+Running test for error_maps/extra_player5.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225201==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x59274bc808fb bp 0x7ffe2e7e7eb0 sp 0x7ffe2e7e7e90 T0)
+==225201==The signal is caused by a READ memory access.
+==225201==Hint: address points to the zero page.
+    #0 0x59274bc808fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x59274bc7ac2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x59274bc7ac2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x59274bc79842 in floor_information src/parsing2.c:32
+    #4 0x59274bc79842 in extract src/parsing2.c:134
+    #5 0x59274bc794aa in map_handling src/parsing1.c:107
+    #6 0x59274bc78ad8 in main src/main.c:33
+    #7 0x75abc582a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x75abc582a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x59274bc78fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225201==ABORTING
+
+
+Running test for error_maps/extra_player6.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225210==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x580c9d19a8fb bp 0x7fff16c93570 sp 0x7fff16c93550 T0)
+==225210==The signal is caused by a READ memory access.
+==225210==Hint: address points to the zero page.
+    #0 0x580c9d19a8fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x580c9d194c2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x580c9d194c2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x580c9d193842 in floor_information src/parsing2.c:32
+    #4 0x580c9d193842 in extract src/parsing2.c:134
+    #5 0x580c9d1934aa in map_handling src/parsing1.c:107
+    #6 0x580c9d192ad8 in main src/main.c:33
+    #7 0x7fcf9a22a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7fcf9a22a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x580c9d192fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225210==ABORTING
+
+
+Running test for error_maps/extra_player7.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225231==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x5f56e982d8fb bp 0x7fff711c7f10 sp 0x7fff711c7ef0 T0)
+==225231==The signal is caused by a READ memory access.
+==225231==Hint: address points to the zero page.
+    #0 0x5f56e982d8fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x5f56e9827c2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x5f56e9827c2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x5f56e9826842 in floor_information src/parsing2.c:32
+    #4 0x5f56e9826842 in extract src/parsing2.c:134
+    #5 0x5f56e98264aa in map_handling src/parsing1.c:107
+    #6 0x5f56e9825ad8 in main src/main.c:33
+    #7 0x7462e182a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7462e182a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x5f56e9825fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225231==ABORTING
+
+
+Running test for error_maps/extra_player8.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225240==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x5924a2aa18fb bp 0x7ffe51b2a360 sp 0x7ffe51b2a340 T0)
+==225240==The signal is caused by a READ memory access.
+==225240==Hint: address points to the zero page.
+    #0 0x5924a2aa18fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x5924a2a9bc2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x5924a2a9bc2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x5924a2a9a842 in floor_information src/parsing2.c:32
+    #4 0x5924a2a9a842 in extract src/parsing2.c:134
+    #5 0x5924a2a9a4aa in map_handling src/parsing1.c:107
+    #6 0x5924a2a99ad8 in main src/main.c:33
+    #7 0x700d12e2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x700d12e2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x5924a2a99fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225240==ABORTING
+
+
+Running test for error_maps/not_walled1.cub...
+###########################################################################
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/not_walled2.cub...
+###########################################################################
+Error
+RGB (floor) extra information present in file
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/not_walled3.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225269==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x5e3b8efc18fb bp 0x7ffe27379a00 sp 0x7ffe273799e0 T0)
+==225269==The signal is caused by a READ memory access.
+==225269==Hint: address points to the zero page.
+    #0 0x5e3b8efc18fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x5e3b8efbbc2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x5e3b8efbbc2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x5e3b8efba842 in floor_information src/parsing2.c:32
+    #4 0x5e3b8efba842 in extract src/parsing2.c:134
+    #5 0x5e3b8efba4aa in map_handling src/parsing1.c:107
+    #6 0x5e3b8efb9ad8 in main src/main.c:33
+    #7 0x785c4702a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x785c4702a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x5e3b8efb9fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225269==ABORTING
+
+
+Running test for error_maps/not_walled4.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225278==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x6192f37008fb bp 0x7ffc5a8764d0 sp 0x7ffc5a8764b0 T0)
+==225278==The signal is caused by a READ memory access.
+==225278==Hint: address points to the zero page.
+    #0 0x6192f37008fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x6192f36fac2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x6192f36fac2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x6192f36f9842 in floor_information src/parsing2.c:32
+    #4 0x6192f36f9842 in extract src/parsing2.c:134
+    #5 0x6192f36f94aa in map_handling src/parsing1.c:107
+    #6 0x6192f36f8ad8 in main src/main.c:33
+    #7 0x7112a382a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7112a382a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x6192f36f8fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225278==ABORTING
+
+
+Running test for error_maps/not_walled5.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225287==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x568b5644f8fb bp 0x7ffccedba6b0 sp 0x7ffccedba690 T0)
+==225287==The signal is caused by a READ memory access.
+==225287==Hint: address points to the zero page.
+    #0 0x568b5644f8fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x568b56449c2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x568b56449c2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x568b56448842 in floor_information src/parsing2.c:32
+    #4 0x568b56448842 in extract src/parsing2.c:134
+    #5 0x568b564484aa in map_handling src/parsing1.c:107
+    #6 0x568b56447ad8 in main src/main.c:33
+    #7 0x7638ffa2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7638ffa2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x568b56447fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225287==ABORTING
+
+
+Running test for error_maps/island1.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225296==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x57e02dc408fb bp 0x7fff6d45a930 sp 0x7fff6d45a910 T0)
+==225296==The signal is caused by a READ memory access.
+==225296==Hint: address points to the zero page.
+    #0 0x57e02dc408fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x57e02dc3ac2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x57e02dc3ac2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x57e02dc39842 in floor_information src/parsing2.c:32
+    #4 0x57e02dc39842 in extract src/parsing2.c:134
+    #5 0x57e02dc394aa in map_handling src/parsing1.c:107
+    #6 0x57e02dc38ad8 in main src/main.c:33
+    #7 0x743418e2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x743418e2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x57e02dc38fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225296==ABORTING
+
+
+Running test for error_maps/island2.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225305==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x64ce8a1c38fb bp 0x7ffe6187d0a0 sp 0x7ffe6187d080 T0)
+==225305==The signal is caused by a READ memory access.
+==225305==Hint: address points to the zero page.
+    #0 0x64ce8a1c38fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x64ce8a1bdc2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x64ce8a1bdc2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x64ce8a1bc842 in floor_information src/parsing2.c:32
+    #4 0x64ce8a1bc842 in extract src/parsing2.c:134
+    #5 0x64ce8a1bc4aa in map_handling src/parsing1.c:107
+    #6 0x64ce8a1bbad8 in main src/main.c:33
+    #7 0x709c22a2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x709c22a2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x64ce8a1bbfe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225305==ABORTING
+
+
+Running test for error_maps/wrong_name.cbu...
+###########################################################################
+Error
+Map name is invalid
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/file.cbuwrong...
+###########################################################################
+Error
+Map name is invalid
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/dir_test.cub...
+###########################################################################
+Error
+Map name is invalid
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+1. map must have the suffix '.cub';
+2. In clt just execute the program and map;
+3. Map must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/gap1.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225344==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x60ed17c868fb bp 0x7fff52f89b90 sp 0x7fff52f89b70 T0)
+==225344==The signal is caused by a READ memory access.
+==225344==Hint: address points to the zero page.
+    #0 0x60ed17c868fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x60ed17c80c2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x60ed17c80c2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x60ed17c7f842 in floor_information src/parsing2.c:32
+    #4 0x60ed17c7f842 in extract src/parsing2.c:134
+    #5 0x60ed17c7f4aa in map_handling src/parsing1.c:107
+    #6 0x60ed17c7ead8 in main src/main.c:33
+    #7 0x79d9a9c2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x79d9a9c2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x60ed17c7efe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225344==ABORTING
+
+
+Running test for error_maps/wrong_sprite1.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225353==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x636e822c58fb bp 0x7ffffceca7e0 sp 0x7ffffceca7c0 T0)
+==225353==The signal is caused by a READ memory access.
+==225353==Hint: address points to the zero page.
+    #0 0x636e822c58fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x636e822bfc2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x636e822bfc2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x636e822be842 in floor_information src/parsing2.c:32
+    #4 0x636e822be842 in extract src/parsing2.c:134
+    #5 0x636e822be4aa in map_handling src/parsing1.c:107
+    #6 0x636e822bdad8 in main src/main.c:33
+    #7 0x72e19702a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x72e19702a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x636e822bdfe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225353==ABORTING
+
+
+Running test for error_maps/wrong_sprite2.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225362==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x64b1d48698fb bp 0x7fff58c506f0 sp 0x7fff58c506d0 T0)
+==225362==The signal is caused by a READ memory access.
+==225362==Hint: address points to the zero page.
+    #0 0x64b1d48698fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x64b1d4863c2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x64b1d4863c2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x64b1d4862842 in floor_information src/parsing2.c:32
+    #4 0x64b1d4862842 in extract src/parsing2.c:134
+    #5 0x64b1d48624aa in map_handling src/parsing1.c:107
+    #6 0x64b1d4861ad8 in main src/main.c:33
+    #7 0x7075ef82a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7075ef82a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x64b1d4861fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225362==ABORTING
+
+
+Running test for error_maps/wrong_sprite3.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225371==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x5e97e76018fb bp 0x7fff408e85b0 sp 0x7fff408e8590 T0)
+==225371==The signal is caused by a READ memory access.
+==225371==Hint: address points to the zero page.
+    #0 0x5e97e76018fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x5e97e75fbc2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x5e97e75fbc2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x5e97e75fa842 in floor_information src/parsing2.c:32
+    #4 0x5e97e75fa842 in extract src/parsing2.c:134
+    #5 0x5e97e75fa4aa in map_handling src/parsing1.c:107
+    #6 0x5e97e75f9ad8 in main src/main.c:33
+    #7 0x77b34a22a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x77b34a22a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x5e97e75f9fe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225371==ABORTING
+
+
+Running test for error_maps/wrong_sprite4.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225380==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x6263f32078fb bp 0x7ffc4ec88db0 sp 0x7ffc4ec88d90 T0)
+==225380==The signal is caused by a READ memory access.
+==225380==Hint: address points to the zero page.
+    #0 0x6263f32078fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x6263f3201c2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x6263f3201c2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x6263f3200842 in floor_information src/parsing2.c:32
+    #4 0x6263f3200842 in extract src/parsing2.c:134
+    #5 0x6263f32004aa in map_handling src/parsing1.c:107
+    #6 0x6263f31ffad8 in main src/main.c:33
+    #7 0x7a09be22a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7a09be22a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x6263f31fffe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225380==ABORTING
+
+
+Running test for error_maps/wrong_sprite5.cub...
+###########################################################################
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==225389==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x64f9b67238fb bp 0x7fffea428790 sp 0x7fffea428770 T0)
+==225389==The signal is caused by a READ memory access.
+==225389==Hint: address points to the zero page.
+    #0 0x64f9b67238fb in ft_strdup libft/ft_strdup.c:24
+    #1 0x64f9b671dc2c in separate_rgb src/parsing_utils1.c:112
+    #2 0x64f9b671dc2c in rgb_parse src/parsing_utils1.c:172
+    #3 0x64f9b671c842 in floor_information src/parsing2.c:32
+    #4 0x64f9b671c842 in extract src/parsing2.c:134
+    #5 0x64f9b671c4aa in map_handling src/parsing1.c:107
+    #6 0x64f9b671bad8 in main src/main.c:33
+    #7 0x7511d382a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #8 0x7511d382a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #9 0x64f9b671bfe4 in _start (/home/fdessoy/projects/cub3d/cub3D+0x3fe4) (BuildId: 5219571a93bad077853f21ddfc15b3b889142ffa)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV libft/ft_strdup.c:24 in ft_strdup
+==225389==ABORTING
+
+
