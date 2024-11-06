@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/06 11:08:55 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/06 18:54:39 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,15 @@ void draw_mini_tile(t_data *data, int x, int y, uint32_t colour)
 	}
 }
 
-int	init_map(t_data *data, int x, int y, uint32_t colour)
+int init_map(t_data *data, int x, int y, uint32_t colour)
 {
 	colour = 0;
 	x = 0;
 	y = 0;
 	while (y < data->map_length)
 	{
-		while (x < data->map_width)
+		int row_width = ft_strlen(data->map[y]);
+		while (x < row_width)
 		{
 			if (data->map[y][x] == '1')
 			{
