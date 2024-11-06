@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 16:03:21 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:19:42 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,10 @@
 /*************************************************/
 /* structs ***************************************/
 /*************************************************/
+//bonuses
+# define RED 0xFF0000FF
+# define M_RADIUS (MINI_T / 4)
+# define M_RADIUS_M (M_RADIUS * M_RADIUS)
 /*1.map_width and map_length maps width and height*/
 /*2. p_x and p_y player position p_dir_x and p_dir_y players sight direction*/
 /*3. doubles are better than floats, more percise*/
@@ -210,7 +214,10 @@ typedef struct s_data
 	mlx_image_t		*im_mini_floor;
 	mlx_image_t		*im_mini_wall;
 	mlx_image_t		*im_mini_player;
-	mlx_image_t		*im_map_player;
+	mlx_image_t		*im_mini_ray;
+	mlx_image_t		*im_map_player; //effectivly miniplayer
+	
+
 }		t_data;
 
 /*************************************************/
@@ -299,8 +306,6 @@ int			outof_bounds_check(t_data *data, double rpos_pixel_y, \
 						double rpos_pixel_x);
 void		stack_ray_data(t_data *data, int i);
 
-void		rotate_left(t_data *data);
-void		rotate_right(t_data *data);
 
 /* init_higher_dimension1.c */
 void		initialize_wall_params(t_data *data, int i, double *w_h, \
@@ -316,17 +321,21 @@ int			check_for_wall_failure(t_data *data, int i);
 
 /* bonus */
 int			initlize_minimap(t_data *data);
-void		draw_mini_player(t_data *data);
+// void		draw_mini_player(t_data *data);
 void		draw_player(t_data *data);
 void		draw_first_line(t_data *data);
 
 /* minimap.c */
+//int		init_map(t_data *data);
+int	init_map(t_data *data, int x, int y, uint32_t colour);
+void	draw_mini_line(t_data *data, int new_x, int new_y);
 
 /* mimimap_utils_bonus.c */
-void		adjust_mapstart(int *p_x, int *p_y);
-void		draw_first_line(t_data *data);
-void		draw_line(t_data *data, int i);
-void		draw_mini_player(t_data *data);
+void	adjust_mapstart(int *p_x, int *p_y);
+void	draw_line(t_data *data, int i);
+void	draw_mini_player(t_data *data, int y, int x);
+void	wipe_line(t_data *data, int new_x, int new_y);
+int		set_view(t_data * data);
 
 /* in free.c */
 void		free_data(t_data *data);

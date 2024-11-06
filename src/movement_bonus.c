@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movement.c                                         :+:      :+:    :+:   */
+/*   movement_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/05 15:29:51 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:38:02 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ static void	player_pos(t_data *data, double new_x, double new_y)
 {
 	data->x_ppos = new_x;
 	data->y_ppos = new_y;
+	data->im_map_player->instances[0].x = (data->x_ppos - 0.5) * MINI_T;
+	data->im_map_player->instances[0].y = (data->y_ppos - 0.5) * MINI_T;
+	data->im_mini_ray->instances[0].x = (data->x_ppos - 0.5) * MINI_T;
+	data->im_mini_ray->instances[0].y = (data->y_ppos - 0.5) * MINI_T;
+
 }
 void	strafe_player(t_data *data, double step)
 {
@@ -54,10 +59,11 @@ void	strafe_player(t_data *data, double step)
 	{	
 		if (map_char == ' ' || map_char == '\0' || map_char == '\n')
 			return ;
-		if (map_char == '0' || map_char == '1')
+		if (map_char == '0')
 			player_pos(data, new_x, new_y);
 	}
 }
+
 
 /**
  * moving player so that they dont go out of bounds, challenge is
@@ -89,7 +95,7 @@ void	move_player(t_data *data, double step)
 		map_char = data->map[(int)floor(new_y)][(int)floor(new_x)];
 		if (map_char == ' ' || map_char == '\0' || map_char == '\n')
 			return ;
-		if (map_char == '0' || map_char == '1')
+		if (map_char == '0')
 			player_pos(data, new_x, new_y);
 	}
 }
@@ -97,9 +103,10 @@ void	move_player(t_data *data, double step)
 void	rotate_player(t_data *data, double angle)
 {
 	double	prev_dir_x;
-
+	wipe_line(data, 0, 0);
 	prev_dir_x = data->p_dir_x;
 	data->p_dir_x = data->p_dir_x * cos(angle) - data->p_dir_y * sin(angle);
 	data->p_dir_y = prev_dir_x * sin(angle) + data->p_dir_y * cos(angle);
 	normalize_vector(&data->p_dir_x, &data->p_dir_y);
+	draw_mini_line(data, 0, 0);
 }
