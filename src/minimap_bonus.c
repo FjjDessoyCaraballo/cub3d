@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/05 15:53:55 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/06 11:08:55 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	init_map(t_data *data, int x, int y, uint32_t colour)
 	return (SUCCESS);
 }
 
-int	initlize_minimap(t_data *data)
+int	initialize_minimap(t_data *data)
 {
 	if (init_mini_imgs(data) == FAILURE)
 		return (err_msg(NULL, MLX1, FAILURE));

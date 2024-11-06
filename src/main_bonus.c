@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/06 11:03:50 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/06 11:09:04 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,13 @@ int	main(int argc, char **argv)
 			return (err_msg(NULL, MALLOC, -1));
 		if (map_handling(data, argv[1]) == FAILURE
 			|| open_window(data) == FAILURE
-			|| image_handling(data) == FAILURE)
+			|| image_handling(data) == FAILURE
+			|| initialize_minimap(data) == FAILURE)
 		{
 			usage();
 			free_data(data);
 			return (FAILURE);
 		}
-		if (initlize_minimap(data) == FAILURE)
-			return (FAILURE);
 		stack_ray_data(data, 0);
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
 		wrap_up(data);
