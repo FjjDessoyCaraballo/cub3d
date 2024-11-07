@@ -8,7 +8,7 @@ VPATH = src:libft:includes
 LIBMLX = ./MLX42
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -Ofast -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -Ofast #-fsanitize=address
 INCFLAGS = -I ./include -I ./MLX42/include -I /Users/include 
 
 # Main project files
@@ -87,7 +87,6 @@ all: libmlx $(NAME)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(INCFLAGS) $(LIBFT_INC) -g -c $< -o $@
-
 
 libmlx:
 	@if [ ! -d "$(LIBMLX)" ]; then git clone https://github.com/codam-coding-college/MLX42.git $(LIBMLX); fi
