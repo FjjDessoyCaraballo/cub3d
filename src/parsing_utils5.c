@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 18:01:18 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/07 10:51:26 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/07 14:14:47 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,30 +66,14 @@ static int8_t	is_file(char *fname)
 	return (FAILURE);
 }
 
-int8_t	is_png(t_data *data)
+int8_t	is_png(char *sprite)
 {
-	remove_nl(data->n_sprite);
-	remove_nl(data->w_sprite);
-	remove_nl(data->s_sprite);
-	remove_nl(data->e_sprite);
-	if (is_dir(data->n_sprite) == FAILURE
-		|| is_dir(data->e_sprite) == FAILURE
-		|| is_dir(data->w_sprite) == FAILURE
-		|| is_dir(data->s_sprite) == FAILURE)
+	if (is_dir(sprite) == FAILURE)
 		return (err_msg(NULL, SPRITE4, FAILURE));
-	if (check_suffix(ft_strrchr(data->n_sprite, '/'), \
-		".png", 4) == FAILURE
-		|| check_suffix(ft_strrchr(data->e_sprite, '/'), \
-		".png", 4) == FAILURE
-		|| check_suffix(ft_strrchr(data->s_sprite, '/'), \
-		".png", 4) == FAILURE
-		|| check_suffix(ft_strrchr(data->w_sprite, '/'), \
+	if (check_suffix(ft_strrchr(sprite, '/'), \
 		".png", 4) == FAILURE)
 		return (err_msg(NULL, SPRITE3, FAILURE));
-	if (is_file(data->n_sprite) == FAILURE
-		|| is_file(data->e_sprite) == FAILURE
-		|| is_file(data->w_sprite) == FAILURE
-		|| is_file(data->s_sprite) == FAILURE)
+	if (is_file(sprite) == FAILURE)
 		return (err_msg(NULL, SPRITE, FAILURE));
 	return (SUCCESS);
 }
