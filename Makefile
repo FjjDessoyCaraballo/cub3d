@@ -121,6 +121,7 @@ fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@echo "\033[1;31m[XXX] Cleaning it GOOOOOOD...\033[0m"
 	@rm -f $(NAME) $(NAME_BONUS)
+	@rm -rf $(LIBMLX)
 
 re: fclean all $(NAME)
 
