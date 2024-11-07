@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 15:08:26 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 16:11:35 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/07 14:19:14 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	usage(void)
 	ft_putstr_fd(USAGE9, 2);
 	ft_putstr_fd(USAGE10, 2);
 	ft_putstr_fd(USAGE11, 2);
+	ft_putstr_fd(USAGE12, 2);
+	ft_putstr_fd(USAGE13, 2);
 }
 
 void	wrap_up(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/07 11:02:44 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/07 14:19:38 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,17 @@
 /*************************************************/
 # define USAGE1 "\nWelcome to cub3d "
 # define USAGE2 "and you already have committed a folly."
-# define USAGE3 " Follow the usage below:\n"
-# define USAGE4 "1. map must have the suffix '.cub';\n"
-# define USAGE5 "2. In clt just execute the program and map;\n"
-# define USAGE6 "3. Map must contain all elements (sprites with \n"
+# define USAGE3 " Follow the usage below:\n\n"
+# define USAGE4 "1. Map must have the suffix '.cub';\n"
+# define USAGE5 "2. In command line just execute the program and map;\n"
+# define USAGE6 "3. File must contain all elements (sprites with \n"
 # define USAGE7 "cardinal orientation, proper walled map, and \n"
-# define USAGE8 "RGB notated instructions [numerical value]);\n\n"
-# define USAGE9 "This game has no exit for now, so use ESC to "
-# define USAGE10 "finish the game (:\n\n"
-# define USAGE11 "By: fdessoy- && araveala\n"
+# define USAGE8 "RGB notated instructions [numerical value]);\n"
+# define USAGE9 "4. Textures should be in PNG format;\n"
+# define USAGE10 "5. Any other misconfiguration results in error.\n"
+# define USAGE11 "This game has no exit for now, so use ESC to "
+# define USAGE12 "finish the game (:\n\n"
+# define USAGE13 "By: fdessoy- && araveala\n"
 
 /*************************************************/
 /*mlx macros / graphics macros********************/
@@ -263,7 +265,7 @@ int8_t		extra_info(char *rgb);
 
 /* in parsing_utils5.c */
 int8_t		rgb_parse2(t_data *data, char **info, int flag);
-int8_t		is_png(t_data *data);
+int8_t		is_png(char *sprite);
 
 /* in flood_fill.c */
 int8_t		check_if_walled(t_data *data);
