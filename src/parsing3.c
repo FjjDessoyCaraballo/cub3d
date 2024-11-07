@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:12:41 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 14:42:00 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/07 10:45:24 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,8 @@ int8_t	search_sprites(t_data *data)
 	if (we_sprite(data) == FAILURE)
 		return (FAILURE);
 	if (ea_sprite(data) == FAILURE)
+		return (FAILURE);
+	if (is_png(data) == FAILURE)
 		return (FAILURE);
 	return (SUCCESS);
 }

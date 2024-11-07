@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/06 18:23:39 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/07 11:02:44 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,11 @@
 # define NAME "Error\nMap name is invalid\n"
 # define MALLOC "Error\nMalloc Failure\n"
 # define FILE "Error\nElements may be incorrect. Check map conditions.\n"
-# define SPRITE "Error\nCould not find/load sprites."
+# define SPRITE "Error\nCould not find/load sprites.\n"
 # define SPRITE2 "Error\nExtra sprites defined for same direction.\n"
+# define SPRITE3 "Error\nSprites are not in PNG format\n"
+# define SPRITE4 "Error\nDirectories are not valid PNG files.\n"
+# define RGB69 "Error\nRGB information is incorrect\n"
 # define RGB1 "Error\nRGB (ceiling) values: value must be between 0-255\n"
 # define RGB2 "Error\nRGB (floor) values: value must be between 0-255\n"
 # define RGB3 "Error\nRGB (floor) extra information present in file\n"
@@ -54,7 +57,7 @@
 # define RGB7 "Error\nRGB values: for God sake, use F or C to define RGB\n"
 # define RGB8 "Error\nFor Gods sake, please stop trying to break this\n"
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
-# define BRK_MAP "Error\nMap is broken ):\n"
+# define BRK_MAP "Error\nMap is broken/not positioned correctly ):\n"
 # define CLOSE "Error\nMap is not walled correctly ):<\n"
 # define MLX1 "Error\nMLX function error\n"
 # define MLX2 "Error\nMLX couldn't load images\n"
@@ -225,6 +228,8 @@ typedef struct s_data
 /*************************************************/
 
 /* in parsing1.c */
+int8_t		is_dir(char *fname);
+int8_t		check_suffix(char *fname, char *target, int size);
 int8_t		map_handling(t_data *data, char *argv);
 
 /* in parsing2.c */
@@ -258,6 +263,7 @@ int8_t		extra_info(char *rgb);
 
 /* in parsing_utils5.c */
 int8_t		rgb_parse2(t_data *data, char **info, int flag);
+int8_t		is_png(t_data *data);
 
 /* in flood_fill.c */
 int8_t		check_if_walled(t_data *data);
