@@ -6,13 +6,13 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/06 15:12:26 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/07 10:00:10 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
-static int8_t	is_dir(char *fname)
+int8_t	is_dir(char *fname)
 {
 	int	fd;
 
@@ -26,14 +26,30 @@ static int8_t	is_dir(char *fname)
 	return (SUCCESS);
 }
 
-static int8_t	check_name(char *fname)
+/** `check_name()` will check for suffixes of files. If it doesn't
+ * find the comma to begin, it automatically discards the string
+ * and returns `FAILURE`. If it finds at least one comma, it will
+ * check if its equivalent to the set target. In our case, it will
+ * check for `.cub` files.
+ * 
+ * @param fname filename which you're looking for a suffix string;
+ * 
+ * @param target target suffix string;
+ * 
+ * @param size specific size of the suffix string;
+ * 
+ * @return Returns `SUCCESS` upon completion, which means that the
+ * `fname` contains the `target` suffix. Otherwise, it returns 
+ * `FAILURE`
+ */
+int8_t	check_suffix(char *fname, char *target, int size)
 {
 	char	*str;
 
 	if (!ft_strrchr(fname, '.'))
 		return (FAILURE);
 	str = ft_strrchr(fname, '.');
-	if (ft_strncmp(str, ".cub", 5))
+	if (ft_strncmp(str, target, size))
 		return (FAILURE);
 	return (SUCCESS);
 }
@@ -98,7 +114,7 @@ static int8_t	open_file(t_data *data, char *fname)
  */
 int8_t	map_handling(t_data *data, char *fname)
 {
-	if (check_name(fname) == FAILURE
+	if (check_suffix(fname, ".cub", 5) == FAILURE
 		|| open_file(data, fname) == FAILURE)
 		return (err_msg(NULL, NAME, FAILURE));
 	if (repeated_rgb(data->file) == FAILURE

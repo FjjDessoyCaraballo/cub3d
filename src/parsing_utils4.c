@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:54:31 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/06 15:32:09 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/07 10:57:29 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int8_t	insanity(char *rgb)
 	if (repeat_c > 0 && repeat_f > 0)
 		return (err_msg(NULL, RGB5, FAILURE));
 	else if (repeat_f > 1 || repeat_c > 1)
-		return (err_msg(NULL, RGB5, FAILURE));
+		return (err_msg(NULL, RGB69, FAILURE));
 	return (SUCCESS);
 }
 
@@ -83,7 +83,7 @@ int8_t	repeated_inline(char **file)
 		if (file[i][0] == 'C' || file[i][0] == 'F')
 		{
 			if (insanity(file[i]) == FAILURE)
-				return (err_msg(NULL, RGB5, FAILURE));
+				return (FAILURE);
 		}
 		i++;
 	}
