@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 18:01:18 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/07 14:14:47 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/07 14:22:54 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,17 @@ static int8_t	is_file(char *fname)
 	return (FAILURE);
 }
 
+/**
+ * `is_png()` parses out the texture informed by user. The first
+ * check is if the file is a directory instead of a normal file;
+ * the second check is for the correct `.png` suffix; the final
+ * check is to see if the file exists.
+ * 
+ * @param sprite the function takes only the path of the texture;
+ * 
+ * @return if all the checks are successful, we return `SUCCESS`.
+ * Otherwise, we return `FAILURE`.
+ */
 int8_t	is_png(char *sprite)
 {
 	if (is_dir(sprite) == FAILURE)
