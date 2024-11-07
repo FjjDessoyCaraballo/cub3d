@@ -27,4 +27,4 @@ Felipe Dessoy
 
 Alexandra Raveala
 - 42-email: araveala@student.hive.fi
-- 42-profile: [https://profile.intra.42.fr/users/walnaimi](https://profile.intra.42.fr/users/araveala)
+- 42-profile: [https://profile.intra.42.fr/users/araveala](https://profile.intra.42.fr/users/araveala)
