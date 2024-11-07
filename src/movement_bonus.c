@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/07 11:39:44 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/07 12:15:40 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	player_pos(t_data *data, double new_x, double new_y)
  * Moves the player left or right
  * and updating player position based on valid movements only
  * 
- * @param data KYstruct that carries most of our variables
+ * @param data struct that carries most of our variables
  * @param step the size of step given as either + or - depending on direction
  * 
  */

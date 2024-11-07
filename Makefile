@@ -53,7 +53,7 @@ BONUS = 	main_bonus.c\
 			img_handling1.c\
 			img_handling2.c\
 			movement_bonus.c\
-			key_hooks.c\
+			key_hooks_bonus.c\
 			rays1.c\
 			rays2.c\
 			window_resizing.c\

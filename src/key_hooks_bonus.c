@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_hooks.c                                        :+:      :+:    :+:   */
+/*   key_hooks_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/07 12:01:27 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/07 12:23:23 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
-
+/**
+ * 
+ * Enables isntance on or off depending on if it was already
+ * on or off
+ * 
+ * @param data , struct that carries most of our variables
+ * 
+ */
 void	toggle_minimap(t_data *data)
 {
 	if (data->im_map->instances[0].enabled == 0)
@@ -25,16 +32,24 @@ void	toggle_minimap(t_data *data)
 	{
 		data->im_map->instances[0].enabled = 0;
 		data->im_map_player->instances[0].enabled = 0;
-		data->im_mini_ray->instances[0].enabled = 0;	
+		data->im_mini_ray->instances[0].enabled = 0;
 	}
 }
-/*
-~~cheat sheet~~
-    1. key_pressed 0 = Set the key state to released
-    2. key_pressed 1 = Set the key state to released
-    3. end of game flag could be required should we allow player to loose
-    4. step size could go in struct 
-*/
+
+/**
+ *
+ * Get the key press and assign if .key is on(1) or off(0)
+ * Then move player by updating postion
+ *  1. key_pressed 0 = Set the key state to release
+ *	2. key_pressed 1 = Set the key state to released
+ * 
+ * Toggle minimap seperated as we do not want action on 
+ * continuous key press
+ * 
+ * 	@param keydata MLX key call back data
+ *	@param param data , struct that carries most of our variables
+ *  
+ */
 void	keyhookfunc(mlx_key_data_t keydata, void *param)
 {
 	t_data	*data;
@@ -57,10 +72,13 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 }
 
 /**
+ * Moves player based on key press
  * left and right arrows should spin you in either direction
- * wasd keys should move you around, drawing images here are 
- * bonus material used now for visualisation
- * of proggress 
+ * wasd keys should move you around
+ * 
+ * Then starts a new ray iteration
+ * 
+ * @param data struct that carries most of our variables
  **/
 void	update_player(t_data *data)
 {
