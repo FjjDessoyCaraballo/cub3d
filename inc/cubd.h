@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/07 12:00:51 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/07 15:55:37 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ typedef struct s_data
 	int				map_width;
 	int				map_length;
 	int				side_hit;
+	double			time;
 	double			ray_size;
 	double			p_dir_x;
 	double			p_dir_y;
@@ -199,6 +200,11 @@ typedef struct s_data
 	mlx_texture_t	*tx_s_wall;
 	mlx_texture_t	*tx_e_wall;
 	mlx_texture_t	*tx_w_wall;
+	
+	mlx_texture_t	*tx_player1;
+	mlx_texture_t	*tx_player2;
+	mlx_texture_t	*tx_player3;
+	
 	mlx_image_t		*im_n_wall;	
 	mlx_image_t		*im_s_wall;
 	mlx_image_t		*im_e_wall;
@@ -216,7 +222,11 @@ typedef struct s_data
 	mlx_image_t		*im_mini_player;
 	mlx_image_t		*im_mini_ray;
 	mlx_image_t		*im_map_player; //effectivly miniplayer
-	
+
+	mlx_image_t	*im_player1;
+	mlx_image_t	*im_player2;
+	mlx_image_t	*im_player3;
+
 
 }		t_data;
 
@@ -340,6 +350,11 @@ void		draw_mini_player(t_data *data, int y, int x);
 void		wipe_line(t_data *data, int new_x, int new_y);
 int			set_view(t_data * data);
 
+/* handle_bonuses.c */
+int	init_player_texture(t_data *data);
+
+/* bonus key hooks */
+void	animation(void *param);
 /* in free.c */
 void		free_data(t_data *data);
 void		draw_mini_map(t_data *data, int x, int y, int index);
