@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/06 14:59:10 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/07 11:56:44 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	make_transparent(mlx_image_t *im, uint32_t y, uint32_t x, uint32_t *pix)
 	{
 		while (x < im->width)
 		{
-			pix = (uint32_t *)(im->pixels + (y * im->width + x) * sizeof(uint32_t));
+			pix = (uint32_t *)(im->pixels + (y * im->width + x) \
+			* sizeof(uint32_t));
 			r = (*pix >> 16) & 0xF0;
 			g = (*pix >> 8) & 0xF0;
 			b = (*pix) & 0xF0;

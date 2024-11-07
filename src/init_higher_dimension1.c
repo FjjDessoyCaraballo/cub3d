@@ -6,11 +6,34 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/06 17:42:26 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/07 11:59:49 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
+
+/**
+ * Calculate img_x to grab the correct pixel from out texture,
+ * using pre collected ray_x and ray_y (wall hit locations in pixels).
+ * We normalize the result with T_SIZE (64) so that we can wrap the data to
+ * stick within bounds of T_SIZE.
+ * 
+ * @param data data struct containing most varaibles
+ * 
+ * @return texture position reduced by T_SIZE so that we can re adjust
+ * the number to fit withing the texture width. 
+ */
+double	calculate_img_x(t_data *data)
+{
+	double	texture_pos;
+
+	if (data->side == 0)
+		texture_pos = data->ray_y;
+	else
+		texture_pos = data->ray_x;
+	texture_pos = fabs(fmod(texture_pos, T_SIZE));
+	return ((texture_pos / T_SIZE) * data->im_current_wall->width);
+}
 
 /** 
  * Initializes key variables for the wall drawing process
@@ -20,30 +43,10 @@
  * @param wall_h
  * @param img_x
 */
-
-//*img_x = (double)i / RAY_MAX * data->im_current_wall->width;
-double calculate_img_x(t_data *data, int i)
-{
-	(void)i;
-	//double test ;
-	double texture_pos;
-	if (data->side == 0) // Vertical wall hit
-	{
-		texture_pos = data->ray_y;
-	}
-	else // Horizontal wall hit
-	{
-		texture_pos = data->ray_x;
-	} // Ensure texture_pos fits within the range of a texture block
-	texture_pos = fabs(fmod(texture_pos, T_SIZE)); // Normalize to texture size 
-	return ((texture_pos / T_SIZE) * data->im_current_wall->width);
-}
-
 void	initialize_wall_params(t_data *data, int i, double *w_h, double *img_x)
 {
-
 	data->wall_line = i * (WIDTH / RAY_MAX);
-	*img_x = calculate_img_x(data, i);
+	*img_x = calculate_img_x(data);
 	*w_h = HEIGHT / data->ray_len[i] * data->wall_scale;
 }
 
@@ -53,11 +56,12 @@ void	initialize_wall_params(t_data *data, int i, double *w_h, double *img_x)
  * @param data data structure to be passed down
  * @param img_x the x location of wanted pixel on the texture 
  * @param wall_h
- * @param ofset calculated offset for finding part of texture, we match
- * wall pixels based on being so close to wall that we do not "see" the top or bottom 
+ * @param fset calculated offset for finding part of texture, we match
+ * wall pixels based on being so close to wall that we do not
+ * "see" the top or bottom 
  * 
 */
-void	draw_stretched_wall(t_data *data, double img_x, double w_h, double ofset)
+void	draw_stretched_wall(t_data *data, double img_x, double w_h, double fset)
 {
 	double		img_y_inc;
 	double		current_wall_pos;
@@ -65,11 +69,11 @@ void	draw_stretched_wall(t_data *data, double img_x, double w_h, double ofset)
 	uint32_t	colour;
 
 	img_y_inc = data->im_current_wall->height / w_h;
-	ofset = (((w_h / T_SIZE) - diff(w_h)) / 2.0) * img_y_inc;
+	fset = (((w_h / T_SIZE) - diff(w_h)) / 2.0) * img_y_inc;
 	current_wall_pos = 0;
 	while (current_wall_pos < HEIGHT)
 	{
-		img_y = current_wall_pos * img_y_inc - ofset;
+		img_y = current_wall_pos * img_y_inc - fset;
 		colour = fetch_pixel_rgb(data->im_current_wall, img_x, img_y, 0);
 		if (colour != 0)
 		{
