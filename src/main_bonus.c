@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 15:54:56 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:48:23 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,14 @@ int	main(int argc, char **argv)
 			usage();
 			free_data(data);
 			return (FAILURE);
-		}
+		}		
 		mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
 		mlx_set_instance_depth(data->im_ray->instances, 1);
-		stack_ray_data(data, 0);
 		data->time = mlx_get_time();
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
 		mlx_loop_hook(data->mlx, &animation, data);
-		wrap_up(data);
-
+		mlx_loop_hook(data->mlx, &update, data);
+		wrap_up(data, 1);
 	}
 	else
 		usage();

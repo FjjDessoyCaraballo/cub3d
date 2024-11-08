@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/07 15:47:42 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:07:00 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	make_transparent(mlx_image_t *im, uint32_t y, uint32_t x, uint32_t *pix)
 /**
  * Inits mini texture to mini image and resizes
  */
-
 int	init_mini_imgs(t_data *data)
 {	
 	data->tx_mini_floor = mlx_load_png("./minimap_textures/floor.png");
@@ -91,12 +90,13 @@ void	draw_mini_tile(t_data *data, int x, int y, uint32_t colour)
 
 int init_map(t_data *data, int x, int y, uint32_t colour)
 {
+	int row_width;
 	colour = 0;
 	x = 0;
 	y = 0;
 	while (y < data->map_length)
 	{
-		int row_width = ft_strlen(data->map[y]);
+		row_width = ft_strlen(data->map[y]);
 		while (x < row_width)
 		{
 			if (data->map[y][x] == '1')

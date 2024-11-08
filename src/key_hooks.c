@@ -6,11 +6,20 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/07 12:22:04 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/08 15:39:12 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
+
+void	update(void *param)
+{
+	t_data		*data;
+
+	data = (t_data *)param;
+	update_player(data);
+	stack_ray_data(data, 0);
+}
 
 /**
  *
@@ -39,7 +48,6 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 		if (keydata.action == MLX_RELEASE)
 			data->key_pressed[keydata.key] = 0;
 	}
-	update_player(data);
 }
 
 /**
@@ -65,5 +73,4 @@ void	update_player(t_data *data)
 		strafe_player(data, -STEP);
 	if (data->key_pressed[MLX_KEY_D])
 		strafe_player(data, STEP);
-	stack_ray_data(data, 0);
 }

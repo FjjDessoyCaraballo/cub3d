@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 15:56:29 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:22:38 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@
 # define FOV 			60.0
 # define ROTATE_ANGLE	0.0872665
 # define PI				3.14159265358979323846
-# define STEP			0.03
+# define STEP			0.4
 # define DEG2RAD 		0.01745329252
 # define RED 0xFF0000FF
 # define M_RADIUS 8
@@ -199,11 +199,13 @@ typedef struct s_data
 	mlx_texture_t	*tx_s_wall;
 	mlx_texture_t	*tx_e_wall;
 	mlx_texture_t	*tx_w_wall;
-	
+	mlx_texture_t	*tx_mini_floor;
+	mlx_texture_t	*tx_mini_wall;
+
 	mlx_texture_t	*tx_player1;
 	mlx_texture_t	*tx_player2;
 	mlx_texture_t	*tx_player3;
-	
+
 	mlx_image_t		*im_n_wall;	
 	mlx_image_t		*im_s_wall;
 	mlx_image_t		*im_e_wall;
@@ -212,18 +214,15 @@ typedef struct s_data
 	mlx_image_t		*im_current_wall;
 	uint32_t		floor_color;
 	uint32_t		ceiling_color;
-	mlx_texture_t	*tx_mini_floor;
-	mlx_texture_t	*tx_mini_wall;
 	mlx_image_t		*im_ray;
 	mlx_image_t		*im_map;
 	mlx_image_t		*im_mini_floor;
 	mlx_image_t		*im_mini_wall;
-	mlx_image_t		*im_mini_player;
 	mlx_image_t		*im_mini_ray;
 	mlx_image_t		*im_map_player;
-	mlx_image_t	*im_player1;
-	mlx_image_t	*im_player2;
-	mlx_image_t	*im_player3;
+	mlx_image_t		*im_player1;
+	mlx_image_t		*im_player2;
+	mlx_image_t		*im_player3;
 }		t_data;
 
 /*************************************************/
@@ -291,7 +290,7 @@ int			err_msg(char *obj, char *msg, int exit_code);
 
 /* in usage.c */
 void		usage(void);
-void		wrap_up(t_data *data);
+void		wrap_up(t_data *data, int option);
 
 /* in base.c*/
 int			open_window(t_data *data);
@@ -303,7 +302,7 @@ void		update_player(t_data *data);
 /* in movement.c */
 void		keyhookfunc(mlx_key_data_t keydata, void *param);
 void		update_player(t_data *data);
-
+void		update(void *param);
 //~~~~~~~~~~~~~~//
 void		rotate_player(t_data *data, double angle);
 void		strafe_player(t_data *data, double step);
@@ -356,15 +355,14 @@ void		draw_line(t_data *data, int i);
 void		draw_mini_player(t_data *data, int y, int x);
 void		wipe_line(t_data *data, int new_x, int new_y);
 int			set_view(t_data * data);
-
 /* handle_bonuses.c */
-int	init_player_texture(t_data *data);
+int			init_player_texture(t_data *data);
+void		delete_bonuses(t_data *data);
 
 /* bonus key hooks */
-void	animation(void *param);
+void		animation(void *param);
 
 /* in free.c */
 void		free_data(t_data *data);
 void		draw_mini_map(t_data *data, int x, int y, int index);
-
 #endif

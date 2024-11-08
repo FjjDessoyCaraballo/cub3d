@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:29:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/07 16:06:26 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:24:00 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,20 @@ int	load_player_imgs(t_data *data)
 	data->im_player1 = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	data->im_player2 = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	data->im_player3 = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	if (data->im_player1 == NULL || data->im_player2 == NULL || data->im_player3 == NULL)
+	if (data->im_player1 == NULL || data->im_player2 == NULL
+		|| data->im_player3 == NULL)
 		return (err_msg(NULL, NEW_IMG, FAILURE));
 	data->tx_player1 = mlx_load_png("./textures/rathand1.png");
 	data->tx_player2 = mlx_load_png("./textures/rathand2.png");
 	data->tx_player3 = mlx_load_png("./textures/rathand3.png");
-	if (data->tx_player1 == NULL || data->tx_player2 == NULL || data->tx_player3 == NULL)
+	if (data->tx_player1 == NULL || data->tx_player2 == NULL
+		|| data->tx_player3 == NULL)
 		return (err_msg(NULL, TEXTURE_FAIL, FAILURE));
 	data->im_player1 = mlx_texture_to_image(data->mlx, data->tx_player1);
 	data->im_player2 = mlx_texture_to_image(data->mlx, data->tx_player2);
 	data->im_player3 = mlx_texture_to_image(data->mlx, data->tx_player3);
-	if (data->im_player1 == NULL || data->im_player2 == NULL || data->im_player3 == NULL)
+	if (data->im_player1 == NULL || data->im_player2 == NULL
+		|| data->im_player3 == NULL)
 		return (err_msg(NULL, IMAGE_FAIL, FAILURE));
 	return (SUCCESS);
 }
@@ -49,11 +52,8 @@ int	set_player(t_data *data)
 	data->im_player1->instances[0].enabled = 0;
 	data->im_player2->instances[0].enabled = 0;
 	data->im_player3->instances[0].enabled = 1;
-
-	
 	return (SUCCESS);
 }
-
 
 int	init_player_texture(t_data *data)
 {
@@ -61,6 +61,5 @@ int	init_player_texture(t_data *data)
 		return (FAILURE);
 	if (set_player(data) == FAILURE)
 		return (FAILURE);
-	//set view and adjust instances if needed, may have to readjust the set_view in minimap utils for this
 	return (SUCCESS);
 }
