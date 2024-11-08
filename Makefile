@@ -23,6 +23,7 @@ SRC_FILES = main.c\
 			parsing_utils3.c\
 			parsing_utils4.c\
 			parsing_utils5.c\
+			parsing_utils6.c\
 			flood_fill.c\
 			usage.c\
 			error.c\
@@ -56,12 +57,14 @@ BONUS = 	main_bonus.c\
 			img_handling2.c\
 			movement_bonus.c\
 			key_hooks_bonus.c\
+			key_hooks.c\
 			rays1.c\
 			rays2.c\
 			window_resizing.c\
 			init_higher_dimension1.c\
 			init_higher_dimension2.c\
 			higher_dimensional_utils.c\
+			movement_bonus.c\
 			minimap_bonus.c\
 			minimap_utils_bonus.c\
 			handle_bonuses.c\
