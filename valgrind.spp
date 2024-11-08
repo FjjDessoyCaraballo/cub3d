@@ -1,0 +1,15 @@
+{
+   MLX42 Suppression1
+   Memcheck:Leak
+   fun:calloc
+}
+{
+   MLX42 Suppression3
+   Memcheck:Leak
+   fun:realloc
+}
+{
+   MLX42 Suppression4
+   Memcheck:Leak
+   fun:posix_memalign
+}

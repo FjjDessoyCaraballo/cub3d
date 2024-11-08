@@ -112,19 +112,23 @@ $(LIBFT_MAKEFILE):
 	@echo "Creating symbolic link for libft Makefile..."
 	@ln -s $(CURDIR)/$(LIBFT_MAKEFILE) $(LIBFT_MAKEFILE)
 
-bonus: libmlx $(NAME_BONUS)
+.bonus: libmlx $(NAME_BONUS)
+	@touch .bonus
 	@echo "\033[1;32m[✔] GOOD HEAVENS! LOOK AT THE BONUS EXECUTABLE!\033[0m"
+
+bonus: .bonus
 
 clean:
 	@$(MAKE) -C $(LIBFT_DIR) clean
 	@echo "\033[1;33m[X] Cleaning...\033[0m"
 	@rm -f $(OBJ_FILES) $(BOBJS)
+	@rm -rf .bonus
 
 fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@echo "\033[1;31m[XXX] Cleaning it GOOOOOOD...\033[0m"
 	@rm -f $(NAME) $(NAME_BONUS)
-#@rm -rf $(LIBMLX)
+	@rm -rf $(LIBMLX)
 
 re: fclean all $(NAME)
 
