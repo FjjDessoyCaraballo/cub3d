@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 15:01:32 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/08 15:39:42 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ typedef struct s_data
 	int				hit;
 	int				w_width;
 	int				w_height;
+	int8_t			index;
 	double			ray_step_x;
 	double			ray_step_y;
 	double			ray_side_dis_x;
@@ -267,6 +268,9 @@ int8_t		extra_info(char *rgb);
 int8_t		rgb_parse2(t_data *data, char **info, int flag);
 int8_t		is_png(char *sprite);
 
+/* in parsing_utils6.c */
+char		*extract_sprite(char **sprite);
+
 /* in flood_fill.c */
 int8_t		check_if_walled(t_data *data);
 int8_t		copy_map(t_data *data);
@@ -339,7 +343,7 @@ double		calculate_depth(t_data *data);
 void		calculate_hit_coords(t_data *data, int i);
 
 /* bonus */
-int			initialize_minimap(t_data *data);
+int			initlize_minimap(t_data *data);
 void		draw_player(t_data *data);
 void		draw_first_line(t_data *data);
 

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 12:02:08 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:37:21 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,19 @@
  */
 char	*sprite_path(char *str)
 {
-	int		index;
+	int		i;
+	char	*path;
 
-	index = 3;
-	while (str[index])
+	i = 0;
+	if (!ft_strrchr(str, ' '))
+		return (NULL);
+	else
 	{
-		if (str[index] >= 1 && str[index] <= 32)
-			index++;
-		else
-			return (&str[index]);
+		path = ft_strrchr(str, ' ');
+		if (path[i + 1] == '\n' || path[i + 1] == '\0')
+			return (NULL);
 	}
-	return (NULL);
+	return (path);
 }
 
 /**
