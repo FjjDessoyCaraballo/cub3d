@@ -43,8 +43,11 @@
 # define NAME "Error\nMap name is invalid\n"
 # define MALLOC "Error\nMalloc Failure\n"
 # define FILE "Error\nElements may be incorrect. Check map conditions.\n"
-# define SPRITE "Error\nCould not find/load sprites."
+# define SPRITE "Error\nCould not find/load sprites.\n"
 # define SPRITE2 "Error\nExtra sprites defined for same direction.\n"
+# define SPRITE3 "Error\nSprites are not in PNG format\n"
+# define SPRITE4 "Error\nDirectories are not valid PNG files.\n"
+# define RGB69 "Error\nRGB information is incorrect\n"
 # define RGB1 "Error\nRGB (ceiling) values: value must be between 0-255\n"
 # define RGB2 "Error\nRGB (floor) values: value must be between 0-255\n"
 # define RGB3 "Error\nRGB (floor) extra information present in file\n"
@@ -52,13 +55,19 @@
 # define RGB5 "Error\nRGB extra information present in file\n"
 # define RGB6 "Error\nRGB values: value must be between 0-255\n"
 # define RGB7 "Error\nRGB values: for God sake, use F or C to define RGB\n"
+# define RGB8 "Error\nFor Gods sake, please stop trying to break this\n"
 # define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
-# define BRK_MAP "Error\nMap is broken ):\n"
+# define BRK_MAP "Error\nMap is broken/not positioned correctly ):\n"
 # define CLOSE "Error\nMap is not walled correctly ):<\n"
 # define MLX1 "Error\nMLX function error\n"
 # define MLX2 "Error\nMLX couldn't load images\n"
 # define MLX3 "Error\nMLX couldn't load RGB scheme\n"
 # define MLX4 "Error\nMLX couldn't draw ceiling and floor\n"
+# define TEXTURE_FAIL "texture invalid or simply missing\n"
+# define IMAGE_FAIL "image invalid\n"
+# define IMG_TO_WIN "image could not put to window, check image not corrupt\n"
+# define NEW_IMG "MLX new image allocation failure, clean chache?\n"
+# define RESIZE "MLX failed to resize image\n"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -68,24 +77,18 @@
 /*************************************************/
 # define USAGE1 "\nWelcome to cub3d "
 # define USAGE2 "and you already have committed a folly."
-# define USAGE3 " Follow the usage below:\n"
-# define USAGE4 "1. map must have the suffix '.cub';\n"
-# define USAGE5 "2. In clt just execute the program and map;\n"
-# define USAGE6 "3. Map must contain all elements (sprites with \n"
+# define USAGE3 " Follow the usage below:\n\n"
+# define USAGE4 "1. Map must have the suffix '.cub';\n"
+# define USAGE5 "2. In command line just execute the program and map;\n"
+# define USAGE6 "3. File must contain all elements (sprites with \n"
 # define USAGE7 "cardinal orientation, proper walled map, and \n"
-# define USAGE8 "RGB notated instructions [numerical value]);\n\n"
-# define USAGE9 "This game has no exit for now, so use ESC to "
-# define USAGE10 "finish the game (:\n\n"
-# define USAGE11 "By: fdessoy- && araveala\n"
+# define USAGE8 "RGB notated instructions [numerical value]);\n"
+# define USAGE9 "4. Textures should be in PNG format;\n"
+# define USAGE10 "5. Any other misconfiguration results in error.\n"
+# define USAGE11 "This game has no exit for now, so use ESC to "
+# define USAGE12 "finish the game (:\n\n"
+# define USAGE13 "By: fdessoy- && araveala\n"
 
-/*************************************************/
-/* fail mssgs   **********************************/
-/*************************************************/
-# define TEXTURE_FAIL "texture invalid or simply missing\n"
-# define IMAGE_FAIL "image invalid\n"
-# define IMG_TO_WIN "image could not put to window, check image not corrupt\n"
-# define NEW_IMG "MLX new image allocation failure, clean chache?\n"
-# define RESIZE "MLX failed to resize image\n"
 /*************************************************/
 /*mlx macros / graphics macros********************/
 /*************************************************/
@@ -188,6 +191,8 @@ typedef struct s_data
 	double			y_ppos;
 	double			x_ppos;
 	char			**mp_cpy;
+	int				repeat_floor;
+	int				repeat_ceiling;
 	int				repeat_test;
 	mlx_texture_t	*tx_n_wall;
 	mlx_texture_t	*tx_s_wall;
@@ -214,13 +219,10 @@ typedef struct s_data
 	mlx_image_t		*im_mini_wall;
 	mlx_image_t		*im_mini_player;
 	mlx_image_t		*im_mini_ray;
-	mlx_image_t		*im_map_player; //effectivly miniplayer
-
+	mlx_image_t		*im_map_player;
 	mlx_image_t	*im_player1;
 	mlx_image_t	*im_player2;
 	mlx_image_t	*im_player3;
-
-
 }		t_data;
 
 /*************************************************/
@@ -228,6 +230,8 @@ typedef struct s_data
 /*************************************************/
 
 /* in parsing1.c */
+int8_t		is_dir(char *fname);
+int8_t		check_suffix(char *fname, char *target, int size);
 int8_t		map_handling(t_data *data, char *argv);
 
 /* in parsing2.c */
@@ -236,8 +240,9 @@ int8_t		extract(t_data *data);
 /* in parsing3.c */
 int8_t		search_sprites(t_data *data);
 
-/* in parsing_utils.c */
+/* in parsing_utils1.c */
 char		*sprite_path(char *str);
+int8_t		separate_rgb(t_data *data, char *str, int flag);
 int8_t		rgb_parse(t_data *data, char *str, int flag);
 
 /* in parsing_utils2.c */
@@ -253,8 +258,14 @@ int8_t		check_original_length(t_data *data);
 uint8_t		get_width(char **map);
 
 /* in parsing_utils4.c */
-int8_t		extra_rgb(char **rgb, int flag);
 void		remove_nl(char *str);
+int8_t		repeated_rgb(char **file);
+int8_t		repeated_inline(char **file);
+int8_t		extra_info(char *rgb);
+
+/* in parsing_utils5.c */
+int8_t		rgb_parse2(t_data *data, char **info, int flag);
+int8_t		is_png(char *sprite);
 
 /* in flood_fill.c */
 int8_t		check_if_walled(t_data *data);
@@ -309,7 +320,6 @@ int			outof_bounds_check(t_data *data, double rpos_pixel_y, \
 						double rpos_pixel_x);
 void		stack_ray_data(t_data *data, int i);
 
-
 /* init_higher_dimension1.c */
 void		initialize_wall_params(t_data *data, int i, double *w_h, \
 						double *img_x);
@@ -348,6 +358,7 @@ int	init_player_texture(t_data *data);
 
 /* bonus key hooks */
 void	animation(void *param);
+
 /* in free.c */
 void		free_data(t_data *data);
 void		draw_mini_map(t_data *data, int x, int y, int index);

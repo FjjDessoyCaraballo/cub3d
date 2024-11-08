@@ -89,14 +89,15 @@ void	draw_mini_tile(t_data *data, int x, int y, uint32_t colour)
 	}
 }
 
-int	init_map(t_data *data, int x, int y, uint32_t colour)
+int init_map(t_data *data, int x, int y, uint32_t colour)
 {
 	colour = 0;
 	x = 0;
 	y = 0;
 	while (y < data->map_length)
 	{
-		while (x < data->map_width)
+		int row_width = ft_strlen(data->map[y]);
+		while (x < row_width)
 		{
 			if (data->map[y][x] == '1')
 			{
@@ -117,7 +118,7 @@ int	init_map(t_data *data, int x, int y, uint32_t colour)
 	return (SUCCESS);
 }
 
-int	initlize_minimap(t_data *data)
+int	initialize_minimap(t_data *data)
 {
 	if (init_mini_imgs(data) == FAILURE)
 		return (err_msg(NULL, MLX1, FAILURE));

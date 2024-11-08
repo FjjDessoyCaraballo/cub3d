@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:12:41 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 14:42:00 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/07 14:14:34 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,13 +148,19 @@ static int8_t	ea_sprite(t_data *data)
  */
 int8_t	search_sprites(t_data *data)
 {
-	if (no_sprite(data) == FAILURE)
+	if (no_sprite(data) == FAILURE
+		|| ea_sprite(data) == FAILURE
+		|| so_sprite(data) == FAILURE
+		|| we_sprite(data) == FAILURE)
 		return (FAILURE);
-	if (so_sprite(data) == FAILURE)
-		return (FAILURE);
-	if (we_sprite(data) == FAILURE)
-		return (FAILURE);
-	if (ea_sprite(data) == FAILURE)
+	remove_nl(data->n_sprite);
+	remove_nl(data->w_sprite);
+	remove_nl(data->s_sprite);
+	remove_nl(data->e_sprite);
+	if (is_png(data->n_sprite) == FAILURE
+		|| is_png(data->s_sprite) == FAILURE
+		|| is_png(data->w_sprite) == FAILURE
+		|| is_png(data->e_sprite) == FAILURE)
 		return (FAILURE);
 	return (SUCCESS);
 }

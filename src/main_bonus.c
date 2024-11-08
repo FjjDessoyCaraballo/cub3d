@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
 /*   Updated: 2024/11/07 16:11:11 by araveala         ###   ########.fr       */
@@ -32,7 +32,8 @@ int	main(int argc, char **argv)
 			return (err_msg(NULL, MALLOC, -1));
 		if (map_handling(data, argv[1]) == FAILURE
 			|| open_window(data) == FAILURE
-			|| image_handling(data) == FAILURE)
+			|| image_handling(data) == FAILURE
+			|| initialize_minimap(data) == FAILURE)
 		{
 			usage();
 			free_data(data);

@@ -38,8 +38,6 @@ int	main(int argc, char **argv)
 			free_data(data);
 			return (FAILURE);
 		}
-		data->x_ppos += 0.5;
-		data->y_ppos += 0.5;
 		stack_ray_data(data, 0);
 		mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
 		mlx_key_hook(data->mlx, &keyhookfunc, data);

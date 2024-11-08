@@ -23,7 +23,6 @@
  *	@param param data , struct that carries most of our variables
  *  
  */
-
 void	keyhookfunc(mlx_key_data_t keydata, void *param)
 {
 	t_data	*data;

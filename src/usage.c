@@ -25,6 +25,8 @@ void	usage(void)
 	ft_putstr_fd(USAGE9, 2);
 	ft_putstr_fd(USAGE10, 2);
 	ft_putstr_fd(USAGE11, 2);
+	ft_putstr_fd(USAGE12, 2);
+	ft_putstr_fd(USAGE13, 2);
 }
 
 void	wrap_up(t_data *data)

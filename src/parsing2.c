@@ -6,27 +6,22 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 15:59:36 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/08 12:01:31 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
-// these functions belong to parse2.c
 static int8_t	floor_information(t_data *data)
 {
 	int		index;
 	char	*floor;
 
 	index = 0;
-	data->repeat_test = 0;
 	while (data->file[index])
 	{
 		if (!ft_strncmp(&data->file[index][0], "F", 1))
 		{
-			data->repeat_test++;
-			if (data->repeat_test > 1)
-				return (err_msg(NULL, RGB3, FAILURE));
 			floor = ft_strdup(data->file[index]);
 			if (!floor)
 				return (err_msg(NULL, MALLOC, FAILURE));
@@ -48,14 +43,10 @@ static int8_t	ceiling_information(t_data *data)
 	char	*ceiling;
 
 	index = 0;
-	data->repeat_test = 0;
 	while (data->file[index])
 	{
 		if (!ft_strncmp(&data->file[index][0], "C", 1))
 		{
-			data->repeat_test++;
-			if (data->repeat_test > 1)
-				return (err_msg(NULL, RGB4, FAILURE));
 			ceiling = ft_strdup(data->file[index]);
 			if (!ceiling)
 				return (err_msg(NULL, MALLOC, FAILURE));
@@ -141,17 +132,13 @@ int8_t	extract(t_data *data)
 	if (map_information(data) == FAILURE)
 		return (FAILURE);
 	rem_map_nl(data->map);
-	remove_nl(data->n_sprite);
-	remove_nl(data->w_sprite);
-	remove_nl(data->s_sprite);
-	remove_nl(data->e_sprite);
 	if (check_original_length(data) == FAILURE)
 		return (FAILURE);
 	if (player_exists(data, data->map) == FAILURE)
 		return (FAILURE);
 	data->radius = (20 / (double)T_SIZE);
-	data->exact_x = data->x_ppos * T_SIZE / 2;
-	data->exact_y = data->y_ppos * T_SIZE / 2;
+	data->x_ppos += 0.5;
+	data->y_ppos += 0.5;
 	data->angle_increment = ((FOV / RAY_MAX) * DEG2RAD);
 	return (SUCCESS);
 }

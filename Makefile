@@ -8,7 +8,7 @@ VPATH = src:libft:includes
 LIBMLX = ./MLX42
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -Ofast -fsanitize=undefined #wun and -0 for mlx
+CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -Ofast #-fsanitize=address
 INCFLAGS = -I ./include -I ./MLX42/include -I /Users/include 
 
 # Main project files
@@ -22,13 +22,13 @@ SRC_FILES = main.c\
 			parsing_utils2.c\
 			parsing_utils3.c\
 			parsing_utils4.c\
+			parsing_utils5.c\
 			flood_fill.c\
 			usage.c\
 			error.c\
 			base.c\
 			img_handling1.c\
 			img_handling2.c\
-			movement.c\
 			key_hooks.c\
 			rays1.c\
 			rays2.c\
@@ -36,6 +36,7 @@ SRC_FILES = main.c\
 			init_higher_dimension1.c\
 			init_higher_dimension2.c\
 			higher_dimensional_utils.c \
+			movement.c\
 
 BONUS = 	main_bonus.c\
 			free.c\
@@ -46,6 +47,7 @@ BONUS = 	main_bonus.c\
 			parsing_utils2.c\
 			parsing_utils3.c\
 			parsing_utils4.c\
+			parsing_utils5.c\
 			flood_fill.c\
 			usage.c\
 			error.c\
@@ -54,12 +56,14 @@ BONUS = 	main_bonus.c\
 			img_handling2.c\
 			movement_bonus.c\
 			key_hooks_bonus.c\
+			key_hooks.c\
 			rays1.c\
 			rays2.c\
 			window_resizing.c\
 			init_higher_dimension1.c\
 			init_higher_dimension2.c\
 			higher_dimensional_utils.c\
+			movement_bonus.c\
 			minimap_bonus.c\
 			minimap_utils_bonus.c\
 			handle_bonuses.c\
@@ -88,7 +92,6 @@ all: libmlx $(NAME)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(INCFLAGS) $(LIBFT_INC) -g -c $< -o $@
-
 
 libmlx:
 	@if [ ! -d "$(LIBMLX)" ]; then git clone https://github.com/codam-coding-college/MLX42.git $(LIBMLX); fi
@@ -123,6 +126,7 @@ fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@echo "\033[1;31m[XXX] Cleaning it GOOOOOOD...\033[0m"
 	@rm -f $(NAME) $(NAME_BONUS)
+	@rm -rf $(LIBMLX)
 
 re: fclean all $(NAME)
 
