@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/06 18:32:52 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/08 12:02:08 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static int8_t	check_rgb_range(t_data *data)
 static int8_t	break_commas(t_data *data, char *rgb_str, int flag)
 {
 	static char	**array;
-	
+
 	array = ft_split(rgb_str, ',');
 	if (!array)
 		return (FAILURE);

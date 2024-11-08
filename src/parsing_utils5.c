@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 18:01:18 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/07 14:22:54 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/08 12:03:03 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int8_t	rgb_parse2(t_data *data, char **info, int flag)
 	}
 	return (SUCCESS);
 }
+
 /**
  * `is_file()` checks for files that can be read and if they even
  * exist in the first place. If the file exists and is readable, we

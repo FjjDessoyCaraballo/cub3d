@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/05 15:29:51 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/08 12:03:27 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void	player_pos(t_data *data, double new_x, double new_y)
 	data->x_ppos = new_x;
 	data->y_ppos = new_y;
 }
+
 void	strafe_player(t_data *data, double step)
 {
 	double	new_x;

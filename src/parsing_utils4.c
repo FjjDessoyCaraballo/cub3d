@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:54:31 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/07 10:57:29 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/08 12:02:43 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int8_t	insanity(char *rgb)
 {
 	int	i;
 	int	repeat_c;
-	int repeat_f;
+	int	repeat_f;
 
 	i = 0;
 	repeat_c = 0;

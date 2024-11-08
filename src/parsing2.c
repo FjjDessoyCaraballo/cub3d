@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/07 10:45:18 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/08 12:01:31 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,10 @@ static int8_t	floor_information(t_data *data)
 	char	*floor;
 
 	index = 0;
-	// data->repeat_test = 0;
 	while (data->file[index])
 	{
 		if (!ft_strncmp(&data->file[index][0], "F", 1))
 		{
-			// data->repeat_test++;
-			// if (data->repeat_test > 1)
-			// 	return (err_msg(NULL, RGB3, FAILURE));
 			floor = ft_strdup(data->file[index]);
 			if (!floor)
 				return (err_msg(NULL, MALLOC, FAILURE));
@@ -47,14 +43,10 @@ static int8_t	ceiling_information(t_data *data)
 	char	*ceiling;
 
 	index = 0;
-	data->repeat_test = 0;
 	while (data->file[index])
 	{
 		if (!ft_strncmp(&data->file[index][0], "C", 1))
 		{
-			data->repeat_test++;
-			if (data->repeat_test > 1)
-				return (err_msg(NULL, RGB4, FAILURE));
 			ceiling = ft_strdup(data->file[index]);
 			if (!ceiling)
 				return (err_msg(NULL, MALLOC, FAILURE));
