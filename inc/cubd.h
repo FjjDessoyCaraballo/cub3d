@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/07 15:55:37 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/08 13:07:10 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,26 +95,19 @@
 # define MINI_HEIGHT	40
 # define T_SIZE			64
 # define MINI_T			32
-# define MINI_OFFSET 	10
-# define MINI_SCALE 	4
 # define RAY_MAX 		1920.0
 # define FOV 			60.0
 # define ROTATE_ANGLE	0.0872665
 # define PI				3.14159265358979323846
 # define STEP			0.03
 # define DEG2RAD 		0.01745329252
-# define EPSILON 0.0000000000000000000000000000000000000000000000001
+# define RED 0xFF0000FF
+# define M_RADIUS 8
+# define M_RADIUS_M 64
+
 /*************************************************/
 /* structs ***************************************/
 /*************************************************/
-//bonuses
-# define RED 0xFF0000FF
-# define M_RADIUS (MINI_T / 4)
-# define M_RADIUS_M (M_RADIUS * M_RADIUS)
-/*1.map_width and map_length maps width and height*/
-/*2. p_x and p_y player position p_dir_x and p_dir_y players sight direction*/
-/*3. doubles are better than floats, more percise*/
-
 typedef enum e_dirs
 {
 	NORTH = 1,
