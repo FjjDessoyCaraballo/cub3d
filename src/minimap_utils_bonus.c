@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 08:37:11 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/07 11:56:02 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/07 15:04:38 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
  */
 int	img_to_win(t_data *data)
 {
-	if (mlx_image_to_window(data->mlx, data->im_ray, 0, 0) == -1)
-		return (err_msg(NULL, IMG_TO_WIN, FAILURE));
+	//if (mlx_image_to_window(data->mlx, data->im_ray, 0, 0) == -1)
+	//	return (err_msg(NULL, IMG_TO_WIN, FAILURE));
 	if (mlx_image_to_window(data->mlx, data->im_map, 0, 0) == -1)
 		return (err_msg(NULL, IMG_TO_WIN, FAILURE));
 	if (mlx_image_to_window(data->mlx, data->im_map_player, 0, 0) == -1)
@@ -48,10 +48,10 @@ int	set_view(t_data *data)
 		return (FAILURE);
 	data->im_map_player->instances[0].x = (data->x_ppos - 0.5) * MINI_T;
 	data->im_map_player->instances[0].y = (data->y_ppos - 0.5) * MINI_T;
-	mlx_set_instance_depth(data->im_ray->instances, 1);
-	mlx_set_instance_depth(data->im_map->instances, 2);
-	mlx_set_instance_depth(data->im_map_player->instances, 3);
-	mlx_set_instance_depth(data->im_mini_ray->instances, 4);
+	//mlx_set_instance_depth(data->im_ray->instances, 2);
+	mlx_set_instance_depth(data->im_map->instances, 3);
+	mlx_set_instance_depth(data->im_map_player->instances, 4);
+	mlx_set_instance_depth(data->im_mini_ray->instances, 5);
 	data->im_mini_ray->instances[0].x = (data->x_ppos - 0.5) * MINI_T;
 	data->im_mini_ray->instances[0].y = (data->y_ppos - 0.5) * MINI_T;
 	return (SUCCESS);

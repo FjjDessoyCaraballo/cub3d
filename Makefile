@@ -62,6 +62,7 @@ BONUS = 	main_bonus.c\
 			higher_dimensional_utils.c\
 			minimap_bonus.c\
 			minimap_utils_bonus.c\
+			handle_bonuses.c\
 
 
 # Object files

@@ -6,12 +6,41 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/07 12:23:23 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/07 16:06:46 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
+void	animation(void *param)
+{
+	t_data		*data;
+	double		time_in;
+	
+	data = (t_data *)param;
+	time_in = mlx_get_time();
+	if (time_in - data->time >= 0.2)
+	{
+		if (data->im_player1->instances[0].enabled == false)
+		{
+			data->im_player1->instances[0].enabled = true;
+			data->im_player3->instances[0].enabled = false;
+		}
+		else if (data->im_player2->instances[0].enabled == false)
+		{
+			data->im_player2->instances[0].enabled = true;
+			data->im_player3->instances[0].enabled = false;
+		}
+		else if (data->im_player3->instances[0].enabled == false)
+		{
+			data->im_player3->instances[0].enabled = true;
+			data->im_player1->instances[0].enabled = false;
+			data->im_player2->instances[0].enabled = false;
+		}
+		data->time = time_in;
+	}
+}
+	
 /**
  * 
  * Enables isntance on or off depending on if it was already
