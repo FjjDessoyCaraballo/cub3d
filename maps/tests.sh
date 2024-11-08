@@ -60,6 +60,7 @@ maps=(	"error_maps/extra_RGB1.cub"
 		"error_maps/wrong_sprite7.cub"
 		"error_maps/wrong_sprite8.cub"
 		"error_maps/wrong_sprite9.cub"
+		"error_maps/wrong_sprite10.cub"
 		"error_maps/wrong_place1.cub"
 		"error_maps/wrong_place2.cub"
 )

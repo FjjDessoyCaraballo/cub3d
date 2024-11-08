@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/07 16:11:11 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/08 15:54:56 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,13 @@ int	main(int argc, char **argv)
 		if (map_handling(data, argv[1]) == FAILURE
 			|| open_window(data) == FAILURE
 			|| image_handling(data) == FAILURE
-			|| initialize_minimap(data) == FAILURE)
+			|| initialize_minimap(data) == FAILURE
+			|| init_player_texture(data) == FAILURE)
 		{
 			usage();
 			free_data(data);
 			return (FAILURE);
 		}
-		if (init_player_texture(data) == FAILURE)
-			return (FAILURE);
-
-		data->x_ppos += 0.5;
-		data->y_ppos += 0.5;
-		if (initlize_minimap(data) == FAILURE)
-			return (FAILURE);
-	
 		mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
 		mlx_set_instance_depth(data->im_ray->instances, 1);
 		stack_ray_data(data, 0);
