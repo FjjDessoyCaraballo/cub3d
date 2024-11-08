@@ -32,7 +32,6 @@ SRC_FILES = main.c\
 			key_hooks.c\
 			rays1.c\
 			rays2.c\
-			window_resizing.c\
 			init_higher_dimension1.c\
 			init_higher_dimension2.c\
 			higher_dimensional_utils.c \
@@ -58,7 +57,6 @@ BONUS = 	main_bonus.c\
 			key_hooks_bonus.c\
 			rays1.c\
 			rays2.c\
-			window_resizing.c\
 			init_higher_dimension1.c\
 			init_higher_dimension2.c\
 			higher_dimensional_utils.c\
@@ -124,7 +122,7 @@ fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@echo "\033[1;31m[XXX] Cleaning it GOOOOOOD...\033[0m"
 	@rm -f $(NAME) $(NAME_BONUS)
-	@rm -rf $(LIBMLX)
+#@rm -rf $(LIBMLX)
 
 re: fclean all $(NAME)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/08 13:18:48 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:17:03 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	strafe_player(t_data *data, double step)
 	char	map_char;
 
 	normalize_vector(&data->p_dir_x, &data->p_dir_y);
-	new_x = (data->x_ppos) + (-data->p_dir_y) * step;
-	new_y = (data->y_ppos) + (data->p_dir_x) * step;
+	new_x = (data->x_ppos) + (-data->p_dir_y) * step / 20;
+	new_y = (data->y_ppos) + (data->p_dir_x) * step / 20;
 	if ((new_x + data->radius) < 0
 		|| (new_x - data->radius) > (data->map_width)
 		|| (new_y + data->radius) < 0
@@ -76,8 +76,8 @@ void	move_player(t_data *data, double step)
 	char	map_char;
 
 	normalize_vector(&data->p_dir_x, &data->p_dir_y);
-	new_x = (data->x_ppos) + (data->p_dir_x) * step;
-	new_y = (data->y_ppos) + (data->p_dir_y) * step;
+	new_x = (data->x_ppos) + (data->p_dir_x) * step / 15;
+	new_y = (data->y_ppos) + (data->p_dir_y) * step / 15;
 	if ((new_x + data->radius) < 0
 		|| (new_x + data->radius) > (data->map_width)
 		|| (new_y + data->radius) < 0

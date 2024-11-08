@@ -6,17 +6,26 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/07 16:06:46 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:04:14 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
+void	update(void *param)
+{
+	t_data		*data;
+
+	data = (t_data *)param;
+	update_player(data);
+	stack_ray_data(data, 0);
+}
+
 void	animation(void *param)
 {
 	t_data		*data;
 	double		time_in;
-	
+
 	data = (t_data *)param;
 	time_in = mlx_get_time();
 	if (time_in - data->time >= 0.2)
@@ -40,7 +49,7 @@ void	animation(void *param)
 		data->time = time_in;
 	}
 }
-	
+
 /**
  * 
  * Enables isntance on or off depending on if it was already
@@ -97,7 +106,6 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 	}
 	if (keydata.key == MLX_KEY_M && keydata.action == MLX_PRESS)
 		toggle_minimap(data);
-	update_player(data);
 }
 
 /**
@@ -123,5 +131,4 @@ void	update_player(t_data *data)
 		strafe_player(data, -STEP);
 	if (data->key_pressed[MLX_KEY_D])
 		strafe_player(data, STEP);
-	stack_ray_data(data, 0);
 }
