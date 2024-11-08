@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/07 16:11:11 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/08 15:05:18 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,6 @@ int	main(int argc, char **argv)
 
 		data->x_ppos += 0.5;
 		data->y_ppos += 0.5;
-		if (initlize_minimap(data) == FAILURE)
-			return (FAILURE);
-	
 		mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
 		mlx_set_instance_depth(data->im_ray->instances, 1);
 		stack_ray_data(data, 0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 13:07:10 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/08 15:01:32 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -339,7 +339,7 @@ double		calculate_depth(t_data *data);
 void		calculate_hit_coords(t_data *data, int i);
 
 /* bonus */
-int			initlize_minimap(t_data *data);
+int			initialize_minimap(t_data *data);
 void		draw_player(t_data *data);
 void		draw_first_line(t_data *data);
 
