@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/07 11:26:40 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/08 13:18:48 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	strafe_player(t_data *data, double step)
 	{	
 		if (map_char == ' ' || map_char == '\0' || map_char == '\n')
 			return ;
-		if (map_char == '0' || map_char == '1')
+		if (map_char == '0')
 			player_pos(data, new_x, new_y);
 	}
 }
@@ -90,7 +90,7 @@ void	move_player(t_data *data, double step)
 		map_char = data->map[(int)floor(new_y)][(int)floor(new_x)];
 		if (map_char == ' ' || map_char == '\0' || map_char == '\n')
 			return ;
-		if (map_char == '0' || map_char == '1')
+		if (map_char == '0')
 			player_pos(data, new_x, new_y);
 	}
 }
