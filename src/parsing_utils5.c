@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 18:01:18 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 12:03:03 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/08 15:24:53 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ static int8_t	is_file(char *fname)
 		return (SUCCESS);
 	}
 	close(fd);
+	printf("%s\n", fname);
 	return (FAILURE);
 }
 
@@ -82,6 +83,8 @@ int8_t	is_png(char *sprite)
 {
 	if (is_dir(sprite) == FAILURE)
 		return (err_msg(NULL, SPRITE4, FAILURE));
+	if (!ft_strrchr(sprite, '/'))
+		return (err_msg(NULL, SPRITE, FAILURE));
 	if (check_suffix(ft_strrchr(sprite, '/'), \
 		".png", 4) == FAILURE)
 		return (err_msg(NULL, SPRITE3, FAILURE));

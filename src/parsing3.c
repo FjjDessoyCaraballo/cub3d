@@ -6,18 +6,16 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:12:41 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/07 14:14:34 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/08 15:39:03 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
-static int8_t	no_sprite(t_data *data)
+static int8_t	no_sprite(t_data *data, int index)
 {
-	int			index;
-	char		*sprite;
+	static char		**sprite;
 
-	index = 0;
 	data->repeat_test = 0;
 	while (data->file[index])
 	{
@@ -27,25 +25,26 @@ static int8_t	no_sprite(t_data *data)
 			data->repeat_test++;
 			if (data->repeat_test > 1)
 				return (err_msg(NULL, SPRITE2, FAILURE));
-			sprite = ft_strdup(data->file[index]);
+			sprite = ft_split(data->file[index], ' ');
 			if (!sprite)
-				return (err_msg(NULL, MALLOC, FAILURE));
-			data->n_sprite = ft_strdup(sprite_path(sprite));
-			free(sprite);
+				return (FAILURE);
+			data->n_sprite = extract_sprite(sprite);
 			if (!data->n_sprite)
-				return (err_msg(NULL, MALLOC, FAILURE));
+			{
+				free_array(sprite);
+				return (err_msg(NULL, "Missing sprite\n", FAILURE));
+			}
+			free_array(sprite);
 		}
 		index++;
 	}
 	return (SUCCESS);
 }
 
-static int8_t	so_sprite(t_data *data)
+static int8_t	so_sprite(t_data *data, int index)
 {
-	int			index;
-	char		*sprite;
+	static char		**sprite;
 
-	index = 0;
 	data->repeat_test = 0;
 	while (data->file[index])
 	{
@@ -55,25 +54,26 @@ static int8_t	so_sprite(t_data *data)
 			data->repeat_test++;
 			if (data->repeat_test > 1)
 				return (err_msg(NULL, SPRITE2, FAILURE));
-			sprite = ft_strdup(data->file[index]);
+			sprite = ft_split(data->file[index], ' ');
 			if (!sprite)
-				return (err_msg(NULL, MALLOC, FAILURE));
-			data->s_sprite = ft_strdup(sprite_path(sprite));
-			free(sprite);
+				return (FAILURE);
+			data->s_sprite = extract_sprite(sprite);
 			if (!data->s_sprite)
-				return (err_msg(NULL, MALLOC, FAILURE));
+			{
+				free_array(sprite);
+				return (err_msg(NULL, "Missing sprite\n", FAILURE));
+			}
+			free_array(sprite);
 		}
 		index++;
 	}
 	return (SUCCESS);
 }
 
-static int8_t	we_sprite(t_data *data)
+static int8_t	we_sprite(t_data *data, int index)
 {
-	int			index;
-	char		*sprite;
+	static char		**sprite;
 
-	index = 0;
 	data->repeat_test = 0;
 	while (data->file[index])
 	{
@@ -83,25 +83,26 @@ static int8_t	we_sprite(t_data *data)
 			data->repeat_test++;
 			if (data->repeat_test > 1)
 				return (err_msg(NULL, SPRITE2, FAILURE));
-			sprite = ft_strdup(data->file[index]);
+			sprite = ft_split(data->file[index], ' ');
 			if (!sprite)
-				return (err_msg(NULL, MALLOC, FAILURE));
-			data->w_sprite = ft_strdup(sprite_path(sprite));
-			free(sprite);
+				return (FAILURE);
+			data->w_sprite = extract_sprite(sprite);
 			if (!data->w_sprite)
-				return (err_msg(NULL, MALLOC, FAILURE));
+			{
+				free_array(sprite);
+				return (err_msg(NULL, "Missing sprite\n", FAILURE));
+			}
+			free_array(sprite);
 		}
 		index++;
 	}
 	return (SUCCESS);
 }
 
-static int8_t	ea_sprite(t_data *data)
+static int8_t	ea_sprite(t_data *data, int index)
 {
-	int			index;
-	char		*sprite;
+	static char		**sprite;
 
-	index = 0;
 	data->repeat_test = 0;
 	while (data->file[index])
 	{
@@ -111,13 +112,16 @@ static int8_t	ea_sprite(t_data *data)
 			data->repeat_test++;
 			if (data->repeat_test > 1)
 				return (err_msg(NULL, SPRITE2, FAILURE));
-			sprite = ft_strdup(data->file[index]);
+			sprite = ft_split(data->file[index], ' ');
 			if (!sprite)
-				return (err_msg(NULL, MALLOC, FAILURE));
-			data->e_sprite = ft_strdup(sprite_path(sprite));
-			free(sprite);
+				return (FAILURE);
+			data->e_sprite = extract_sprite(sprite);
 			if (!data->e_sprite)
-				return (err_msg(NULL, MALLOC, FAILURE));
+			{
+				free_array(sprite);
+				return (err_msg(NULL, "Missing sprite\n", FAILURE));
+			}
+			free_array(sprite);
 		}
 		index++;
 	}
@@ -148,10 +152,10 @@ static int8_t	ea_sprite(t_data *data)
  */
 int8_t	search_sprites(t_data *data)
 {
-	if (no_sprite(data) == FAILURE
-		|| ea_sprite(data) == FAILURE
-		|| so_sprite(data) == FAILURE
-		|| we_sprite(data) == FAILURE)
+	if (no_sprite(data, 0) == FAILURE
+		|| ea_sprite(data, 0) == FAILURE
+		|| so_sprite(data, 0) == FAILURE
+		|| we_sprite(data, 0) == FAILURE)
 		return (FAILURE);
 	remove_nl(data->n_sprite);
 	remove_nl(data->w_sprite);

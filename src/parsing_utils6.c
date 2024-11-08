@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   parsing_utils6.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/29 13:50:21 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 13:52:16 by fdessoy-         ###   ########.fr       */
+/*   Created: 2024/11/08 14:10:33 by fdessoy-          #+#    #+#             */
+/*   Updated: 2024/11/08 15:39:04 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include "../inc/cubd.h"
 
-char	*ft_strdup(const char *src)
+char	*extract_sprite(char **sprite)
 {
-	int		size;
-	int		i;
-	char	*cpy;
+	int	i;
 
 	i = 0;
-	size = 0;
-	while (src[size])
-		size++;
-	cpy = malloc(sizeof(char) * (size + 1));
-	if (cpy == NULL)
-		return (NULL);
-	while (src[i])
-	{
-		cpy[i] = src[i];
+	while (sprite[i])
 		i++;
+	if (i > 2)
+		return (NULL);
+	i = 0;
+	while (sprite[i])
+	{
+		if (!ft_strncmp(sprite[i], "NO", 2)
+			|| !ft_strncmp(sprite[i], "EA", 2)
+			|| !ft_strncmp(sprite[i], "SO", 2)
+			|| !ft_strncmp(sprite[i], "WE", 2))
+		{
+			i++;
+			return (ft_strdup(sprite[i]));
+		}
+		i++;	
 	}
-	cpy[i] = '\0';
-	return (cpy);
+	return (NULL);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 15:01:32 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/08 15:56:29 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ typedef struct s_data
 	int				hit;
 	int				w_width;
 	int				w_height;
+	int8_t			index;
 	double			ray_step_x;
 	double			ray_step_y;
 	double			ray_side_dis_x;
@@ -266,6 +267,9 @@ int8_t		extra_info(char *rgb);
 /* in parsing_utils5.c */
 int8_t		rgb_parse2(t_data *data, char **info, int flag);
 int8_t		is_png(char *sprite);
+
+/* in parsing_utils6.c */
+char		*extract_sprite(char **sprite);
 
 /* in flood_fill.c */
 int8_t		check_if_walled(t_data *data);
