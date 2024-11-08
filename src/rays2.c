@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 12:11:16 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/06 10:52:14 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/07 15:28:18 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 /**
  * Finds which wall is being hit and matches it to a texture.
+ * @param side flag for if we hit a vertical(0) wall or a horizontal(1) wall
+ * @param ray_x shorthand for ray-dir_x
+ * @param ray_y shorthand for ray_dir_y
+ * 
+ * @return enum for which face to represent or 0 for none
  */
 int	find_direction(int side, double ray_x, double ray_y)
 {
@@ -55,9 +60,10 @@ int	outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pixel_x)
 }
 
 /**
- * clears the whole buffer for a clean canvas for the next set of rays
+ * clears the whole buffer for a clean canvas for the next set of rays,
  * by putting a transparent pixel everywhere, transparent allows us
- * to continue seeing the background.
+ * to continue seeing through to the background.
+ * @param data struct that carries most of our variables
  */
 static void	clear_image(t_data *data)
 {
@@ -80,14 +86,8 @@ static void	clear_image(t_data *data)
 
 /**
  * We collect the length of a ray from player to wall and put it in an array
- * array not malloced seperatley, only malloced with data struct, ray_len[120]
- * ~~cheat sheet~~
- * 1. translate players positon iin 2d array to position in pixels;
- * 2. set ray position to pixels;
- * 3. convert ray position back to a comparible number to compare with 2darray
- * for wall hit check;
- * 4. i think here we will need to implement if ray hits
- * wall render 3d or collect data;
+ * array not malloced seperatley, only malloced with data struct.
+ * 
 */
 void	stack_ray_data(t_data *data, int i)
 {
@@ -96,7 +96,7 @@ void	stack_ray_data(t_data *data, int i)
 	double	tan_fov;
 
 	tan_fov = (tan(FOV / 2 * PI / 180));
-	data->wall_scale = ((WIDTH / 2) / tan_fov) * 0.01;
+	data->wall_scale = ((WIDTH / 2) / tan_fov) * 0.03;
 	ray_angle = 0;
 	player_angle = atan2(data->p_dir_y, data->p_dir_x);
 	clear_image(data);

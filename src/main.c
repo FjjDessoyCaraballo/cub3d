@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/06 18:43:10 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/06 10:14:26 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	main(int argc, char **argv)
 			return (FAILURE);
 		}
 		stack_ray_data(data, 0);
+		mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
 		mlx_key_hook(data->mlx, &keyhookfunc, data);
 		wrap_up(data);
 	}

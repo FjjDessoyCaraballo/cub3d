@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 12:06:44 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/08 13:07:10 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,18 +98,15 @@
 # define MINI_HEIGHT	40
 # define T_SIZE			64
 # define MINI_T			32
-# define MINI_OFFSET 	10
-# define MINI_SCALE 	4
 # define RAY_MAX 		1920.0
 # define FOV 			60.0
 # define ROTATE_ANGLE	0.0872665
 # define PI				3.14159265358979323846
 # define STEP			0.03
 # define DEG2RAD 		0.01745329252
-# define EPSILON 0.0000000000000000000000000000000000000000000000001
 # define RED 0xFF0000FF
-# define M_RADIUS (MINI_T / 4)
-# define M_RADIUS_M (M_RADIUS * M_RADIUS)
+# define M_RADIUS 8
+# define M_RADIUS_M 64
 
 /*************************************************/
 /* structs ***************************************/
@@ -136,6 +133,7 @@ typedef struct s_data
 	int				map_width;
 	int				map_length;
 	int				side_hit;
+	double			time;
 	double			ray_size;
 	double			p_dir_x;
 	double			p_dir_y;
@@ -200,6 +198,11 @@ typedef struct s_data
 	mlx_texture_t	*tx_s_wall;
 	mlx_texture_t	*tx_e_wall;
 	mlx_texture_t	*tx_w_wall;
+	
+	mlx_texture_t	*tx_player1;
+	mlx_texture_t	*tx_player2;
+	mlx_texture_t	*tx_player3;
+	
 	mlx_image_t		*im_n_wall;	
 	mlx_image_t		*im_s_wall;
 	mlx_image_t		*im_e_wall;
@@ -217,6 +220,9 @@ typedef struct s_data
 	mlx_image_t		*im_mini_player;
 	mlx_image_t		*im_mini_ray;
 	mlx_image_t		*im_map_player;
+	mlx_image_t	*im_player1;
+	mlx_image_t	*im_player2;
+	mlx_image_t	*im_player3;
 }		t_data;
 
 /*************************************************/
@@ -317,7 +323,8 @@ void		stack_ray_data(t_data *data, int i);
 /* init_higher_dimension1.c */
 void		initialize_wall_params(t_data *data, int i, double *w_h, \
 						double *img_x);
-void		draw_stretched_wall(t_data *data, double img_x, double wall_h);
+void		draw_stretched_wall(t_data *data, double img_x, double w_h, \
+						double fset);
 void		draw_regular_wall(t_data *data, double wall_h, double img_x, \
 						double top_of_wall);
 int			draw_wall(t_data *data, int i);
@@ -326,23 +333,31 @@ int			draw_wall(t_data *data, int i);
 int			find_wall(t_data *data, int i);
 int			check_for_wall_failure(t_data *data, int i);
 
+/* higher_dimensinal_utils.c */
+double		diff(double wall_h);
+double		calculate_depth(t_data *data);
+void		calculate_hit_coords(t_data *data, int i);
+
 /* bonus */
-int			initialize_minimap(t_data *data);
-// void		draw_mini_player(t_data *data);
+int			initlize_minimap(t_data *data);
 void		draw_player(t_data *data);
 void		draw_first_line(t_data *data);
 
 /* minimap.c */
-//int		init_map(t_data *data);
 int			init_map(t_data *data, int x, int y, uint32_t colour);
 void		draw_mini_line(t_data *data, int new_x, int new_y);
 
 /* mimimap_utils_bonus.c */
-void		adjust_mapstart(int *p_x, int *p_y);
 void		draw_line(t_data *data, int i);
 void		draw_mini_player(t_data *data, int y, int x);
 void		wipe_line(t_data *data, int new_x, int new_y);
-int			set_view(t_data *data);
+int			set_view(t_data * data);
+
+/* handle_bonuses.c */
+int	init_player_texture(t_data *data);
+
+/* bonus key hooks */
+void	animation(void *param);
 
 /* in free.c */
 void		free_data(t_data *data);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/06 18:54:39 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/07 15:47:42 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,37 @@
 /**
  * Turns things transparent
  */
-void make_minimap_transparent(mlx_image_t *image, float transparency)
+
+void	make_transparent(mlx_image_t *im, uint32_t y, uint32_t x, uint32_t *pix)
 {
-	uint32_t y = 0;
-	uint32_t x = 0;
-	uint32_t *pixel;
-    while (y < image->height)
+	uint8_t	r;
+	uint8_t	g;
+	uint8_t	b;
+	uint8_t	a;
+
+	while (y < im->height)
 	{
-        while (x < image->width)
+		while (x < im->width)
 		{
-            pixel = (uint32_t *)(image->pixels + (y * image->width + x) * sizeof(uint32_t));
-            uint8_t r = (*pixel >> 16) & 0xF0;
-            uint8_t g = (*pixel >> 8) & 0xF0;
-            uint8_t b = (*pixel) & 0xF0;
-            uint8_t a = (*pixel >> 24) & 0xF0;
-            a = (uint8_t)(a * transparency);
-            *pixel = ((uint32_t)a << 24) | (r << 16) | (g << 8) | b;
+			pix = (uint32_t *)(im->pixels + (y * im->width + x) \
+			* sizeof(uint32_t));
+			r = (*pix >> 16) & 0xF0;
+			g = (*pix >> 8) & 0xF0;
+			b = (*pix) & 0xF0;
+			a = (*pix >> 24) & 0xF0;
+			a = (uint8_t)(a * 0.6f);
+			*pix = ((uint32_t)a << 24) | (r << 16) | (g << 8) | b;
 			x++;
-        }
+		}
 		x = 0;
 		y++;
-    }
+	}
 }
+
 /**
  * Inits mini texture to mini image and resizes
  */
+
 int	init_mini_imgs(t_data *data)
 {	
 	data->tx_mini_floor = mlx_load_png("./minimap_textures/floor.png");
@@ -53,8 +59,8 @@ int	init_mini_imgs(t_data *data)
 	data->im_map = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	data->im_map_player = mlx_new_image(data->mlx, MINI_WIDTH, MINI_HEIGHT);
 	data->im_mini_ray = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	if (data->im_map == NULL || data->im_map_player == NULL 
-	|| data->im_mini_ray == NULL)
+	if (data->im_map == NULL || data->im_map_player == NULL
+		|| data->im_mini_ray == NULL)
 		return (err_msg(NULL, NEW_IMG, FAILURE));
 	return (SUCCESS);
 }
@@ -64,21 +70,22 @@ int	init_mini_imgs(t_data *data)
  * instances will be utilized in draw minimap to switch images on and off.
  */
 
-void draw_mini_tile(t_data *data, int x, int y, uint32_t colour)
+void	draw_mini_tile(t_data *data, int x, int y, uint32_t colour)
 {
-	int j = 0;
-	int i = 0;
-	
-    while (j < MINI_T)
+	int	j;
+	int	i;
+
+	j = 0;
+	i = 0;
+	while (j < MINI_T)
 	{
-		
-        while (i < MINI_T)
+		while (i < MINI_T)
 		{
-            mlx_put_pixel(data->im_map, x + i, y + j, colour);
-	    	i++;
-	    }
+			mlx_put_pixel(data->im_map, x + i, y + j, colour);
+			i++;
+		}
 		i = 0;
-	    j++;
+		j++;
 	}
 }
 
@@ -107,7 +114,7 @@ int init_map(t_data *data, int x, int y, uint32_t colour)
 		x = 0;
 		y++;
 	}
-	make_minimap_transparent(data->im_map, 0.6f);
+	make_transparent(data->im_map, 0, 0, 0);
 	return (SUCCESS);
 }
 

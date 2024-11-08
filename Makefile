@@ -35,6 +35,7 @@ SRC_FILES = main.c\
 			window_resizing.c\
 			init_higher_dimension1.c\
 			init_higher_dimension2.c\
+			higher_dimensional_utils.c \
 			movement.c\
 
 BONUS = 	main_bonus.c\
@@ -53,15 +54,19 @@ BONUS = 	main_bonus.c\
 			base.c\
 			img_handling1.c\
 			img_handling2.c\
+			movement_bonus.c\
+			key_hooks_bonus.c\
 			key_hooks.c\
 			rays1.c\
 			rays2.c\
 			window_resizing.c\
 			init_higher_dimension1.c\
 			init_higher_dimension2.c\
+			higher_dimensional_utils.c\
 			movement_bonus.c\
 			minimap_bonus.c\
 			minimap_utils_bonus.c\
+			handle_bonuses.c\
 
 
 # Object files

@@ -6,13 +6,12 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/05 16:38:02 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/07 15:28:04 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
-/****this is the bonus version */
 /**
  * This computes the magnitude of the vector using the 
  * Pythagorean theorem, to simplyfy our directin numbers in an attempt to 
@@ -27,6 +26,16 @@ void	normalize_vector(double *x, double *y)
 	*y /= length;
 }
 
+/**
+ * 
+ * Updates player position aswell us updating the image instances positions
+ * on the minimpa
+ * @param data struct that carries most of our variables
+ * @param new_x the new calculated position x
+ * @param new_y the new calculated position y
+ * 
+ * 
+ */
 static void	player_pos(t_data *data, double new_x, double new_y)
 {
 	data->x_ppos = new_x;
@@ -35,8 +44,17 @@ static void	player_pos(t_data *data, double new_x, double new_y)
 	data->im_map_player->instances[0].y = (data->y_ppos - 0.5) * MINI_T;
 	data->im_mini_ray->instances[0].x = (data->x_ppos - 0.5) * MINI_T;
 	data->im_mini_ray->instances[0].y = (data->y_ppos - 0.5) * MINI_T;
-
 }
+
+/**
+ * 
+ * Moves the player left or right
+ * and updating player position based on valid movements only
+ * 
+ * @param data struct that carries most of our variables
+ * @param step the size of step given as either + or - depending on direction
+ * 
+ */
 void	strafe_player(t_data *data, double step)
 {
 	double	new_x;
@@ -64,15 +82,13 @@ void	strafe_player(t_data *data, double step)
 	}
 }
 
-
 /**
- * moving player so that they dont go out of bounds, challenge is
- * preventing entry to existing tiles that are marked space, ive 
- * left some solutions in theory but i will move on for now, 
- * as im not sure this will have much value to our project, 
- * especially since this problem should go away in the bonus
- * 1. floor and ceil are math.h functions, floor rounds 
- * down from decimal
+ * Move the player up or down and
+ * updates player position based on valid movements only
+ * 
+ * @param data struct that carries most of our variables
+ * @param step size of step given as + or - depending on direction
+ * 
 */
 void	move_player(t_data *data, double step)
 {
@@ -100,9 +116,19 @@ void	move_player(t_data *data, double step)
 	}
 }
 
+/**
+ * Rotates the player on center axis,
+ * and updates the direction marker(mini_line)
+ * 
+ * @param data struct that carries most of our variables
+ * @param angle calculated angle based on our iterator =
+ * (which ray we are woking with)
+ * 
+ */
 void	rotate_player(t_data *data, double angle)
 {
 	double	prev_dir_x;
+
 	wipe_line(data, 0, 0);
 	prev_dir_x = data->p_dir_x;
 	data->p_dir_x = data->p_dir_x * cos(angle) - data->p_dir_y * sin(angle);
