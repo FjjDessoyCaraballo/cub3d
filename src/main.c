@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 22:50:12 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/11 12:52:33 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int argc, char **argv)
 		data = ft_calloc(1, sizeof(t_data));
 		if (!data)
 			return (err_msg(NULL, MALLOC, -1));
+		
 		if (map_handling(data, argv[1]) == FAILURE
 			|| open_window(data) == FAILURE
 			|| image_handling(data) == FAILURE)

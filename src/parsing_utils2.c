@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:08:26 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 14:43:48 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/11 13:12:36 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,12 @@ static int8_t	only_number_check(char **array)
 
 int8_t	rgb_assignment(t_data *data, char **array, int flag)
 {
+	if (!array[0] || !array[1] || !array[2])
+		return (err_msg(NULL, "Error\nBroken RGB\n", FAILURE));
 	if (only_number_check(array) == FAILURE)
 		return (FAILURE);
+	if (array[2][0] == '\n')
+		return (err_msg(NULL, "Error\nBroken RGB\n", FAILURE));
 	if (flag == 1)
 	{
 		data->c_red = ft_atoi(array[0]);

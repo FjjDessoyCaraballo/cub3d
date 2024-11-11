@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:12:41 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/11 12:27:14 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/11 12:30:15 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,7 +159,7 @@ int8_t	search_sprites(t_data *data)
 		return (FAILURE);
 	if (!data->n_sprite || !data->e_sprite
 		|| !data->s_sprite || !data->w_sprite)
-	return (err_msg(NULL, "Error\ncheck formats in cub file", FAILURE))
+		return (err_msg(NULL, "Error\ncheck formats in cub file", FAILURE));
 	remove_nl(data->n_sprite);
 	remove_nl(data->w_sprite);
 	remove_nl(data->s_sprite);
