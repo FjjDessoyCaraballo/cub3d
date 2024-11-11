@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 13:28:46 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 17:15:48 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/11 11:30:06 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ uint32_t	fetch_pixel_rgb(mlx_image_t *img, int x, int y, int pos)
 	if (img != NULL)
 	{
 		pos = (y * img->width + x) * 4;
+		if (pos < 0 || (uint32_t)(pos + 3) >= img->width * img->height * 4)
+			return (0);
 		r = img->pixels[pos];
 		g = img->pixels[pos + 1];
 		b = img->pixels[pos + 2];
