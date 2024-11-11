@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 13:51:03 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 16:55:17 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/11 11:50:00 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int8_t	image_initialization(t_data *data)
 int8_t	image_handling(t_data *data)
 {
 	if (image_initialization(data) == FAILURE)
-		return (err_msg(NULL, IMAGE_FAIL, FAILURE));	
+		return (err_msg(NULL, IMAGE_FAIL, FAILURE));
 	if (load_pngs(data) == FAILURE)
 		return (err_msg(NULL, MLX2, FAILURE));
 	else

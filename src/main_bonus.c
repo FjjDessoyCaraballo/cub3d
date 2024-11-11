@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 16:48:23 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/11 11:48:59 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
+
+void	start_game(t_data *data)
+{
+	mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
+	mlx_set_instance_depth(data->im_ray->instances, 1);
+	data->time = mlx_get_time();
+	mlx_key_hook(data->mlx, &keyhookfunc, data);
+	mlx_loop_hook(data->mlx, &animation, data);
+	mlx_loop_hook(data->mlx, &update, data);
+	wrap_up(data, 1);
+}
 
 /** 
  * main
@@ -39,14 +50,8 @@ int	main(int argc, char **argv)
 			usage();
 			free_data(data);
 			return (FAILURE);
-		}		
-		mlx_image_to_window(data->mlx, data->im_ray, 0, 0);
-		mlx_set_instance_depth(data->im_ray->instances, 1);
-		data->time = mlx_get_time();
-		mlx_key_hook(data->mlx, &keyhookfunc, data);
-		mlx_loop_hook(data->mlx, &animation, data);
-		mlx_loop_hook(data->mlx, &update, data);
-		wrap_up(data, 1);
+		}
+		start_game(data);
 	}
 	else
 		usage();

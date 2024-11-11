@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils6.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:10:33 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 15:39:04 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/11 11:50:23 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*extract_sprite(char **sprite)
 			i++;
 			return (ft_strdup(sprite[i]));
 		}
-		i++;	
+		i++;
 	}
 	return (NULL);
 }
