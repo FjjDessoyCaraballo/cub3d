@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 16:22:38 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/11 14:17:40 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -354,7 +354,8 @@ void		draw_mini_line(t_data *data, int new_x, int new_y);
 void		draw_line(t_data *data, int i);
 void		draw_mini_player(t_data *data, int y, int x);
 void		wipe_line(t_data *data, int new_x, int new_y);
-int			set_view(t_data * data);
+int			set_view(t_data *data);
+
 /* handle_bonuses.c */
 int			init_player_texture(t_data *data);
 void		delete_bonuses(t_data *data);
