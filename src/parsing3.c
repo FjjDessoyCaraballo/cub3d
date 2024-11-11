@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:12:41 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 15:39:03 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/11 12:27:14 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int8_t	no_sprite(t_data *data, int index)
 			if (!data->n_sprite)
 			{
 				free_array(sprite);
-				return (err_msg(NULL, "Missing sprite\n", FAILURE));
+				return (err_msg(NULL, "Error\nMissing sprite\n", FAILURE));
 			}
 			free_array(sprite);
 		}
@@ -61,7 +61,7 @@ static int8_t	so_sprite(t_data *data, int index)
 			if (!data->s_sprite)
 			{
 				free_array(sprite);
-				return (err_msg(NULL, "Missing sprite\n", FAILURE));
+				return (err_msg(NULL, "Error\nMissing sprite\n", FAILURE));
 			}
 			free_array(sprite);
 		}
@@ -90,7 +90,7 @@ static int8_t	we_sprite(t_data *data, int index)
 			if (!data->w_sprite)
 			{
 				free_array(sprite);
-				return (err_msg(NULL, "Missing sprite\n", FAILURE));
+				return (err_msg(NULL, "Error\nMissing sprite\n", FAILURE));
 			}
 			free_array(sprite);
 		}
@@ -119,7 +119,7 @@ static int8_t	ea_sprite(t_data *data, int index)
 			if (!data->e_sprite)
 			{
 				free_array(sprite);
-				return (err_msg(NULL, "Missing sprite\n", FAILURE));
+				return (err_msg(NULL, "Error\nMissing sprite\n", FAILURE));
 			}
 			free_array(sprite);
 		}
@@ -157,6 +157,9 @@ int8_t	search_sprites(t_data *data)
 		|| so_sprite(data, 0) == FAILURE
 		|| we_sprite(data, 0) == FAILURE)
 		return (FAILURE);
+	if (!data->n_sprite || !data->e_sprite
+		|| !data->s_sprite || !data->w_sprite)
+	return (err_msg(NULL, "Error\ncheck formats in cub file", FAILURE))
 	remove_nl(data->n_sprite);
 	remove_nl(data->w_sprite);
 	remove_nl(data->s_sprite);
