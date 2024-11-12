@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:30:08 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/07 11:25:26 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:45:26 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ double	diff(double wall_h)
 void	calculate_hit_coords(t_data *data, int i)
 {
 	int	calc;
-
+	(void)i;
 	if (data->side == 0)
 	{
 		if (data->step_x == -1)
@@ -57,7 +57,8 @@ void	calculate_hit_coords(t_data *data, int i)
 		else
 			calc = 0;
 		data->ray_x = data->map_x + calc;
-		data->ray_y = data->y_ppos + data->ray_len[i] * data->ray_dir_y;
+		//data->ray_y = data->y_ppos + data->ray_len[i] * data->ray_dir_y;
+		data->ray_y = data->ppos_pix_y + data->perp_wall_dist * data->ray_dir_y;
 	}
 	else
 	{
@@ -65,7 +66,8 @@ void	calculate_hit_coords(t_data *data, int i)
 			calc = 1;
 		else
 			calc = 0;
-		data->ray_x = data->x_ppos + data->ray_len[i] * data->ray_dir_x;
+		//data->ray_x = data->x_ppos + data->ray_len[i] * data->ray_dir_x;
+		data->ray_x = data->ppos_pix_x + data->perp_wall_dist * data->ray_dir_x;
 		data->ray_y = data->map_y + calc;
 	}
 }
