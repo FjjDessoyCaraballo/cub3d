@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/07 11:25:05 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:42:59 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,5 @@ void	collect_ray(t_data *data, int i, double ray_distance, double ray_angle)
 	data->ray_len[i] = data->perp_wall_dist * cos(ray_angle - ray_distance);
 	data->ray_hit[i] = find_direction(data->side, data->ray_dir_x, \
 		data->ray_dir_y);
-	calculate_hit_coords(data, i);
+	calculate_hit_coords(data);
 }

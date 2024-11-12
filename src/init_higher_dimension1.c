@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_higher_dimension1.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/12 11:01:32 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:42:16 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ double	calculate_img_x(t_data *data)
 {
 	double	texture_pos;
 	double	offset;
+
 	if (data->side == 0)
 		texture_pos = data->ray_y;
 	else
 		texture_pos = data->ray_x;
 	texture_pos = fabs(fmod(texture_pos, T_SIZE));
-	// new vvv
 	offset = fmod(data->ppos_pix_x * 0.001 + data->ppos_pix_y * 0.001, 1.0);
 	texture_pos += offset;
 	texture_pos = fmod(texture_pos, T_SIZE);
@@ -65,7 +65,8 @@ void	initialize_wall_params(t_data *data, int i, double *w_h, double *img_x)
  * "see" the top or bottom 
  * 
 */
-void	draw_stretched_wall(t_data *data, double img_x, double w_h, double fset)
+void	draw_stretched_wall(t_data *data, double img_x, double w_h, \
+	double fset)
 {
 	double		img_y_inc;
 	double		current_wall_pos;
@@ -73,10 +74,6 @@ void	draw_stretched_wall(t_data *data, double img_x, double w_h, double fset)
 	uint32_t	colour;
 
 	img_y_inc = data->im_current_wall->height / w_h;
-	/*this commented out code, gives the illusion of going downwards when getting close to wall*/
-	//fset = (((w_h / T_SIZE) - diff(w_h)) / 1.0) * img_y_inc;
-	/*this commented out code, gives somekind of rough illusion of going over the wall*/
-	//fset = (((w_h / T_SIZE) + diff(w_h)) / 2.0) * img_y_inc;
 	fset = (((w_h / T_SIZE) - diff(w_h)) / 2.0) * img_y_inc - 0.75;
 	current_wall_pos = 0;
 	while (current_wall_pos < HEIGHT)
