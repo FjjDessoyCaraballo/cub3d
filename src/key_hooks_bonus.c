@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/08 16:04:14 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:35:33 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,13 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 	data = (t_data *)param;
 	if (keydata.key == MLX_KEY_ESCAPE)
 		mlx_close_window(data->mlx);
+	if (keydata.action == MLX_PRESS && keydata.key == MLX_KEY_SPACE && data->door_flag < 3)
+	{
+		if (data->door_flag == 0)
+			data->door_flag++;
+		else if (data->door_flag == 1)
+			data->door_flag++;
+	}
 	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_A
 		|| keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_D
 		|| keydata.key == MLX_KEY_LEFT || keydata.key == MLX_KEY_RIGHT)

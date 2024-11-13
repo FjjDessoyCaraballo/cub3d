@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/11 11:45:20 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:14:10 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,13 @@ int	init_map(t_data *data, int x, int y, uint32_t colour)
 		row_width = ft_strlen(data->map[y]);
 		while (x < row_width)
 		{
-			if (data->map[y][x] == '1')
+			if (y == data->door_y && x == data->door_x)
+			{
+				colour = RED;//fetch_pixel_rgb(data->im_mini_wall, x, y, 0);
+				draw_mini_tile(data, x * MINI_T, y * MINI_T, colour);
+
+			}
+			else if (data->map[y][x] == '1')
 			{
 				colour = fetch_pixel_rgb(data->im_mini_wall, x, y, 0);
 				draw_mini_tile(data, x * MINI_T, y * MINI_T, colour);
@@ -118,6 +124,9 @@ int	init_map(t_data *data, int x, int y, uint32_t colour)
 
 int	initialize_minimap(t_data *data)
 {
+	find_door_location(data);
+	printf("check door x = %f door y = %f\n", data->door_x, data->door_y);
+	printf("check door x = %f door y = %f\n", data->door_x * T_SIZE, data->door_y * T_SIZE);
 	if (init_mini_imgs(data) == FAILURE)
 		return (err_msg(NULL, MLX1, FAILURE));
 	if (init_map(data, 0, 0, 0) == FAILURE)
@@ -125,5 +134,8 @@ int	initialize_minimap(t_data *data)
 	draw_mini_player(data, 0, 0);
 	draw_mini_line(data, 0, 0);
 	set_view(data);
+	//data->door_x = data->door_x * T_SIZE;
+	//data->door_y = data->door_y * T_SIZE;
+
 	return (SUCCESS);
 }

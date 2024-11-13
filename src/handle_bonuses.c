@@ -6,11 +6,93 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:29:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/08 16:24:00 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:35:16 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
+
+int	find_door_location(t_data *data)
+{
+	int x;
+	int y;
+	int count;
+
+	x = (int)data->x_ppos + 0.5;
+	y = (int)data->y_ppos + 0.5;
+	count = 0;
+	while (y >= 0 && data->map[y][x] != '1')
+		y--;
+	while (count <= 10)
+	{
+		while (y - 1 >= 0 && data->map[y - 1][x] == '1')
+		{
+			if (x < data->map_width && data->map[y][x] != '1')
+			{
+				x++;
+				count++;
+			}
+			if (count >= 10)
+			{
+				data->door_y = y - 1;
+				data->door_x = x + 1;
+				return (10);
+			}
+			if (data->map[y][x + 1] == '1' && data->map[y - 1][x] == '1')	
+				y++;
+		}
+		while (x + 1 < data->map_width && data->map[y][x + 1] == '1')
+		{
+			if (y + 1 < data->map_length && data->map[y + 1][x] != '1')
+			{
+				y++;
+				count++;	
+			}
+			if (count >= 10)
+			{
+				data->door_y = y + 1;
+				data->door_x = x + 1;
+				return (10);
+			}	
+			if (data->map[y - 1][x] == '1' && data->map[y][x + 1] == '1')	
+				x--;
+		}
+		
+		while (y + 1 < data->map_length && data->map[y + 1][x] == '1')
+		{
+			if (x -1 >= 0 && data->map[y][x - 1] != '1')
+			{
+				x--;
+				count++;
+			}
+			if (count >= 10)
+			{
+				data->door_y = y + 1;
+				data->door_x = x - 1;
+				return (10);
+			}	
+			if (data->map[y + 1][x] == '1' && data->map[y][x + 1] == '1')
+				y++;
+		}
+		while (x - 1 >= 0 && data->map[y][x - 1] == '1')
+		{
+			if (y + 1 < data->map_length && data->map[y + 1][x] != '1')
+			{
+				y++;
+				count++;	
+			}
+			if (count >= 10)
+			{
+				data->door_y = y + 1;
+				data->door_x = x - 1;
+				return (10);
+			}	
+			if (data->map[y + 1][x] == '1' && data->map[y][x - 1] == '1')	
+				x++;
+		}
+	}
+	return (SUCCESS);
+}
 
 int	load_player_imgs(t_data *data)
 {	
@@ -57,9 +139,26 @@ int	set_player(t_data *data)
 
 int	init_player_texture(t_data *data)
 {
+//	find_door_location(data);
+//	printf("check door x = %f door y = %f\n", data->door_x, data->door_y);
+
 	if (load_player_imgs(data) == FAILURE)
 		return (FAILURE);
 	if (set_player(data) == FAILURE)
 		return (FAILURE);
+	data->im_door1 = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	data->im_door2 = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	data->im_door3 = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	
+	data->tx_door1 = mlx_load_png("./textures/round_door.png");
+	data->tx_door2 = mlx_load_png("./textures/round_door2.png");
+	data->tx_door3 = mlx_load_png("./textures/round_door3.png");
+	
+	data->im_door1 = mlx_texture_to_image(data->mlx, data->tx_door1);
+	data->im_door2 = mlx_texture_to_image(data->mlx, data->tx_door2);
+	data->im_door3 = mlx_texture_to_image(data->mlx, data->tx_door3);
+	data->door_flag = 0;
+	//testing only so far
+	//find location for door 
 	return (SUCCESS);
 }

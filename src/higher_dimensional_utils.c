@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:30:08 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/12 10:45:26 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:09:32 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void	calculate_hit_coords(t_data *data, int i)
 		else
 			calc = 0;
 		data->ray_x = data->map_x + calc;
+
+//		data->ray_x = data->ppos_pix_x + data->perp_wall_dist * data->ray_dir_x - calc;
 		//data->ray_y = data->y_ppos + data->ray_len[i] * data->ray_dir_y;
 		data->ray_y = data->ppos_pix_y + data->perp_wall_dist * data->ray_dir_y;
 	}
@@ -68,6 +70,9 @@ void	calculate_hit_coords(t_data *data, int i)
 			calc = 0;
 		//data->ray_x = data->x_ppos + data->ray_len[i] * data->ray_dir_x;
 		data->ray_x = data->ppos_pix_x + data->perp_wall_dist * data->ray_dir_x;
+		
+
+//		data->ray_y = data->ppos_pix_y + data->perp_wall_dist * data->ray_dir_y - calc;
 		data->ray_y = data->map_y + calc;
 	}
 }

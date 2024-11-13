@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/11 14:17:40 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/13 15:19:54 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ typedef enum e_dirs
 
 typedef struct s_data
 {
+
 	mlx_t			*mlx;
 	mlx_t			*main_window;
 	mlx_t			*mini_window;
@@ -133,6 +134,11 @@ typedef struct s_data
 	int				map_width;
 	int				map_length;
 	int				side_hit;
+
+	double			door_x;
+	double			door_y;
+	int 			door_flag;
+
 	double			time;
 	double			ray_size;
 	double			p_dir_x;
@@ -206,6 +212,10 @@ typedef struct s_data
 	mlx_texture_t	*tx_player2;
 	mlx_texture_t	*tx_player3;
 
+	mlx_texture_t	*tx_door1;
+	mlx_texture_t	*tx_door2;
+	mlx_texture_t	*tx_door3;
+	
 	mlx_image_t		*im_n_wall;	
 	mlx_image_t		*im_s_wall;
 	mlx_image_t		*im_e_wall;
@@ -223,6 +233,11 @@ typedef struct s_data
 	mlx_image_t		*im_player1;
 	mlx_image_t		*im_player2;
 	mlx_image_t		*im_player3;
+
+	mlx_image_t	*im_current_door;
+	mlx_image_t	*im_door1;
+	mlx_image_t	*im_door2;
+	mlx_image_t	*im_door3;
 }		t_data;
 
 /*************************************************/
@@ -366,4 +381,5 @@ void		animation(void *param);
 /* in free.c */
 void		free_data(t_data *data);
 void		draw_mini_map(t_data *data, int x, int y, int index);
+int	find_door_location(t_data *data);
 #endif

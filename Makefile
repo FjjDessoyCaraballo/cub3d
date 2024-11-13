@@ -60,7 +60,7 @@ BONUS = 	main_bonus.c\
 			rays1.c\
 			rays2.c\
 			init_higher_dimension1.c\
-			init_higher_dimension2.c\
+			init_higher_dimension2_bonus.c\
 			higher_dimensional_utils.c\
 			minimap_bonus.c\
 			minimap_utils_bonus.c\
@@ -128,7 +128,7 @@ fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@echo "\033[1;31m[XXX] Cleaning it GOOOOOOD...\033[0m"
 	@rm -f $(NAME) $(NAME_BONUS)
-	@rm -rf $(LIBMLX)
+#@rm -rf $(LIBMLX)
 
 re: fclean all $(NAME)
 
