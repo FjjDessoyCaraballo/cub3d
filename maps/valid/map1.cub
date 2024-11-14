@@ -4,8 +4,8 @@ WE ./textures/wall_w_sprite.png
 SO ./textures/wall_s_sprite.png
 EA ./textures/wall_e_sprite.png
               
-F 0,0,0
-C 100,100,100
+F 0,128,0
+C 173,216,230
 
         1111111111111111111111111
         1000000000110000000000001

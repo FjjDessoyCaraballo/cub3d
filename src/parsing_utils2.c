@@ -44,15 +44,15 @@ int8_t	rgb_assignment(t_data *data, char **array, int flag)
 		return (err_msg(NULL, "Error\nBroken RGB\n", FAILURE));
 	if (flag == 1)
 	{
-		data->c_red = ft_atoi(array[0]);
-		data->c_green = ft_atoi(array[1]);
-		data->c_blue = ft_atoi(array[2]);
-	}
-	else
-	{
 		data->f_red = ft_atoi(array[0]);
 		data->f_green = ft_atoi(array[1]);
 		data->f_blue = ft_atoi(array[2]);
+	}
+	else
+	{
+		data->c_red = ft_atoi(array[0]);
+		data->c_green = ft_atoi(array[1]);
+		data->c_blue = ft_atoi(array[2]);
 	}
 	return (SUCCESS);
 }

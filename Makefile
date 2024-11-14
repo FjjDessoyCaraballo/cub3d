@@ -86,7 +86,10 @@ MLX_FLAGS = ./MLX42/build/libmlx42.a -ldl -lglfw -pthread -lm #can combine
 BOBJS = $(BONUS:.c=.o)
 
 all: libmlx $(NAME)
-	@echo "\033[1;32m[✔] GOOD HEAVENS! LOOK AT THE EXECUTABLE!\033[0m"
+	@echo "\033[1;32m[✔] Compiled main executable: $(NAME)\033[0m"
+
+bonus: $(NAME_BONUS) link_bonus
+	@echo "\033[1;32m[✔] Compiled bonus executable: $(NAME) with BONUS!\033[0m"
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(INCFLAGS) $(LIBFT_INC) -g -c $< -o $@
@@ -96,27 +99,24 @@ libmlx:
 	@cmake ./MLX42 -B ./MLX42/build
 	@make -C ./MLX42/build -j4
 
-$(NAME): libmlx $(OBJ_FILES) $(LIBFT)
+# Compile the main executable
+$(NAME): $(OBJ_FILES) $(LIBFT)
 	@$(CC) $(CFLAGS) $(OBJ_FILES) $(LIBFT_LINK) $(MLX_FLAGS) -o $(NAME)
-	@echo "\033[1;33m[✔] Compiling $(NAME)...\033[0m"
+	@echo "\033[1;33m[✔] Compiling $(NAME) (main version)...\033[0m"
 
-$(NAME_BONUS): libmlx $(BOBJS) $(LIBFT)
+# Compile the bonus executable without renaming
+$(NAME_BONUS): $(BOBJS) $(LIBFT)
 	@$(CC) $(CFLAGS) $(BOBJS) $(LIBFT_LINK) $(MLX_FLAGS) -o $(NAME_BONUS)
-	@echo "\033[1;33m[✔] Compiling $(NAME_BONUS)...\033[0m"
+	@echo "\033[1;33m[✔] Compiling $(NAME_BONUS) (bonus version)...\033[0m"
+
+# Create a symbolic link named cub3D that points to cub3D_bonus
+link_bonus:
+	@ln -sf $(NAME_BONUS) $(NAME)
+	@echo "\033[1;33m[✔] Created symbolic link $(NAME) -> $(NAME_BONUS)\033[0m"
 
 $(LIBFT): $(LIBFT_MAKEFILE)
 	@$(MAKE) -C $(LIBFT_DIR)
 	@echo "\033[1;33m[✔] Linking to libft Makefile...\033[0m"
-
-$(LIBFT_MAKEFILE):
-	@echo "Creating symbolic link for libft Makefile..."
-	@ln -s $(CURDIR)/$(LIBFT_MAKEFILE) $(LIBFT_MAKEFILE)
-
-.bonus: libmlx $(NAME_BONUS)
-	@touch .bonus
-	@echo "\033[1;32m[✔] GOOD HEAVENS! LOOK AT THE BONUS EXECUTABLE!\033[0m"
-
-bonus: .bonus
 
 clean:
 	@$(MAKE) -C $(LIBFT_DIR) clean
@@ -128,8 +128,9 @@ fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@echo "\033[1;31m[XXX] Cleaning it GOOOOOOD...\033[0m"
 	@rm -f $(NAME) $(NAME_BONUS)
-#@rm -rf $(LIBMLX)
+	@rm -rf $(LIBMLX)
 
-re: fclean all $(NAME)
+re: fclean all
 
-.PHONY: all clean fclean re libmlx bonus
+.PHONY: all clean fclean re libmlx bonus link_bonus
+

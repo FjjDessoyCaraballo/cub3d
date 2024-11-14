@@ -352,7 +352,7 @@ int			check_for_wall_failure(t_data *data, int i);
 /* higher_dimensinal_utils.c */
 double		diff(double wall_h);
 double		calculate_depth(t_data *data);
-void		calculate_hit_coords(t_data *data, int i);
+void		calculate_hit_coords(t_data *data);
 
 /* bonus */
 int			initialize_minimap(t_data *data);
