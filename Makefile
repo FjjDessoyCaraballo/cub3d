@@ -1,8 +1,6 @@
-# Executable
-NAME = cub3D
-BONUS_NAME = cub3D_bonus
+CC = cc
 
-# Directories
+#Directories
 SRC_DIR = src
 OBJ_DIR = obj
 LIBFT_DIR = libft
@@ -68,9 +66,13 @@ BONUS = 	main_bonus.c\
 			minimap_utils_bonus.c\
 			handle_bonuses.c\
 
+
 # Object files
 OBJ_FILES = $(SRC_FILES:.c=.o)
-BONUS_OBJ_FILES = $(BONUS_FILES:.c=.o)
+
+# Executable
+NAME = cub3D
+NAME_BONUS = cub3D_bonus
 
 # Libft
 LIBFT_MAKEFILE = $(LIBFT_DIR)/Makefile
@@ -78,14 +80,15 @@ LIBFT = $(LIBFT_DIR)/libft.a
 LIBFT_INC = -I$(LIBFT_DIR)/includes
 LIBFT_LINK = -L$(LIBFT_DIR) -lft
 
-# mlx
-MLX_FLAGS = ./MLX42/build/libmlx42.a -ldl -lglfw -pthread -lm
+#mlx
+MLX_FLAGS = ./MLX42/build/libmlx42.a -ldl -lglfw -pthread -lm #can combine
 
-# Default rule to compile the main project
+BOBJS = $(BONUS:.c=.o)
+
 all: libmlx $(NAME)
 	@echo "\033[1;32m[✔] Compiled main executable: $(NAME)\033[0m"
 
-bonus: $(BONUS_NAME) link_bonus
+bonus: $(NAME_BONUS) link_bonus
 	@echo "\033[1;32m[✔] Compiled bonus executable: $(NAME) with BONUS!\033[0m"
 
 %.o: %.c
@@ -102,14 +105,14 @@ $(NAME): $(OBJ_FILES) $(LIBFT)
 	@echo "\033[1;33m[✔] Compiling $(NAME) (main version)...\033[0m"
 
 # Compile the bonus executable without renaming
-$(BONUS_NAME): $(BONUS_OBJ_FILES) $(LIBFT)
-	@$(CC) $(CFLAGS) $(BONUS_OBJ_FILES) $(LIBFT_LINK) $(MLX_FLAGS) -o $(BONUS_NAME)
-	@echo "\033[1;33m[✔] Compiling $(BONUS_NAME) (bonus version)...\033[0m"
+$(NAME_BONUS): $(BOBJS) $(LIBFT)
+	@$(CC) $(CFLAGS) $(BOBJS) $(LIBFT_LINK) $(MLX_FLAGS) -o $(NAME_BONUS)
+	@echo "\033[1;33m[✔] Compiling $(NAME_BONUS) (bonus version)...\033[0m"
 
 # Create a symbolic link named cub3D that points to cub3D_bonus
 link_bonus:
-	@ln -sf $(BONUS_NAME) $(NAME)
-	@echo "\033[1;33m[✔] Created symbolic link $(NAME) -> $(BONUS_NAME)\033[0m"
+	@ln -sf $(NAME_BONUS) $(NAME)
+	@echo "\033[1;33m[✔] Created symbolic link $(NAME) -> $(NAME_BONUS)\033[0m"
 
 $(LIBFT): $(LIBFT_MAKEFILE)
 	@$(MAKE) -C $(LIBFT_DIR)
@@ -118,15 +121,16 @@ $(LIBFT): $(LIBFT_MAKEFILE)
 clean:
 	@$(MAKE) -C $(LIBFT_DIR) clean
 	@echo "\033[1;33m[X] Cleaning...\033[0m"
-	@rm -f $(OBJ_FILES) $(BONUS_OBJ_FILES)
+	@rm -f $(OBJ_FILES) $(BOBJS)
 	@rm -rf .bonus
 
 fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@echo "\033[1;31m[XXX] Cleaning it GOOOOOOD...\033[0m"
-	@rm -f $(NAME) $(BONUS_NAME)
+	@rm -f $(NAME) $(NAME_BONUS)
 	@rm -rf $(LIBMLX)
 
 re: fclean all
 
 .PHONY: all clean fclean re libmlx bonus link_bonus
+
