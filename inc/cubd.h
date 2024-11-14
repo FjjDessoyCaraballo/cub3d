@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/13 15:19:54 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/14 11:51:56 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,15 +207,12 @@ typedef struct s_data
 	mlx_texture_t	*tx_w_wall;
 	mlx_texture_t	*tx_mini_floor;
 	mlx_texture_t	*tx_mini_wall;
-
 	mlx_texture_t	*tx_player1;
 	mlx_texture_t	*tx_player2;
 	mlx_texture_t	*tx_player3;
-
 	mlx_texture_t	*tx_door1;
 	mlx_texture_t	*tx_door2;
 	mlx_texture_t	*tx_door3;
-	
 	mlx_image_t		*im_n_wall;	
 	mlx_image_t		*im_s_wall;
 	mlx_image_t		*im_e_wall;
@@ -233,7 +230,6 @@ typedef struct s_data
 	mlx_image_t		*im_player1;
 	mlx_image_t		*im_player2;
 	mlx_image_t		*im_player3;
-
 	mlx_image_t	*im_current_door;
 	mlx_image_t	*im_door1;
 	mlx_image_t	*im_door2;
