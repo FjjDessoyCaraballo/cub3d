@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_utils2.c                                   :+:      :+:    :+:   */
+/*   parsing_utils2 _bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:08:26 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/14 11:49:56 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/14 11:51:45 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,15 @@ int8_t	rgb_assignment(t_data *data, char **array, int flag)
 		return (err_msg(NULL, "Error\nBroken RGB\n", FAILURE));
 	if (flag == 1)
 	{
-		data->f_red = ft_atoi(array[0]);
-		data->f_green = ft_atoi(array[1]);
-		data->f_blue = ft_atoi(array[2]);
-	}
-	else
-	{
 		data->c_red = ft_atoi(array[0]);
 		data->c_green = ft_atoi(array[1]);
 		data->c_blue = ft_atoi(array[2]);
+	}
+	else
+	{
+		data->f_red = ft_atoi(array[0]);
+		data->f_green = ft_atoi(array[1]);
+		data->f_blue = ft_atoi(array[2]);
 	}
 	return (SUCCESS);
 }
@@ -68,7 +68,8 @@ int8_t	is_map(char *str)
 		{
 			if (str[i] != ' ' && str[i] != '1' && str[i] != '0'
 				&& str[i] != 'N' && str[i] != 'S' && str[i] != 'W'
-				&& str[i] != 'E' && str[i] != '\n' && str[i] != '\t')
+				&& str[i] != 'E' && str[i] != '\n' && str[i] != '\t'
+				&& str[i] != 'D')
 				return (FAILURE);
 			i++;
 		}
