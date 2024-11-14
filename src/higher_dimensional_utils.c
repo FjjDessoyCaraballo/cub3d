@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   higher_dimensional_utils.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:30:08 by araveala          #+#    #+#             */
 /*   Updated: 2024/11/14 12:54:38 by araveala         ###   ########.fr       */
@@ -46,10 +46,10 @@ double	diff(double wall_h)
  * @param i iterator that signals which ray we are collecting
  * 
  */
-void	calculate_hit_coords(t_data *data, int i)
+void	calculate_hit_coords(t_data *data)
 {
 	int	calc;
-	(void)i;
+
 	if (data->side == 0)
 	{
 		if (data->step_x == -1)

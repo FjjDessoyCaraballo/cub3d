@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/13 15:19:54 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:42:42 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -354,7 +354,7 @@ int			check_for_wall_failure(t_data *data, int i);
 /* higher_dimensinal_utils.c */
 double		diff(double wall_h);
 double		calculate_depth(t_data *data);
-void		calculate_hit_coords(t_data *data, int i);
+void		calculate_hit_coords(t_data *data);
 
 /* bonus */
 int			initialize_minimap(t_data *data);
