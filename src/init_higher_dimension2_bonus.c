@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:37:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/14 12:37:59 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/14 12:53:53 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 int	find_door(t_data *data)
 {	
-	//double test_y;
-	//double test_x;
-
-	//test_y = ceil((data->ray_y / T_SIZE) * data->ray_dir_y);
-	//test_x = ceil((data->ray_x / T_SIZE) * data->ray_dir_x);
 	if (data->map_x == data->door_x && data->map_y == data->door_y)
 	{
 		if (data->side == 1 && data->map_y == data->door_y)

@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/14 12:44:59 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/14 13:01:26 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,13 @@ static void	player_pos(t_data *data, double new_x, double new_y)
 
 int	check_player(t_data *data)
 {
-	printf("xpos = %f y pos = %f\n", data->x_ppos, data->y_ppos);
-	printf("xpos pix= %f y pos pix= %f\n", data->ppos_pix_x / T_SIZE, data->ppos_pix_y / T_SIZE);
-	printf("xdoor = %f y door = %f\n", data->door_x, data->door_y);
-	if (data->x_ppos == data->door_x && data->y_ppos == data->door_y)	
-	{
-		printf("player and door same\n");
+	double diff_x;
+	double diff_y;
+
+	diff_x = data->door_x - data->ppos_pix_x / T_SIZE;
+	diff_y = data->door_y - data->ppos_pix_y / T_SIZE;
+	if ((diff_x >= -2 && diff_x <= 1) && (diff_y >= -2 && diff_y <= 1) && data->door_flag > 0)
 		return (0);	
-	}
 	return (1);	
 }
 /**
