@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_higher_dimension2.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:37:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/04 14:16:55 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/13 15:46:45 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 int	find_wall(t_data *data, int i)
 {
 	if (data->ray_hit[i] == NORTH)
-		data->im_current_wall = data->im_n_wall;
+		data->im_current_wall = data->im_n_wall;	
 	else if (data->ray_hit[i] == SOUTH)
 		data->im_current_wall = data->im_s_wall;
 	else if (data->ray_hit[i] == EAST)

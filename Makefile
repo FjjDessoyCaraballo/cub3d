@@ -14,58 +14,59 @@ CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -Ofast #-fsanitize=address
 INCFLAGS = -I ./include -I ./MLX42/include -I /Users/include 
 
 # Main project files
-SRC_FILES = main.c \
-            free.c \
-            parsing1.c \
-            parsing2.c \
-            parsing3.c \
-            parsing_utils1.c \
-            parsing_utils2.c \
-            parsing_utils3.c \
-            parsing_utils4.c \
-            parsing_utils5.c \
-            parsing_utils6.c \
-            flood_fill.c \
-            usage.c \
-            error.c \
-            base.c \
-            img_handling1.c \
-            img_handling2.c \
-            key_hooks.c \
-            rays1.c \
-            rays2.c \
-            init_higher_dimension1.c \
-            init_higher_dimension2.c \
-            higher_dimensional_utils.c \
-            movement.c
+#~~ minimap.c is bonus, used for visual aid for this moment
+SRC_FILES = main.c\
+			free.c\
+			parsing1.c\
+			parsing2.c\
+			parsing3.c\
+			parsing_utils1.c\
+			parsing_utils2.c\
+			parsing_utils3.c\
+			parsing_utils4.c\
+			parsing_utils5.c\
+			parsing_utils6.c\
+			flood_fill.c\
+			usage.c\
+			error.c\
+			base.c\
+			img_handling1.c\
+			img_handling2.c\
+			key_hooks.c\
+			rays1.c\
+			rays2.c\
+			init_higher_dimension1.c\
+			init_higher_dimension2.c\
+			higher_dimensional_utils.c \
+			movement.c\
 
-BONUS_FILES = main_bonus.c \
-              free.c \
-              parsing1.c \
-              parsing2.c \
-              parsing3.c \
-              parsing_utils1.c \
-              parsing_utils2.c \
-              parsing_utils3.c \
-              parsing_utils4.c \
-              parsing_utils5.c \
-              parsing_utils6.c \
-              flood_fill.c \
-              usage.c \
-              error.c \
-              base.c \
-              img_handling1.c \
-              img_handling2.c \
-              movement_bonus.c \
-              key_hooks_bonus.c \
-              rays1.c \
-              rays2.c \
-              init_higher_dimension1.c \
-              init_higher_dimension2.c \
-              higher_dimensional_utils.c \
-              minimap_bonus.c \
-              minimap_utils_bonus.c \
-              handle_bonuses.c
+BONUS = 	main_bonus.c\
+			free.c\
+			parsing1.c\
+			parsing2.c\
+			parsing3.c\
+			parsing_utils1.c\
+			parsing_utils2.c\
+			parsing_utils3.c\
+			parsing_utils4.c\
+			parsing_utils5.c\
+			parsing_utils6.c\
+			flood_fill.c\
+			usage.c\
+			error.c\
+			base.c\
+			img_handling1.c\
+			img_handling2.c\
+			movement_bonus.c\
+			key_hooks_bonus.c\
+			rays1.c\
+			rays2.c\
+			init_higher_dimension1.c\
+			init_higher_dimension2_bonus.c\
+			higher_dimensional_utils.c\
+			minimap_bonus.c\
+			minimap_utils_bonus.c\
+			handle_bonuses.c\
 
 # Object files
 OBJ_FILES = $(SRC_FILES:.c=.o)

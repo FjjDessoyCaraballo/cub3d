@@ -6,11 +6,18 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:29:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/08 16:24:00 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/14 13:03:24 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
+
+int	find_door_location(t_data *data)
+{
+	data->door_y = 4;
+	data->door_x = 23;
+	return (SUCCESS);
+}
 
 int	load_player_imgs(t_data *data)
 {	
@@ -55,11 +62,34 @@ int	set_player(t_data *data)
 	return (SUCCESS);
 }
 
+int	set_door(t_data *data)
+{
+	data->im_door1 = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	data->im_door2 = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	data->im_door3 = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	if (data->im_door1 == NULL || data->im_door2 == NULL || data->im_door3 == NULL)
+		return (err_msg(NULL, NEW_IMG, FAILURE));
+	data->tx_door1 = mlx_load_png("./textures/round_door.png");
+	data->tx_door2 = mlx_load_png("./textures/round_door2.png");
+	data->tx_door3 = mlx_load_png("./textures/round_door3.png");
+	if (data->tx_door1 == NULL || data->tx_door2 == NULL || data->tx_door3 == NULL)
+		return (err_msg(NULL, TEXTURE_FAIL, FAILURE));
+	data->im_door1 = mlx_texture_to_image(data->mlx, data->tx_door1);
+	data->im_door2 = mlx_texture_to_image(data->mlx, data->tx_door2);
+	data->im_door3 = mlx_texture_to_image(data->mlx, data->tx_door3);
+	if (data->im_door1 == NULL || data->im_door2 == NULL || data->im_door3 == NULL)
+		return (err_msg(NULL, IMAGE_FAIL, FAILURE));
+	data->door_flag = 0;
+	return (SUCCESS);
+}
+
 int	init_player_texture(t_data *data)
 {
 	if (load_player_imgs(data) == FAILURE)
 		return (FAILURE);
 	if (set_player(data) == FAILURE)
+		return (FAILURE);
+	if (set_door(data) == FAILURE)
 		return (FAILURE);
 	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/08 15:48:33 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/14 13:01:26 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,17 @@ static void	player_pos(t_data *data, double new_x, double new_y)
 	data->im_mini_ray->instances[0].y = (data->y_ppos - 0.5) * MINI_T;
 }
 
+int	check_player(t_data *data)
+{
+	double diff_x;
+	double diff_y;
+
+	diff_x = data->door_x - data->ppos_pix_x / T_SIZE;
+	diff_y = data->door_y - data->ppos_pix_y / T_SIZE;
+	if ((diff_x >= -2 && diff_x <= 1) && (diff_y >= -2 && diff_y <= 1) && data->door_flag > 0)
+		return (0);	
+	return (1);	
+}
 /**
  * 
  * Moves the player left or right
@@ -77,7 +88,7 @@ void	strafe_player(t_data *data, double step)
 	{	
 		if (map_char == ' ' || map_char == '\0' || map_char == '\n')
 			return ;
-		if (map_char == '0')
+		if (map_char == '0' || check_player(data) == 0)
 			player_pos(data, new_x, new_y);
 	}
 }
@@ -111,7 +122,7 @@ void	move_player(t_data *data, double step)
 		map_char = data->map[(int)floor(new_y)][(int)floor(new_x)];
 		if (map_char == ' ' || map_char == '\0' || map_char == '\n')
 			return ;
-		if (map_char == '0')
+		if (map_char == '0' || check_player(data) == 0)
 			player_pos(data, new_x, new_y);
 	}
 }
