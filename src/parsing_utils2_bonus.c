@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_utils2 _bonus.c                            :+:      :+:    :+:   */
+/*   parsing_utils2_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:08:26 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/14 11:51:45 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/14 14:09:13 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,15 @@ int8_t	rgb_assignment(t_data *data, char **array, int flag)
 		return (err_msg(NULL, "Error\nBroken RGB\n", FAILURE));
 	if (flag == 1)
 	{
-		data->c_red = ft_atoi(array[0]);
-		data->c_green = ft_atoi(array[1]);
-		data->c_blue = ft_atoi(array[2]);
-	}
-	else
-	{
 		data->f_red = ft_atoi(array[0]);
 		data->f_green = ft_atoi(array[1]);
 		data->f_blue = ft_atoi(array[2]);
+	}
+	else
+	{
+		data->c_red = ft_atoi(array[0]);
+		data->c_green = ft_atoi(array[1]);
+		data->c_blue = ft_atoi(array[2]);
 	}
 	return (SUCCESS);
 }
