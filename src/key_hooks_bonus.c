@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hooks_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/14 13:02:00 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:05:19 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,23 +74,6 @@ void	toggle_minimap(t_data *data)
 	}
 }
 
-void	handle_door(t_data *data)
-{
-	double diff_x;
-	double diff_y;
-
-	diff_x = data->door_x - data->ppos_pix_x / T_SIZE;
-	diff_y = data->door_y - data->ppos_pix_y / T_SIZE;
-	if ((diff_x >= -2 && diff_x <= 1) && (diff_y >= -2 && diff_y <= 1))
-	{
-		if (data->door_flag == 0)
-			data->door_flag++;
-		else if (data->door_flag == 1)
-			data->door_flag++;
-		else if (data->door_flag == 2)
-			data->door_flag = 0;	
-	}
-}
 /**
  *
  * Get the key press and assign if .key is on(1) or off(0)
@@ -112,7 +95,7 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 	data = (t_data *)param;
 	if (keydata.key == MLX_KEY_ESCAPE)
 		mlx_close_window(data->mlx);
-	if (keydata.action == MLX_PRESS && keydata.key == MLX_KEY_SPACE)// && data->door_flag < 3)
+	if (keydata.action == MLX_PRESS && keydata.key == MLX_KEY_SPACE)
 		handle_door(data);
 	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_A
 		|| keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_D

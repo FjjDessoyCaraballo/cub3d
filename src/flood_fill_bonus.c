@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/14 12:40:20 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:02:10 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,15 @@ static int8_t	between_rooms(t_data *data, char **map, int i, int j)
 {
 	if (i != 0 || i != data->map_y || j != data->map_x || j != 0)
 	{
-		if ((map[i + 1][j] == '0' && map[i - 1][j] == '0' 
+		if ((map[i + 1][j] == '0' && map[i - 1][j] == '0'
 			&& map[i][j + 1] == '1' && map[i][j - 1] == '1')
-			|| (map[i][j + 1] == '0' && map[i][j - 1] == '0' 
+			|| (map[i][j + 1] == '0' && map[i][j - 1] == '0'
 			&& map[i + 1][j] == '1' && map[i - 1][j] == '1'))
+		{
+			data->dpos_x = j;
+			data->dpos_y = i;
 			return (SUCCESS);
+		}
 	}
 	return (FAILURE);
 }
@@ -108,6 +112,9 @@ static int8_t	between_rooms(t_data *data, char **map, int i, int j)
  */
 int8_t	door_exists(t_data *data, int i, int j)
 {
+	int	flag;
+
+	flag = 0;
 	while (data->map[i])
 	{
 		j = 0;
@@ -117,12 +124,14 @@ int8_t	door_exists(t_data *data, int i, int j)
 			{
 				if (between_rooms(data, data->map, i, j) == FAILURE)
 					return (err_msg(NULL, BONUS, FAILURE));
-				data->dpos_x = i;
-				data->dpos_y = j;
+				data->map[i][j] = '1';
+				flag++;
 			}
 			j++;
 		}
 		i++;
 	}
+	if (flag != 1)
+		return (err_msg(NULL, BONUS, FAILURE));
 	return (SUCCESS);
 }

@@ -88,7 +88,7 @@ BOBJS = $(BONUS:.c=.o)
 all: libmlx $(NAME)
 	@echo "\033[1;32m[✔] Compiled main executable: $(NAME)\033[0m"
 
-bonus: $(NAME_BONUS) link_bonus
+bonus: libmlx $(NAME_BONUS) link_bonus
 	@echo "\033[1;32m[✔] Compiled bonus executable: $(NAME) with BONUS!\033[0m"
 
 %.o: %.c

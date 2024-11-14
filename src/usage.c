@@ -6,13 +6,13 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 15:08:26 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 22:50:01 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:14:29 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cubd.h"
 
-void	delete_bonuses(t_data *data)
+static void	delete_textures(t_data *data)
 {
 	if (data->tx_mini_wall)
 		mlx_delete_texture(data->tx_mini_wall);
@@ -24,6 +24,16 @@ void	delete_bonuses(t_data *data)
 		mlx_delete_texture(data->tx_player2);
 	if (data->tx_player3)
 		mlx_delete_texture(data->tx_player3);
+	if (data->im_door1)
+		mlx_delete_texture(data->tx_door1);
+	if (data->tx_door2)
+		mlx_delete_texture(data->tx_door2);
+	if (data->tx_door3)
+		mlx_delete_texture(data->tx_door3);
+}
+
+void static	delete_bonuses(t_data *data)
+{
 	if (data->im_mini_ray)
 		mlx_delete_image(data->mlx, data->im_mini_ray);
 	if (data->im_player1)
@@ -32,6 +42,12 @@ void	delete_bonuses(t_data *data)
 		mlx_delete_image(data->mlx, data->im_player2);
 	if (data->im_player3)
 		mlx_delete_image(data->mlx, data->im_player3);
+	if (data->im_door1)
+		mlx_delete_image(data->mlx, data->im_door1);
+	if (data->im_door2)
+		mlx_delete_image(data->mlx, data->im_door2);
+	if (data->im_door3)
+		mlx_delete_image(data->mlx, data->im_door3);
 }
 
 void	usage(void)
@@ -56,6 +72,7 @@ void	wrap_up(t_data *data, int option)
 	mlx_loop(data->mlx);
 	if (option == 1)
 		delete_bonuses(data);
+	delete_textures(data);
 	delete_images(data);
 	mlx_terminate(data->mlx);
 	free_data(data);

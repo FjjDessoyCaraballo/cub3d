@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/14 12:38:28 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:15:53 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,11 @@
 # define MLX4 "Error\nMLX couldn't draw ceiling and floor\n"
 # define TEXTURE_FAIL "Error\ntexture invalid or simply missing\n"
 # define IMAGE_FAIL "Error\nimage invalid\n"
-# define IMG_TO_WIN "Error\nimage could not put to window, check image not corrupt\n"
+# define IMG_TO_WIN "Error\nimage could not put to window\n"
 # define NEW_IMG "Error\nMLX new image allocation failure, clean chache?\n"
 # define RESIZE "Error\nMLX failed to resize image\n"
 # define BONUS "Error\nDoor must be between rooms and on a wall\n"
+# define BONUS1 "Error\nWe're not rich, just one door, Mugsie!\n"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -122,7 +123,6 @@ typedef enum e_dirs
 
 typedef struct s_data
 {
-
 	mlx_t			*mlx;
 	mlx_t			*main_window;
 	mlx_t			*mini_window;
@@ -137,7 +137,7 @@ typedef struct s_data
 	int				side_hit;
 	double			door_x;
 	double			door_y;
-	int 			door_flag;
+	int				door_flag;
 	double			time;
 	double			ray_size;
 	double			p_dir_x;
@@ -231,10 +231,10 @@ typedef struct s_data
 	mlx_image_t		*im_player1;
 	mlx_image_t		*im_player2;
 	mlx_image_t		*im_player3;
-	mlx_image_t	*im_current_door;
-	mlx_image_t	*im_door1;
-	mlx_image_t	*im_door2;
-	mlx_image_t	*im_door3;
+	mlx_image_t		*im_current_door;
+	mlx_image_t		*im_door1;
+	mlx_image_t		*im_door2;
+	mlx_image_t		*im_door3;
 }		t_data;
 
 /*************************************************/
@@ -345,9 +345,11 @@ void		draw_regular_wall(t_data *data, double wall_h, double img_x, \
 						double top_of_wall);
 int			draw_wall(t_data *data, int i);
 
-/* init_higher_dimension2.c */
+/* init_higher_dimension2.c && bonus */
 int			find_wall(t_data *data, int i);
 int			check_for_wall_failure(t_data *data, int i);
+void		handle_door(t_data *data);
+int			check_player(t_data *data);
 
 /* higher_dimensinal_utils.c */
 double		diff(double wall_h);
@@ -371,7 +373,6 @@ int			set_view(t_data *data);
 
 /* handle_bonuses.c */
 int			init_player_texture(t_data *data);
-void		delete_bonuses(t_data *data);
 
 /* bonus key hooks */
 void		animation(void *param);
@@ -379,5 +380,5 @@ void		animation(void *param);
 /* in free.c */
 void		free_data(t_data *data);
 void		draw_mini_map(t_data *data, int x, int y, int index);
-int	find_door_location(t_data *data);
+
 #endif
