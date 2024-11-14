@@ -41,7 +41,7 @@ SRC_FILES = $(SRC_DIR)/main.c\
 BONUS = 	$(SRC_DIR)/main_bonus.c\
 			$(SRC_DIR)/free.c\
 			$(SRC_DIR)/parsing1.c\
-			$(SRC_DIR)/parsing2.c\
+			$(SRC_DIR)/parsing2_bonus.c\
 			$(SRC_DIR)/parsing3.c\
 			$(SRC_DIR)/parsing_utils1.c\
 			$(SRC_DIR)/parsing_utils2_bonus.c\
@@ -49,7 +49,7 @@ BONUS = 	$(SRC_DIR)/main_bonus.c\
 			$(SRC_DIR)/parsing_utils4.c\
 			$(SRC_DIR)/parsing_utils5.c\
 			$(SRC_DIR)/parsing_utils6.c\
-			$(SRC_DIR)/flood_fill.c\
+			$(SRC_DIR)/flood_fill_bonus.c\
 			$(SRC_DIR)/usage.c\
 			$(SRC_DIR)/error.c\
 			$(SRC_DIR)/base.c\

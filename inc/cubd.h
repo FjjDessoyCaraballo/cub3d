@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/14 11:51:56 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/14 12:38:28 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,12 @@
 # define MLX2 "Error\nMLX couldn't load images\n"
 # define MLX3 "Error\nMLX couldn't load RGB scheme\n"
 # define MLX4 "Error\nMLX couldn't draw ceiling and floor\n"
-# define TEXTURE_FAIL "texture invalid or simply missing\n"
-# define IMAGE_FAIL "image invalid\n"
-# define IMG_TO_WIN "image could not put to window, check image not corrupt\n"
-# define NEW_IMG "MLX new image allocation failure, clean chache?\n"
-# define RESIZE "MLX failed to resize image\n"
+# define TEXTURE_FAIL "Error\ntexture invalid or simply missing\n"
+# define IMAGE_FAIL "Error\nimage invalid\n"
+# define IMG_TO_WIN "Error\nimage could not put to window, check image not corrupt\n"
+# define NEW_IMG "Error\nMLX new image allocation failure, clean chache?\n"
+# define RESIZE "Error\nMLX failed to resize image\n"
+# define BONUS "Error\nDoor must be between rooms and on a wall\n"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -134,11 +135,9 @@ typedef struct s_data
 	int				map_width;
 	int				map_length;
 	int				side_hit;
-
 	double			door_x;
 	double			door_y;
 	int 			door_flag;
-
 	double			time;
 	double			ray_size;
 	double			p_dir_x;
@@ -154,6 +153,8 @@ typedef struct s_data
 	int				step_y;
 	int				map_x;
 	int				map_y;
+	int				dpos_x;
+	int				dpos_y;
 	int				side;
 	int				hit;
 	int				w_width;
@@ -281,10 +282,11 @@ int8_t		is_png(char *sprite);
 /* in parsing_utils6.c */
 char		*extract_sprite(char **sprite);
 
-/* in flood_fill.c */
+/* in flood_fill.c || flood_fill_bonus.c.c */
 int8_t		check_if_walled(t_data *data);
 int8_t		copy_map(t_data *data);
 void		flood_fill(t_data *data, size_t y, size_t x);
+int8_t		door_exists(t_data *data, int i, int j);
 
 /* in img_handling1.c */
 int8_t		draw_floor_ceiling(t_data *data);
