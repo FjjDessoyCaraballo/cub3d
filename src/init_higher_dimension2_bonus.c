@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:37:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/13 17:32:30 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/14 12:37:59 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	find_door(t_data *data)
 {	
-	double test_y;
-	double test_x;
+	//double test_y;
+	//double test_x;
 
-	test_y = ceil((data->ray_y / T_SIZE)+ data->ray_dir_y);
-	test_x = ceil((data->ray_x / T_SIZE)+ data->ray_dir_x);
-	if ((int)data->ray_x / T_SIZE == data->door_x && (int)data->ray_y / T_SIZE == data->door_y)
+	//test_y = ceil((data->ray_y / T_SIZE) * data->ray_dir_y);
+	//test_x = ceil((data->ray_x / T_SIZE) * data->ray_dir_x);
+	if (data->map_x == data->door_x && data->map_y == data->door_y)
 	{
-		if (data->side == 1 && (int)test_y == data->door_y)
+		if (data->side == 1 && data->map_y == data->door_y)
 		{
 			if (data->door_flag == 0)
 				data->im_current_wall = data->im_door1;
@@ -31,7 +31,7 @@ int	find_door(t_data *data)
 				data->im_current_wall = data->im_door3;
 			return (SUCCESS);
 		}
-		else if (data->side == 0 && (int)test_x == data->door_x)
+		else if (data->side == 0 && data->map_x == data->door_x)
 		{
 			if (data->door_flag == 0)
 				data->im_current_wall = data->im_door1;

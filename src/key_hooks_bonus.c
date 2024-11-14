@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:49:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/13 17:35:33 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/14 10:36:37 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,24 @@ void	toggle_minimap(t_data *data)
 	}
 }
 
+void	handle_door(t_data *data)
+{
+	double diff_x;
+	double diff_y;
+
+	diff_x = data->door_x - data->ppos_pix_x / T_SIZE;
+	diff_y = data->door_y - data->ppos_pix_y / T_SIZE;
+	//printf("pix x = %f pix =y = %f door_x = %f door y = %f\n", data->ppos_pix_x / T_SIZE, data->ppos_pix_y / T_SIZE, data->door_x, data->door_y);
+	//if (data->ppos_pix_x / T_SIZE == data->door_x && data->ppos_pix_y / T_SIZE == data->door_y)if (data->ppos_pix_x / T_SIZE == data->door_x && data->ppos_pix_y / T_SIZE == data->door_y)
+	printf("diff x = %f diff y = %f\n", diff_x, diff_y);
+	if ((diff_x >= -2 && diff_x <= 1) && (diff_y >= -2 && diff_y <= 1))
+	{
+		if (data->door_flag == 0)
+			data->door_flag++;
+		else if (data->door_flag == 1)
+			data->door_flag++;		
+	}
+}
 /**
  *
  * Get the key press and assign if .key is on(1) or off(0)
@@ -97,10 +115,11 @@ void	keyhookfunc(mlx_key_data_t keydata, void *param)
 		mlx_close_window(data->mlx);
 	if (keydata.action == MLX_PRESS && keydata.key == MLX_KEY_SPACE && data->door_flag < 3)
 	{
-		if (data->door_flag == 0)
-			data->door_flag++;
-		else if (data->door_flag == 1)
-			data->door_flag++;
+		handle_door(data);
+//		if (data->door_flag == 0)
+//			data->door_flag++;
+//		else if (data->door_flag == 1)
+//			data->door_flag++;
 	}
 	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_A
 		|| keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_D

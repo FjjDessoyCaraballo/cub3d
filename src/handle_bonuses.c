@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:29:03 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/13 17:35:16 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/14 12:01:05 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,22 @@
 
 int	find_door_location(t_data *data)
 {
-	int x;
+	data->door_y = 4;// * T_SIZE;//(int)data->x_ppos + 2;
+	data->door_x = 23;// * T_SIZE;//(int)data->y_ppos + 1; 
+	/*int x;
 	int y;
 	int count;
-
+	int	max;
+	
 	x = (int)data->x_ppos + 0.5;
 	y = (int)data->y_ppos + 0.5;
 	count = 0;
-	while (y >= 0 && data->map[y][x] != '1')
+	max = 10;
+
+	while (y >= 0 && data->map[y - 1][x] != '1')
 		y--;
-	while (count <= 10)
+	printf("start what is x = %d and y = %d\n", x, y);
+	while (count <= max)
 	{
 		while (y - 1 >= 0 && data->map[y - 1][x] == '1')
 		{
@@ -32,29 +38,33 @@ int	find_door_location(t_data *data)
 				x++;
 				count++;
 			}
-			if (count >= 10)
+			if (count >= max)
 			{
+				printf("return x = %d and y = %d\n", x, y);
 				data->door_y = y - 1;
-				data->door_x = x + 1;
-				return (10);
+				data->door_x = x;
+				return (max);
 			}
 			if (data->map[y][x + 1] == '1' && data->map[y - 1][x] == '1')	
 				y++;
 		}
+		printf("before 2what is x = %d and y = %d\n", x, y);
 		while (x + 1 < data->map_width && data->map[y][x + 1] == '1')
 		{
-			if (y + 1 < data->map_length && data->map[y + 1][x] != '1')
+			if (y < data->map_length && data->map[y][x] != '1')
 			{
 				y++;
 				count++;	
 			}
-			if (count >= 10)
+			if (count >= max)
 			{
-				data->door_y = y + 1;
+				printf("return x = %d and y = %d\n", x, y);
+				data->door_y = y;
 				data->door_x = x + 1;
-				return (10);
-			}	
-			if (data->map[y - 1][x] == '1' && data->map[y][x + 1] == '1')	
+				return (max);
+			}
+			printf("2what is x = %d and y = %d\n", x, y);
+			if (data->map[y + 1][x] == '1' && data->map[y][x + 1] == '1')	
 				x--;
 		}
 		
@@ -62,15 +72,18 @@ int	find_door_location(t_data *data)
 		{
 			if (x -1 >= 0 && data->map[y][x - 1] != '1')
 			{
+				printf("minusing x\n");
 				x--;
 				count++;
 			}
-			if (count >= 10)
+			if (count >= max)
 			{
+				printf("return x = %d and y = %d\n", x, y);
 				data->door_y = y + 1;
-				data->door_x = x - 1;
-				return (10);
-			}	
+				data->door_x = x;
+				return (max);
+			}
+			printf("3what is x = %d and y = %d\n", x, y);
 			if (data->map[y + 1][x] == '1' && data->map[y][x + 1] == '1')
 				y++;
 		}
@@ -81,16 +94,18 @@ int	find_door_location(t_data *data)
 				y++;
 				count++;	
 			}
-			if (count >= 10)
+			if (count >= max)
 			{
-				data->door_y = y + 1;
+				printf("return x = %d and y = %d\n", x, y);
+				data->door_y = y;
 				data->door_x = x - 1;
-				return (10);
-			}	
+				return (max);
+			}
+			printf("4what is x = %d and y = %d\n", x, y);	
 			if (data->map[y + 1][x] == '1' && data->map[y][x - 1] == '1')	
 				x++;
 		}
-	}
+	}*/
 	return (SUCCESS);
 }
 
