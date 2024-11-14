@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_higher_dimension2_bonus.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:37:13 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/14 15:13:26 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:58:54 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	handle_door(t_data *data)
 
 	diff_x = data->dpos_x - data->ppos_pix_x / T_SIZE;
 	diff_y = data->dpos_y - data->ppos_pix_y / T_SIZE;
-	if ((diff_x >= -2 && diff_x <= 1) && (diff_y >= -2 && diff_y <= 1))
+	if ((diff_x >= -1.5 && diff_x <= 1) && (diff_y >= -1.5 && diff_y <= 0.9))
 	{
 		if (data->door_flag == 0)
 			data->door_flag++;
@@ -95,17 +95,4 @@ void	handle_door(t_data *data)
 		else if (data->door_flag == 2)
 			data->door_flag = 0;
 	}
-}
-
-int	check_player(t_data *data)
-{
-	double	diff_x;
-	double	diff_y;
-
-	diff_x = data->dpos_x - data->ppos_pix_x / T_SIZE;
-	diff_y = data->dpos_y - data->ppos_pix_y / T_SIZE;
-	if ((diff_x >= -2 && diff_x <= 1) && (diff_y >= -2
-			&& diff_y <= 1) && data->door_flag > 0)
-		return (0);
-	return (1);
 }

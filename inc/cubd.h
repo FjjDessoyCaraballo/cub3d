@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/14 15:15:53 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/14 17:09:34 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,6 @@ typedef enum e_dirs
 typedef struct s_data
 {
 	mlx_t			*mlx;
-	mlx_t			*main_window;
-	mlx_t			*mini_window;
 	char			**map;
 	bool			broken_map;
 	char			**file;
@@ -134,12 +132,8 @@ typedef struct s_data
 	char			key_pressed[265];
 	int				map_width;
 	int				map_length;
-	int				side_hit;
-	double			door_x;
-	double			door_y;
 	int				door_flag;
 	double			time;
-	double			ray_size;
 	double			p_dir_x;
 	double			p_dir_y;
 	double			wall_scale;
@@ -157,20 +151,8 @@ typedef struct s_data
 	int				dpos_y;
 	int				side;
 	int				hit;
-	int				w_width;
-	int				w_height;
 	int8_t			index;
-	double			ray_step_x;
-	double			ray_step_y;
-	double			ray_side_dis_x;
-	double			ray_side_dis_y;
-	double			exact_x;
-	double			exact_y;
 	double			distance_to_wall;
-	double			ray_delta_x;
-	double			ray_delta_y;
-	double			ray_delta_dis_x;
-	double			ray_delta_dis_y;
 	double			perp_wall_dist;
 	double			side_dist_y;
 	double			side_dist_x;
@@ -231,7 +213,6 @@ typedef struct s_data
 	mlx_image_t		*im_player1;
 	mlx_image_t		*im_player2;
 	mlx_image_t		*im_player3;
-	mlx_image_t		*im_current_door;
 	mlx_image_t		*im_door1;
 	mlx_image_t		*im_door2;
 	mlx_image_t		*im_door3;
@@ -313,10 +294,7 @@ void		keyhookfunc(mlx_key_data_t keydata, void *param);
 void		update_player(t_data *data);
 
 /* in movement.c */
-void		keyhookfunc(mlx_key_data_t keydata, void *param);
-void		update_player(t_data *data);
 void		update(void *param);
-//~~~~~~~~~~~~~~//
 void		rotate_player(t_data *data, double angle);
 void		strafe_player(t_data *data, double step);
 void		move_player(t_data *data, double step);
@@ -349,17 +327,19 @@ int			draw_wall(t_data *data, int i);
 int			find_wall(t_data *data, int i);
 int			check_for_wall_failure(t_data *data, int i);
 void		handle_door(t_data *data);
-int			check_player(t_data *data);
 
-/* higher_dimensinal_utils.c */
+/* higher_dimensinal_utils.c && bonus*/
 double		diff(double wall_h);
 double		calculate_depth(t_data *data);
 void		calculate_hit_coords(t_data *data);
+int			check_player(t_data *data);
+int			check_player_strafe(t_data *data);
+
 
 /* bonus */
 int			initialize_minimap(t_data *data);
 void		draw_player(t_data *data);
-void		draw_first_line(t_data *data);
+//void		draw_first_line(t_data *data);
 
 /* minimap.c */
 int			init_map(t_data *data, int x, int y, uint32_t colour);

@@ -61,7 +61,7 @@ BONUS = 	$(SRC_DIR)/main_bonus.c\
 			$(SRC_DIR)/rays2.c\
 			$(SRC_DIR)/init_higher_dimension1.c\
 			$(SRC_DIR)/init_higher_dimension2_bonus.c\
-			$(SRC_DIR)/higher_dimensional_utils.c\
+			$(SRC_DIR)/higher_dimensional_utils_bonus.c\
 			$(SRC_DIR)/minimap_bonus.c\
 			$(SRC_DIR)/minimap_utils_bonus.c\
 			$(SRC_DIR)/handle_bonuses.c\

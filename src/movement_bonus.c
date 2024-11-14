@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/14 15:13:05 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:53:07 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	strafe_player(t_data *data, double step)
 	{	
 		if (map_char == ' ' || map_char == '\0' || map_char == '\n')
 			return ;
-		if (map_char == '0' || check_player(data) == 0)
+		if (map_char == '0' || check_player_strafe(data) == 0)
 			player_pos(data, new_x, new_y);
 	}
 }
