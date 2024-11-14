@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing2.c                                         :+:      :+:    :+:   */
+/*   parsing2_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/14 15:13:55 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/14 14:17:38 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,8 @@ int8_t	extract(t_data *data)
 	if (check_original_length(data) == FAILURE)
 		return (FAILURE);
 	if (player_exists(data, data->map) == FAILURE)
+		return (FAILURE);
+	if (door_exists(data, 0, 0) == FAILURE)
 		return (FAILURE);
 	data->radius = (20 / (double)T_SIZE);
 	data->x_ppos += 0.5;

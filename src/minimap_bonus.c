@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 08:32:58 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/14 12:55:34 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:10:22 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,18 +90,12 @@ void	draw_mini_tile(t_data *data, int x, int y, uint32_t colour)
 
 int	init_map(t_data *data, int x, int y, uint32_t colour)
 {
-	int	row_width;
-
 	while (y < data->map_length)
 	{
-		row_width = ft_strlen(data->map[y]);
-		while (x < row_width)
+		while (x < (int)ft_strlen(data->map[y]))
 		{
-			if (y == data->door_y && x == data->door_x)
-			{
-				colour = RED;
-				draw_mini_tile(data, x * MINI_T, y * MINI_T, colour);
-			}
+			if (y == data->dpos_y && x == data->dpos_x)
+				draw_mini_tile(data, x * MINI_T, y * MINI_T, RED);
 			else if (data->map[y][x] == '1')
 			{
 				colour = fetch_pixel_rgb(data->im_mini_wall, x, y, 0);
@@ -123,7 +117,6 @@ int	init_map(t_data *data, int x, int y, uint32_t colour)
 
 int	initialize_minimap(t_data *data)
 {
-	find_door_location(data);
 	if (init_mini_imgs(data) == FAILURE)
 		return (err_msg(NULL, MLX1, FAILURE));
 	if (init_map(data, 0, 0, 0) == FAILURE)

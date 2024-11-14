@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/07 10:00:10 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:00:51 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,10 @@ static int8_t	open_file(t_data *data, char *fname)
 		return (FAILURE);
 	data->file = ft_calloc(sizeof(char *), data->file_len + 1);
 	if (!data->file)
+	{
+		close(fd);
 		return (FAILURE);
+	}
 	i = 0;
 	while (i < data->file_len)
 		data->file[i++] = get_next_line(fd);
