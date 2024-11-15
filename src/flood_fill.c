@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/15 15:13:19 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:03:29 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int8_t	check_if_walled(t_data *data)
 
 	i = 0;
 	j = 0;
+	printf("data->map_length: %i\n", data->map_length);
+	printf("data->map_width: %i\n", data->map_width);
 	while (data->mp_cpy[i])
 	{
 		j = 0;
@@ -54,6 +56,7 @@ int8_t	copy_map(t_data *data)
 			return (err_msg(NULL, MALLOC, FAILURE));
 		i++;
 	}
+	data->mp_cpy[i] = 0;
 	return (SUCCESS);
 }
 
@@ -64,7 +67,7 @@ void	flood_fill(t_data *data, size_t y, size_t x)
 		return ;
 	if (data->mp_cpy[y][x + 1] == '\0'
 		|| data->mp_cpy[y][x - 1] == '\0'
-		|| data->mp_cpy[y + 1][x] == '\0'
+		|| !data->mp_cpy[y + 1]
 		|| data->mp_cpy[y - 1][x] == '\0')
 	{
 		data->broken_map = true;
