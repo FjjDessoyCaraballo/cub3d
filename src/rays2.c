@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 12:11:16 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 15:55:16 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/15 17:48:33 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ int	find_direction(int side, double ray_x, double ray_y)
  */
 int	outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pixel_x)
 {
+
+	if (data->map_y <= 0)
+		return (FAILURE);
+	if (data->map_x > (int)ft_strlen(data->map[data->map_y]))
+		return (FAILURE);
+	//printf("map y = %d, map x = %d\n", data->map_y, data->map_x);
 	if (rpos_pixel_y / T_SIZE > data->map_length
 		|| rpos_pixel_x / T_SIZE > data->map_width)
 		return (FAILURE);
