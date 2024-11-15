@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 08:37:11 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/08 16:00:20 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/15 10:48:24 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ int	set_view(t_data *data)
 {
 	if (img_to_win(data) == FAILURE)
 		return (FAILURE);
-	data->im_map_player->instances[0].x = (data->x_ppos - 0.5) * MINI_T;
-	data->im_map_player->instances[0].y = (data->y_ppos - 0.5) * MINI_T;
+	data->im_map_player->instances[0].x = (data->x_ppos - 0.5) * data->mini_t;
+	data->im_map_player->instances[0].y = (data->y_ppos - 0.5) * data->mini_t;
 	mlx_set_instance_depth(data->im_map->instances, 3);
 	mlx_set_instance_depth(data->im_map_player->instances, 4);
 	mlx_set_instance_depth(data->im_mini_ray->instances, 5);
-	data->im_mini_ray->instances[0].x = (data->x_ppos - 0.5) * MINI_T;
-	data->im_mini_ray->instances[0].y = (data->y_ppos - 0.5) * MINI_T;
+	data->im_mini_ray->instances[0].x = (data->x_ppos - 0.5) * data->mini_t;
+	data->im_mini_ray->instances[0].y = (data->y_ppos - 0.5) * data->mini_t;
 	return (SUCCESS);
 }
 
@@ -70,8 +70,8 @@ void	wipe_line(t_data *data, int new_x, int new_y)
 	int			draw_y;
 
 	i = 0;
-	new_x = ((int)data->x_ppos / MINI_T) + MINI_T / 2;
-	new_y = ((int)data->y_ppos / MINI_T) + MINI_T / 2;
+	new_x = ((int)data->x_ppos / data->mini_t) + data->mini_t / 2;
+	new_y = ((int)data->y_ppos / data->mini_t) + data->mini_t / 2;
 	while (i <= 40)
 	{
 		draw_x = new_x + (int)(data->p_dir_x * i);
@@ -100,8 +100,8 @@ void	draw_mini_line(t_data *data, int new_x, int new_y)
 	int			draw_y;
 
 	i = 0;
-	new_x = ((int)data->x_ppos / MINI_T) + MINI_T / 2;
-	new_y = ((int)data->y_ppos / MINI_T) + MINI_T / 2;
+	new_x = ((int)data->x_ppos / data->mini_t) + data->mini_t / 2;
+	new_y = ((int)data->y_ppos / data->mini_t) + data->mini_t / 2;
 	while (i <= 40)
 	{
 		draw_x = new_x + (int)(data->p_dir_x * i);
@@ -131,8 +131,8 @@ void	draw_mini_player(t_data *data, int y, int x)
 	int			draw_x;
 	int			draw_y;
 
-	center_x = ((int)data->x_ppos / MINI_T) + MINI_T / 2;
-	center_y = ((int)data->y_ppos / MINI_T) + MINI_T / 2;
+	center_x = ((int)data->x_ppos / data->mini_t) + data->mini_t / 2;
+	center_y = ((int)data->y_ppos / data->mini_t) + data->mini_t / 2;
 	y = -M_RADIUS;
 	while (y <= M_RADIUS)
 	{

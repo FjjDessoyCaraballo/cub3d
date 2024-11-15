@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_higher_dimension1.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 10:50:15 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/12 14:42:16 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/15 13:09:58 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ double	calculate_img_x(t_data *data)
 	else
 		texture_pos = data->ray_x;
 	texture_pos = fabs(fmod(texture_pos, T_SIZE));
-	offset = fmod(data->ppos_pix_x * 0.001 + data->ppos_pix_y * 0.001, 1.0);
+	offset = fmod(data->ppos_pix_x * 0.0001 + data->ppos_pix_y * 0.0001, 1.0);
 	texture_pos += offset;
 	texture_pos = fmod(texture_pos, T_SIZE);
 	return ((texture_pos / T_SIZE) * data->im_current_wall->width);

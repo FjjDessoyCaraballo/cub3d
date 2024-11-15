@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/14 16:53:07 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/15 13:47:45 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ static void	player_pos(t_data *data, double new_x, double new_y)
 {
 	data->x_ppos = new_x;
 	data->y_ppos = new_y;
-	data->im_map_player->instances[0].x = (data->x_ppos - 0.5) * MINI_T;
-	data->im_map_player->instances[0].y = (data->y_ppos - 0.5) * MINI_T;
-	data->im_mini_ray->instances[0].x = (data->x_ppos - 0.5) * MINI_T;
-	data->im_mini_ray->instances[0].y = (data->y_ppos - 0.5) * MINI_T;
+	data->im_map_player->instances[0].x = (data->x_ppos - 0.5) * data->mini_t;
+	data->im_map_player->instances[0].y = (data->y_ppos - 0.5) * data->mini_t;
+	data->im_mini_ray->instances[0].x = (data->x_ppos - 0.5) * data->mini_t;
+	data->im_mini_ray->instances[0].y = (data->y_ppos - 0.5) * data->mini_t;
 }
 
 /**
@@ -75,7 +75,7 @@ void	strafe_player(t_data *data, double step)
 	{	
 		if (map_char == ' ' || map_char == '\0' || map_char == '\n')
 			return ;
-		if (map_char == '0' || check_player_strafe(data) == 0)
+		if (map_char == '0' || check_player_strafe(data, 0, 0) == 0)
 			player_pos(data, new_x, new_y);
 	}
 }
@@ -109,7 +109,7 @@ void	move_player(t_data *data, double step)
 		map_char = data->map[(int)floor(new_y)][(int)floor(new_x)];
 		if (map_char == ' ' || map_char == '\0' || map_char == '\n')
 			return ;
-		if (map_char == '0' || check_player(data) == 0)
+		if (map_char == '0' || check_player(data, 0, 0) == 0)
 			player_pos(data, new_x, new_y);
 	}
 }

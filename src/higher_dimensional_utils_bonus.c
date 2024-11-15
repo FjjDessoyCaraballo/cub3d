@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:30:08 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/14 16:58:30 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/15 14:11:01 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,18 @@ void	calculate_hit_coords(t_data *data)
 	}
 }
 
-int	check_player_strafe(t_data *data)
+int	check_player_strafe(t_data *data, double diff_x, double diff_y)
 {
-	double	diff_x;
-	double	diff_y;
 	double	check_x;
 	double	check_y;
 
 	check_x = -data->p_dir_y;
 	check_y = data->p_dir_x;
+	diff_x = data->dpos_x - data->ppos_pix_x / T_SIZE;
+	diff_y = data->dpos_y - data->ppos_pix_y / T_SIZE;
+	if ((diff_x >= -2.0 && diff_x <= 0.9) && (diff_y >= -2.0
+			&& diff_y <= 0.9) && data->door_flag > 0)
+		return (0);
 	if (fabs(data->x_ppos - check_x) > fabs(data->y_ppos - check_y))
 	{
 		if (data->map[(int)data->y_ppos][(int)ceil(data->x_ppos + 1)] == '1')
@@ -89,18 +92,11 @@ int	check_player_strafe(t_data *data)
 		if (data->map[(int)data->y_ppos][(int)ceil(data->x_ppos + 1)] == '1')
 			return (1);
 	}
-	diff_x = data->dpos_x - data->ppos_pix_x / T_SIZE;
-	diff_y = data->dpos_y - data->ppos_pix_y / T_SIZE;
-	if ((diff_x >= -2.0 && diff_x <= 0.9) && (diff_y >= -2.0
-			&& diff_y <= 0.9) && data->door_flag > 0)
-		return (0);
 	return (1);
 }
 
-int	check_player(t_data *data)
+int	check_player(t_data *data, double diff_x, double diff_y)
 {
-	double	diff_x;
-	double	diff_y;
 	double	check_x;
 	double	check_y;
 
@@ -108,6 +104,9 @@ int	check_player(t_data *data)
 	check_y = fabs(data->p_dir_y);
 	diff_x = data->dpos_x - data->ppos_pix_x / T_SIZE;
 	diff_y = data->dpos_y - data->ppos_pix_y / T_SIZE;
+	if ((diff_x >= -2.0 && diff_x <= 0.9) && (diff_y >= -2.0
+			&& diff_y <= 0.9) && data->door_flag > 0)
+		return (0);
 	if (fabs(check_x) > fabs(check_y))
 	{
 		if (data->map[(int)data->y_ppos][(int)ceil(data->x_ppos + 1)] == '1')
@@ -118,8 +117,5 @@ int	check_player(t_data *data)
 		if (data->map[(int)ceil(data->y_ppos + 1)][(int)data->x_ppos] == '1')
 			return (1);
 	}
-	if ((diff_x >= -2.0 && diff_x <= 0.9) && (diff_y >= -2.0
-			&& diff_y <= 0.9) && data->door_flag > 0)
-		return (0);
 	return (1);
 }

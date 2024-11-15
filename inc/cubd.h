@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/14 17:09:34 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/15 13:47:30 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@
 # define RESIZE "Error\nMLX failed to resize image\n"
 # define BONUS "Error\nDoor must be between rooms and on a wall\n"
 # define BONUS1 "Error\nWe're not rich, just one door, Mugsie!\n"
-
+# define BONUS2 "Error\nmap too large, minimap nolonger viable\n"
 # define SUCCESS 0
 # define FAILURE 1
 
@@ -106,7 +106,9 @@
 # define PI				3.14159265358979323846
 # define STEP			0.4
 # define DEG2RAD 		0.01745329252
-# define RED 0xFF0000FF
+# define RED 			0xFF0000FF
+# define GREY 			0xD3D3D3FF
+# define GREEN			0x00FF00FF
 # define M_RADIUS 8
 # define M_RADIUS_M 64
 
@@ -133,6 +135,7 @@ typedef struct s_data
 	int				map_width;
 	int				map_length;
 	int				door_flag;
+	int				mini_t;
 	double			time;
 	double			p_dir_x;
 	double			p_dir_y;
@@ -332,8 +335,8 @@ void		handle_door(t_data *data);
 double		diff(double wall_h);
 double		calculate_depth(t_data *data);
 void		calculate_hit_coords(t_data *data);
-int			check_player(t_data *data);
-int			check_player_strafe(t_data *data);
+int			check_player(t_data *data, double diff_x, double diff_y);
+int			check_player_strafe(t_data *data, double diff_x, double diff_y);
 
 
 /* bonus */
