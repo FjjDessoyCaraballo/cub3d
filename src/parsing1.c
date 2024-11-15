@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/15 14:29:57 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/15 14:56:16 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ static int8_t	open_file(t_data *data, char *fname)
  * and we do more checks, such as user inputting directories that 
  * contain `.cub` suffix. We extract the file data and copy it to
  * our struct for later parsing.
- * 
+ * `
  * @param data is a pointer to our struct carrying information/data;
  * 
  * @param fname is the first parameter given by the user;
