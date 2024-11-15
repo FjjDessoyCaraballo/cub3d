@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:54:10 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/12 14:42:59 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:21:50 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	perform_dda(t_data *data, double delta_dist_x, double delta_dist_y)
 			data->side = 1;
 		}
 		if (outof_bounds_check(data, data->map_y, data->map_x) == FAILURE
-			|| data->map[data->map_y][data->map_x] == '1')
+			|| data->map[data->map_y][data->map_x] == '1' ||  data->map[data->map_y][data->map_x] == ' ')
 			data->hit = 1;
 	}
 }

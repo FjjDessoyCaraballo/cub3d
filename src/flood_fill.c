@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/15 15:13:19 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:09:06 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	flood_fill(t_data *data, size_t y, size_t x)
 		return ;
 	if (data->mp_cpy[y][x + 1] == '\0'
 		|| data->mp_cpy[y][x - 1] == '\0'
-		|| data->mp_cpy[y + 1][x] == '\0'
+		|| data->mp_cpy[y + 1] == NULL
 		|| data->mp_cpy[y - 1][x] == '\0')
 	{
 		data->broken_map = true;
