@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/15 15:08:03 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/15 15:12:52 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ int8_t	check_if_walled(t_data *data)
 		j = 0;
 		while (data->mp_cpy[i][j])
 		{
-			if ((data->mp_cpy[i][j] == '0' || data->mp_cpy[i][j] == ' ')
-				&& (i == 0 || j == 0 || i == data->map_length 
-				|| j == data->map_width))
+			if (data->mp_cpy[i][j] == '0' && (i == 0 || j == 0
+				|| i == data->map_length || j == data->map_width))
 				return (FAILURE);
 			if (data->mp_cpy[i][j] == '0' && i != 0 && j != 0 
 				&& i != data->map_length && j != data->map_width)
