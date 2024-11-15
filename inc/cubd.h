@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/15 13:47:30 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/15 14:31:20 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@
 # define RGB6 "Error\nRGB values: value must be between 0-255\n"
 # define RGB7 "Error\nRGB values: for God sake, use F or C to define RGB\n"
 # define RGB8 "Error\nFor Gods sake, please stop trying to break this\n"
-# define PLAYER "Error\nMust have one player character(N, W, S, or E)\n"
+# define PLAYER "Error\nOne player must be present inside the walls!\n"
 # define BRK_MAP "Error\nMap is broken/not positioned correctly ):\n"
 # define CLOSE "Error\nMap is not walled correctly ):<\n"
 # define MLX1 "Error\nMLX function error\n"
@@ -337,7 +337,6 @@ double		calculate_depth(t_data *data);
 void		calculate_hit_coords(t_data *data);
 int			check_player(t_data *data, double diff_x, double diff_y);
 int			check_player_strafe(t_data *data, double diff_x, double diff_y);
-
 
 /* bonus */
 int			initialize_minimap(t_data *data);
