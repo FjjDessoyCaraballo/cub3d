@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/14 15:13:55 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/17 15:11:54 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,9 @@ static int8_t	map_information(t_data *data)
 	}
 	data->map[j] = 0;
 	data->map_width = get_width(data->map);
+	rem_map_nl(data->map);
+	if (fill_space(data) == FAILURE)
+		return (FAILURE);
 	return (SUCCESS);
 }
 
@@ -131,7 +134,6 @@ int8_t	extract(t_data *data)
 		return (FAILURE);
 	if (map_information(data) == FAILURE)
 		return (FAILURE);
-	rem_map_nl(data->map);
 	if (check_original_length(data) == FAILURE)
 		return (FAILURE);
 	if (player_exists(data, data->map) == FAILURE)

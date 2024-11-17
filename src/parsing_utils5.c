@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 18:01:18 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 15:24:53 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/17 15:03:06 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ static int8_t	is_file(char *fname)
 		return (SUCCESS);
 	}
 	close(fd);
-	printf("%s\n", fname);
 	return (FAILURE);
 }
 

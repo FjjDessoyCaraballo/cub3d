@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 15:08:26 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/14 15:14:29 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/17 14:23:02 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	delete_textures(t_data *data)
 		mlx_delete_texture(data->tx_door3);
 }
 
-void static	delete_bonuses(t_data *data)
+static void	delete_bonuses(t_data *data)
 {
 	if (data->im_mini_ray)
 		mlx_delete_image(data->mlx, data->im_mini_ray);

@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:18:23 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/15 14:29:29 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/17 15:12:51 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ int8_t	player_exists(t_data *data, char **map)
 		while (map[i][j])
 		{
 			if ((map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'E'
-				|| map[i][j] == 'W') && j != 0 && i != 0 && i != data->map_length && j != data->map_width)
+				|| map[i][j] == 'W') && j != 0 && i != 0 
+				&& i != data->map_length && j != data->map_width)
 			{
 				p_pos(data, map[i][j], i, j);
 				map[i][j] = '0';
