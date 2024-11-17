@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/17 15:03:14 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/17 15:35:00 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@ int8_t	check_if_walled(t_data *data)
 
 	i = 0;
 	j = 0;
+	
 	while (data->mp_cpy[i])
 	{
 		j = 0;
 		while (data->mp_cpy[i][j])
 		{
 			if (data->mp_cpy[i][j] == '0' && (i == 0 || j == 0
-				|| i == data->map_length || j == data->map_width))
+				|| i == data->map_length - 1 || j == data->map_width - 1))
 				return (FAILURE);
 			if (data->mp_cpy[i][j] == '0' && i != 0 && j != 0 
-				&& i != data->map_length && j != data->map_width)
+				&& i != data->map_length - 1 && j != data->map_width - 1)
 				flood_fill(data, i, j);
 			j++;
 		}
@@ -61,12 +62,16 @@ int8_t	copy_map(t_data *data)
 void	flood_fill(t_data *data, size_t y, size_t x)
 {
 	if (y == 0 || x == 0 || data->mp_cpy[y][x] == '1'
-		|| data->mp_cpy[y][x] == 'x')
+		|| data->mp_cpy[y][x] == 'x' || (int)y == data->map_length - 1
+		|| (int)x == data->map_width - 1)
 		return ;
 	if (data->mp_cpy[y][x + 1] == '\0'
 		|| data->mp_cpy[y][x - 1] == '\0'
-		|| !data->mp_cpy[y + 1]
-		|| data->mp_cpy[y - 1][x] == '\0')
+		|| data->mp_cpy[y + 1][x] == ' '
+		|| data->mp_cpy[y - 1][x] == ' '
+		|| data->mp_cpy[y][x + 1] == ' '
+		|| data->mp_cpy[y][x - 1] == ' '
+		|| !data->mp_cpy[y - 1])
 	{
 		data->broken_map = true;
 		return ;
