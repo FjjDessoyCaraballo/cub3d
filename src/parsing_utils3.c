@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:18:23 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/17 15:12:51 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/18 10:15:44 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,19 @@ static void	p_pos(t_data *data, char dir, int row, int col)
 	data->x_ppos = col;
 }
 
-int8_t	player_exists(t_data *data, char **map)
+int8_t	player_exists(t_data *data, char **map, int player)
 {
 	int		i;
 	int		j;
-	int		player;
 
 	i = 0;
-	player = 0;
 	while (map[i])
 	{
 		j = 0;
 		while (map[i][j])
 		{
 			if ((map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'E'
-				|| map[i][j] == 'W') && j != 0 && i != 0 
+				|| map[i][j] == 'W') && j != 0 && i != 0
 				&& i != data->map_length && j != data->map_width)
 			{
 				p_pos(data, map[i][j], i, j);

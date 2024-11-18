@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/17 15:26:52 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/18 10:16:26 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ int8_t	extract(t_data *data)
 		return (FAILURE);
 	if (check_original_length(data) == FAILURE)
 		return (FAILURE);
-	if (player_exists(data, data->map) == FAILURE)
+	if (player_exists(data, data->map, 0) == FAILURE)
 		return (FAILURE);
 	data->radius = (20 / (double)T_SIZE);
 	data->x_ppos += 0.5;

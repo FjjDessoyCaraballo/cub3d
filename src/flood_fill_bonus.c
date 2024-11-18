@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:28:52 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/17 15:37:27 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/18 10:13:13 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int8_t	check_if_walled(t_data *data)
 
 	i = 0;
 	j = 0;
-	
 	while (data->mp_cpy[i])
 	{
 		j = 0;
@@ -28,7 +27,7 @@ int8_t	check_if_walled(t_data *data)
 			if (data->mp_cpy[i][j] == '0' && (i == 0 || j == 0
 				|| i == data->map_length - 1 || j == data->map_width - 1))
 				return (FAILURE);
-			if (data->mp_cpy[i][j] == '0' && i != 0 && j != 0 
+			if (data->mp_cpy[i][j] == '0' && i != 0 && j != 0
 				&& i != data->map_length - 1 && j != data->map_width - 1)
 				flood_fill(data, i, j);
 			j++;
