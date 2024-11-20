@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:01:56 by araveala          #+#    #+#             */
-/*   Updated: 2024/11/15 13:47:45 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/20 12:34:53 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	strafe_player(t_data *data, double step)
 	{	
 		if (map_char == ' ' || map_char == '\0' || map_char == '\n')
 			return ;
-		if (map_char == '0' || check_player_strafe(data, 0, 0) == 0)
+		if (map_char == '0' || check_player_strafe(data, new_x, new_y) == 0)
 			player_pos(data, new_x, new_y);
 	}
 }
@@ -109,7 +109,7 @@ void	move_player(t_data *data, double step)
 		map_char = data->map[(int)floor(new_y)][(int)floor(new_x)];
 		if (map_char == ' ' || map_char == '\0' || map_char == '\n')
 			return ;
-		if (map_char == '0' || check_player(data, 0, 0) == 0)
+		if (map_char == '0' || check_player(data, new_x, new_y) == 0)
 			player_pos(data, new_x, new_y);
 	}
 }
