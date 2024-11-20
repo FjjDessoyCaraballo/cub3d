@@ -6,7 +6,7 @@
 /*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/20 11:05:26 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/20 12:58:13 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -315,8 +315,7 @@ double		calculate_initial_position(double position);
 
 /* in rays2.c */
 int			find_direction(int side, double ray_x, double ray_y);
-int			outof_bounds_check(t_data *data, double rpos_pixel_y, \
-						double rpos_pixel_x);
+int			outof_bounds_check(t_data *data);
 void		stack_ray_data(t_data *data, int i);
 
 /* init_higher_dimension1.c */

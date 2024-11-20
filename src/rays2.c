@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 12:11:16 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/08 15:55:16 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/20 12:57:44 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,15 @@ int	find_direction(int side, double ray_x, double ray_y)
  * out of bounds check, could be improved and checked that 
  * we are not checking nonsense
  */
-int	outof_bounds_check(t_data *data, double rpos_pixel_y, double rpos_pixel_x)
+int	outof_bounds_check(t_data *data)
 {
-	if (rpos_pixel_y / T_SIZE > data->map_length
-		|| rpos_pixel_x / T_SIZE > data->map_width)
+	if (data->map_x >= data->map_width)
 		return (FAILURE);
-	if (rpos_pixel_y < 0 || rpos_pixel_x / T_SIZE >= data->map_width)
+	if (data->map_x <= 0)
 		return (FAILURE);
-	if (rpos_pixel_y < 0 || rpos_pixel_x / T_SIZE >= HEIGHT)
+	if (data->map_y >= data->map_length)
+		return (FAILURE);
+	if (data->map_y <= 0)
 		return (FAILURE);
 	if (data->y_ppos - STEP > data->map_length)
 		return (FAILURE);
