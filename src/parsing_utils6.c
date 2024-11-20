@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils6.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:10:33 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/18 10:19:09 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/20 11:05:38 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ int8_t	fill_space(t_data *data)
 	int	line_len;
 
 	i = 0;
+	if (!data->map[i])
+		return (err_msg(NULL, MAP1, FAILURE));
 	line_len = ft_strlen(data->map[i]);
 	while (data->map[i])
 	{

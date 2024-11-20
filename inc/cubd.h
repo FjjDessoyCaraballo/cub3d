@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/18 10:15:29 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/20 11:05:26 by araveala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 /* macros ****************************************/
 /*************************************************/
 # define MAP "Error\nCan't open map. File may be corrupted.\n"
+# define MAP1 "Error\nNo map present\n"
 # define NAME "Error\nMap name is invalid\n"
 # define MALLOC "Error\nMalloc Failure\n"
 # define FILE "Error\nElements may be incorrect. Check map conditions.\n"
