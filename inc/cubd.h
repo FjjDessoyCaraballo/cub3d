@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubd.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/20 12:58:13 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/21 12:24:28 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -267,6 +267,7 @@ int8_t		is_png(char *sprite);
 /* in parsing_utils6.c */
 char		*extract_sprite(char **sprite);
 int8_t		fill_space(t_data *data);
+int8_t		extra_sprite(char **file, char *cardinal, int8_t index);
 
 /* in flood_fill.c || flood_fill_bonus.c.c */
 int8_t		check_if_walled(t_data *data);

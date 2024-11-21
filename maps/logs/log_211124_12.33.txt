@@ -4,12 +4,14 @@ Error
 RGB (ceiling) extra information present in file
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -21,12 +23,14 @@ Error
 RGB (floor) extra information present in file
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -38,12 +42,14 @@ Error
 RGB extra information present in file
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -55,12 +61,14 @@ Error
 RGB extra information present in file
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -72,12 +80,14 @@ Error
 RGB extra information present in file
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -89,12 +99,14 @@ Error
 RGB information is incorrect
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -106,12 +118,14 @@ Error
 RGB extra information present in file
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -123,12 +137,14 @@ Error
 Extra sprites defined for same direction.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -140,12 +156,14 @@ Error
 Extra sprites defined for same direction.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -157,12 +175,14 @@ Error
 Extra sprites defined for same direction.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -174,12 +194,14 @@ Error
 Extra sprites defined for same direction.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -191,12 +213,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -208,12 +232,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -225,12 +251,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -242,12 +270,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -259,12 +289,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -276,12 +308,14 @@ Error
 RGB (floor) extra information present in file
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -293,12 +327,14 @@ Error
 RGB (floor) extra information present in file
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -310,12 +346,14 @@ Error
 RGB (ceiling) extra information present in file
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -327,12 +365,14 @@ Error
 RGB (floor) extra information present in file
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -344,12 +384,14 @@ Error
 RGB (ceiling) extra information present in file
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -361,12 +403,14 @@ Error
 RGB (ceiling) extra information present in file
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -378,12 +422,14 @@ Error
 For Gods sake, please stop trying to break this
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -395,12 +441,14 @@ Error
 For Gods sake, please stop trying to break this
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -412,12 +460,14 @@ Error
 For Gods sake, please stop trying to break this
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -429,12 +479,52 @@ Error
 For Gods sake, please stop trying to break this
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
+This game has no exit for now, so use ESC to finish the game (:
 
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_RGB8.cub...
+###########################################################################
+Error
+Map name is invalid
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_RGB9.cub...
+###########################################################################
+Error
+Map name is invalid
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -446,12 +536,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -463,12 +555,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -480,12 +574,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -497,12 +593,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -514,12 +612,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -531,12 +631,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -548,12 +650,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -565,12 +669,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -582,12 +688,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -599,12 +707,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -616,12 +726,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -633,12 +745,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -650,12 +764,14 @@ Error
 RGB (floor) extra information present in file
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -667,12 +783,14 @@ Error
 RGB (floor) extra information present in file
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -684,12 +802,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -701,12 +821,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -718,12 +840,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -735,12 +859,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -752,12 +878,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -769,12 +897,14 @@ Error
 Map name is invalid
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -786,12 +916,14 @@ Error
 Map name is invalid
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -803,12 +935,14 @@ Error
 Map name is invalid
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -820,12 +954,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -837,12 +973,14 @@ Error
 Sprites are not in PNG format
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -851,15 +989,17 @@ By: fdessoy- && araveala
 Running test for error_maps/wrong_sprite2.cub...
 ###########################################################################
 Error
-Sprites are not in PNG format
+Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -868,15 +1008,17 @@ By: fdessoy- && araveala
 Running test for error_maps/wrong_sprite3.cub...
 ###########################################################################
 Error
-Sprites are not in PNG format
+Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -885,15 +1027,17 @@ By: fdessoy- && araveala
 Running test for error_maps/wrong_sprite4.cub...
 ###########################################################################
 Error
-Sprites are not in PNG format
+Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -905,12 +1049,181 @@ Error
 Sprites are not in PNG format
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
+This game has no exit for now, so use ESC to finish the game (:
 
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_sprite6.cub...
+###########################################################################
+Error
+Could not find/load sprites.
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_sprite7.cub...
+###########################################################################
+Error
+Could not find/load sprites.
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_sprite8.cub...
+###########################################################################
+Error
+Could not find/load sprites.
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_sprite9.cub...
+###########################################################################
+Error
+Could not find/load sprites.
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_sprite10.cub...
+###########################################################################
+Error
+Could not find/load sprites.
+
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_sprite11.cub...
+###########################################################################
+Error
+check formats in cub file
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_sprite12.cub...
+###########################################################################
+Error
+check formats in cub file
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_sprite13.cub...
+###########################################################################
+Error
+check formats in cub file
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
+This game has no exit for now, so use ESC to finish the game (:
+
+By: fdessoy- && araveala
+
+
+Running test for error_maps/wrong_sprite14.cub...
+###########################################################################
+Error
+check formats in cub file
+Welcome to cub3d and you already have committed a folly. Follow the usage below:
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
+cardinal orientation, proper walled map, and 
+RGB notated instructions [numerical value]);
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -922,12 +1235,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala
@@ -939,12 +1254,14 @@ Error
 Could not find/load sprites.
 
 Welcome to cub3d and you already have committed a folly. Follow the usage below:
-1. map must have the suffix '.cub';
-2. In clt just execute the program and map;
-3. Map must contain all elements (sprites with 
+
+1. Map must have the suffix '.cub';
+2. In command line just execute the program and map;
+3. File must contain all elements (sprites with 
 cardinal orientation, proper walled map, and 
 RGB notated instructions [numerical value]);
-
+4. Textures should be in PNG format;
+5. Any other misconfiguration results in error.
 This game has no exit for now, so use ESC to finish the game (:
 
 By: fdessoy- && araveala

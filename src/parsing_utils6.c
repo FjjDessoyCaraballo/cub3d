@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils6.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araveala <araveala@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:10:33 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/20 11:05:38 by araveala         ###   ########.fr       */
+/*   Updated: 2024/11/21 12:35:15 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,26 @@ int8_t	fill_space(t_data *data)
 				return (FAILURE);
 		}
 		i++;
+	}
+	return (SUCCESS);
+}
+
+int8_t	extra_sprite(char **file, char *cardinal, int8_t index)
+{
+	int8_t	repeat;
+
+	repeat = 0;
+	while (file[index])
+	{
+		if (!ft_strncmp(&file[index][0], &cardinal[0], 1)
+			&& !ft_strncmp(&file[index][1], &cardinal[1], 1)
+			&& !ft_strncmp(&file[index][2], &cardinal[2], 1))
+		{
+			repeat++;
+			if (repeat > 1)
+				return (err_msg(NULL, SPRITE2, FAILURE));
+		}
+		index++;
 	}
 	return (SUCCESS);
 }
