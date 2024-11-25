@@ -56,6 +56,7 @@ int8_t	rgb_parse2(t_data *data, char **info, int flag)
 static int8_t	is_file(char *fname)
 {
 	int		fd;
+	char	buffer[1];
 
 	fd = open(fname, O_RDONLY);
 	if (fd < 0)
@@ -63,7 +64,7 @@ static int8_t	is_file(char *fname)
 		close(fd);
 		return (FAILURE);
 	}
-	if (read(fd, &fname, 0) <= 0)
+	if (read(fd, buffer, 1) <= 0)
 	{
 		close(fd);
 		return (FAILURE);
