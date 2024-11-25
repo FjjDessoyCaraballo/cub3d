@@ -85,7 +85,7 @@ MLX_FLAGS = ./MLX42/build/libmlx42.a -ldl -lglfw -pthread -lm #can combine
 
 BOBJS = $(BONUS:.c=.o)
 
-all: libmlx $(NAME)
+all: $(NAME)
 	@echo "\033[1;32m[✔] Compiled main executable: $(NAME)\033[0m"
 
 bonus: libmlx $(NAME_BONUS) link_bonus
@@ -100,7 +100,7 @@ libmlx:
 	@make -C ./MLX42/build -j4
 
 # Compile the main executable
-$(NAME): $(OBJ_FILES) $(LIBFT)
+$(NAME): libmlx $(OBJ_FILES) $(LIBFT)
 	@$(CC) $(CFLAGS) $(OBJ_FILES) $(LIBFT_LINK) $(MLX_FLAGS) -o $(NAME)
 	@echo "\033[1;33m[✔] Compiling $(NAME) (main version)...\033[0m"
 
