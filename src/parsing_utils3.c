@@ -39,12 +39,12 @@ static void	p_pos(t_data *data, char dir, int row, int col)
 	else if (dir == 'W')
 	{
 		data->w_player = true;
-		data->p_dir_x = 1;
+		data->p_dir_x = -1;
 	}
 	else if (dir == 'E')
 	{
 		data->e_player = true;
-		data->p_dir_x = -1;
+		data->p_dir_x = 1;
 	}
 	data->y_ppos = row;
 	data->x_ppos = col;
