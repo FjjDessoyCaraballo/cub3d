@@ -115,7 +115,7 @@ $(NAME_BONUS): $(LIBMLX_BUILT) $(BOBJS) $(LIBFT)
 # Create a symbolic link named cub3D that points to cub3D_bonus
 link_bonus:
 	@ln -sf $(NAME_BONUS) $(NAME)
-	@echo "\033[1;33m[✔] Created symbolic link $(NAME) -> $(NAME_BONUS)\033[0m"
+	@echo "\033[1;33m[✔] Creating bonus! $(NAME) -> $(NAME_BONUS)\033[0m"
 
 $(LIBFT): $(LIBFT_MAKEFILE)
 	@$(MAKE) -C $(LIBFT_DIR)
