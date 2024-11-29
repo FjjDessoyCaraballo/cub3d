@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:10:33 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/21 12:35:15 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/29 12:58:43 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int8_t	fill_space(t_data *data)
 	return (SUCCESS);
 }
 
-int8_t	extra_sprite(char **file, char *cardinal, int8_t index)
+int8_t	extra_sprite(char **file, char *cardinal, int index)
 {
 	int8_t	repeat;
 

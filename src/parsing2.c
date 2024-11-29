@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:02:05 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/18 10:16:26 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/29 13:03:53 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,8 @@ int8_t	extract(t_data *data)
 		return (FAILURE);
 	if (map_information(data) == FAILURE)
 		return (FAILURE);
+	if (data->map_width > MAX_WIDTH || data->map_length > MAX_LENGTH)
+		return (err_msg(NULL, BIG, FAILURE));
 	if (check_original_length(data) == FAILURE)
 		return (FAILURE);
 	if (player_exists(data, data->map, 0) == FAILURE)

@@ -1,5 +1,4 @@
 CC = cc
-
 #Directories
 SRC_DIR = src
 OBJ_DIR = obj
@@ -8,7 +7,7 @@ VPATH = src:libft:includes
 LIBMLX = ./MLX42
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -Ofast #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -Ofast -fsanitize=address
 INCFLAGS = -I ./include -I ./MLX42/include -I /Users/include 
 
 # Main project files
@@ -81,6 +80,7 @@ LIBFT_INC = -I$(LIBFT_DIR)/includes
 LIBFT_LINK = -L$(LIBFT_DIR) -lft
 
 #mlx
+LIBMLX_BUILT := $(LIBMLX)/.built
 MLX_FLAGS = ./MLX42/build/libmlx42.a -ldl -lglfw -pthread -lm #can combine
 
 BOBJS = $(BONUS:.c=.o)
@@ -94,18 +94,21 @@ bonus:  $(NAME_BONUS) link_bonus
 %.o: %.c
 	@$(CC) $(CFLAGS) $(INCFLAGS) $(LIBFT_INC) -g -c $< -o $@
 
-libmlx:
+libmlx: $(LIBMLX_BUILT)
+
+$(LIBMLX_BUILT):
 	@if [ ! -d "$(LIBMLX)" ]; then git clone https://github.com/codam-coding-college/MLX42.git $(LIBMLX); fi
 	@cmake ./MLX42 -B ./MLX42/build
 	@make -C ./MLX42/build -j4
+	@touch $(LIBMLX_BUILT)
 
 # Compile the main executable
-$(NAME): libmlx $(OBJ_FILES) $(LIBFT)
+$(NAME): $(LIBMLX_BUILT) $(OBJ_FILES) $(LIBFT)
 	@$(CC) $(CFLAGS) $(OBJ_FILES) $(LIBFT_LINK) $(MLX_FLAGS) -o $(NAME)
 	@echo "\033[1;33m[✔] Compiling $(NAME) (main version)...\033[0m"
 
 # Compile the bonus executable without renaming
-$(NAME_BONUS): libmlx $(BOBJS) $(LIBFT)
+$(NAME_BONUS): $(LIBMLX_BUILT) $(BOBJS) $(LIBFT)
 	@$(CC) $(CFLAGS) $(BOBJS) $(LIBFT_LINK) $(MLX_FLAGS) -o $(NAME_BONUS)
 	@echo "\033[1;33m[✔] Compiling $(NAME_BONUS) (bonus version)...\033[0m"
 
@@ -133,4 +136,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re libmlx bonus link_bonus
-
