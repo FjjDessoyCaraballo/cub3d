@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/17 15:36:35 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/29 11:09:09 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ int8_t	check_suffix(char *fname, char *target, int size)
 	char	*str;
 
 	if (!ft_strrchr(fname, '.'))
-		return (FAILURE);
+		return (err_msg(NULL, NAME, FAILURE));
 	str = ft_strrchr(fname, '.');
 	if (ft_strncmp(str, target, size))
-		return (FAILURE);
+		return (err_msg(NULL, NAME, FAILURE));
 	return (SUCCESS);
 }
 
-static int8_t	count_lines(int fd)
+static int32_t	count_lines(int fd)
 {
 	int		i;
 	char	*line;
@@ -79,18 +79,18 @@ static int8_t	open_file(t_data *data, char *fname)
 	int	i;
 
 	if (is_dir(fname) == FAILURE)
-		return (FAILURE);
+		return (err_msg(NULL, DIR, FAILURE));
 	data->file_len = count_lines(open(fname, O_RDONLY));
 	if (data->file_len == -1)
-		return (FAILURE);
+		return (err_msg(NULL, BIG, FAILURE));
 	fd = open(fname, O_RDONLY);
 	if (fd < 0)
-		return (FAILURE);
-	data->file = ft_calloc(sizeof(char *), data->file_len + 1);
+		return (err_msg(NULL, OPEN, FAILURE));
+	data->file = ft_calloc(data->file_len + 1, sizeof(char *));
 	if (!data->file)
 	{
 		close(fd);
-		return (FAILURE);
+		return (err_msg(NULL, MALLOC, FAILURE));
 	}
 	i = 0;
 	while (i < data->file_len)
@@ -119,7 +119,7 @@ int8_t	map_handling(t_data *data, char *fname)
 {
 	if (check_suffix(fname, ".cub", 5) == FAILURE
 		|| open_file(data, fname) == FAILURE)
-		return (err_msg(NULL, NAME, FAILURE));
+		return (FAILURE);
 	if (repeated_rgb(data->file) == FAILURE
 		|| repeated_inline(data->file) == FAILURE)
 		return (FAILURE);

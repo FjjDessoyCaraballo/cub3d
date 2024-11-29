@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/21 12:24:28 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/29 11:22:53 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@
 /* macros ****************************************/
 /*************************************************/
 # define MAP "Error\nCan't open map. File may be corrupted.\n"
+# define DIR "Error\nYou specified a directory directory\n"
+# define OPEN "Error\nCould not open the map file\n"
+# define BIG "Error\nMap too big\n"
 # define MAP1 "Error\nNo map present\n"
 # define NAME "Error\nMap name is invalid\n"
 # define MALLOC "Error\nMalloc Failure\n"
@@ -163,7 +166,7 @@ typedef struct s_data
 	double			ppos_pix_x;
 	double			ppos_pix_y;
 	int				wall_line;
-	int8_t			file_len;
+	int32_t			file_len;
 	int				map_start;
 	int				map_end;
 	char			*floor_info;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdessoy- <fdessoy-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 12:48:59 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/08/29 13:04:56 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/29 11:06:16 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char	*ft_strsjoin(const char *s1, const char *s2, const char sep);
 #  define GET_NEXT_LINE_H
 
 #  ifndef BUFFER_SIZE
-#   define BUFFER_SIZE 10
+#   define BUFFER_SIZE 42
 #  endif
 
 typedef struct s_lista

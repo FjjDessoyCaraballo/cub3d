@@ -8,7 +8,7 @@ VPATH = src:libft:includes
 LIBMLX = ./MLX42
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -Ofast -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -Ofast #-fsanitize=address
 INCFLAGS = -I ./include -I ./MLX42/include -I /Users/include 
 
 # Main project files
@@ -85,10 +85,10 @@ MLX_FLAGS = ./MLX42/build/libmlx42.a -ldl -lglfw -pthread -lm #can combine
 
 BOBJS = $(BONUS:.c=.o)
 
-all: $(NAME)
+all:  $(NAME)
 	@echo "\033[1;32m[✔] Compiled main executable: $(NAME)\033[0m"
 
-bonus: libmlx $(NAME_BONUS) link_bonus
+bonus:  $(NAME_BONUS) link_bonus
 	@echo "\033[1;32m[✔] Compiled bonus executable: $(NAME) with BONUS!\033[0m"
 
 %.o: %.c
@@ -105,7 +105,7 @@ $(NAME): libmlx $(OBJ_FILES) $(LIBFT)
 	@echo "\033[1;33m[✔] Compiling $(NAME) (main version)...\033[0m"
 
 # Compile the bonus executable without renaming
-$(NAME_BONUS): $(BOBJS) $(LIBFT)
+$(NAME_BONUS): libmlx $(BOBJS) $(LIBFT)
 	@$(CC) $(CFLAGS) $(BOBJS) $(LIBFT_LINK) $(MLX_FLAGS) -o $(NAME_BONUS)
 	@echo "\033[1;33m[✔] Compiling $(NAME_BONUS) (bonus version)...\033[0m"
 
