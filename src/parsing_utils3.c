@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:18:23 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/29 10:40:47 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/29 12:43:50 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int8_t	check_original_length(t_data *data)
 	return (SUCCESS);
 }
 
-uint8_t	get_width(char **map)
+uint32_t	get_width(char **map)
 {
 	int				i;
 	unsigned int	width;

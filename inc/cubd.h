@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:36:20 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/29 11:22:53 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/29 12:44:36 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,7 +255,7 @@ void		rem_map_nl(char **map);
 int8_t		only_nl(char *str);
 int8_t		player_exists(t_data *data, char **map, int player);
 int8_t		check_original_length(t_data *data);
-uint8_t		get_width(char **map);
+uint32_t		get_width(char **map);
 
 /* in parsing_utils4.c */
 void		remove_nl(char *str);

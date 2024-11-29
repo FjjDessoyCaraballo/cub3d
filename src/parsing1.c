@@ -6,7 +6,7 @@
 /*   By: fdessoy- <fdessoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:45:25 by fdessoy-          #+#    #+#             */
-/*   Updated: 2024/11/29 11:09:09 by fdessoy-         ###   ########.fr       */
+/*   Updated: 2024/11/29 12:42:47 by fdessoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static int8_t	open_file(t_data *data, char *fname)
 		return (err_msg(NULL, DIR, FAILURE));
 	data->file_len = count_lines(open(fname, O_RDONLY));
 	if (data->file_len == -1)
-		return (err_msg(NULL, BIG, FAILURE));
+		return (err_msg(NULL, OPEN, FAILURE));
 	fd = open(fname, O_RDONLY);
 	if (fd < 0)
 		return (err_msg(NULL, OPEN, FAILURE));
