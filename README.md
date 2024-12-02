@@ -2,6 +2,8 @@
 
 ## Quick description
 Small-scale replication of DOOM/wolfstein focusing in ray-casting.
+![Gameplay Demo](./cub3d.gif)
+
 
 ## Usage
 1. Initialize the program with ```./cub3D <map_path>.cub```
