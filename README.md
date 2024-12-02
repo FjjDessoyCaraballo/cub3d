@@ -6,21 +6,22 @@ Small-scale replication of DOOM/wolfstein focusing in ray-casting.
 
 
 ## Usage
-1. Initialize the program with ```./cub3D <map_path>.cub```
-2. Use `W` to move forward;
-3. Use `S` to move back;
-4. Use `D` to move to the right;
-5. Use `A` to move to the left;
-6. Use `RIGHT ARROW` to turn the angle to the right;
-7. Use `LEFT ARROW` to turn the angle to the left;
-8. Have fun!
+1. Run `make` to compile the files;
+2. Initialize the program with ```./cub3D <map_path>.cub```
+3. Use `W` to move forward;
+4. Use `S` to move back;
+5. Use `D` to move to the right;
+6. Use `A` to move to the left;
+7. Use `RIGHT ARROW` to turn the angle to the right;
+8. Use `LEFT ARROW` to turn the angle to the left;
+9. Have fun!
 
 ## Raycasting
 (under construction)
 
 ## Result
-- Status: <span style="color:red">Incomplete</span>
-- Result: <span style="color:red">0%</span>
+- Status: <span style="color:green">Complete</span>
+- Result: <span style="color:green">100%</span>
 
 ## Contact
 Felipe Dessoy
